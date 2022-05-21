@@ -1,0 +1,185 @@
+﻿/* C968 Software I  -C#
+   Robert Calero
+   Student ID# 000998416
+*/
+
+using System;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace WGU_C968
+	{
+		public partial class MainScreen : Form    // MainScreen class inherits from the Form SuperClass
+			{
+				public MainScreen()    // Constructor for MainScreen
+					{
+						InitializeComponent();
+					}
+
+				private void MainScreen_Load(object sender, EventArgs e)    // Event triggered when MainScreen loads
+					{
+					    partDGV.DataSource = Inventory.getAllPartsDT();
+						productDGV.DataSource = Inventory.getProductsDT();
+					}
+
+				private void AddPart_Click(object sender, EventArgs e)
+					{
+						this.Hide();
+						AddPart addPartRedirect = new AddPart();
+						addPartRedirect.ShowDialog();
+					}
+
+				private void DeletePart_Click(object sender, EventArgs e)
+					{
+						if (Inventory.allParts.Any())
+							{
+								DialogResult deletePartDR = MessageBox.Show("Are you sure you want to delete this part?", "Delete Part", MessageBoxButtons.YesNo);
+								if (deletePartDR == DialogResult.Yes)
+									{
+										int selectPart = Convert.ToInt32(partDGV.Rows[partDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part - Part ID
+										Inventory.deletePart(Inventory.lookupPart(selectPart));
+									}
+								else if (deletePartDR == DialogResult.No)
+									{
+										// N/A
+									}
+							}
+						else
+							{
+								MessageBox.Show("No parts to delete", "Error");
+							}
+					}
+
+				private void SearchPartTxt_TextChanged(object sender, EventArgs e)
+					{
+						if (string.IsNullOrWhiteSpace(searchPartTxt.Text) || !(int.TryParse(searchPartTxt.Text, out int n)))		// TextBox enabled if number is entered
+							{
+								searchPartBtn.Enabled = false;
+								searchPartTxt.BackColor = Color.Salmon;
+							}
+						else
+							{
+								searchPartBtn.Enabled = true;
+								searchPartTxt.BackColor = Color.White;
+							}
+					}
+
+				private void SearchPartBtn_Click(object sender, EventArgs e)
+					{
+						int searchPartID = Convert.ToInt32(searchPartTxt.Text);
+						
+						if (Inventory.lookupPart(searchPartID) != null)
+							{
+								partDGV.Rows[Inventory.lookupPart(searchPartID).getPartID()].Selected = true;
+							}
+						else
+							{
+								MessageBox.Show("Part ID in Part Grid not found", "Not Found");
+							}
+					}
+
+				private void SearchProductBtn_Click(object sender, EventArgs e)
+					{
+						int searchProductID = Convert.ToInt32(searchProductTxt.Text);
+						if (Inventory.lookupPart(searchProductID) != null)
+							{
+								productDGV.Rows[Inventory.lookupProduct(searchProductID).getProductID()].Selected = true;
+							}
+						else
+							{
+								MessageBox.Show("Part ID in Product Grid not found", "Not Found");
+							}
+					}
+
+				private void ExitBtn_Click(object sender, EventArgs e)
+					{
+						Environment.Exit(1);		// Closes the application
+					}
+
+				private void AddProduct_Click(object sender, EventArgs e)
+					{
+						this.Hide();					
+						AddProduct addProductRedirect = new AddProduct();
+						addProductRedirect.ShowDialog();
+					}
+
+				private void DeleteProduct_Click(object sender, EventArgs e)
+					{
+						if (Inventory.products.Any())
+							{
+								DialogResult deleteProductDR = MessageBox.Show("Are you sure you want to delete this product?", "Delete Product", MessageBoxButtons.YesNo);
+								if (deleteProductDR == DialogResult.Yes)
+									{
+										int selectProduct = Convert.ToInt32(productDGV.Rows[productDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Product - Part ID
+										Inventory.removeProduct(selectProduct);
+									}
+								else if (deleteProductDR == DialogResult.No)
+									{
+										// N/A
+									}
+							}
+						else
+							{
+								MessageBox.Show("No products to delete", "Error");
+							}
+					}
+
+				private void PartDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+					{
+						int selectPart = Convert.ToInt32(partDGV.Rows[partDGV.CurrentCell.RowIndex].Cells[0].Value);		//Gets the Part ID number for the row selected
+						label1.Text = selectPart.ToString();
+					}
+
+				private void ProductDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+					{
+						int selectProduct = Convert.ToInt32(productDGV.Rows[productDGV.CurrentCell.RowIndex].Cells[0].Value);		//Gets the Part ID number for the row selected
+						label1.Text = selectProduct.ToString();
+					}
+
+				private void ModifyPart_Click(object sender, EventArgs e)
+					{
+						if (Inventory.allParts.Any())
+							{
+								int selectPart = Convert.ToInt32(partDGV.Rows[partDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part ID from Part DataGrid
+								this.Hide();
+								ModifyPart modifyPartRedirect = new ModifyPart(selectPart);
+								modifyPartRedirect.ShowDialog();
+							}
+						else
+							{
+								MessageBox.Show("No parts to modify", "Error");
+							}
+					}
+
+				private void ModifyProduct_Click(object sender, EventArgs e)
+					{
+						if (Inventory.products.Any())
+							{
+								int selectProduct = Convert.ToInt32(productDGV.Rows[productDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part ID from Product DataGrid
+								this.Hide();
+								ModifyProduct modifyProductRedirect = new ModifyProduct(selectProduct);
+								modifyProductRedirect.ShowDialog();
+							}
+						else
+							{
+								MessageBox.Show("No products to modify.", "Error");
+							}
+					}
+
+				private void SearchProductTxt_TextChanged(object sender, EventArgs e)
+					{
+						// TextBox enabled if number is entered
+						if (string.IsNullOrWhiteSpace(searchProductTxt.Text) || !(int.TryParse(searchProductTxt.Text, out int n)))
+							{
+								searchProductBtn.Enabled = false;
+								searchProductTxt.BackColor = Color.Salmon;
+							}
+						else
+							{
+								searchProductBtn.Enabled = true;
+								searchProductTxt.BackColor = Color.White;
+							}
+					}
+			}
+	}

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="IndexDonutOrdering">
+  <DataContextMoniker Name="/IndexDonutOrderingDataContext" />
+  <nestedChildShapes>
+    <classShape Id="56c7286f-0d40-4885-a802-351ca4397118" absoluteBounds="0.5, 0.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/IndexDonutOrderingDataContext/Customer" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba144686-dcbf-4297-bc39-16a37cab2c36" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="222f2c1f-df1a-4765-ad6f-e04e1901124a" absoluteBounds="3.125, 1.375, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/IndexDonutOrderingDataContext/CustomerDonutOrder" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c5b1342-5391-4d94-be96-00ad2d4b372f" absoluteBounds="3.14, 1.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.26044840494792); (3.125 : 2.26044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IndexDonutOrderingDataContext/Customer/Customer_CustomerDonutOrder" />
+      <nodes>
+        <classShapeMoniker Id="56c7286f-0d40-4885-a802-351ca4397118" />
+        <classShapeMoniker Id="222f2c1f-df1a-4765-ad6f-e04e1901124a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="04fce70a-7b59-402a-bc70-7d1aa3415706" absoluteBounds="5.5, 1.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/IndexDonutOrderingDataContext/OrderLineItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f553fd8-4420-4c0c-949f-87d94e6cbe6a" absoluteBounds="5.515, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 2.44314697265625); (5.5 : 2.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IndexDonutOrderingDataContext/CustomerDonutOrder/CustomerDonutOrder_OrderLineItem" />
+      <nodes>
+        <classShapeMoniker Id="222f2c1f-df1a-4765-ad6f-e04e1901124a" />
+        <classShapeMoniker Id="04fce70a-7b59-402a-bc70-7d1aa3415706" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f26e8521-2239-4506-afd0-2efd017f0e8f" absoluteBounds="5.5, 4.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/IndexDonutOrderingDataContext/Donut" />
+      <nestedChildShapes>
+        <elementListCompartment Id="632c5cd3-69f7-4383-84a2-99e50ceacda2" absoluteBounds="5.515, 4.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.5 : 4.125); (6.5 : 3.1362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/IndexDonutOrderingDataContext/Donut/Donut_OrderLineItem" />
+      <nodes>
+        <classShapeMoniker Id="f26e8521-2239-4506-afd0-2efd017f0e8f" />
+        <classShapeMoniker Id="04fce70a-7b59-402a-bc70-7d1aa3415706" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DonutOrdering" Class="IndexDonutOrderingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ROB-DESKTOP\SQLEXPRESS;Initial Catalog=DonutOrdering;Integrated Security=True" SettingsObjectName="LINQ_To_SQL.Properties.Settings" SettingsPropertyName="DonutOrderingConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Street" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Apt" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="State" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Zip" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HomePhone" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MobilePhone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OtherPhone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Customer_CustomerDonutOrder" Member="CustomerDonutOrders" ThisKey="CustomerID" OtherKey="CustomerID" Type="CustomerDonutOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CustomerDonutOrder" Member="CustomerDonutOrders">
+    <Type Name="CustomerDonutOrder">
+      <Column Name="DonutOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DonutOrderTimestamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SpecialNotes" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="CustomerDonutOrder_OrderLineItem" Member="OrderLineItems" ThisKey="DonutOrderID" OtherKey="DonutOrderID" Type="OrderLineItem" />
+      <Association Name="Customer_CustomerDonutOrder" Member="Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderLineItem" Member="OrderLineItems">
+    <Type Name="OrderLineItem">
+      <Column Name="DonutID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderQty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DonutOrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CustomerDonutOrder_OrderLineItem" Member="CustomerDonutOrder" ThisKey="DonutOrderID" OtherKey="DonutOrderID" Type="CustomerDonutOrder" IsForeignKey="true" />
+      <Association Name="Donut_OrderLineItem" Member="Donut" ThisKey="DonutID" OtherKey="DonutID" Type="Donut" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Donut" Member="Donuts">
+    <Type Name="Donut">
+      <Column Name="DonutID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DonutName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DonutDescription" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="DonutSize" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DonutPrice" Type="System.Decimal" DbType="Decimal(8,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DonutPhotoID" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="Donut_OrderLineItem" Member="OrderLineItems" ThisKey="DonutID" OtherKey="DonutID" Type="OrderLineItem" />
+    </Type>
+  </Table>
+</Database>
