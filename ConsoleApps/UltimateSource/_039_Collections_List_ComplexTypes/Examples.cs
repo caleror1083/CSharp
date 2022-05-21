@@ -12,7 +12,7 @@ namespace _039_Collections_List_ComplexTypes
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-24: ");
+							Console.Write("Please select an example from 1-25: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -90,6 +90,9 @@ namespace _039_Collections_List_ComplexTypes
 												break;
 											case 24:
 												Example24();
+												break;
+											case 25:
+												Example25();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -543,6 +546,32 @@ namespace _039_Collections_List_ComplexTypes
 						SortByName sortName = new SortByName();
 						customers.Sort(sortName);
 						Console.WriteLine($"Customers sorted based on Name");
+						foreach (Customer customer in customers)  // iterate through all the items in the collection
+							{
+								Console.WriteLine($"ID = {customer.ID}, Name = {customer.Name}, Salary = {customer.Salary}, Type = {customer.Type}");
+							}
+					}
+
+				static void Example25()
+					{
+						// Object instances from Customer class
+						Customer customer1 = new Customer() { ID = 181, Name = "Mark", Salary = 4000, Type = "Retail" };
+						Customer customer2 = new Customer() { ID = 152, Name = "Pam", Salary = 7000, Type = "Retail" };
+						Customer customer3 = new Customer() { ID = 193, Name = "Rob", Salary = 5500, Type = "Retail" };
+
+						List<Customer> customers = new List<Customer> { customer1, customer2, customer3 };
+
+						Console.WriteLine($"Customers before sorting");
+						foreach (Customer customer in customers)  // iterate through all the items in the collection
+							{
+								Console.WriteLine($"ID = {customer.ID}, Name = {customer.Name}, Salary = {customer.Salary}, Type = {customer.Type}");
+							}
+						Console.WriteLine();
+
+						Comparison<Customer> customerComparer = new Comparison<Customer>(Customer.CompareCustomer);
+						customers.Sort(customerComparer);  // Sorts the customer objects
+
+						Console.WriteLine($"Customers after sorting");
 						foreach (Customer customer in customers)  // iterate through all the items in the collection
 							{
 								Console.WriteLine($"ID = {customer.ID}, Name = {customer.Name}, Salary = {customer.Salary}, Type = {customer.Type}");
