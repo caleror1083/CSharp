@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{58907E58-D8C1-40BF-B21F-F6D1141F70B5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tetris", "Tetris\Tetris.csproj", "{467E0BFF-AB35-4D26-910B-0864A51603F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Painter", "Painter\Painter.csproj", "{C3A246E7-981D-4E3E-8929-C5D5E1D476DA}"
@@ -19,14 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{58907E58-D8C1-40BF-B21F-F6D1141F70B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{58907E58-D8C1-40BF-B21F-F6D1141F70B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{58907E58-D8C1-40BF-B21F-F6D1141F70B5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{58907E58-D8C1-40BF-B21F-F6D1141F70B5}.Debug|x86.Build.0 = Debug|Any CPU
-		{58907E58-D8C1-40BF-B21F-F6D1141F70B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{58907E58-D8C1-40BF-B21F-F6D1141F70B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{58907E58-D8C1-40BF-B21F-F6D1141F70B5}.Release|x86.ActiveCfg = Release|Any CPU
-		{58907E58-D8C1-40BF-B21F-F6D1141F70B5}.Release|x86.Build.0 = Release|Any CPU
 		{467E0BFF-AB35-4D26-910B-0864A51603F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{467E0BFF-AB35-4D26-910B-0864A51603F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{467E0BFF-AB35-4D26-910B-0864A51603F0}.Debug|x86.ActiveCfg = Debug|Any CPU
