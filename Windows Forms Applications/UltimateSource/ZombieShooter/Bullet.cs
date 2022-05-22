@@ -6,59 +6,60 @@ namespace ZombieShooter
     {
         internal class Bullet
             {
-                public string direction;    // creating a publis string called direction
-                public int bulletLeft;    // create a new public integer
-                public int bulletTop;    // create a new public integer;
+                // Bullet class Properties
+                public string Direction { get; set; }
+                public int BulletLeft {get; set;}
+                public int BulletTop {get; set; }
 
-                private int speed = 20;    // creating an integer called speed and assigning a value of 20
-                private PictureBox bullet = new PictureBox();    // create a picture box
-                private Timer bulletTimer = new Timer();    // create a new timer called bulletTimer
+                private readonly int _Speed = 20;    // creating an integer called speed and assigning a value of 20
+                private PictureBox _bullet = new PictureBox();    // create a picture box
+                private Timer _bulletTimer = new Timer();    // create a new timer called bulletTimer
 
                 // this method will add the bullet to the game play, it is required to be called from the main class
-                public void MakeBullet (Form form)
+                public void MakeBullet(Form form)
                     {
-                        bullet.BackColor = Color.White;    // set the color of the bullet to white
-                        bullet.Size = new Size(5, 5);    // set the size of the bullet to 5 by 5
-                        bullet.Tag = "bullet";    // set the tag to bullet
-                        bullet.Left = bulletLeft;    // set bullet left
-                        bullet.Top = bulletTop;    // set bullet top
-                        bullet.BringToFront();    // bring the bullet to the front of other objects
-                        form.Controls.Add(bullet);    // add the bullet to the screen
+                        _bullet.BackColor = Color.White;    // set the color of the bullet to white
+                        _bullet.Size = new Size(5, 5);    // set the size of the bullet to 5 by 5
+                        _bullet.Tag = "bullet";    // set the tag to bullet
+                        _bullet.Left = BulletLeft;    // set bullet left
+                        _bullet.Top = BulletTop;    // set bullet top
+                        _bullet.BringToFront();    // bring the bullet to the front of other objects
+                        form.Controls.Add(_bullet);    // add the bullet to the screen
 
-                        bulletTimer.Interval = speed;    // the bullet will move 20 milliseconds towards any direction we set
-                        bulletTimer.Tick += new EventHandler(BulletTimerEvent);    // assign the bullet timer with an event
-                        bulletTimer.Start();    // start the timer
+                        _bulletTimer.Interval = _Speed;    // the bullet will move 20 milliseconds towards any direction we set
+                        _bulletTimer.Tick += new EventHandler(BulletTimerEvent);    // assign the bullet timer with an event
+                        _bulletTimer.Start();    // start the timer
                     }
 
                 private void BulletTimerEvent(object sender, EventArgs e)
                     {
-                        if (direction == "left")
+                        if (Direction == "left")
                             {
-                                bullet.Left -= speed;
+                                _bullet.Left -= _Speed;
                             }
 
-                        if (direction == "right")
+                        if (Direction == "right")
                             {
-                                bullet.Left += speed;
+                                _bullet.Left += _Speed;
                             }
 
-                        if (direction == "up")
+                        if (Direction == "up")
                             {
-                                bullet.Top -= speed;
+                                _bullet.Top -= _Speed;
                             }
 
-                        if (direction == "down")
+                        if (Direction == "down")
                             {
-                                bullet.Top += speed;
+                                _bullet.Top += _Speed;
                             }
 
-                        if (bullet.Left < 0 || bullet.Left > MainScreen.ActiveForm.ClientSize.Width || bullet.Top < 44 || bullet.Top > MainScreen.ActiveForm.ClientSize.Height)
+                        if (_bullet.Left < 0 || _bullet.Left > MainScreen.ActiveForm.ClientSize.Width || _bullet.Top < 44 || _bullet.Top > MainScreen.ActiveForm.ClientSize.Height)
                             {
-                                bulletTimer.Stop();
-                                bulletTimer.Dispose();
-                                bullet.Dispose();
-                                bulletTimer = null;
-                                bullet = null;
+                                _bulletTimer.Stop();
+                                _bulletTimer.Dispose();
+                                _bullet.Dispose();
+                                _bulletTimer = null;
+                                _bullet = null;
                             }
                     }
             }
