@@ -9,7 +9,7 @@ class Example
 				Console.WriteLine("Example 1: ");
 				string[] custs = new string[] { "Rob", "Paul", "Greg" };
 
-				using (StreamWriter sw = new StreamWriter(@"F:\CPU Programming\C Sharp\NET Framework\Console Applications\UltimateSource\Files\bin\Debug\customers.txt"))
+				using (StreamWriter sw = new StreamWriter(@"C:\Users\Rob C\source\repos\CSharp\Console Applications\Practice\Files\bin\Debug\customers.txt"))
 					{
 						foreach (string cust in custs)
 							{
@@ -18,7 +18,7 @@ class Example
 					}
 
 				string custName = "";
-				using (StreamReader sr = new StreamReader(@"F:\CPU Programming\C Sharp\NET Framework\Console Applications\UltimateSource\Files\bin\Debug\customers.txt"))
+				using (StreamReader sr = new StreamReader(@"C:\Users\Rob C\source\repos\CSharp\Console Applications\Practice\Files\bin\Debug\customers.txt"))
 					{
 						while ((custName = sr.ReadLine()) != null)
 							{
