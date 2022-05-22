@@ -16,11 +16,5 @@ namespace _039_Collections_List_ComplexTypes
 					{
 						return Salary.CompareTo(other.Salary);    // sort based on Property name
 					}
-
-				// Tells how we want the customer objects to be sorted
-				public static int CompareCustomer(Customer customer1, Customer customer2)
-					{
-						return customer1.ID.CompareTo(customer2.ID);
-					}
 			}
 	}

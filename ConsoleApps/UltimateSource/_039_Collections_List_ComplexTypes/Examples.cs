@@ -568,8 +568,8 @@ namespace _039_Collections_List_ComplexTypes
 							}
 						Console.WriteLine();
 
-						Comparison<Customer> customerComparer = new Comparison<Customer>(Customer.CompareCustomer);
-						customers.Sort(customerComparer);  // Sorts the customer objects
+						
+						customers.Sort((cust1, cust2) => cust1.ID.CompareTo(cust2.ID));  // Sorts the customer objects using lambda expression
 
 						Console.WriteLine($"Customers after sorting");
 						foreach (Customer customer in customers)  // iterate through all the items in the collection
