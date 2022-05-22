@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7678FA5F-AF4C-48C9-AD37-E544E077BD51}</ProjectGuid>
+    <ProjectGuid>{246C7B87-E290-46AC-B51B-2C11BDE49057}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Dice</RootNamespace>
     <AssemblyName>Dice</AssemblyName>
@@ -34,13 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.cs" />

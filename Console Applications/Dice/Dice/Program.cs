@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dice
-{
-	internal class Program
+﻿namespace Dice
 	{
-		static void Main()
+		internal class Program
+			{
+				static void Main()
 					{
 						Game diceGame = new Game();
 						diceGame.RollDice();	
 					}
+			}
 	}
-}
