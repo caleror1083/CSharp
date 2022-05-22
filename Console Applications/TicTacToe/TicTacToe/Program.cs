@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Robert Calero - App displaying Tic Tac Toe Game
 
-namespace TicTacToe
-{
-	internal class Program
+class Program    // Class declaration
 	{
-		static void Main(string[] args)
-		{
-		}
+		static void Main()    // Main method begins execution of C# app
+			{
+				GameUI SplashScreen = new GameUI();    // Object declaration and instantiation
+				SplashScreen.GameBoard();
+			}
 	}
-}
