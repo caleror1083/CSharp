@@ -1,12 +1,12 @@
-﻿using System;	// namespace declaration
+﻿using System;
 
-// namespace
+// Namespace
 namespace _033_ExceptionHandling
 	{
-		// classes
+		// UserLoggedInException class inheriting from Exception class
 		class UserLoggedInException : Exception
 			{
-				// constructors
+				// Constructors
 				public UserLoggedInException(string message) : base(message) {}
 			}
 	}

@@ -1,9 +1,8 @@
-﻿// Robert Calero - App displaying exception handling
-using System;
+﻿using System;
 
 namespace _033_ExceptionHandling
 	{
-		class Examples
+		internal class Examples
 			{
 				public void ProcessExamples()
 					{
@@ -65,12 +64,12 @@ namespace _033_ExceptionHandling
 
 						try    // code that can possibly throw an exception
 							{
-								myReader = new System.IO.StreamReader(@"C:\Users\Rob C\Desktop\Learning Notebooks\CPU Programming\C Sharp\NET Framework\Console Applications\UltimateSource\_033_ExceptionHandling\bin\Debug\data.txt");    // instance of the StreamReader class to reads the contents of a file and streams it to the console - // File name parameter using verbatim string literal
+								myReader = new System.IO.StreamReader(@"C:\Users\Rob C\source\repos\CSharp\Console Applications\Practice\_033_ExceptionHandling\data.txt");    // instance of the StreamReader class to reads the contents of a file and streams it to the console - // File name parameter using verbatim string literal
 								Console.WriteLine(myReader.ReadToEnd());    // read the contents of the StreamReader to the end of the file to the console screen
 							}
-						catch (System.IO.FileNotFoundException myException)    // if any line of code in the try block throws an exception we catch the error and warn the user rather then crash the program
+						catch (System.IO.FileNotFoundException)    // if any line of code in the try block throws an exception we catch the error and warn the user rather then crash the program
 							{
-								Console.WriteLine($"Please check if the file {myException.FileName} exists");    // prints an exception message to the console
+								Console.WriteLine($"File does not exist in project directory, verify file path");    // prints an exception message to the console
 							}
 						catch (Exception myException)    // general Exception class goes in the final catch block. This is the default catch all for exceptions
 							{
@@ -150,21 +149,19 @@ namespace _033_ExceptionHandling
 
 				public void Example4()    // Preventing exception handling abuse
 					{
-						int numerator, denominator, result;
-						bool isNumerator, isDenominator;
 						try
 							{
 								Console.Write("Enter numerator: ");    // prompt the user for first number
-								isNumerator = int.TryParse(Console.ReadLine(), out numerator);
+								bool isNumerator = int.TryParse(Console.ReadLine(), out int numerator);
 
 								if (isNumerator)
 									{
 										Console.Write("Enter denominator: ");    // prompt the user for second number
-										isDenominator = int.TryParse(Console.ReadLine(), out denominator);
+										bool isDenominator = int.TryParse(Console.ReadLine(), out int denominator);
 
 										if (isDenominator && denominator != 0)
 											{
-												result = (numerator / denominator);
+												int result = (numerator / denominator);
 												Console.WriteLine($"The result is {result}");    // Display the result in the console
 											}
 										else
