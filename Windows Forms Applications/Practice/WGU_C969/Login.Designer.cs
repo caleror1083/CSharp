@@ -4,7 +4,7 @@
     Student ID# 000998416
 */
 
-namespace WGU_C969
+namespace SoftwareCompanySchedulingApp
 	{
 	    partial class Login
 			{
@@ -81,7 +81,7 @@ namespace WGU_C969
 			this.loginBtn.Name = "loginBtn";
 			this.loginBtn.Size = new System.Drawing.Size(75, 23);
 			this.loginBtn.TabIndex = 4;
-			this.loginBtn.Text = global::WGU_C969.Properties.translations.res_login_loginBtn;
+			this.loginBtn.Text = global::SoftwareCompanySchedulingApp.Properties.translations.res_login_loginBtn;
 			this.loginBtn.UseVisualStyleBackColor = true;
 			this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
 			// 
@@ -91,7 +91,7 @@ namespace WGU_C969
 			this.exitBtn.Name = "exitBtn";
 			this.exitBtn.Size = new System.Drawing.Size(75, 23);
 			this.exitBtn.TabIndex = 5;
-			this.exitBtn.Text = global::WGU_C969.Properties.translations.res_login_exitBtn;
+			this.exitBtn.Text = global::SoftwareCompanySchedulingApp.Properties.translations.res_login_exitBtn;
 			this.exitBtn.UseVisualStyleBackColor = true;
 			this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
 			// 

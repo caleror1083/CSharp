@@ -10,7 +10,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace WGU_C969
+namespace SoftwareCompanySchedulingApp
 	{
 		public partial class AddAppt : Form
 			{

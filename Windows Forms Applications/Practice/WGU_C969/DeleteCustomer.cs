@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace WGU_C969
+namespace SoftwareCompanySchedulingApp
 	{
 		public partial class DeleteCustomer : Form
 			{

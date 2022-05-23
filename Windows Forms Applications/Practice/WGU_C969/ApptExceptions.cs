@@ -7,7 +7,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace WGU_C969
+namespace SoftwareCompanySchedulingApp
 	{
 		class ApptExceptions : ApplicationException
 			{

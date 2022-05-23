@@ -11,7 +11,7 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace WGU_C969
+namespace SoftwareCompanySchedulingApp
 	{
 		public partial class Login : Form
 			{

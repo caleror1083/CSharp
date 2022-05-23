@@ -6,7 +6,7 @@
 
 using System;
 
-namespace WGU_C969
+namespace SoftwareCompanySchedulingApp
     {
 	    class Appointment
 	        {

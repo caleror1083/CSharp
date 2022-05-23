@@ -4,7 +4,7 @@
     Student ID# 000998416
 */
 
-namespace WGU_C969
+namespace SoftwareCompanySchedulingApp
 	{
 		partial class UpdateAppt
 			{
