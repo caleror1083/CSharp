@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Windows.Forms;
 
-namespace Email_Sender
+namespace EmailSender
 {
     public partial class Form1 : Form
     {

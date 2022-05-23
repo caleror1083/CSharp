@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Email_Sender</RootNamespace>
-    <AssemblyName>Email Sender</AssemblyName>
+    <RootNamespace>EmailSender</RootNamespace>
+    <AssemblyName>EmailSender</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

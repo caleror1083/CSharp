@@ -1,4 +1,4 @@
-﻿namespace Email_Sender
+﻿namespace EmailSender
 {
     partial class Form1
     {
