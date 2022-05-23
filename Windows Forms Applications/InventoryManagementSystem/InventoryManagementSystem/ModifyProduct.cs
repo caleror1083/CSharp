@@ -22,13 +22,13 @@ namespace InventoryManagementSystem
 
 		        private void ModifyProduct_Load(object sender, EventArgs e)
 		            {
-                        allPartsDGV.DataSource = Inventory.getAllPartsDT();
-                        associatedPartsDGV.DataSource = Inventory.products[productNumber].getAssociatedPartsDT();
-                        nameTxt.Text = Inventory.products[productNumber].getName();
-                        inventoryTxt.Text = Inventory.products[productNumber].getInStock().ToString();
-                        priceTxt.Text = Inventory.products[productNumber].getPrice().ToString();
-                        maxTxt.Text = Inventory.products[productNumber].getMax().ToString();
-                        minTxt.Text = Inventory.products[productNumber].getMin().ToString();
+                        allPartsDGV.DataSource = Inventory.GetAllPartsDT();
+                        associatedPartsDGV.DataSource = Inventory.Products[productNumber].getAssociatedPartsDT();
+                        nameTxt.Text = Inventory.Products[productNumber].getName();
+                        inventoryTxt.Text = Inventory.Products[productNumber].getInStock().ToString();
+                        priceTxt.Text = Inventory.Products[productNumber].getPrice().ToString();
+                        maxTxt.Text = Inventory.Products[productNumber].getMax().ToString();
+                        minTxt.Text = Inventory.Products[productNumber].getMin().ToString();
 		            }
 
 		        private void nameTxt_TextChanged(object sender, EventArgs e)
@@ -139,9 +139,9 @@ namespace InventoryManagementSystem
 		            {
                         int searchPartID = Convert.ToInt32(searchProductTxt.Text);
 
-                        if (Inventory.lookupPart(searchPartID) != null)
+                        if (Inventory.LookupPart(searchPartID) != null)
                             {
-                                allPartsDGV.Rows[Inventory.lookupPart(searchPartID).getPartID()].Selected = true;
+                                allPartsDGV.Rows[Inventory.LookupPart(searchPartID).GetPartID()].Selected = true;
                             }
                         else
                             {
@@ -152,7 +152,7 @@ namespace InventoryManagementSystem
 		        private void addPartBtn_Click(object sender, EventArgs e)
 		            {
                         int selectPart = Convert.ToInt32(allPartsDGV.Rows[allPartsDGV.CurrentCell.RowIndex].Cells[0].Value);
-                        Inventory.products[productNumber].addAssociatedPart(Inventory.lookupPart(selectPart));
+                        Inventory.Products[productNumber].addAssociatedPart(Inventory.LookupPart(selectPart));
 		            }
 
 		        private void deletePartBtn_Click(object sender, EventArgs e)
@@ -162,7 +162,7 @@ namespace InventoryManagementSystem
                             if (deletePartDR == DialogResult.Yes)
                                 {
                                     int selectPart = Convert.ToInt32(associatedPartsDGV.Rows[associatedPartsDGV.CurrentCell.RowIndex].Cells[0].Value);    // Gets the part id number for the row selected
-                                    Inventory.products[productNumber].removeAssociatedPart(selectPart);
+                                    Inventory.Products[productNumber].removeAssociatedPart(selectPart);
                                 }
                             else if (deletePartDR == DialogResult.No)
                                 {
@@ -180,18 +180,18 @@ namespace InventoryManagementSystem
                                 MessageBox.Show("Min value is greater than the max value", "Error");
 
                             }
-                        else if (Inventory.products[productNumber].associatedPartsEmpty())
+                        else if (Inventory.Products[productNumber].associatedPartsEmpty())
                             {
                                 MessageBox.Show("You must add at least one associated part.", "Error");
                             }
                         else
                             {
-                                Inventory.products[productNumber].setName(nameTxt.Text);
-                                Inventory.products[productNumber].setPrice(Convert.ToDecimal(priceTxt.Text));
-                                Inventory.products[productNumber].setInStock(Convert.ToInt32(inventoryTxt.Text));
-                                Inventory.products[productNumber].setMin(Convert.ToInt32(minTxt.Text));
-                                Inventory.products[productNumber].setMax(Convert.ToInt32(maxTxt.Text));
-                                Inventory.updateProduct(productNumber, Inventory.products[productNumber]);
+                                Inventory.Products[productNumber].setName(nameTxt.Text);
+                                Inventory.Products[productNumber].setPrice(Convert.ToDecimal(priceTxt.Text));
+                                Inventory.Products[productNumber].setInStock(Convert.ToInt32(inventoryTxt.Text));
+                                Inventory.Products[productNumber].setMin(Convert.ToInt32(minTxt.Text));
+                                Inventory.Products[productNumber].setMax(Convert.ToInt32(maxTxt.Text));
+                                Inventory.updateProduct(productNumber, Inventory.Products[productNumber]);
                                 this.Hide();
                                 mainScreenSave.ShowDialog();
                             }

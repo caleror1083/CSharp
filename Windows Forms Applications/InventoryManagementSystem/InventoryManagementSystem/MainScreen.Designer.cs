@@ -34,10 +34,10 @@ namespace InventoryManagementSystem
 				private void InitializeComponent()
 					{
 			this.partGrpBox = new System.Windows.Forms.GroupBox();
-			this.label1 = new System.Windows.Forms.Label();
-			this.searchPartTxt = new System.Windows.Forms.TextBox();
-			this.searchPartBtn = new System.Windows.Forms.Button();
-			this.partDGV = new System.Windows.Forms.DataGridView();
+			this.Label1 = new System.Windows.Forms.Label();
+			this.SearchPartTxt = new System.Windows.Forms.TextBox();
+			this.SearchPartBtn = new System.Windows.Forms.Button();
+			this.PartDGV = new System.Windows.Forms.DataGridView();
 			this.deletePart = new System.Windows.Forms.Button();
 			this.addPart = new System.Windows.Forms.Button();
 			this.modifyPart = new System.Windows.Forms.Button();
@@ -45,23 +45,23 @@ namespace InventoryManagementSystem
 			this.addProduct = new System.Windows.Forms.Button();
 			this.modifyProduct = new System.Windows.Forms.Button();
 			this.deleteProduct = new System.Windows.Forms.Button();
-			this.searchProductBtn = new System.Windows.Forms.Button();
-			this.searchProductTxt = new System.Windows.Forms.TextBox();
-			this.productDGV = new System.Windows.Forms.DataGridView();
+			this.SearchProductBtn = new System.Windows.Forms.Button();
+			this.SearchProductTxt = new System.Windows.Forms.TextBox();
+			this.ProductDGV = new System.Windows.Forms.DataGridView();
 			this.exitBtn = new System.Windows.Forms.Button();
 			this.titleLbl = new System.Windows.Forms.Label();
 			this.partGrpBox.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.partDGV)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.PartDGV)).BeginInit();
 			this.productGrpBox.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.productDGV)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ProductDGV)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// partGrpBox
 			// 
-			this.partGrpBox.Controls.Add(this.label1);
-			this.partGrpBox.Controls.Add(this.searchPartTxt);
-			this.partGrpBox.Controls.Add(this.searchPartBtn);
-			this.partGrpBox.Controls.Add(this.partDGV);
+			this.partGrpBox.Controls.Add(this.Label1);
+			this.partGrpBox.Controls.Add(this.SearchPartTxt);
+			this.partGrpBox.Controls.Add(this.SearchPartBtn);
+			this.partGrpBox.Controls.Add(this.PartDGV);
 			this.partGrpBox.Controls.Add(this.deletePart);
 			this.partGrpBox.Controls.Add(this.addPart);
 			this.partGrpBox.Controls.Add(this.modifyPart);
@@ -74,49 +74,49 @@ namespace InventoryManagementSystem
 			// 
 			// label1
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(13, 307);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(0, 13);
-			this.label1.TabIndex = 6;
+			this.Label1.AutoSize = true;
+			this.Label1.Location = new System.Drawing.Point(13, 307);
+			this.Label1.Name = "label1";
+			this.Label1.Size = new System.Drawing.Size(0, 13);
+			this.Label1.TabIndex = 6;
 			// 
 			// searchPartTxt
 			// 
-			this.searchPartTxt.Location = new System.Drawing.Point(320, 17);
-			this.searchPartTxt.Name = "searchPartTxt";
-			this.searchPartTxt.Size = new System.Drawing.Size(140, 20);
-			this.searchPartTxt.TabIndex = 5;
-			this.searchPartTxt.TextChanged += new System.EventHandler(this.SearchPartTxt_TextChanged);
+			this.SearchPartTxt.Location = new System.Drawing.Point(320, 17);
+			this.SearchPartTxt.Name = "searchPartTxt";
+			this.SearchPartTxt.Size = new System.Drawing.Size(140, 20);
+			this.SearchPartTxt.TabIndex = 5;
+			this.SearchPartTxt.TextChanged += new System.EventHandler(this.SearchPartTxt_TextChanged);
 			// 
 			// searchPartBtn
 			// 
-			this.searchPartBtn.Location = new System.Drawing.Point(239, 15);
-			this.searchPartBtn.Name = "searchPartBtn";
-			this.searchPartBtn.Size = new System.Drawing.Size(75, 23);
-			this.searchPartBtn.TabIndex = 4;
-			this.searchPartBtn.Text = "Search";
-			this.searchPartBtn.UseVisualStyleBackColor = true;
-			this.searchPartBtn.Click += new System.EventHandler(this.SearchPartBtn_Click);
+			this.SearchPartBtn.Location = new System.Drawing.Point(239, 15);
+			this.SearchPartBtn.Name = "searchPartBtn";
+			this.SearchPartBtn.Size = new System.Drawing.Size(75, 23);
+			this.SearchPartBtn.TabIndex = 4;
+			this.SearchPartBtn.Text = "Search";
+			this.SearchPartBtn.UseVisualStyleBackColor = true;
+			this.SearchPartBtn.Click += new System.EventHandler(this.SearchPartBtn_Click);
 			// 
 			// partDGV
 			// 
-			this.partDGV.AllowUserToAddRows = false;
-			this.partDGV.AllowUserToDeleteRows = false;
-			this.partDGV.AllowUserToResizeColumns = false;
-			this.partDGV.AllowUserToResizeRows = false;
-			this.partDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.partDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.partDGV.Location = new System.Drawing.Point(6, 46);
-			this.partDGV.MultiSelect = false;
-			this.partDGV.Name = "partDGV";
-			this.partDGV.ReadOnly = true;
-			this.partDGV.RowHeadersVisible = false;
-			this.partDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			this.partDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.partDGV.Size = new System.Drawing.Size(454, 250);
-			this.partDGV.StandardTab = true;
-			this.partDGV.TabIndex = 0;
-			this.partDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PartDGV_CellContentClick);
+			this.PartDGV.AllowUserToAddRows = false;
+			this.PartDGV.AllowUserToDeleteRows = false;
+			this.PartDGV.AllowUserToResizeColumns = false;
+			this.PartDGV.AllowUserToResizeRows = false;
+			this.PartDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.PartDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.PartDGV.Location = new System.Drawing.Point(6, 46);
+			this.PartDGV.MultiSelect = false;
+			this.PartDGV.Name = "partDGV";
+			this.PartDGV.ReadOnly = true;
+			this.PartDGV.RowHeadersVisible = false;
+			this.PartDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.PartDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.PartDGV.Size = new System.Drawing.Size(454, 250);
+			this.PartDGV.StandardTab = true;
+			this.PartDGV.TabIndex = 0;
+			this.PartDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PartDGV_CellContentClick);
 			// 
 			// deletePart
 			// 
@@ -153,9 +153,9 @@ namespace InventoryManagementSystem
 			this.productGrpBox.Controls.Add(this.addProduct);
 			this.productGrpBox.Controls.Add(this.modifyProduct);
 			this.productGrpBox.Controls.Add(this.deleteProduct);
-			this.productGrpBox.Controls.Add(this.searchProductBtn);
-			this.productGrpBox.Controls.Add(this.searchProductTxt);
-			this.productGrpBox.Controls.Add(this.productDGV);
+			this.productGrpBox.Controls.Add(this.SearchProductBtn);
+			this.productGrpBox.Controls.Add(this.SearchProductTxt);
+			this.productGrpBox.Controls.Add(this.ProductDGV);
 			this.productGrpBox.Location = new System.Drawing.Point(484, 32);
 			this.productGrpBox.Name = "productGrpBox";
 			this.productGrpBox.Size = new System.Drawing.Size(466, 342);
@@ -195,38 +195,38 @@ namespace InventoryManagementSystem
 			// 
 			// searchProductBtn
 			// 
-			this.searchProductBtn.Location = new System.Drawing.Point(239, 15);
-			this.searchProductBtn.Name = "searchProductBtn";
-			this.searchProductBtn.Size = new System.Drawing.Size(75, 23);
-			this.searchProductBtn.TabIndex = 2;
-			this.searchProductBtn.Text = "Search";
-			this.searchProductBtn.UseVisualStyleBackColor = true;
-			this.searchProductBtn.Click += new System.EventHandler(this.SearchProductBtn_Click);
+			this.SearchProductBtn.Location = new System.Drawing.Point(239, 15);
+			this.SearchProductBtn.Name = "searchProductBtn";
+			this.SearchProductBtn.Size = new System.Drawing.Size(75, 23);
+			this.SearchProductBtn.TabIndex = 2;
+			this.SearchProductBtn.Text = "Search";
+			this.SearchProductBtn.UseVisualStyleBackColor = true;
+			this.SearchProductBtn.Click += new System.EventHandler(this.SearchProductBtn_Click);
 			// 
 			// searchProductTxt
 			// 
-			this.searchProductTxt.Location = new System.Drawing.Point(320, 17);
-			this.searchProductTxt.Name = "searchProductTxt";
-			this.searchProductTxt.Size = new System.Drawing.Size(140, 20);
-			this.searchProductTxt.TabIndex = 1;
-			this.searchProductTxt.TextChanged += new System.EventHandler(this.SearchProductTxt_TextChanged);
+			this.SearchProductTxt.Location = new System.Drawing.Point(320, 17);
+			this.SearchProductTxt.Name = "searchProductTxt";
+			this.SearchProductTxt.Size = new System.Drawing.Size(140, 20);
+			this.SearchProductTxt.TabIndex = 1;
+			this.SearchProductTxt.TextChanged += new System.EventHandler(this.SearchProductTxt_TextChanged);
 			// 
 			// productDGV
 			// 
-			this.productDGV.AllowUserToAddRows = false;
-			this.productDGV.AllowUserToDeleteRows = false;
-			this.productDGV.AllowUserToResizeColumns = false;
-			this.productDGV.AllowUserToResizeRows = false;
-			this.productDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.productDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.productDGV.Location = new System.Drawing.Point(6, 46);
-			this.productDGV.MultiSelect = false;
-			this.productDGV.Name = "productDGV";
-			this.productDGV.ReadOnly = true;
-			this.productDGV.RowHeadersVisible = false;
-			this.productDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.productDGV.Size = new System.Drawing.Size(454, 250);
-			this.productDGV.TabIndex = 0;
+			this.ProductDGV.AllowUserToAddRows = false;
+			this.ProductDGV.AllowUserToDeleteRows = false;
+			this.ProductDGV.AllowUserToResizeColumns = false;
+			this.ProductDGV.AllowUserToResizeRows = false;
+			this.ProductDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.ProductDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.ProductDGV.Location = new System.Drawing.Point(6, 46);
+			this.ProductDGV.MultiSelect = false;
+			this.ProductDGV.Name = "productDGV";
+			this.ProductDGV.ReadOnly = true;
+			this.ProductDGV.RowHeadersVisible = false;
+			this.ProductDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.ProductDGV.Size = new System.Drawing.Size(454, 250);
+			this.ProductDGV.TabIndex = 0;
 			// 
 			// exitBtn
 			// 
@@ -261,10 +261,10 @@ namespace InventoryManagementSystem
 			this.Load += new System.EventHandler(this.MainScreen_Load);
 			this.partGrpBox.ResumeLayout(false);
 			this.partGrpBox.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.partDGV)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.PartDGV)).EndInit();
 			this.productGrpBox.ResumeLayout(false);
 			this.productGrpBox.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.productDGV)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ProductDGV)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -273,10 +273,10 @@ namespace InventoryManagementSystem
 				#endregion
 
 				private System.Windows.Forms.GroupBox partGrpBox;
-				private System.Windows.Forms.Label label1;
-				private System.Windows.Forms.TextBox searchPartTxt;
-				private System.Windows.Forms.Button searchPartBtn;
-				private System.Windows.Forms.DataGridView partDGV;
+				private System.Windows.Forms.Label Label1;
+				private System.Windows.Forms.TextBox SearchPartTxt;
+				private System.Windows.Forms.Button SearchPartBtn;
+				private System.Windows.Forms.DataGridView PartDGV;
 				private System.Windows.Forms.Button deletePart;
 				private System.Windows.Forms.Button addPart;
 				private System.Windows.Forms.Button modifyPart;
@@ -284,9 +284,9 @@ namespace InventoryManagementSystem
 				private System.Windows.Forms.Button addProduct;
 				private System.Windows.Forms.Button modifyProduct;
 				private System.Windows.Forms.Button deleteProduct;
-				private System.Windows.Forms.Button searchProductBtn;
-				private System.Windows.Forms.TextBox searchProductTxt;
-				private System.Windows.Forms.DataGridView productDGV;
+				private System.Windows.Forms.Button SearchProductBtn;
+				private System.Windows.Forms.TextBox SearchProductTxt;
+				private System.Windows.Forms.DataGridView ProductDGV;
 				private System.Windows.Forms.Button exitBtn;
 				private System.Windows.Forms.Label titleLbl;
 			}

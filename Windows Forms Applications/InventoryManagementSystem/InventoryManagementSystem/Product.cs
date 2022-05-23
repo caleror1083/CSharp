@@ -53,7 +53,7 @@ namespace InventoryManagementSystem
 						return associatedPartsDT;
 					}
 
-				public int getProductID()
+				public int GetProductID()
 					{
 						return productID;
 					}
@@ -107,7 +107,7 @@ namespace InventoryManagementSystem
 
 				public void addAssociatedPart(Part part)
 					{
-						associatedPartsDT.Rows.Add(part.getPartID(), part.getName(), part.getPrice(), part.getInStock());
+						associatedPartsDT.Rows.Add(part.GetPartID(), part.getName(), part.getPrice(), part.getInStock());
 						associatedParts.Add(part);
 					}
 
@@ -123,7 +123,7 @@ namespace InventoryManagementSystem
 							}
 						for (int x = 0; x < associatedParts.Count(); x++)
 							{
-								if (associatedParts[x].getPartID() == searchPartID)
+								if (associatedParts[x].GetPartID() == searchPartID)
 									{
 										associatedParts.Remove(associatedParts[x]);
 									}
@@ -136,7 +136,7 @@ namespace InventoryManagementSystem
 					{
 						for (int x = 0; x < associatedParts.Count(); x++)
 							{
-								if (associatedParts[x].getPartID() == searchPartID)
+								if (associatedParts[x].GetPartID() == searchPartID)
 									{
 										return associatedParts[x];
 									}

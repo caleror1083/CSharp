@@ -22,18 +22,18 @@ namespace InventoryManagementSystem
 
 				private void ModifyPart_Load(object sender, EventArgs e)
 					{
-                        nameTxt.Text = Inventory.allParts[partNumber].getName();
-                        inventoryTxt.Text = Inventory.allParts[partNumber].getInStock().ToString();
-                        priceTxt.Text = Inventory.allParts[partNumber].getPrice().ToString();
-                        maxTxt.Text = Inventory.allParts[partNumber].getMax().ToString();
-                        minTxt.Text = Inventory.allParts[partNumber].getMin().ToString();
-                        companyNameTxt.Text = Inventory.allParts[partNumber].getTypeInfo();
+                        nameTxt.Text = Inventory._AllParts[partNumber].getName();
+                        inventoryTxt.Text = Inventory._AllParts[partNumber].getInStock().ToString();
+                        priceTxt.Text = Inventory._AllParts[partNumber].getPrice().ToString();
+                        maxTxt.Text = Inventory._AllParts[partNumber].getMax().ToString();
+                        minTxt.Text = Inventory._AllParts[partNumber].getMin().ToString();
+                        companyNameTxt.Text = Inventory._AllParts[partNumber].getTypeInfo();
 
-                        if (Inventory.allParts[partNumber].getType() == "inhouse")
+                        if (Inventory._AllParts[partNumber].getType() == "inhouse")
                             {
                                 inhouseRadBtn.Checked = true;
                             }
-                        else if (Inventory.allParts[partNumber].getType() == "outsourced")
+                        else if (Inventory._AllParts[partNumber].getType() == "outsourced")
                             {
                                 outsourcedRadBtn.Checked = true;
                             }

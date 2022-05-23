@@ -20,7 +20,7 @@ namespace InventoryManagementSystem
 
 				private void AddProduct_Load(object sender, EventArgs e)
 					{
-						allPartsDGV.DataSource = Inventory.getAllPartsDT();
+						allPartsDGV.DataSource = Inventory.GetAllPartsDT();
 						associatedPartsDGV.DataSource = newProduct.getAssociatedPartsDT();
 					}
 
@@ -132,9 +132,9 @@ namespace InventoryManagementSystem
 				{
 						int searchPartID = Convert.ToInt32(searchPartTxt.Text);
 
-						if (Inventory.lookupPart(searchPartID) != null)
+						if (Inventory.LookupPart(searchPartID) != null)
 							{
-								allPartsDGV.Rows[Inventory.lookupPart(searchPartID).getPartID()].Selected = true;
+								allPartsDGV.Rows[Inventory.LookupPart(searchPartID).GetPartID()].Selected = true;
  							}
 						else
 							{
@@ -145,7 +145,7 @@ namespace InventoryManagementSystem
 				private void addPartBtn_Click(object sender, EventArgs e)
 					{
 					    int selectPart = Convert.ToInt32(allPartsDGV.Rows[allPartsDGV.CurrentCell.RowIndex].Cells[0].Value);
-						newProduct.addAssociatedPart(Inventory.lookupPart(selectPart));
+						newProduct.addAssociatedPart(Inventory.LookupPart(selectPart));
 					}
 
 				private void deletePartBtn_Click(object sender, EventArgs e)

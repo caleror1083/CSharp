@@ -34,7 +34,7 @@ namespace InventoryManagementSystem
 						typeInfo = value;
 					}
 
-				public int getPartID()
+				public int GetPartID()
 					{
 						return partID;
 					}

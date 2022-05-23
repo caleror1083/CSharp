@@ -10,39 +10,39 @@ using System.Windows.Forms;
 
 namespace InventoryManagementSystem
 	{
-		public partial class MainScreen : Form    // MainScreen class inherits from the Form SuperClass
+		public partial class MainScreen : Form    // MainScreen class inherits from the Form base class
 			{
-				public MainScreen()    // Constructor for MainScreen
+				// Constructor
+				public MainScreen()
 					{
 						InitializeComponent();
 					}
 
 				private void MainScreen_Load(object sender, EventArgs e)    // Event triggered when MainScreen loads
 					{
-					    partDGV.DataSource = Inventory.getAllPartsDT();
-						productDGV.DataSource = Inventory.getProductsDT();
+					    PartDGV.DataSource = Inventory.GetAllPartsDT();
+						ProductDGV.DataSource = Inventory.GetProductsDT();
 					}
 
 				private void AddPart_Click(object sender, EventArgs e)
 					{
-						this.Hide();
+						Hide();
 						AddPart addPartRedirect = new AddPart();
 						addPartRedirect.ShowDialog();
 					}
 
 				private void DeletePart_Click(object sender, EventArgs e)
 					{
-						if (Inventory.allParts.Any())
+						if (Inventory._AllParts.Any())
 							{
 								DialogResult deletePartDR = MessageBox.Show("Are you sure you want to delete this part?", "Delete Part", MessageBoxButtons.YesNo);
 								if (deletePartDR == DialogResult.Yes)
 									{
-										int selectPart = Convert.ToInt32(partDGV.Rows[partDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part - Part ID
-										Inventory.deletePart(Inventory.lookupPart(selectPart));
+										int selectPart = Convert.ToInt32(PartDGV.Rows[PartDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part - Part ID
+										Inventory.DeletePart(Inventory.LookupPart(selectPart));
 									}
 								else if (deletePartDR == DialogResult.No)
 									{
-										// N/A
 									}
 							}
 						else
@@ -53,25 +53,25 @@ namespace InventoryManagementSystem
 
 				private void SearchPartTxt_TextChanged(object sender, EventArgs e)
 					{
-						if (string.IsNullOrWhiteSpace(searchPartTxt.Text) || !(int.TryParse(searchPartTxt.Text, out int n)))		// TextBox enabled if number is entered
+						if (string.IsNullOrWhiteSpace(SearchPartTxt.Text) || !int.TryParse(SearchPartTxt.Text, out int _))		// TextBox enabled if number is entered
 							{
-								searchPartBtn.Enabled = false;
-								searchPartTxt.BackColor = Color.Salmon;
+								SearchPartBtn.Enabled = false;
+								SearchPartTxt.BackColor = Color.Salmon;
 							}
 						else
 							{
-								searchPartBtn.Enabled = true;
-								searchPartTxt.BackColor = Color.White;
+								SearchPartBtn.Enabled = true;
+								SearchPartTxt.BackColor = Color.White;
 							}
 					}
 
 				private void SearchPartBtn_Click(object sender, EventArgs e)
 					{
-						int searchPartID = Convert.ToInt32(searchPartTxt.Text);
+						int searchPartID = Convert.ToInt32(SearchPartTxt.Text);
 						
-						if (Inventory.lookupPart(searchPartID) != null)
+						if (Inventory.LookupPart(searchPartID) != null)
 							{
-								partDGV.Rows[Inventory.lookupPart(searchPartID).getPartID()].Selected = true;
+								PartDGV.Rows[Inventory.LookupPart(searchPartID).GetPartID()].Selected = true;
 							}
 						else
 							{
@@ -81,10 +81,10 @@ namespace InventoryManagementSystem
 
 				private void SearchProductBtn_Click(object sender, EventArgs e)
 					{
-						int searchProductID = Convert.ToInt32(searchProductTxt.Text);
-						if (Inventory.lookupPart(searchProductID) != null)
+						int searchProductID = Convert.ToInt32(SearchProductTxt.Text);
+						if (Inventory.LookupPart(searchProductID) != null)
 							{
-								productDGV.Rows[Inventory.lookupProduct(searchProductID).getProductID()].Selected = true;
+								ProductDGV.Rows[Inventory.LookupProduct(searchProductID).GetProductID()].Selected = true;
 							}
 						else
 							{
@@ -99,20 +99,20 @@ namespace InventoryManagementSystem
 
 				private void AddProduct_Click(object sender, EventArgs e)
 					{
-						this.Hide();					
+						Hide();					
 						AddProduct addProductRedirect = new AddProduct();
 						addProductRedirect.ShowDialog();
 					}
 
 				private void DeleteProduct_Click(object sender, EventArgs e)
 					{
-						if (Inventory.products.Any())
+						if (Inventory.Products.Any())
 							{
 								DialogResult deleteProductDR = MessageBox.Show("Are you sure you want to delete this product?", "Delete Product", MessageBoxButtons.YesNo);
 								if (deleteProductDR == DialogResult.Yes)
 									{
-										int selectProduct = Convert.ToInt32(productDGV.Rows[productDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Product - Part ID
-										Inventory.removeProduct(selectProduct);
+										int selectProduct = Convert.ToInt32(ProductDGV.Rows[ProductDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Product - Part ID
+										Inventory.RemoveProduct(selectProduct);
 									}
 								else if (deleteProductDR == DialogResult.No)
 									{
@@ -127,22 +127,22 @@ namespace InventoryManagementSystem
 
 				private void PartDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
 					{
-						int selectPart = Convert.ToInt32(partDGV.Rows[partDGV.CurrentCell.RowIndex].Cells[0].Value);		//Gets the Part ID number for the row selected
-						label1.Text = selectPart.ToString();
+						int selectPart = Convert.ToInt32(PartDGV.Rows[PartDGV.CurrentCell.RowIndex].Cells[0].Value);		//Gets the Part ID number for the row selected
+						Label1.Text = selectPart.ToString();
 					}
 
 				private void ProductDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
 					{
-						int selectProduct = Convert.ToInt32(productDGV.Rows[productDGV.CurrentCell.RowIndex].Cells[0].Value);		//Gets the Part ID number for the row selected
-						label1.Text = selectProduct.ToString();
+						int selectProduct = Convert.ToInt32(ProductDGV.Rows[ProductDGV.CurrentCell.RowIndex].Cells[0].Value);		//Gets the Part ID number for the row selected
+						Label1.Text = selectProduct.ToString();
 					}
 
 				private void ModifyPart_Click(object sender, EventArgs e)
 					{
-						if (Inventory.allParts.Any())
+						if (Inventory._AllParts.Any())
 							{
-								int selectPart = Convert.ToInt32(partDGV.Rows[partDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part ID from Part DataGrid
-								this.Hide();
+								int selectPart = Convert.ToInt32(PartDGV.Rows[PartDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part ID from Part DataGrid
+								Hide();
 								ModifyPart modifyPartRedirect = new ModifyPart(selectPart);
 								modifyPartRedirect.ShowDialog();
 							}
@@ -154,10 +154,10 @@ namespace InventoryManagementSystem
 
 				private void ModifyProduct_Click(object sender, EventArgs e)
 					{
-						if (Inventory.products.Any())
+						if (Inventory.Products.Any())
 							{
-								int selectProduct = Convert.ToInt32(productDGV.Rows[productDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part ID from Product DataGrid
-								this.Hide();
+								int selectProduct = Convert.ToInt32(ProductDGV.Rows[ProductDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part ID from Product DataGrid
+								Hide();
 								ModifyProduct modifyProductRedirect = new ModifyProduct(selectProduct);
 								modifyProductRedirect.ShowDialog();
 							}
@@ -170,15 +170,15 @@ namespace InventoryManagementSystem
 				private void SearchProductTxt_TextChanged(object sender, EventArgs e)
 					{
 						// TextBox enabled if number is entered
-						if (string.IsNullOrWhiteSpace(searchProductTxt.Text) || !(int.TryParse(searchProductTxt.Text, out int n)))
+						if (string.IsNullOrWhiteSpace(SearchProductTxt.Text) || !int.TryParse(SearchProductTxt.Text, out int _))
 							{
-								searchProductBtn.Enabled = false;
-								searchProductTxt.BackColor = Color.Salmon;
+								SearchProductBtn.Enabled = false;
+								SearchProductTxt.BackColor = Color.Salmon;
 							}
 						else
 							{
-								searchProductBtn.Enabled = true;
-								searchProductTxt.BackColor = Color.White;
+								SearchProductBtn.Enabled = true;
+								SearchProductTxt.BackColor = Color.White;
 							}
 					}
 			}
