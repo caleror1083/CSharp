@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace WGU_C968
+namespace InventoryManagementSystem
 	{
 		public partial class MainScreen : Form    // MainScreen class inherits from the Form SuperClass
 			{

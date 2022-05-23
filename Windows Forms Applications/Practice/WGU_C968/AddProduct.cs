@@ -7,7 +7,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace WGU_C968
+namespace InventoryManagementSystem
 	{
 		public partial class AddProduct : Form
 			{

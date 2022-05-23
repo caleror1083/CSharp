@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace WGU_C968
+namespace InventoryManagementSystem
 	{
 		class Inventory
 			{

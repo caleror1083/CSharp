@@ -3,7 +3,7 @@
    Student ID# 000998416
 */
 
-namespace WGU_C968
+namespace InventoryManagementSystem
 	{
 	    public abstract class Part
 		    {
