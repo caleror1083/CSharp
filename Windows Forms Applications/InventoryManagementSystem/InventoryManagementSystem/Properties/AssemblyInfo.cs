@@ -1,16 +1,22 @@
-﻿using System.Reflection;
+﻿/*
+    C968 Software I - C#
+    Robert Calero
+    Student ID# 000998416
+*/
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("InventoryManagementSystem")]
+[assembly: AssemblyTitle("WGU_C968")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("InventoryManagementSystem")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyProduct("WGU_C968")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +26,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a83896ba-f846-442c-b79c-77f14bdec059")]
+[assembly: Guid("b7c39856-f8f1-460b-a6ed-18139a7778c5")]
 
 // Version information for an assembly consists of the following four values:
 //
