@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltimateSource", "UltimateS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decisions", "Decisions\Decisions.csproj", "{08C8CD73-9BD8-4995-896B-3D5EF327C91D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender", "Email Sender\EmailSender.csproj", "{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hello", "Hello\Hello.csproj", "{C2C147A6-316F-4D78-99BB-DB88378320CA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login", "Login\Login.csproj", "{3A64F1FB-432D-47BA-8FDC-82FD3FFEEA9A}"
@@ -33,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltimateSourceWindowsForms"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{AA53E6C5-08E2-4BC5-BFD1-A4E582740FDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender", "EmailSender\EmailSender.csproj", "{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +47,6 @@ Global
 		{08C8CD73-9BD8-4995-896B-3D5EF327C91D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08C8CD73-9BD8-4995-896B-3D5EF327C91D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08C8CD73-9BD8-4995-896B-3D5EF327C91D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C2C147A6-316F-4D78-99BB-DB88378320CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C2C147A6-316F-4D78-99BB-DB88378320CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2C147A6-316F-4D78-99BB-DB88378320CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -99,6 +95,10 @@ Global
 		{AA53E6C5-08E2-4BC5-BFD1-A4E582740FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA53E6C5-08E2-4BC5-BFD1-A4E582740FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA53E6C5-08E2-4BC5-BFD1-A4E582740FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
