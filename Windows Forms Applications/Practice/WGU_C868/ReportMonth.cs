@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace WGU_C868
+namespace DentalOfficeSchedulingApp
 	{
 		public partial class ReportMonth : Form
 			{

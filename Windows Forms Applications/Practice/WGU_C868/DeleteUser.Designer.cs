@@ -1,5 +1,5 @@
 ﻿
-namespace WGU_C868
+namespace DentalOfficeSchedulingApp
 {
 	partial class DeleteUser
 	{

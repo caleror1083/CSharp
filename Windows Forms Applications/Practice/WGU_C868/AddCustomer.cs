@@ -7,7 +7,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace WGU_C868
+namespace DentalOfficeSchedulingApp
 	{
 		public partial class AddCustomer : Form
 			{

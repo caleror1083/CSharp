@@ -12,7 +12,7 @@ using System.Data;
 using System.Linq;
 using System.Windows;
 
-namespace WGU_C868
+namespace DentalOfficeSchedulingApp
 	{
 		class Database
 			{

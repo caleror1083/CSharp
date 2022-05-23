@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace WGU_C868
+namespace DentalOfficeSchedulingApp
 	{
 		class Log
 			{

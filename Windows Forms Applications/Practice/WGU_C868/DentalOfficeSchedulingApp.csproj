@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1AF372DD-93E0-49FB-9580-C3C5EC6B9414}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WGU_C868</RootNamespace>
-    <AssemblyName>WGU_C868</AssemblyName>
+    <RootNamespace>DentalOfficeSchedulingApp</RootNamespace>
+    <AssemblyName>DentalOfficeSchedulingApp</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -177,6 +177,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ReportMonth.resx">
       <DependentUpon>ReportMonth.cs</DependentUpon>

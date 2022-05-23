@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UltimateSource", "UltimateSource\UltimateSource.csproj", "{9E20C5EA-0B5C-47F2-8AE5-4CED870BF0C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WGU_C868", "WGU_C868\WGU_C868.csproj", "{1AF372DD-93E0-49FB-9580-C3C5EC6B9414}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalOfficeSchedulingApp", "WGU_C868\DentalOfficeSchedulingApp.csproj", "{1AF372DD-93E0-49FB-9580-C3C5EC6B9414}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Decisions", "Decisions\Decisions.csproj", "{08C8CD73-9BD8-4995-896B-3D5EF327C91D}"
 EndProject
