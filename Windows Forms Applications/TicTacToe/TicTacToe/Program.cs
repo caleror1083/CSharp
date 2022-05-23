@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// Robert Calero
+// Tic Tac Toe - C# - Windows Form Application .NET Framework
+
 using System.Windows.Forms;
 
 namespace TicTacToe
-{
-	internal static class Program
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
-		[STAThread]
-		static void Main()
-		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
-		}
+		static class Program
+			{
+		
+				static void Main()
+					{
+						Application.EnableVisualStyles();
+						Application.SetCompatibleTextRenderingDefault(false);
+						Application.Run(new GameBoard());
+					}
+			}
 	}
-}
