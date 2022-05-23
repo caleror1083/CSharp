@@ -1,16 +1,21 @@
-﻿using System.Reflection;
-using System.Runtime.CompilerServices;
+﻿/*
+    C969 Software II - Advanced C#
+    Robert Calero
+    Student ID# 000998416
+*/
+
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SoftwareCompanySchedulingApp")]
+[assembly: AssemblyTitle("WGU_C969")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SoftwareCompanySchedulingApp")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyProduct("WGU_C969")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +25,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2b623fa0-b18f-409c-b473-9f2ad54d0d86")]
+[assembly: Guid("02c82819-dbf8-4a76-845a-cb98221d00da")]
 
 // Version information for an assembly consists of the following four values:
 //

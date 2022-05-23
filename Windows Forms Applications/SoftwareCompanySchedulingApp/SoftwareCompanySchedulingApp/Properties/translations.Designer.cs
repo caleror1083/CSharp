@@ -22,14 +22,14 @@ namespace SoftwareCompanySchedulingApp.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class translations {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal translations() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace SoftwareCompanySchedulingApp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SoftwareCompanySchedulingApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SoftwareCompanySchedulingApp.Properties.translations", typeof(translations).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,65 @@ namespace SoftwareCompanySchedulingApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=ROB-DESKTOP\SQLEXPRESS;Integrated Security=True.
+        ///   Looks up a localized string similar to The username and password did not match..
         /// </summary>
-        internal static string connectionString {
+        internal static string res_login_error {
             get {
-                return ResourceManager.GetString("connectionString", resourceCulture);
+                return ResourceManager.GetString("res-login-error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goodbye!.
+        /// </summary>
+        internal static string res_login_exit {
+            get {
+                return ResourceManager.GetString("res-login-exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        internal static string res_login_exitBtn {
+            get {
+                return ResourceManager.GetString("res-login-exitBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string res_login_loginBtn {
+            get {
+                return ResourceManager.GetString("res-login-loginBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string res_login_passwordLbl {
+            get {
+                return ResourceManager.GetString("res-login-passwordLbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login - Scheduling.
+        /// </summary>
+        internal static string res_login_title {
+            get {
+                return ResourceManager.GetString("res-login-title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        internal static string res_login_usernameLbl {
+            get {
+                return ResourceManager.GetString("res-login-usernameLbl", resourceCulture);
             }
         }
     }

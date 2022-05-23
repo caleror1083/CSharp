@@ -117,7 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="connectionString" xml:space="preserve">
-    <value>Data Source=ROB-DESKTOP\SQLEXPRESS;Integrated Security=True</value>
+  <data name="res-login-error" xml:space="preserve">
+    <value>El nombre de usuario y la contraseña no coinciden.</value>
+  </data>
+  <data name="res-login-exit" xml:space="preserve">
+    <value>Adiós!</value>
+  </data>
+  <data name="res-login-exitBtn" xml:space="preserve">
+    <value>salida</value>
+  </data>
+  <data name="res-login-loginBtn" xml:space="preserve">
+    <value>iniciar sesión</value>
+  </data>
+  <data name="res-login-passwordLbl" xml:space="preserve">
+    <value>contraseña</value>
+  </data>
+  <data name="res-login-title" xml:space="preserve">
+    <value>Iniciar Sesión - Citas</value>
+  </data>
+  <data name="res-login-usernameLbl" xml:space="preserve">
+    <value>nombre de usario</value>
   </data>
 </root>
