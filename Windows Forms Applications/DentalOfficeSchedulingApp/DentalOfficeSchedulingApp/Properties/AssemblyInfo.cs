@@ -1,16 +1,22 @@
-﻿using System.Reflection;
+﻿/*
+	C868 Software Development Capstone
+	Robert Calero
+	Student ID# 000998416
+*/
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DentalOfficeSchedulingApp")]
+[assembly: AssemblyTitle("WGU_C868")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DentalOfficeSchedulingApp")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyProduct("WGU_C868")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +26,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("eac57ecb-fcb9-413d-8194-f3dcb34dcfa0")]
+[assembly: Guid("1af372dd-93e0-49fb-9580-c3c5ec6b9414")]
 
 // Version information for an assembly consists of the following four values:
 //
