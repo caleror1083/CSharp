@@ -1,5 +1,5 @@
 ﻿
-namespace DB_System
+namespace DBsystem
 {
 	partial class Form1
 	{
@@ -163,7 +163,7 @@ namespace DB_System
 			// 
 			// pictureBox1
 			// 
-			this.pictureBox1.Image = global::DB_System.Properties.Resources._690150;
+			this.pictureBox1.Image = global::DBsystem.Properties.Resources._690150;
 			this.pictureBox1.Location = new System.Drawing.Point(13, 210);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(60, 28);

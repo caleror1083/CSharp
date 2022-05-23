@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AEA12F60-0E05-4E7E-A898-E5A71EC8D5F0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DB_System</RootNamespace>
-    <AssemblyName>DB_System</AssemblyName>
+    <RootNamespace>DBsystem</RootNamespace>
+    <AssemblyName>DBsystem</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

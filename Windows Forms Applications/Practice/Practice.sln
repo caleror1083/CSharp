@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Template", "Template\Templa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Variables", "Variables\Variables.csproj", "{108C9E7E-164F-4547-8DFA-01418DB6A1A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_System", "DB_System\DB_System.csproj", "{AEA12F60-0E05-4E7E-A898-E5A71EC8D5F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBsystem", "DB_System\DBsystem.csproj", "{AEA12F60-0E05-4E7E-A898-E5A71EC8D5F0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookbook", "Cookbook\Cookbook.csproj", "{0A5588D1-F411-4437-B926-F750FFA157EE}"
 EndProject
