@@ -22,9 +22,9 @@ namespace InventoryManagementSystem
 
 				private void ModifyPart_Load(object sender, EventArgs e)
 					{
-                        nameTxt.Text = Inventory._AllParts[partNumber].getName();
-                        inventoryTxt.Text = Inventory._AllParts[partNumber].getInStock().ToString();
-                        priceTxt.Text = Inventory._AllParts[partNumber].getPrice().ToString();
+                        nameTxt.Text = Inventory._AllParts[partNumber].GetName();
+                        inventoryTxt.Text = Inventory._AllParts[partNumber].GetInStock().ToString();
+                        priceTxt.Text = Inventory._AllParts[partNumber].GetPrice().ToString();
                         maxTxt.Text = Inventory._AllParts[partNumber].getMax().ToString();
                         minTxt.Text = Inventory._AllParts[partNumber].getMin().ToString();
                         companyNameTxt.Text = Inventory._AllParts[partNumber].getTypeInfo();
@@ -218,26 +218,26 @@ namespace InventoryManagementSystem
                                 if (inhouseRadBtn.Checked)
                                     {
                                         inhousePart = new Inhouse();
-                                        inhousePart.setPartID(partNumber);
+                                        inhousePart.SetPartID(partNumber);
                                         inhousePart.setName(nameTxt.Text.ToString());
                                         inhousePart.setPrice(Convert.ToDecimal(priceTxt.Text));
                                         inhousePart.setInStock(Convert.ToInt32(inventoryTxt.Text));
                                         inhousePart.setMin(Convert.ToInt32(minTxt.Text));
                                         inhousePart.setMax(Convert.ToInt32(maxTxt.Text));
                                         inhousePart.setMachineID(Convert.ToInt32(companyNameTxt.Text));
-                                        Inventory.updatePart(partNumber, inhousePart);
+                                        Inventory.UpdatePart(partNumber, inhousePart);
                                     }
                                 else if (outsourcedRadBtn.Checked)
                                     {
                                         outsourcedPart = new Outsourced();
-                                        outsourcedPart.setPartID(partNumber);
+                                        outsourcedPart.SetPartID(partNumber);
                                         outsourcedPart.setName(nameTxt.Text.ToString());
                                         outsourcedPart.setPrice(Convert.ToDecimal(priceTxt.Text));
                                         outsourcedPart.setInStock(Convert.ToInt32(inventoryTxt.Text));
                                         outsourcedPart.setMin(Convert.ToInt32(minTxt.Text));
                                         outsourcedPart.setMax(Convert.ToInt32(maxTxt.Text));
                                         outsourcedPart.setCompanyName(companyNameTxt.Text);
-                                        Inventory.updatePart(partNumber, outsourcedPart);
+                                        Inventory.UpdatePart(partNumber, outsourcedPart);
                                     }
                                 this.Hide();
                                 mainScreenSave.ShowDialog();

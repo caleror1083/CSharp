@@ -106,7 +106,7 @@ namespace InventoryManagementSystem
 
 				private void DeleteProduct_Click(object sender, EventArgs e)
 					{
-						if (Inventory.Products.Any())
+						if (Inventory._Products.Any())
 							{
 								DialogResult deleteProductDR = MessageBox.Show("Are you sure you want to delete this product?", "Delete Product", MessageBoxButtons.YesNo);
 								if (deleteProductDR == DialogResult.Yes)
@@ -154,7 +154,7 @@ namespace InventoryManagementSystem
 
 				private void ModifyProduct_Click(object sender, EventArgs e)
 					{
-						if (Inventory.Products.Any())
+						if (Inventory._Products.Any())
 							{
 								int selectProduct = Convert.ToInt32(ProductDGV.Rows[ProductDGV.CurrentCell.RowIndex].Cells[0].Value);	// Gets the value of the selected Part ID from Product DataGrid
 								Hide();

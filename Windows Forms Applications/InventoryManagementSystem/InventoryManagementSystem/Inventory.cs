@@ -12,77 +12,77 @@ namespace InventoryManagementSystem
 		class Inventory
 			{
 				// Inventory is products and parts array lists
-				public static List<Product> Products = new List<Product>();
-				public static List<Part>  _AllParts = new List<Part>();
+				public static List<Product> _Products = new List<Product>();
+				public static List<Part> _AllParts = new List<Part>();
 
 				// Parts count
-				public static int partCount = 0;
-				public static int productCount = 0;
-				private static DataTable allPartsDT = new DataTable();
-				private static DataTable productsDT = new DataTable();
+				public static int _PartCount = 0;
+				public static int _ProductCount = 0;
+				private static readonly DataTable _AllPartsDT = new DataTable();
+				private static readonly DataTable _ProductsDT = new DataTable();
 
 				public static DataTable GetAllPartsDT()
 					{
 						// If column does not exist, add column
-						if (!allPartsDT.Columns.Contains("Part ID"))
+						if (!_AllPartsDT.Columns.Contains("Part ID"))
 							{
-								allPartsDT.Columns.Add("Part ID", typeof(int));
+								_AllPartsDT.Columns.Add("Part ID", typeof(int));
 							}
-						if (!allPartsDT.Columns.Contains("Name"))
+						if (!_AllPartsDT.Columns.Contains("Name"))
 							{
-								allPartsDT.Columns.Add("Name", typeof(string));
+								_AllPartsDT.Columns.Add("Name", typeof(string));
 							}
-						if (!allPartsDT.Columns.Contains("Price"))
+						if (!_AllPartsDT.Columns.Contains("Price"))
 							{
-								allPartsDT.Columns.Add("Price", typeof(decimal));
+								_AllPartsDT.Columns.Add("Price", typeof(decimal));
 							}
-						if (!allPartsDT.Columns.Contains("In Stock"))
+						if (!_AllPartsDT.Columns.Contains("In Stock"))
 							{
-								allPartsDT.Columns.Add("In Stock", typeof(int));
+								_AllPartsDT.Columns.Add("In Stock", typeof(int));
 							}
-						return allPartsDT;
+						return _AllPartsDT;
 					}
 
 				public static DataTable GetProductsDT()
 					{
 						// If column does not exist, add column
-						if (!productsDT.Columns.Contains("Part ID"))
+						if (!_ProductsDT.Columns.Contains("Part ID"))
 							{
-								productsDT.Columns.Add("Part ID", typeof(int));
+								_ProductsDT.Columns.Add("Part ID", typeof(int));
 							}
-						if (!productsDT.Columns.Contains("Name"))
+						if (!_ProductsDT.Columns.Contains("Name"))
 							{
-								productsDT.Columns.Add("Name", typeof(string));
+								_ProductsDT.Columns.Add("Name", typeof(string));
 							}
-						if (!productsDT.Columns.Contains("Price"))
+						if (!_ProductsDT.Columns.Contains("Price"))
 							{
-								productsDT.Columns.Add("Price", typeof(decimal));
+								_ProductsDT.Columns.Add("Price", typeof(decimal));
 							}
-						if (!productsDT.Columns.Contains("In Stock"))
+						if (!_ProductsDT.Columns.Contains("In Stock"))
 							{
-								productsDT.Columns.Add("In Stock", typeof(int));
+								_ProductsDT.Columns.Add("In Stock", typeof(int));
 							}
-						return productsDT;
+						return _ProductsDT;
 					}
 
 				// Adds products
-				public static void addProduct(Product product)
+				public static void AddProduct(Product product)
 					{
-						product.setProductID(productCount);
-						Products.Add(product);
-						productsDT.Rows.Add(product.GetProductID(), product.getName(), product.getPrice(), product.getInStock());
-						productCount++;
+						product.SetProductID(_ProductCount);
+						_Products.Add(product);
+						_ProductsDT.Rows.Add(product.GetProductID(), product.GetName(), product.GetPrice(), product.GetInStock());
+						_ProductCount++;
 					}
 
 				// Removes product
 				public static bool RemoveProduct(int searchProductID)
 					{
-						for (int x = 0; x < Products.Count(); x++)
+						for (int x = 0; x < _Products.Count(); x++)
 							{
-								if (Products[x].GetProductID() == searchProductID)
+								if (_Products[x].GetProductID() == searchProductID)
 									{
-										productsDT.Rows[Products[x].GetProductID()].Delete();
-										Products.Remove(Products[x]);
+										_ProductsDT.Rows[_Products[x].GetProductID()].Delete();
+										_Products.Remove(_Products[x]);
 										return true;
 									}
 							}
@@ -92,33 +92,33 @@ namespace InventoryManagementSystem
 				// Returns product being searched based on ProductID
 				public static Product LookupProduct(int productID)
 					{
-						for (int x = 0; x < Products.Count(); x++)
+						for (int x = 0; x < _Products.Count(); x++)
 							{
-								if (Products[x].GetProductID() == productID)
+								if (_Products[x].GetProductID() == productID)
 									{
-										return Products[x];
+										return _Products[x];
 									}
 							}
 						return null;		// If product not found
 					}
 
 				// Update product
-				public static void updateProduct(int index, Product product)
+				public static void UpdateProduct(int index, Product product)
 					{
-						productsDT.Rows[index][0] = product.GetProductID();
-						productsDT.Rows[index][1] = product.getName();
-						productsDT.Rows[index][2] = product.getPrice();
-						productsDT.Rows[index][3] = product.getInStock();
-						Products[index] = product;
+						_ProductsDT.Rows[index][0] = product.GetProductID();
+						_ProductsDT.Rows[index][1] = product.GetName();
+						_ProductsDT.Rows[index][2] = product.GetPrice();
+						_ProductsDT.Rows[index][3] = product.GetInStock();
+						_Products[index] = product;
 					}
 
 				// Add parts
-				public static void addPart(Part part)
+				public static void AddPart(Part part)
 					{
-						part.setPartID(partCount);
+						part.SetPartID(_PartCount);
 						_AllParts.Add(part);
-						allPartsDT.Rows.Add(part.GetPartID(), part.getName(), part.getPrice(), part.getInStock());
-						partCount++;
+						_AllPartsDT.Rows.Add(part.GetPartID(), part.GetName(), part.GetPrice(), part.GetInStock());
+						_PartCount++;
 					}
 
 				// Delete parts
@@ -130,11 +130,11 @@ namespace InventoryManagementSystem
 							}
 						else
 							{
-								for (int x = 0; x < allPartsDT.Rows.Count; x++)
+								for (int x = 0; x < _AllPartsDT.Rows.Count; x++)
 									{
-										if (allPartsDT.Rows[x][0].ToString() == part.GetPartID().ToString())
+										if (_AllPartsDT.Rows[x][0].ToString() == part.GetPartID().ToString())
 											{
-												allPartsDT.Rows[x].Delete();
+												_AllPartsDT.Rows[x].Delete();
 											}
 									}
 								_AllParts.Remove(part);
@@ -156,12 +156,12 @@ namespace InventoryManagementSystem
 					}
 
 				// Update Parts
-				public static void updatePart(int index, Part part)
+				public static void UpdatePart(int index, Part part)
 					{
-						allPartsDT.Rows[index][0] = part.GetPartID();
-						allPartsDT.Rows[index][1] = part.getName();
-						allPartsDT.Rows[index][2] = part.getPrice();
-						allPartsDT.Rows[index][3] = part.getInStock();
+						_AllPartsDT.Rows[index][0] = part.GetPartID();
+						_AllPartsDT.Rows[index][1] = part.GetName();
+						_AllPartsDT.Rows[index][2] = part.GetPrice();
+						_AllPartsDT.Rows[index][3] = part.GetInStock();
 						_AllParts[index] = part;
 					}
 			}

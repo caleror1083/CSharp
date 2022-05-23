@@ -206,7 +206,7 @@ namespace InventoryManagementSystem
 										inhousePart.setMin(Convert.ToInt32(minTxt.Text));
 										inhousePart.setMax(Convert.ToInt32(maxTxt.Text));
 										inhousePart.setMachineID(Convert.ToInt32(companyNameTxt.Text));
-										Inventory.addPart(inhousePart);
+										Inventory.AddPart(inhousePart);
 									}
 								else if (outsourcedRadBtn.Checked)
 									{
@@ -217,7 +217,7 @@ namespace InventoryManagementSystem
 										outsourcedPart.setMin(Convert.ToInt32(minTxt.Text));
 										outsourcedPart.setMax(Convert.ToInt32(maxTxt.Text));
 										outsourcedPart.setCompanyName(companyNameTxt.Text);
-										Inventory.addPart(outsourcedPart);
+										Inventory.AddPart(outsourcedPart);
 									}
 								this.Hide();
 								mainScreenSave.ShowDialog();

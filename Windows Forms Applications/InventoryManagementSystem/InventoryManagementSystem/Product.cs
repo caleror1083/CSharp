@@ -57,12 +57,12 @@ namespace InventoryManagementSystem
 					{
 						return productID;
 					}
-				public void setProductID(int value)
+				public void SetProductID(int value)
 					{
 						productID = value;
 					}
 
-				public string getName()
+				public string GetName()
 					{
 						return name;
 					}
@@ -70,7 +70,7 @@ namespace InventoryManagementSystem
 					{
 						name = value;
 					}
-				public decimal getPrice()
+				public decimal GetPrice()
 					{
 						return price;
 					}
@@ -78,7 +78,7 @@ namespace InventoryManagementSystem
 					{
 						price = value;
 					}
-				public int getInStock()
+				public int GetInStock()
 					{
 						return inStock;
 					}
@@ -107,7 +107,7 @@ namespace InventoryManagementSystem
 
 				public void addAssociatedPart(Part part)
 					{
-						associatedPartsDT.Rows.Add(part.GetPartID(), part.getName(), part.getPrice(), part.getInStock());
+						associatedPartsDT.Rows.Add(part.GetPartID(), part.GetName(), part.GetPrice(), part.GetInStock());
 						associatedParts.Add(part);
 					}
 

@@ -38,12 +38,12 @@ namespace InventoryManagementSystem
 					{
 						return partID;
 					}
-				public void setPartID(int value)
+				public void SetPartID(int value)
 					{
 						partID = value;
 					}
 
-				public string getName()
+				public string GetName()
 					{
 						return name;
 					}
@@ -52,7 +52,7 @@ namespace InventoryManagementSystem
 						name = value;
 					}
 
-				public decimal getPrice()
+				public decimal GetPrice()
 					{
 						return price;
 					}
@@ -61,7 +61,7 @@ namespace InventoryManagementSystem
 						price = value;
 					}
 
-				public int getInStock()
+				public int GetInStock()
 					{
 						return inStock;
 					}

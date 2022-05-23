@@ -184,7 +184,7 @@ namespace InventoryManagementSystem
 								newProduct.setInStock(Convert.ToInt32(inventoryTxt.Text));
 								newProduct.setMin(Convert.ToInt32(minTxt.Text));
 								newProduct.setMax(Convert.ToInt32(maxTxt.Text));
-								Inventory.addProduct(newProduct);
+								Inventory.AddProduct(newProduct);
 								this.Hide();
 								mainScreenSave.ShowDialog();
 							}
