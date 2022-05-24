@@ -32,22 +32,20 @@ namespace UltimateSourceWindowsForms
 						label1.Text = fieldName1;	// static String player1
 						label2.Text = fieldName2;	// static String player2
 					}
-			}
 
-
-// Form 2 code
-private void Player2Txt_KeyPress(object sender, KeyPressEventArgs e)
-				{
-					if (e.ToString() == "\r")
-						{
-							PlayBtn.PerformClick();
-						}
-				}
+				// Form 2 code
+				private void Player2Txt_KeyPress(object sender, KeyPressEventArgs e)
+					{
+						if (e.ToString() == "\r")
+							{
+								PlayBtn.PerformClick();
+							}
+					}
 
 				private void PlayBtn_Click(object sender, EventArgs e)
 					{
 						GameBoard.SetPlayerNames(Player1Txt.Text, Player2Txt.Text);
 						this.Close();
 					}
-
+			}
 	}
