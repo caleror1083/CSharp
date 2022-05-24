@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+	 C971 Mobile Application Development Using C#
+     Robert Calero
+     Student ID# 000998416
+-->
+	
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="WGU_C971.TermPage">
+    <ContentPage.Content>
+        <StackLayout>
+			<StackLayout VerticalOptions="CenterAndExpand">
+				<Label x:Name="TermStart" HorizontalOptions="Center" />
+				<Label x:Name="TermEnd" HorizontalOptions="Center" />
+				<ListView x:Name="CourseLV">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell IsEnabled="True">
+								<StackLayout Orientation="Vertical" Margin="25, 0, 0, 0">
+									<Label Text="{Binding CourseName}" TextColor="#0000FF" />
+									<Label Text="{Binding CourseStatus}" />
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+				<Button Text="Edit Term" Clicked="EditTermBtn" Margin="0, 25, 0, 25" />
+				<Button Text="Delete Term" Clicked="DeleteTermBtn"  HorizontalOptions="Center" Margin="0, 25, 0, 25" />
+			</StackLayout>
+			<StackLayout>
+				<Button Text="Add Course" FontSize="Medium" HeightRequest="40" Clicked="AddCourseBtn" />
+			</StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

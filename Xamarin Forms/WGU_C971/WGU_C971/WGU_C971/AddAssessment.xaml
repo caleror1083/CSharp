@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+	 C971 Mobile Application Development Using C#
+     Robert Calero
+     Student ID# 000998416
+-->
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="WGU_C971.AddAssessment">
+    <ContentPage.Content>
+        <StackLayout>
+			<TableView Margin="10, 30, 10, 0">
+				<TableSection>
+					<EntryCell x:Name="AssessmentName" Label="Assessment Name" />
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" Padding="13, 0">
+							<Label Text="Assessment Type:" VerticalOptions="Center" />
+							<Picker x:Name="AssessmentType" Title="Choose Type">
+								<Picker.Items>
+									<x:String>Objective</x:String>
+									<x:String>Performance</x:String>
+								</Picker.Items>
+							</Picker>
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" Padding="13, 0">
+							<Label Text="Start Date:" VerticalOptions="Center" />
+							<DatePicker x:Name="StartDate" />
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" Padding="13, 0">
+							<Label Text="End Date:" VerticalOptions="Center" />
+							<DatePicker x:Name="EndDate" />
+						</StackLayout>
+					</ViewCell>
+				</TableSection>
+			</TableView>
+			<Button Text="Save Assessment" Clicked="SaveAssessmentBtn" />
+		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+	 C971 Mobile Application Development Using C#
+     Robert Calero
+     Student ID# 000998416
+-->
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="WGU_C971.CoursePage">
+    <ContentPage.Content>
+        <StackLayout>
+			<TableView Margin="10, 30, 10, 0">
+				<TableSection x:Name="CourseTable">
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="13, 0">
+							<Label Text="Course Status:" />
+							<Label x:Name="CourseStatus" />
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="13, 0">
+							<Label Text="Start Date:" />
+							<Label x:Name="StartDate" />
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="13, 0">
+							<Label Text="End Date:" />
+							<Label x:Name="EndDate" />
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="13, 0">
+							<Label Text="Instructor Name:" />
+							<Label x:Name="InstructorName" />
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="13, 0">
+							<Label Text="Instructor Email:" />
+							<Label x:Name="InstructorEmail" />
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="13, 0">
+							<Label Text="Instructor Phone:" />
+							<Label x:Name="InstructorPhone" />
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="13, 0">
+							<Label Text="Notifications:" />
+							<Label x:Name="Notifications" />
+						</StackLayout>
+					</ViewCell>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="Center" Padding="13, 0">
+							<Label Text="Notes:" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+							<Label x:Name="Notes" HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+							<Button x:Name="ShareBtn" Text="Share" BackgroundColor="Transparent" TextColor="Blue" FontSize="Micro" HorizontalOptions="End" HeightRequest="50" WidthRequest="60" Clicked="ShareBtn_Clicked" />
+						</StackLayout>
+					</ViewCell>
+				</TableSection>
+			</TableView>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+				<Button Text="Edit Course" Clicked="EditCourseBtn" />
+				<Button Text="Drop Course" Clicked="DeleteCourseBtn" />
+			</StackLayout>
+			<Button Text="Assessments Required" HorizontalOptions="Center" VerticalOptions="End" Clicked="AssessmentsBtn" />
+		</StackLayout>
+    </ContentPage.Content>
+</ContentPage>

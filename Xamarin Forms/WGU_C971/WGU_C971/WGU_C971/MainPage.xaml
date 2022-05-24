@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+	
+<!-- 
+	 C971 Mobile Application Development Using C#
+     Robert Calero
+     Student ID# 000998416
+-->
+	
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="WGU_C971.MainPage">
+	<ContentPage.Content>
+		<StackLayout>
+			<Label Text="Welcome WGU Student" FontAttributes="Bold" FontSize="30" HorizontalOptions="Center" />
+			<ListView x:Name="TermsLV">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell IsEnabled="True">
+							<StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+								<Label Text="{Binding Title}" TextColor="Black" VerticalOptions="Center" />
+								<Label Text="{Binding StartDate, StringFormat='{}{0:MM/dd/yy}'}" VerticalOptions="Center" />
+								<Label Text="{Binding EndDate, StringFormat='{}{0:MM/dd/yy}'}" VerticalOptions="Center" />
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+				<Button Text="Add Term" Clicked="AddTermBtn_Clicked" Margin="0, 25, 0, 25" />
+			</StackLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
