@@ -1,8 +1,4 @@
-﻿/*
-    C969 Software II - Advanced C#
-    Robert Calero
-    Student ID# 000998416
-*/
+﻿//  C969 Software II - Advanced C# - Robert Calero - Student ID# 000998416
 
 using MySql.Data.MySqlClient;
 using System;
@@ -13,7 +9,7 @@ namespace SoftwareCompanySchedulingApp
 	{
 		public partial class UpdateCustomer : Form
 			{
-				public static Dictionary<string, string> custForm = new Dictionary<string, string>();
+				public static Dictionary<string, string> _CustForm = new Dictionary<string, string>();
 
 				public UpdateCustomer()
 					{
@@ -33,15 +29,15 @@ namespace SoftwareCompanySchedulingApp
 
 						if (custId != 0)
 							{
-								custForm = LoginControl.CustDetails(custId);
-								NameTxt.Text = custForm["customerName"];
-								PhoneTxt.Text = custForm["phone"];
-								AddressTxt.Text = custForm["address"];
-								CityTxt.Text = custForm["city"];
-								PostalCodeTxt.Text = custForm["postalCode"];
-								CountryDD.Text = custForm["country"];
+								_CustForm = LoginControl.CustDetails(custId);
+								NameTxt.Text = _CustForm["customerName"];
+								PhoneTxt.Text = _CustForm["phone"];
+								AddressTxt.Text = _CustForm["address"];
+								CityTxt.Text = _CustForm["city"];
+								PostalCodeTxt.Text = _CustForm["postalCode"];
+								CountryDD.Text = _CustForm["country"];
 
-								if (custForm["active"] == "True")
+								if (_CustForm["active"] == "True")
 									{
 										YesRadio.Checked = true;
 									}
@@ -80,7 +76,7 @@ namespace SoftwareCompanySchedulingApp
 								update.Add("country", CountryDD.Text);
 								update.Add("active", YesRadio.Checked ? "1" : "0");
 
-								if (updateCustomer(update))
+								if (UpdateCustomerInfo(update))
 									{
 										MessageBox.Show("Customer information has been updated");
 										this.Close();
@@ -92,28 +88,28 @@ namespace SoftwareCompanySchedulingApp
 							}
 					}
 
-				public bool updateCustomer(Dictionary<string, string> updateCust)
+				public bool UpdateCustomerInfo(Dictionary<string, string> updateCust)
 					{
 						MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
 						// Edit Customer Table
-						string edit = $"UPDATE customer SET customerName = '{updateCust["customerName"]}', active = '{updateCust["active"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE customerName = '{custForm["customerName"]}'";
+						string edit = $"UPDATE customer SET customerName = '{updateCust["customerName"]}', active = '{updateCust["active"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE customerName = '{_CustForm["customerName"]}'";
 						MySqlCommand myCommand = new MySqlCommand(edit, myConnection);
 						int editCust = myCommand.ExecuteNonQuery();
 
 						// Edit Address Table
-						edit = $"UPDATE address SET address = '{updateCust["address"]}', postalCode = '{updateCust["postalCode"]}', phone = '{updateCust["phone"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE address = '{custForm["address"]}'";
+						edit = $"UPDATE address SET address = '{updateCust["address"]}', postalCode = '{updateCust["postalCode"]}', phone = '{updateCust["phone"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE address = '{_CustForm["address"]}'";
 						myCommand = new MySqlCommand(edit, myConnection);
 						int editAddress = myCommand.ExecuteNonQuery();
 
 						// Edit City Table
-						edit = $"UPDATE city SET city = '{updateCust["city"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE city = '{custForm["city"]}'";
+						edit = $"UPDATE city SET city = '{updateCust["city"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE city = '{_CustForm["city"]}'";
 						myCommand = new MySqlCommand(edit, myConnection);
 						int editCity = myCommand.ExecuteNonQuery();
 
 						// Edit Country Table
-						edit = $"UPDATE country SET country = '{updateCust["country"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE country = '{custForm["country"]}'";
+						edit = $"UPDATE country SET country = '{updateCust["country"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE country = '{_CustForm["country"]}'";
 						myCommand = new MySqlCommand(edit, myConnection);
 						int editCountry = myCommand.ExecuteNonQuery();
 						myConnection.Close();
