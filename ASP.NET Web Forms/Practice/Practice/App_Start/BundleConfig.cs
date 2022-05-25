@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Optimization;
 using System.Web.UI;
 
-namespace Practice
+namespace _003_Collections_Dictionary
 {
 	public class BundleConfig
 	{

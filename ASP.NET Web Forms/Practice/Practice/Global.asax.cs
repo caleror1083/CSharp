@@ -7,7 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 
-namespace Practice
+namespace _003_Collections_Dictionary
 {
 	public class Global : HttpApplication
 	{

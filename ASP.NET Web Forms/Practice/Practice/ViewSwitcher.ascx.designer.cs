@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Practice {
+namespace _003_Collections_Dictionary {
     
     
     public partial class ViewSwitcher {

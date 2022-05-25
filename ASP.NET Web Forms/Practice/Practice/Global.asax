@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Practice.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="_003_Collections_Dictionary.Global" Language="C#" %>
