@@ -9,15 +9,16 @@ namespace _039_Collections_List_ComplexTypes
 			{
 				public void ProcessExamples()
 					{
-						bool check;
+						int choice;
 						string decision;
 
-						Start:
-							Console.Write("Please select an example from 1-28: ");
-							check = int.TryParse(Console.ReadLine(), out int choice);
-
-							if (check)
+					do
+						{
+							do
 								{
+									Console.Write("Please select an example from 1-29: ");
+									choice = int.Parse(Console.ReadLine());
+
 									switch (choice)
 										{
 											case 1:
@@ -104,34 +105,37 @@ namespace _039_Collections_List_ComplexTypes
 											case 28:
 												Example28();
 												break;
+											case 29:
+												Example29();
+												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
-												goto Start;
+												break;
 										}
 								}
-							else
+							while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7 && choice != 8 && choice != 9 && choice != 10 && choice != 11 && choice != 12 && choice != 13 && choice != 14 && choice != 15 && choice != 16 && choice != 17 && choice != 18 && choice != 19 && choice != 20 && choice != 21 && choice != 22 && choice != 23 && choice != 24 && choice != 25 && choice != 26 && choice != 27 && choice != 28 && choice != 29);
+
+							do
 								{
-									Console.WriteLine($"Selection chosen is incorrect");
-									goto Start;
+									Console.Write("Do you want to do another example? - Yes or No: ");
+									decision = Console.ReadLine().ToUpper();
+									Console.WriteLine();
+
+									switch (decision.ToUpper())
+										{
+											case "YES":
+												break;
+											case "NO":
+												break;
+											default:
+												Console.WriteLine("Your decision is invalid. Try again");
+												break;
+										}
 								}
-
-						Decide:
-							Console.Write("Do you want to do another example? - Yes or No: ");
-							decision = Console.ReadLine();
-							Console.WriteLine();
-
-							switch (decision.ToUpper())
-								{
-									case "YES":
-										goto Start;
-									case "NO":
-										break;
-									default:
-										Console.WriteLine("Your decision is invalid. Try again");
-										goto Decide;
-								}
-					}	
-
+							while (decision != "YES" && decision != "NO");
+					}
+				while (decision != "NO");
+			}
 				static void Example1()
 					{
 						List<Customer> customers = new List<Customer>
@@ -626,6 +630,36 @@ namespace _039_Collections_List_ComplexTypes
 						Console.WriteLine($"Capacity before trimming = {customers.Capacity}");
 						customers.TrimExcess();
 						Console.WriteLine($"Capacity after trimming = {customers.Capacity}");  // Returns the number of elements in the list
+					}
+
+				static void Example29()
+					{
+						// Object instances from Country class
+						Country country1 = new Country() { Code = "AUS", Name = "Australia", Capital = "Canberra" };
+						Country country2 = new Country() { Code = "IND", Name = "India", Capital = "New Delhi" };
+						Country country3 = new Country() { Code = "USA", Name = "United States", Capital = "Washington D.C." };
+						Country country4 = new Country() { Code = "GBR", Name = "United Kingdom", Capital = "London" };
+						Country country5 = new Country() { Code = "CAN", Name = "Canada", Capital = "Ottawa" };
+
+						// Variable initializations
+						List<Country> countries = new List<Country> { country1, country2, country3, country4, country5 };
+
+
+								Console.Write("Please enter country code: ");  // Prompt user to enter country code
+								string countryCode = Console.ReadLine().ToUpper(); // Read the response from the user and converts the response to uppercase
+
+								// Find the country object in the list from the country code that the user entered
+								Country countryCodeResult = countries.Find(country => country.Code == countryCode);
+
+								// The country code that the user entered did not match what is in the list and alerts the user
+								if (countryCodeResult == null)
+									{
+										Console.WriteLine("Country code not valid");
+									}
+								else  // The country code was found and prints country name and capital
+									{
+										Console.WriteLine($"Capital = {countryCodeResult.Capital}\nName = {countryCodeResult.Name}");
+									}
 					}
 			}
 	}
