@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace _039_Collections_List_ComplexTypes
@@ -12,7 +13,7 @@ namespace _039_Collections_List_ComplexTypes
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-25: ");
+							Console.Write("Please select an example from 1-28: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -93,6 +94,15 @@ namespace _039_Collections_List_ComplexTypes
 												break;
 											case 25:
 												Example25();
+												break;
+											case 26:
+												Example26();
+												break;
+											case 27:
+												Example27();
+												break;
+											case 28:
+												Example28();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -575,6 +585,47 @@ namespace _039_Collections_List_ComplexTypes
 							{
 								Console.WriteLine($"ID = {customer.ID}, Name = {customer.Name}, Salary = {customer.Salary}, Type = {customer.Type}");
 							}
+					}
+
+				static void Example26()
+					{
+						// Object instances from Customer class
+						Customer customer1 = new Customer() { ID = 181, Name = "Mark", Salary = 4000, Type = "Retail" };
+						Customer customer2 = new Customer() { ID = 152, Name = "Pam", Salary = 7000, Type = "Retail" };
+						Customer customer3 = new Customer() { ID = 193, Name = "Rob", Salary = 5500, Type = "Retail" };
+
+						List<Customer> customers = new List<Customer> { customer1, customer2, customer3 };
+
+						// Check to see if all the customer objects within the list have a salary of 5000
+						Console.WriteLine($"Are all salaries greater than 5000? {customers.TrueForAll(x => x.Salary > 5000)}");  // Predicate such that Predicate.Condition
+					}
+
+				static void Example27()
+					{
+						// Object instances from Customer class
+						Customer customer1 = new Customer() { ID = 181, Name = "Mark", Salary = 4000, Type = "Retail" };
+						Customer customer2 = new Customer() { ID = 152, Name = "Pam", Salary = 7000, Type = "Retail" };
+						Customer customer3 = new Customer() { ID = 193, Name = "Rob", Salary = 5500, Type = "Retail" };
+
+						List<Customer> customers = new List<Customer> { customer1, customer2, customer3 };
+
+						ReadOnlyCollection<Customer> readOnlyCust = customers.AsReadOnly();  // User is unable to add or remove objects from the class
+						Console.WriteLine($"Items = {readOnlyCust.Count}");  // Retrieves the total count of items within the list
+					}
+
+				static void Example28()
+					{
+						// Object instances from Customer class
+						Customer customer1 = new Customer() { ID = 181, Name = "Mark", Salary = 4000, Type = "Retail" };
+						Customer customer2 = new Customer() { ID = 152, Name = "Pam", Salary = 7000, Type = "Retail" };
+						Customer customer3 = new Customer() { ID = 193, Name = "Rob", Salary = 5500, Type = "Retail" };
+
+						// Specifies a list with an initial capcity of 100 elements
+						List<Customer> customers = new List<Customer>(100) { customer1, customer2, customer3 };
+
+						Console.WriteLine($"Capacity before trimming = {customers.Capacity}");
+						customers.TrimExcess();
+						Console.WriteLine($"Capacity after trimming = {customers.Capacity}");  // Returns the number of elements in the list
 					}
 			}
 	}
