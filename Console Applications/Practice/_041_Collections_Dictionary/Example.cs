@@ -12,7 +12,7 @@ namespace _041_Collections_Dictionary
 							string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-7: ");
+							Console.Write("Please select an example from 1-8: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -36,6 +36,9 @@ namespace _041_Collections_Dictionary
 												break;
 											case 7:
 												Example7();
+												break;
+											case 8:
+												Example8();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -249,6 +252,46 @@ namespace _041_Collections_Dictionary
 							{
 								Console.WriteLine($"Key = {kvp.Key}");
 								Console.WriteLine($"ID = {kvp.Value.ID}, Name = {kvp.Value.Name}, Salary = {kvp.Value.Salary}");
+							}
+					}
+
+				static void Example8()
+					{
+						// Object instances from Country class
+						Country country1 = new Country() { Code = "AUS", Name = "Australia", Capital = "Canberra" };
+						Country country2 = new Country() { Code = "IND", Name = "India", Capital = "New Delhi" };
+						Country country3 = new Country() { Code = "USA", Name = "United States", Capital = "Washington D.C." };
+						Country country4 = new Country() { Code = "GBR", Name = "United Kingdom", Capital = "London" };
+						Country country5 = new Country() { Code = "CAN", Name = "Canada", Capital = "Ottawa" };
+
+						// Variable initializations
+						Dictionary<string, Country> countries = new Dictionary<string, Country>
+							{
+								{country1.Code, country1},
+								{country2.Code, country2},
+								{country3.Code, country3},
+								{country4.Code, country4},
+								{country5.Code, country5}
+							};
+
+						// Input process and output
+						Console.Write("Please enter country code: ");  // Prompt user to enter country code
+						string countryCode = Console.ReadLine().ToUpper(); // Read the response from the user and converts the response to uppercase
+
+						// Find the country object in the dictionary from the country code that the user entered
+						// Check to see if the key exists within the dictionary before looking up a key
+						// If the key is present, lookup the keys value within the dictionary
+						// If the key is not present within the dictionary, result of country will be null
+					    Country countryCodeResult = countries.ContainsKey(countryCode) ? countries[countryCode] : null;
+
+						// The country code that the user entered did not match what is in the dictionary and alerts the user
+						if (countryCodeResult == null)
+							{
+								Console.WriteLine("Country code not valid");
+							}
+						else  // The country code was found and prints country name and capital
+							{
+								Console.WriteLine($"Capital = {countryCodeResult.Capital}\nName = {countryCodeResult.Name}");
 							}
 					}
 			}
