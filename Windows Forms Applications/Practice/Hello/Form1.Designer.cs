@@ -45,7 +45,7 @@
             this._Solve.TabIndex = 6;
             this._Solve.Text = "Solve!";
             this._Solve.UseVisualStyleBackColor = false;
-            this._Solve.Click += new System.EventHandler(this.btnSolve_Click);
+            this._Solve.Click += new System.EventHandler(this.Solve_Click);
             // 
             // txtNum1
             // 
