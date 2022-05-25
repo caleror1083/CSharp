@@ -15,7 +15,7 @@ namespace Hello
 
                 private void Solve_Click(object sender, EventArgs e)
                     {
-                        _Answer.Text = Convert.ToString(Convert.ToInt32(_Number1.Text) + Convert.ToInt32(_Number2.Text));
+                        _Answer.Text = Convert.ToString(int.Parse(_Number1.Text) + int.Parse(_Number2.Text));
                     }
             }
     }
