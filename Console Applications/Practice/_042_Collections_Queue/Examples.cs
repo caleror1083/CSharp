@@ -67,10 +67,10 @@ namespace _042_Collections_Queue
 						// Variable initializations
 						Queue<Customer> customers = new Queue<Customer>();  // Creating an instance of a queue class that represents a FIFO collection of customer objects
 						customers.Enqueue(customer1);  // Adding customer objects to the end of the queue
-						customers.Enqueue(customer2);
+						customers.Enqueue(customer2);  // customer2 object gets placed behind customer1 object in the queue
 						customers.Enqueue(customer3);
 						customers.Enqueue(customer4);
-						customers.Enqueue(customer5);
+						customers.Enqueue(customer5); // customer5 currently in the back of the queue
 
 						// Input process and output
 						Customer cust1 = customers.Dequeue();  // Removing the customer object and returning them to the beginning of the queue
