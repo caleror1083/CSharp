@@ -11,7 +11,7 @@ namespace _042_Collections_Queue
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1: ");
+							Console.Write("Please select an example from 1-3: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -20,6 +20,12 @@ namespace _042_Collections_Queue
 										{
 											case 1:
 												Example1();
+												break;
+											case 2:
+												Example2();
+												break;
+											case 3:
+												Example3();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -86,6 +92,57 @@ namespace _042_Collections_Queue
 						Customer cust5 = customers.Dequeue();
 						Console.WriteLine($"{cust5.ID} - {cust5.Name}");
 						Console.WriteLine($"Total items in the queue = {customers.Count}");
+					}
+
+				static void Example2()
+					{
+						// Object instances from Customer class
+						Customer customer1 = new Customer() { ID = 101, Name = "Mark", Gender = "Male" };
+						Customer customer2 = new Customer() { ID = 102, Name = "Pam", Gender = "Female" };
+						Customer customer3 = new Customer() { ID = 103, Name = "John", Gender = "Male" };
+						Customer customer4 = new Customer() { ID = 104, Name = "Ken", Gender = "Male" };
+						Customer customer5 = new Customer() { ID = 105, Name = "Valerie", Gender = "Female" };
+
+						// Variable initializations
+						Queue<Customer> customers = new Queue<Customer>();  // Creating an instance of a queue class that represents a FIFO collection of customer objects
+						customers.Enqueue(customer1);  // Adding customer objects to the end of the queue
+						customers.Enqueue(customer2);
+						customers.Enqueue(customer3);
+						customers.Enqueue(customer4);
+						customers.Enqueue(customer5);
+
+						// Input process and output
+						Customer cust1 = customers.Peek(); // Returns the object at the beginning of the queue without removing it
+						Console.WriteLine($"{cust1.ID} - {cust1.Name}");
+						Console.WriteLine($"Total items in the queue = {customers.Count}");  // Returning the number of objects remaining in the queue
+					}
+
+				static void Example3()
+					{
+						// Object instances from Customer class
+						Customer customer1 = new Customer() { ID = 101, Name = "Mark", Gender = "Male" };
+						Customer customer2 = new Customer() { ID = 102, Name = "Pam", Gender = "Female" };
+						Customer customer3 = new Customer() { ID = 103, Name = "John", Gender = "Male" };
+						Customer customer4 = new Customer() { ID = 104, Name = "Ken", Gender = "Male" };
+						Customer customer5 = new Customer() { ID = 105, Name = "Valerie", Gender = "Female" };
+
+						// Variable initializations
+						Queue<Customer> customers = new Queue<Customer>();  // Creating an instance of a queue class that represents a FIFO collection of customer objects
+						customers.Enqueue(customer1);  // Adding customer objects to the end of the queue
+						customers.Enqueue(customer2);
+						customers.Enqueue(customer3);
+						customers.Enqueue(customer4);
+						customers.Enqueue(customer5);
+
+						// Input process and output
+						if (customers.Contains(customer1))
+							{
+								Console.WriteLine("Customer1 exists");
+							}
+						else
+							{
+								Console.WriteLine("Customer1 does not exist");
+							}
 					}
 			}
 	}
