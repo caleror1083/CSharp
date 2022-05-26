@@ -6,12 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace _004_Collections_Queue
-{
-	public partial class WebForm : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
-
-		}
+		public partial class WebForm : Page
+			{
+				protected void Page_Load(object sender, EventArgs e)
+					{
+						
+					}
+			}
 	}
-}
