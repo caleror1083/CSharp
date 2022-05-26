@@ -21,7 +21,7 @@
                         <td><asp:TextBox ID="TxtCapital" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label></td>
+                        <td colspan="2"><asp:Label ID="LblMessage" runat="server" ForeColor="Red"></asp:Label></td>
                     </tr>
                 </table>
             </div>
