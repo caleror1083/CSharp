@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _042_Collections_Queue
 	{
@@ -62,17 +59,17 @@ namespace _042_Collections_Queue
 						Customer customer5 = new Customer() { ID = 105, Name = "Valerie", Gender = "Female" };
 
 						// Variable initializations
-						Queue<Customer> customers = new Queue<Customer>();
-						customers.Enqueue(customer1);
+						Queue<Customer> customers = new Queue<Customer>();  // Creating an instance of a queue class that represents a FIFO collection of customer objects
+						customers.Enqueue(customer1);  // Adding customer objects to the end of the queue
 						customers.Enqueue(customer2);
 						customers.Enqueue(customer3);
 						customers.Enqueue(customer4);
 						customers.Enqueue(customer5);
 
 						// Input process and output
-						Customer cust1 = customers.Dequeue();
+						Customer cust1 = customers.Dequeue();  // Removing the customer object and returning them to the beginning of the queue
 						Console.WriteLine($"{cust1.ID} - {cust1.Name}");
-						Console.WriteLine($"Total items in the queue = {customers.Count}");
+						Console.WriteLine($"Total items in the queue = {customers.Count}");  // Returning the number of objects remaining in the queue
 
 						Customer cust2 = customers.Dequeue();
 						Console.WriteLine($"{cust2.ID} - {cust2.Name}");
