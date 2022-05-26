@@ -111,6 +111,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_040_Collections_List_Simpl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_039_Collections_List_ComplexTypes", "_039_Collections_List_ComplexTypes\_039_Collections_List_ComplexTypes.csproj", "{635760A1-13DF-435B-B093-89A7A39D332F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_042_Collections_Queue", "_042_Collections_Queue\_042_Collections_Queue.csproj", "{44D06D1C-05EB-463B-80D9-EE7E7B9B7CCC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -333,6 +335,10 @@ Global
 		{635760A1-13DF-435B-B093-89A7A39D332F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{635760A1-13DF-435B-B093-89A7A39D332F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{635760A1-13DF-435B-B093-89A7A39D332F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44D06D1C-05EB-463B-80D9-EE7E7B9B7CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44D06D1C-05EB-463B-80D9-EE7E7B9B7CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44D06D1C-05EB-463B-80D9-EE7E7B9B7CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44D06D1C-05EB-463B-80D9-EE7E7B9B7CCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
