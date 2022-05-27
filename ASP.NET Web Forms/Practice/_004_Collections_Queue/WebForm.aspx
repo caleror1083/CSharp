@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <td colspan="5">
-                        <asp:Button ID="PrintTokenButton" runat="server" Text="Print Token" /></td>
+                        <asp:Button ID="PrintTokenButton" runat="server" Text="Print Token" OnClick="PrintTokenButton_Click" /></td>
                 </tr>
                 <tr>
                     <td colspan="5">
