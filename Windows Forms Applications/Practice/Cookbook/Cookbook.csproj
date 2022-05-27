@@ -62,6 +62,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CookbookDataSet.cs">
+      <DependentUpon>CookbookDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CookbookDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

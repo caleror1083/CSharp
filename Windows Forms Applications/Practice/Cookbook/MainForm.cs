@@ -17,6 +17,9 @@ namespace Cookbook
 					{
 						InitializeComponent();
 
+						// SQL Server: ROB-DESKTOP\SQLEXPRESS
+						// Database: Cookbook
+						// Table: Recipe
 						// When the form is created, initialize the connectionString to the database
 						connectionString = ConfigurationManager.ConnectionStrings["Cookbook.Properties.Settings.CookbookConnectionString"].ConnectionString;
 					}
@@ -42,6 +45,11 @@ namespace Cookbook
 							}
 					}
 
+				private void LstRecipes_SelectedIndexChanged(object sender, EventArgs e)
+					{
+						PopulateIngredients();
+					}
+
 				public void PopulateIngredients()
 					{
 						string ingredientQuery = "SELECT a.Name " + 
@@ -61,11 +69,6 @@ namespace Cookbook
 								lstIngredients.ValueMember = "Id";    // reference the value by the ID column
 								lstIngredients.DataSource = ingredientTable;    // hook up listbox recipes to recipe DataTable
 							}
-					}
-
-				private void LstRecipes_SelectedIndexChanged(object sender, EventArgs e)
-					{
-						PopulateIngredients();
 					}
 			}
 	}
