@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SunshineDMV")]
+[assembly: AssemblyTitle("_004_Collections_Queue")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SunshineDMV")]
+[assembly: AssemblyProduct("_004_Collections_Queue")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e6c85c41-c5f5-4bfa-ad01-aadc196cad9e")]
+[assembly: Guid("a28f0f55-5e8f-4bc0-9718-20fe60364213")]
 
 // Version information for an assembly consists of the following four values:
 //
