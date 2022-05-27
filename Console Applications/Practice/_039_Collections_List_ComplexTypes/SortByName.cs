@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace _039_Collections_List_ComplexTypes
-	{
-		internal class SortByName : IComparer<Customer>
+{
+	internal class SortByName : IComparer<Customer>
 			{
 				public int Compare(Customer customer1, Customer customer2)
 					{

@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _051_Databases
-	{
-		internal class Examples
+{
+	internal class Examples
 			{
 				public void ProcessExamples()
 					{

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 // We cover public, private, protected, constants,
 // read-only fields, constructors, setters, getters, 
 // properties and more on static
 
-    class Animal2
+class Animal2
     {
         // Define fields that are protected with private
         // Private fields can only be accessed by
