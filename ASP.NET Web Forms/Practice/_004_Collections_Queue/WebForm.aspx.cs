@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -19,6 +17,38 @@ namespace _004_Collections_Queue
 							}
 					}
 
+				private void ServeNextCustomer(TextBox box, int counterNumber)
+					{
+						Queue<int> tokenQueue = (Queue<int>)Session["TokenQueue"];  // whatever is being retrieved from the session variable needs to be typecasted
+
+						if (tokenQueue.Count == 0)
+							{
+								box.Text = $"No customers";
+							}
+						else
+							{
+								int tokenNumberToBeServed = tokenQueue.Dequeue();
+								box.Text = tokenNumberToBeServed.ToString();
+								DisplayTextbox.Text = $"Token number: {tokenNumberToBeServed} please go to counter {counterNumber}";
+								AddTokensToListbox(tokenQueue);
+							}
+					}
+
+				protected void Counter1Button_Click(object sender, EventArgs e)
+					{
+						ServeNextCustomer(Counter1Textbox, 1);
+					}
+
+				protected void Counter2Button_Click(object sender, EventArgs e)
+					{
+						ServeNextCustomer(Counter2Textbox, 2);
+					}
+
+				protected void Counter3Button_Click(object sender, EventArgs e)
+					{
+						ServeNextCustomer(Counter3Textbox, 3);
+					}
+
 				protected void PrintTokenButton_Click(object sender, EventArgs e)
 					{
 						// Retrieve the tokenQueue from the Session variable
@@ -31,6 +61,7 @@ namespace _004_Collections_Queue
 							{
 								Session["LastTokenNumberIssued"] = 0;
 							}
+
 						int nextTokenNumberToBeIssued = (int)Session["LastTokenNumberIssued"] + 1;
 						Session["LastTokenNumberIssued"] = nextTokenNumberToBeIssued;
 						tokenQueue.Enqueue(nextTokenNumberToBeIssued);
