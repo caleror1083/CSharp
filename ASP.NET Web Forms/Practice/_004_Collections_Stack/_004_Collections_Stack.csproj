@@ -71,6 +71,9 @@
     <Content Include="WebForm.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebForm.aspx.cs">
       <DependentUpon>WebForm.aspx</DependentUpon>
