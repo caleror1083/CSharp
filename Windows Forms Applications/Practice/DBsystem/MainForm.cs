@@ -1,21 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
 namespace DBsystem
 {
-	public partial class Form1 : Form
+	public partial class MainForm : Form
 	{
 		SqlConnection ConnectionToDB = new SqlConnection(@"Data Source=THEGAME1083;Initial Catalog=Practice;Integrated Security=True");
 
-		public Form1()
+		public MainForm()
 		{
 		InitializeComponent();
 		}
