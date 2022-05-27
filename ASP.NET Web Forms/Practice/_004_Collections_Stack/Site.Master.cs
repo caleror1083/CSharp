@@ -6,11 +6,6 @@ namespace _004_Collections_Stack
 	{
 		public partial class Site : MasterPage
 			{
-				protected void Page_Load(object sender, EventArgs e)
-					{
-
-					}
-
 				protected void BackButton_Click(object sender, EventArgs e)
 					{
 						Session["BackButtonClicked"] = "YES";
