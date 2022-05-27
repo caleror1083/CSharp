@@ -5,8 +5,6 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_003_Collections_Dictionary", "_003_Collections_Dictionary\_003_Collections_Dictionary.csproj", "{C2FF8423-6F52-4E55-BF07-6C1C8B7D7C37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunshineDMV", "_004_Collections_Queue\SunshineDMV.csproj", "{A28F0F55-5E8F-4BC0-9718-20FE60364213}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{C2FF8423-6F52-4E55-BF07-6C1C8B7D7C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2FF8423-6F52-4E55-BF07-6C1C8B7D7C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2FF8423-6F52-4E55-BF07-6C1C8B7D7C37}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A28F0F55-5E8F-4BC0-9718-20FE60364213}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A28F0F55-5E8F-4BC0-9718-20FE60364213}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A28F0F55-5E8F-4BC0-9718-20FE60364213}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A28F0F55-5E8F-4BC0-9718-20FE60364213}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
