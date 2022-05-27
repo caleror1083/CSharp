@@ -32,16 +32,13 @@
                     <td colspan="5"><asp:TextBox ID="DisplayTextbox" runat="server" BackColor="#009900" Font-Size="Large" ForeColor="White" Width="500px"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td colspan="5">
-                        <asp:ListBox ID="TokensList" runat="server" Font-Size="Large"></asp:ListBox></td>
+                    <td colspan="5"><asp:ListBox ID="TokensList" runat="server" Font-Size="Large"></asp:ListBox></td>
                 </tr>
                 <tr>
-                    <td colspan="5">
-                        <asp:Button ID="PrintTokenButton" runat="server" Text="Print Token" OnClick="PrintTokenButton_Click" /></td>
+                    <td colspan="5"><asp:Button ID="PrintTokenButton" runat="server" Text="Print Token" OnClick="PrintTokenButton_Click" /></td>
                 </tr>
                 <tr>
-                    <td colspan="5">
-                        <asp:Label ID="StatusLabel" runat="server" Font-Size="Large"></asp:Label></td>
+                    <td colspan="5"><asp:Label ID="StatusLabel" runat="server" Font-Size="Large"></asp:Label></td>
                 </tr>
             </table>
         </form>
