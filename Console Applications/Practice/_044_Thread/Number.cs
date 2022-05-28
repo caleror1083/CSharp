@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace _044_Thread
 	{
@@ -6,11 +7,22 @@ namespace _044_Thread
 			{
 				// Fields
 				private readonly int _Target; // Data that the thread method requires
+				private readonly SumofNumbers _CallbackMethod;
+				public int _Total = 0;
+				public object _Lock = new object();
 
 				// Constructors
+				public Number() {}
+
 				public Number(int target)
 					{
 						_Target = target;
+					}
+
+				public Number(int target, SumofNumbers callbackMethod)
+					{
+						_Target = target;
+						_CallbackMethod = callbackMethod;
 					}
 
 				public static void PrintNumbers()
@@ -37,6 +49,44 @@ namespace _044_Thread
 						for (int i = 1; i <= _Target; i++)
 							{
 								Console.WriteLine(i);
+							}
+					}
+
+				public void PrintComputeTargetNumber()  // Method will print and compute sum of numbers entered by the user
+					{
+						int sumNumbers = 0;
+
+						for (int i = 1; i <= _Target; i++)
+							{
+								sumNumbers += i;
+							}
+						_CallbackMethod?.Invoke(sumNumbers); // check if callback method is not null then call the delegate
+					}
+
+				public void AddOneMillionSingle()
+					{
+						for (int i = 1; i <= 1000000; i++)
+							{
+								_Total++;
+							}
+					}
+
+				public void AddOneMillionMulti()
+					{
+						for (int i = 1; i <= 1000000; i++)
+							{
+								Interlocked.Increment(ref _Total);
+							}
+					}
+
+				public void AddOneMillionLock()
+					{
+						for (int i = 1; i <= 1000000; i++)
+							{
+								lock (_Lock)
+									{
+										_Total++;
+									}
 							}
 					}
 			}
