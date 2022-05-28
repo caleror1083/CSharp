@@ -11,7 +11,7 @@ namespace _044_Thread
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1: ");
+							Console.Write("Please select an example from 1-2: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -20,6 +20,9 @@ namespace _044_Thread
 										{
 											case 1:
 												Example1();
+												break;
+											case 2:
+												Example2();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -51,10 +54,17 @@ namespace _044_Thread
 
 				static void Example1()
 					{
-						// Creating an instance of the thread class and ti it's constructor, passing
-						// the name of the PrintNumbers method that we want the thread to execute
-						Thread thread1 = new Thread(() => Number.PrintNumbers());
+						Thread thread1 = new Thread(Number.PrintNumbers);  // Utilizing the ThreadStart delegate, passing the name of the PrintNumbers method that we want the thread to execute
 						thread1.Start();  // When this line execute, the program will run PrintNumbers()
+					}
+
+				static void Example2()
+					{
+						Console.WriteLine($"Please enter the target number");
+						object target = Console.ReadLine();
+
+						Thread thread1 = new Thread(Number.PrintTargetNumbers); // Utilizing the ParameterizedThreadStart delegate
+						thread1.Start(target);
 					}
 			}
 	}
