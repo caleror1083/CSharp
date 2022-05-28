@@ -51,8 +51,10 @@ namespace _044_Thread
 
 				static void Example1()
 					{
-						Thread thread1 = new Thread(()=> Number.PrintNumbers());
-						thread1.Start();
+						// Creating an instance of the thread class and ti it's constructor, passing
+						// the name of the PrintNumbers method that we want the thread to execute
+						Thread thread1 = new Thread(() => Number.PrintNumbers());
+						thread1.Start();  // When this line execute, the program will run PrintNumbers()
 					}
 			}
 	}
