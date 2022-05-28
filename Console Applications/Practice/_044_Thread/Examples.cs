@@ -11,7 +11,7 @@ namespace _044_Thread
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-2: ");
+							Console.Write("Please select an example from 1-3: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -23,6 +23,9 @@ namespace _044_Thread
 												break;
 											case 2:
 												Example2();
+												break;
+											case 3:
+												Example3();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -65,6 +68,16 @@ namespace _044_Thread
 
 						Thread thread1 = new Thread(Number.PrintTargetNumbers); // Utilizing the ParameterizedThreadStart delegate
 						thread1.Start(target);
+					}
+
+				static void Example3()
+					{
+						Console.WriteLine($"Please enter the target number");
+						int chosenNumberTarget = int.Parse(Console.ReadLine());
+
+						Number number = new Number(chosenNumberTarget);
+						Thread thread1 = new Thread(number.PrintTargetNumbersSafe); // Utilizing the ThreadStart delegate in a type safe manner
+						thread1.Start();
 					}
 			}
 	}
