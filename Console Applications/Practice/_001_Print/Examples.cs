@@ -10,7 +10,7 @@ namespace _001_Print
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write("Please select an example from 1-13: ");
+							Console.Write($"Please select an example from 1-14: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -60,7 +60,7 @@ namespace _001_Print
 												Example14();
 												break;
 											default:
-												Console.WriteLine("Your choice is invalid");
+												Console.WriteLine($"Your choice is invalid");
 												goto Start;
 										}
 								}
@@ -71,7 +71,7 @@ namespace _001_Print
 								}
 
 						Decide:
-							Console.Write("Do you want to do another example? - Yes or No: ");
+							Console.Write($"Do you want to do another example? - Yes or No: ");
 							string decision = Console.ReadLine();
 							Console.WriteLine();
 
@@ -82,7 +82,7 @@ namespace _001_Print
 									case "NO":
 										break;
 									default:
-										Console.WriteLine("Your decision is invalid. Try again");
+										Console.WriteLine($"Your decision is invalid. Try again");
 										goto Decide;
 								}
 					}
@@ -156,7 +156,7 @@ namespace _001_Print
 				static void Example14()
 					{
 						Console.WriteLine($"Something " +
-						                   "else");       // Display 1 line of text in multiple lines of code
+						                   $"else");       // Display 1 line of text in multiple lines of code
 					}
 			}
 	}
