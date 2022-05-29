@@ -134,4 +134,22 @@ class Print    // Class declaration - a class defines the variables and methods 
 					}
 				return maximumValue;
 			}    // end method Maximum
+
+		static void Example13()
+					{
+						Console.Write($"Enter a number: ");
+						double number = double.Parse(Console.ReadLine());
+
+						Console.WriteLine($"The ceiling value of the number entered is: {Math.Ceiling(number)}");  // Displays the ceiling value
+					}
+
+		static void Example14()
+					{
+						Console.Write($"Enter a number: ");
+						double number = double.Parse(Console.ReadLine());
+
+						Console.WriteLine(Math.Pow(3, 2));    // displays the result of 3 to the power of 2 aka 3 squared
+						Console.WriteLine(Math.Sqrt(36));    // displays the square root of a value
+						Console.WriteLine($"The ceiling value of the number entered is: {Math.Floor(number)}");  // Displays the ceiling value
+					}
 	}    // end class Print

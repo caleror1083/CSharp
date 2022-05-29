@@ -1,10 +1,15 @@
 ﻿// Robert Calero - App displaying Integral Data Types
-
-class Program    // Class declaration - a class defines the variables and methods used by objects
+// Namespaces
+namespace _003_IntegerDataType
 	{
-		static void Main()
+		// Classes
+		internal class Program
 			{
-				Example myPrint = new Example();
-				myPrint.PrintSomething();
-			}    // end main
-	}    // end class Program
+				// Methods(Parameters)
+				static void Main()
+					{
+						Examples myExamples = new Examples();
+						myExamples.ProcessExamples();
+					}
+			}
+	}

@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{86B839AD-FFEC-439D-8C73-D34D3B4634B9}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_3_IntegerDataType</RootNamespace>
-    <AssemblyName>_3_IntegerDataType</AssemblyName>
+    <RootNamespace>_003_IntegerDataType</RootNamespace>
+    <AssemblyName>_003_IntegerDataType</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Example.cs" />
+    <Compile Include="Examples.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
