@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1387B94F-38AB-4597-AB9E-316CC14A7668}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>_2_StringDataType</RootNamespace>
-    <AssemblyName>2_StringDataType</AssemblyName>
+    <RootNamespace>_002_StringDataType</RootNamespace>
+    <AssemblyName>_002_StringDataType</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

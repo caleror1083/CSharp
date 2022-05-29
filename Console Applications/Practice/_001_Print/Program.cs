@@ -1,11 +1,15 @@
 ﻿// Robert Calero - App displaying text, escape sequences and verbatim literals
+// Namespaces
 namespace _001_Print
 	{
-		internal class Program    // Class declaration - a class defines the variables and methods used by objects
-			{	
+		// Classes
+		internal class Program
+			{
+				// Methods(Parameters)
 				static void Main()
 					{
-						Examples myExamples = new Examples();
+						// Variable declarations and initializations
+						Examples myExamples = new Examples();  // Creating an instance of the Examples class
 						myExamples.ProcessExamples();
 					}
 			}

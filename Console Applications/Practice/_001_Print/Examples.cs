@@ -1,17 +1,17 @@
 ﻿using System;
 
+// Namespaces
 namespace _001_Print
 	{
-		internal class Examples    // Class declaration - a class defines the variables and methods used by objects
+		// Classes
+		internal class Examples
 			{
+				// Methods(Parameters)
 				public void ProcessExamples()
 					{
-						bool check;
-						string decision;
-
 						Start:
 							Console.Write("Please select an example from 1-13: ");
-							check = int.TryParse(Console.ReadLine(), out int choice);
+							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
 								{
@@ -72,7 +72,7 @@ namespace _001_Print
 
 						Decide:
 							Console.Write("Do you want to do another example? - Yes or No: ");
-							decision = Console.ReadLine();
+							string decision = Console.ReadLine();
 							Console.WriteLine();
 
 							switch (decision.ToUpper())
