@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 namespace _010_Arrays
 	{
 		// Classes
-		class Examples    // Class declaration - a class defines the variables and methods used by objects
+		internal class Examples    // Class declaration - a class defines the variables and methods used by objects
 			{
 				// Fields
 				private readonly int _empID;
@@ -24,7 +24,7 @@ namespace _010_Arrays
 							string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-24: ");
+							Console.Write("Please select an example from 1-27: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -109,6 +109,9 @@ namespace _010_Arrays
 											case 26:
 												Example26();
 												break;
+											case 27:
+												Example27();
+												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
 												goto Start;
@@ -137,7 +140,7 @@ namespace _010_Arrays
 									}
 					}
 
-				public void Example1()
+				static void Example1()
 					{
 						int[] intArray = new int[5];
 						Examples[] empArray = new Examples[3];
@@ -163,7 +166,7 @@ namespace _010_Arrays
 						return Convert.ToString(_empID);
 					}
 					
-				public void Example2()
+				static void Example2()
 					{
 						int[] EvenNumbers = new int[3] { 0, 2, 4 };    // declaration and instantiation of an array holding 3 integers - Arrays have fixed sizes
 						int[] OddNumbers = new int[3] { 1, 3, 5 };    // declaration, initialization and assigning an array of 3 integers with values - Create and fill array
@@ -171,14 +174,14 @@ namespace _010_Arrays
 						Console.WriteLine($"The value of the 2nd index of EvenNumbers array is {EvenNumbers[1]}");    // writes the value of an element of array
 						Console.WriteLine($"The value of the last index of OddNumbers array is {OddNumbers[2]}");					}
 
-				public void Example3()
+				static void Example3()
 					{
 						var luckyNumbers = new[] { 1, 3, 5 };    // You can use var to create arrays, but the values must be of the same type
 
 						Console.WriteLine($"Values for luckyNumbers array is: { luckyNumbers[0]}, {luckyNumbers[1]}, {luckyNumbers[2]}");    // prints the values of current index in the array
 					}
 
-				public void Example4()
+				static void Example4()
 					{
 						int[] luckyNumbers = new int[5] { 10, 20, 30, 40, 50 };
 						int indexCounter = 0;
@@ -190,7 +193,7 @@ namespace _010_Arrays
 							}
 					}
 					
-				public void Example5()
+				static void Example5()
 					{
 						int[] luckyNumbers = new int[5] { 10, 20, 30, 40, 50 };
 
@@ -201,7 +204,7 @@ namespace _010_Arrays
 						Console.WriteLine();
 					}
 
-				public void Example6()
+				static void Example6()
 					{
 						string[] peopleNames = new string[3] { "Bob", "Mary", "Lance" };
 
@@ -211,7 +214,13 @@ namespace _010_Arrays
 							}
 					}
 				
-				public void Example7()
+				static void Example7()
+					{
+						string[] names = new string[3] { "Mark", "Steve", "Adam" };
+						Console.WriteLine($"Name list: {string.Join(", ", names)}");   // concatenates all values in a string array
+					}
+
+				static void Example8()
 					{
 						int[] luckyNumbers = new int[5] { 10, 20, 30, 40, 50 };
 						int indexCounter = 0;
@@ -224,7 +233,7 @@ namespace _010_Arrays
 						while (indexCounter < luckyNumbers.Length);
 					}
 
-				public void Example8()
+				static void Example9()
 					{
 						int[] luckyNumbers = new int[5] { 10, 20, 30, 40, 50 };
 
@@ -233,7 +242,7 @@ namespace _010_Arrays
 						Console.WriteLine($"What index is the 3rd value located at in the array? Index {Array.IndexOf(luckyNumbers, 30)}");  // writes the index of the array if the value is found
 					}
 
-				public void Example9()
+				static void Example10()
 					{
 						object[] randomArray = new object[3] { "Paul", 45, 1.234 };    // Create an array of base objects which is the base type of all other types
 		
@@ -243,14 +252,14 @@ namespace _010_Arrays
 							}
 					}
 
-				public void Example10()
+				static void Example11()
 					{
 						int[] numbers = new int[4] { 1, 4, 9, 2 };
 
 						PrintArray(numbers, $"Value is");    // You can pass an array to a method that displays the value of each element in an array
 					}
 
-				public void Example11()
+				static void Example12()
 					{
 						int[] numbers = new int[4] { 9, 1, 4, 2 };
 
@@ -262,7 +271,7 @@ namespace _010_Arrays
 							}
 					}
 
-				public void Example12()
+				static void Example13()
 					{
 						int[] numbers = new int[4] { 9, 1, 4, 2 };
 
@@ -275,7 +284,7 @@ namespace _010_Arrays
 						Console.WriteLine($"\nAfter reversing the array value 1 is at index {Array.IndexOf(numbers, 1)}");    // Get index of match or return -1
 					}
 
-				public void Example13()
+				static void Example14()
 					{
 						int[] numbers = new int[4] { 9, 1, 4, 2 };
 
@@ -288,7 +297,7 @@ namespace _010_Arrays
 						Console.WriteLine();
 					}
 
-				public void Example14()
+				static void Example15()
 					{
 						// Copy part of an array to another
 						int[] startingArray = new int[3] { 10, 20, 30 };
@@ -309,7 +318,7 @@ namespace _010_Arrays
 							}
 					}
 
-				public void Example15()
+				static void Example16()
 					{
 						int[] numbers = new int[3] { 10, 20, 30 };
 						Array blankArray = Array.CreateInstance(typeof(int), 10);    // Create an array with CreateInstance, int array with 10 elements
@@ -323,18 +332,18 @@ namespace _010_Arrays
 						Console.WriteLine();
 					}
 
-				public void Example16()
+				static void Example17()
 					{
 						int[] numbers = new int[3] { 1, 11, 22 };    // Search for an element that matches the conditions defined by the specified predicate
 						Console.WriteLine($"Values greater than 10 in the array are: {Array.Find(numbers, ValuesGreaterThan10)}");    // FindAll returns an array with all values that match - FindIndex returns the index of the match
 					}
 
-				private static bool ValuesGreaterThan10(int values)
+				static bool ValuesGreaterThan10(int values)
 					{
 						return values > 10;
 					}
 					
-				public void Example17()    // Insertion sort
+				static void Example18()    // Insertion sort
 					{
 						int[] numbers = new int[5] { 12, 11, 13, 5, 6 };
 
@@ -366,7 +375,7 @@ namespace _010_Arrays
 						Console.WriteLine();
 					}
 
-				public void Example18()    // Selection sort
+				static void Example19()    // Selection sort
 					{
 						int[] numbers = new int[5] { 120, 110, 130, 50, 60 };
 
@@ -399,7 +408,7 @@ namespace _010_Arrays
 						Console.WriteLine();
 					}
 
-				public void Example19()    // bubble sort
+				static void Example20()    // bubble sort
 					{
 						int[] numbers = new int[5] { 125, 115, 135, 500, 400 };
 						
@@ -430,7 +439,7 @@ namespace _010_Arrays
 						Console.WriteLine();
 					}
  
-				public void Example20()
+				static void Example21()
 					{
 						Customer[] myCustomers = new Customer[3];
 
@@ -444,7 +453,7 @@ namespace _010_Arrays
 							}
 					}
 
-				public static string GetGender(int checkGender)
+				static string GetGender(int checkGender)
 					{
 						switch (checkGender)
 							{
@@ -459,7 +468,7 @@ namespace _010_Arrays
 							}
 					}
 					
-				public static void Example21()
+				static void Example22()
 					{
 						ParamsMethod(1, 2, 3, 4, 5, 6);  // invoking a static method with a parameter array
 					}
@@ -474,7 +483,7 @@ namespace _010_Arrays
 						Console.WriteLine($"There are {numbersArray.Length} elements in this array");
 					}
 
-				public static void Example22()
+				static void Example23()
 					{
 						double total = CheckOut(3.99, 5.75, 15);
 						Console.WriteLine($"The total price is {total}");
@@ -491,7 +500,7 @@ namespace _010_Arrays
 						return total;
 					}
 
-				public static void Example23()
+				static void Example24()
 					{
 						Console.WriteLine($"The sum of the values in the array = {GetSum(1, 2, 3, 4)}");
 						Console.WriteLine();
@@ -507,7 +516,7 @@ namespace _010_Arrays
 						return sum;
 					}
 
-				public static void Example24()
+				static void Example25()
 					{
 						AddNumbers(10, 20);    // the params keyword makes the 3rd parameter optional
 					}
@@ -526,7 +535,7 @@ namespace _010_Arrays
 						Console.WriteLine($"The sum of all numbers is: {result}");
 					}
 
-				public static void Example25()
+				static void Example26()
 					{
 						MultiplyNumbers(10, 20);    // the params keyword makes the 3rd parameter optional
 					}
@@ -545,7 +554,7 @@ namespace _010_Arrays
 						Console.WriteLine($"The sum of all numbers is: {result}");
 					}
 
-				static void Example26()
+				static void Example27()
 					{
 						Customer customer1 = new Customer() { ID = 101, Name = "Mark", Salary = 4000 };
 						Customer customer2 = new Customer() { ID = 102, Name = "Pam", Salary = 7000 };
