@@ -11,7 +11,7 @@ namespace Cookbook
 				SqlConnection connection;    // Provides the connection to the database
 				SqlDataAdapter dataAdapter;
 				SqlCommand command;    // Another form to handle SELECT queries and support parameters
-				readonly string connectionString;
+				private readonly string connectionString;
 		
 				public MainForm()
 					{
@@ -34,7 +34,7 @@ namespace Cookbook
 						string recipeQuery = "SELECT * FROM Recipe";
 
 						//  Use a using statement with an object like SqlConnection because it implements IDisposable, it auto closes the object
-						using (connection = new SqlConnection(connectionString))    // initializes the connection
+						using (SqlConnection connection = new SqlConnection(connectionString))    // initializes the connection
 						using (dataAdapter = new SqlDataAdapter(recipeQuery, connection))     // SqlDataAdapter also implements IDisposable and also opens the connection
 							{
 								DataTable recipeTable = new DataTable();    // Holds the data returned by the SQL query
@@ -52,10 +52,10 @@ namespace Cookbook
 
 				public void PopulateIngredients()
 					{
-						string ingredientQuery = "SELECT a.Name " + 
-						                         "FROM Ingredient a " +
-													"INNER JOIN RecipeIngredient b ON a.Id = b.IngredientId " +
-												 "WHERE b.RecipeId = @RecipeId";    // @RecipeId is syntax for parameter
+						string ingredientQuery = $"SELECT a.Name " + 
+						                         $"FROM Ingredient a " +
+												 $"INNER JOIN RecipeIngredient b ON a.Id = b.IngredientId " +
+												 $"WHERE b.RecipeId = @RecipeId";    // @RecipeId is syntax for parameter
 
 						//  Use a using statement with an object like SqlConnection because it implements IDisposable, it auto closes the object
 						using (connection = new SqlConnection(connectionString))    // initializes the connection
