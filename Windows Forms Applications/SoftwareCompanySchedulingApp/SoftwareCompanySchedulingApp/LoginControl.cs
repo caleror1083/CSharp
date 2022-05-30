@@ -4,10 +4,11 @@
     Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SoftwareCompanySchedulingApp
 	{
@@ -68,11 +69,11 @@ namespace SoftwareCompanySchedulingApp
 
                 public static int CreateID(string tbl)
                     {
-                        MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
-                        MySqlCommand myCommand = new MySqlCommand($"SELECT {tbl + "Id"} " +
+                        SqlCommand myCommand = new SqlCommand($"SELECT {tbl + "Id"} " +
                                                                   $"FROM {tbl}", myConnection);
-                        MySqlDataReader myReader = myCommand.ExecuteReader();
+                        SqlDataReader myReader = myCommand.ExecuteReader();
                         List<int> listId = new List<int>();
                         while (myReader.Read())
                             {
@@ -97,9 +98,9 @@ namespace SoftwareCompanySchedulingApp
                                 insert = $"INSERT INTO {tbl} (appointmentId, customerId, start, end, type, userId, createDate, createdBy, lastUpdate, lastUpdateBy) " +
                                          $"VALUES ('{recordId}', {query}, '{user_Id}', '{stamp}', '{user_Name}', '{stamp}', '{user_Name}')";
                             }
-                        MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
-                        MySqlCommand myCommand = new MySqlCommand(insert, myConnection);
+                        SqlCommand myCommand = new SqlCommand(insert, myConnection);
                         myCommand.ExecuteNonQuery();
                         myConnection.Close();
 
@@ -123,10 +124,10 @@ namespace SoftwareCompanySchedulingApp
                                           $"FROM customer " +
                                           $"WHERE customerName LIKE '{find}'";
                             }
-                        MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
-                        MySqlCommand myCommand = new MySqlCommand(myQuery, myConnection);
-                        MySqlDataReader myReader = myCommand.ExecuteReader();
+                        SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+                        SqlDataReader myReader = myCommand.ExecuteReader();
                         
                         if (myReader.HasRows)
                             {
@@ -144,10 +145,10 @@ namespace SoftwareCompanySchedulingApp
                         string myQuery = $"SELECT * " +
                                          $"FROM customer " +
                                          $"WHERE customerId = '{custId}'";
-                        MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
-                        MySqlCommand myCommand = new MySqlCommand(myQuery, myConnection);
-                        MySqlDataReader myReader = myCommand.ExecuteReader();
+                        SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+                        SqlDataReader myReader = myCommand.ExecuteReader();
                         myReader.Read();
 
                         Dictionary<string, string> custDict = new Dictionary<string, string>();
@@ -162,7 +163,7 @@ namespace SoftwareCompanySchedulingApp
                         myQuery = $"SELECT * " +
                                   $"FROM address " +
                                   $"WHERE addressId = '{custDict["addressId"]}'";
-                        myCommand = new MySqlCommand(myQuery, myConnection);
+                        myCommand = new SqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
                         myReader.Read();
 
@@ -176,7 +177,7 @@ namespace SoftwareCompanySchedulingApp
                         myQuery = $"SELECT * " +
                                   $"FROM city " +
                                   $"WHERE cityId = '{custDict["cityId"]}'";
-                        myCommand = new MySqlCommand(myQuery, myConnection);
+                        myCommand = new SqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
                         myReader.Read();
 
@@ -188,7 +189,7 @@ namespace SoftwareCompanySchedulingApp
                         myQuery = $"SELECT * " +
                                   $"FROM country " +
                                   $"WHERE countryId = '{custDict["countryId"]}'";
-                        myCommand = new MySqlCommand(myQuery, myConnection);
+                        myCommand = new SqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
                         myReader.Read();
 
@@ -204,10 +205,10 @@ namespace SoftwareCompanySchedulingApp
                         string myQuery = $"SELECT * " +
                                          $"FROM appointment " +
                                          $"WHERE appointmentId = '{apptId}'";
-                        MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
-                        MySqlCommand myCommand = new MySqlCommand(myQuery, myConnection);
-                        MySqlDataReader myReader = myCommand.ExecuteReader();
+                        SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+                        SqlDataReader myReader = myCommand.ExecuteReader();
                         myReader.Read();
 
                         Dictionary<string, string> apptDict = new Dictionary<string, string>();

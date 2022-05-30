@@ -1,8 +1,9 @@
 ﻿//  C969 Software II - Advanced C# - Robert Calero - Student ID# 000998416
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SoftwareCompanySchedulingApp
@@ -90,27 +91,27 @@ namespace SoftwareCompanySchedulingApp
 
 				public bool UpdateCustomerInfo(Dictionary<string, string> updateCust)
 					{
-						MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
 						// Edit Customer Table
 						string edit = $"UPDATE customer SET customerName = '{updateCust["customerName"]}', active = '{updateCust["active"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE customerName = '{_CustForm["customerName"]}'";
-						MySqlCommand myCommand = new MySqlCommand(edit, myConnection);
+						SqlCommand myCommand = new SqlCommand(edit, myConnection);
 						int editCust = myCommand.ExecuteNonQuery();
 
 						// Edit Address Table
 						edit = $"UPDATE address SET address = '{updateCust["address"]}', postalCode = '{updateCust["postalCode"]}', phone = '{updateCust["phone"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE address = '{_CustForm["address"]}'";
-						myCommand = new MySqlCommand(edit, myConnection);
+						myCommand = new SqlCommand(edit, myConnection);
 						int editAddress = myCommand.ExecuteNonQuery();
 
 						// Edit City Table
 						edit = $"UPDATE city SET city = '{updateCust["city"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE city = '{_CustForm["city"]}'";
-						myCommand = new MySqlCommand(edit, myConnection);
+						myCommand = new SqlCommand(edit, myConnection);
 						int editCity = myCommand.ExecuteNonQuery();
 
 						// Edit Country Table
 						edit = $"UPDATE country SET country = '{updateCust["country"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE country = '{_CustForm["country"]}'";
-						myCommand = new MySqlCommand(edit, myConnection);
+						myCommand = new SqlCommand(edit, myConnection);
 						int editCountry = myCommand.ExecuteNonQuery();
 						myConnection.Close();
 

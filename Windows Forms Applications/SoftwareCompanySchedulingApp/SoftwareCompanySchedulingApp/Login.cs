@@ -4,9 +4,9 @@
     Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
@@ -23,15 +23,15 @@ namespace SoftwareCompanySchedulingApp
 
 				bool UserLogin(string username, string password)
 					{
-						using (MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString()))
+						using (SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString()))
 							{
-								MySqlCommand myCommand = new MySqlCommand($"SELECT * " +
+								SqlCommand myCommand = new SqlCommand($"SELECT * " +
 								                                          $"FROM user " +
 																		  $"WHERE userName = '{username}' AND password = '{password}'");
 								myCommand.Connection = myConnection;
 
 								DataSet myDataSet = new DataSet();
-								MySqlDataAdapter myDataAdapter = new MySqlDataAdapter(myCommand);
+								SqlDataAdapter myDataAdapter = new SqlDataAdapter(myCommand);
 								myDataAdapter.Fill(myDataSet);
 
 								bool successful = (myDataSet.Tables.Count > 0) && (myDataSet.Tables[0].Rows.Count > 0);

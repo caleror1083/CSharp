@@ -8,6 +8,8 @@ namespace SoftwareCompanySchedulingApp
     {
 	    class Customer
 	        {
+                public string loggedInUser = LoginControl.GetUserName();
+
                 public string Name
                     {
                         get;
@@ -73,7 +75,5 @@ namespace SoftwareCompanySchedulingApp
                         get;
                         set;
                     }
-
-                public string loggedInUser = LoginControl.GetUserName();
 	        }
     }

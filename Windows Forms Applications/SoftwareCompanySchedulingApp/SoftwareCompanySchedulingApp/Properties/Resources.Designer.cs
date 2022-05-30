@@ -61,7 +61,7 @@ namespace SoftwareCompanySchedulingApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data Source=ROB-DESKTOP\SQLEXPRESS;Integrated Security=True.
+        ///   Looks up a localized string similar to Data Source=ROB-DESKTOP\SQLEXPRESS;Integrated Security=True;.
         /// </summary>
         internal static string connectionString {
             get {

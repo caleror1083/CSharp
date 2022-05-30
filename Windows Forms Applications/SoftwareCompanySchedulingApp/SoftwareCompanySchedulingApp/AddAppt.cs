@@ -4,9 +4,9 @@
     Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -30,10 +30,10 @@ namespace SoftwareCompanySchedulingApp
                         EndDT.Value = DateTime.Now.AddMinutes(60);
 
                         string myQuery = $"SELECT customerId, customerName FROM customer";
-                        MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
-                        MySqlCommand myCommand = new MySqlCommand(myQuery, myConnection);
-                        MySqlDataReader myReader;
+                        SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+                        SqlDataReader myReader;
                         myReader = myCommand.ExecuteReader();
                         DataTable myTable = new DataTable();
                         myTable.Columns.Add("customerId", typeof(string));

@@ -4,9 +4,10 @@
     Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SoftwareCompanySchedulingApp
@@ -131,12 +132,12 @@ namespace SoftwareCompanySchedulingApp
 
                 public static bool UpdateApptInfo(Dictionary<string, string> updateInfo)
                     {
-                        MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         
                         // Update Customer Table
                         string myUpdates = $"UPDATE appointment SET customerId = '{updateInfo["customerId"]}', start = '{updateInfo["start"]}', end = '{updateInfo["end"]}', type = '{updateInfo["type"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE appointmentId = '{update["appointmentId"]}'";
-                        MySqlCommand myCommand = new MySqlCommand(myUpdates, myConnection);
+                        SqlCommand myCommand = new SqlCommand(myUpdates, myConnection);
                         int updatedAppt = myCommand.ExecuteNonQuery();
                         if (updatedAppt != 0)
                             {

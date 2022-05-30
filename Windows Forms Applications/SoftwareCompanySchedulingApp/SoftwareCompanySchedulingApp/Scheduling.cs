@@ -4,11 +4,11 @@
     Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -138,10 +138,10 @@ namespace SoftwareCompanySchedulingApp
 
 				public static bool DeleteAppt()
 					{
-						MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 						string delete = $"DELETE FROM appointment WHERE appointmentId = '{apptDetails["appointmentId"]}'";
-						MySqlCommand myCommand = new MySqlCommand(delete, myConnection);
+						SqlCommand myCommand = new SqlCommand(delete, myConnection);
 						int apptDeleted = myCommand.ExecuteNonQuery();
 						myConnection.Close();
 						if (apptDeleted != 0)
@@ -170,12 +170,12 @@ namespace SoftwareCompanySchedulingApp
 
 				private static Array CalendarPop(bool view)
 					{
-						MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 							{
 								string myQuery = $"SELECT customerId, type, start, end, appointmentId, userId FROM appointment WHERE userId = '{LoginControl.GetUserId()}'";
-								MySqlCommand myCommand = new MySqlCommand(myQuery, myConnection);
-								MySqlDataReader myReader = myCommand.ExecuteReader();
+								SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+								SqlDataReader myReader = myCommand.ExecuteReader();
 
 								Dictionary<int, Hashtable> appts = new Dictionary<int, Hashtable>();
 								// Dictionary of all appointments
@@ -195,7 +195,7 @@ namespace SoftwareCompanySchedulingApp
 								foreach (var appt in appts.Values)	// Assigns the username to each appointment
 									{
 										myQuery = $"SELECT userName FROM user WHERE userId = '{appt["userId"]}'";
-										myCommand = new MySqlCommand(myQuery, myConnection);
+										myCommand = new SqlCommand(myQuery, myConnection);
 										myReader = myCommand.ExecuteReader();
 										myReader.Read();
 										appt.Add("userName", myReader[0]);
@@ -205,7 +205,7 @@ namespace SoftwareCompanySchedulingApp
 								foreach (var app in appts.Values)	// Assigns the customerName to each appointment
 									{
 										myQuery = $"SELECT customerName FROM customer WHERE customerId = '{app["customerId"]}'";
-										myCommand = new MySqlCommand(myQuery, myConnection);
+										myCommand = new SqlCommand(myQuery, myConnection);
 										myReader = myCommand.ExecuteReader();
 										myReader.Read();
 										app.Add("customerName", myReader[0]);

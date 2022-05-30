@@ -4,9 +4,10 @@
     Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace SoftwareCompanySchedulingApp
@@ -86,27 +87,27 @@ namespace SoftwareCompanySchedulingApp
 				
 				public bool Delete(Dictionary<string, string> deleteCust)
 					{
-						MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
+						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
 						// Edit Customer Table
 						string edit = $"DELETE FROM customer WHERE customerName = '{custForm["customerName"]}'";
-						MySqlCommand myCommand = new MySqlCommand(edit, myConnection);
+						SqlCommand myCommand = new SqlCommand(edit, myConnection);
 						int editCust = myCommand.ExecuteNonQuery();
 
 						// Edit Address Table
 						edit = $"DELETE FROM address WHERE address = '{custForm["address"]}'";
-						myCommand = new MySqlCommand(edit, myConnection);
+						myCommand = new SqlCommand(edit, myConnection);
 						int editAddress = myCommand.ExecuteNonQuery();
 
 						// Edit City Table
 						edit = $"DELETE FROM city WHERE city = '{custForm["city"]}'";
-						myCommand = new MySqlCommand(edit, myConnection);
+						myCommand = new SqlCommand(edit, myConnection);
 						int editCity = myCommand.ExecuteNonQuery();
 
 						// Edit Country Table
 						edit = $"DELETE FROM country WHERE country = '{custForm["country"]}'";
-						myCommand = new MySqlCommand(edit, myConnection);
+						myCommand = new SqlCommand(edit, myConnection);
 						int editCountry = myCommand.ExecuteNonQuery();
 						myConnection.Close();
 
