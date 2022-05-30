@@ -45,7 +45,7 @@ namespace DentalOfficeSchedulingApp
 								Form scheduling = new Scheduling();
 								Log.Reminder();
 								scheduling.Show();
-								this.Hide();
+								Hide();
 							}
 						else
 							{

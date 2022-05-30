@@ -22,5 +22,16 @@ namespace DentalOfficeSchedulingApp.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ROB-DESKTOP\\SQLEXPRESS;Initial Catalog=Scheduling;Integrated Security" +
+            "=True")]
+        public string Office {
+            get {
+                return ((string)(this["Office"]));
+            }
+        }
     }
 }
