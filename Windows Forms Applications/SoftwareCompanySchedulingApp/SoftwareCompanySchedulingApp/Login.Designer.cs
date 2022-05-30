@@ -38,8 +38,8 @@ namespace SoftwareCompanySchedulingApp
 			this.passwordLbl = new System.Windows.Forms.Label();
 			this.usernameTxt = new System.Windows.Forms.TextBox();
 			this.passwordTxt = new System.Windows.Forms.TextBox();
-			this.loginBtn = new System.Windows.Forms.Button();
-			this.exitBtn = new System.Windows.Forms.Button();
+			this.LoginButton = new System.Windows.Forms.Button();
+			this.ExitButton = new System.Windows.Forms.Button();
 			this.loginError = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
@@ -75,25 +75,25 @@ namespace SoftwareCompanySchedulingApp
 			this.passwordTxt.Size = new System.Drawing.Size(134, 20);
 			this.passwordTxt.TabIndex = 1;
 			// 
-			// loginBtn
+			// LoginButton
 			// 
-			this.loginBtn.Location = new System.Drawing.Point(86, 178);
-			this.loginBtn.Name = "loginBtn";
-			this.loginBtn.Size = new System.Drawing.Size(75, 23);
-			this.loginBtn.TabIndex = 4;
-			this.loginBtn.Text = global::SoftwareCompanySchedulingApp.Properties.translations.res_login_loginBtn;
-			this.loginBtn.UseVisualStyleBackColor = true;
-			this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+			this.LoginButton.Location = new System.Drawing.Point(86, 178);
+			this.LoginButton.Name = "LoginButton";
+			this.LoginButton.Size = new System.Drawing.Size(75, 23);
+			this.LoginButton.TabIndex = 4;
+			this.LoginButton.Text = global::SoftwareCompanySchedulingApp.Properties.translations.res_login_loginBtn;
+			this.LoginButton.UseVisualStyleBackColor = true;
+			this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
 			// 
-			// exitBtn
+			// ExitButton
 			// 
-			this.exitBtn.Location = new System.Drawing.Point(237, 178);
-			this.exitBtn.Name = "exitBtn";
-			this.exitBtn.Size = new System.Drawing.Size(75, 23);
-			this.exitBtn.TabIndex = 5;
-			this.exitBtn.Text = global::SoftwareCompanySchedulingApp.Properties.translations.res_login_exitBtn;
-			this.exitBtn.UseVisualStyleBackColor = true;
-			this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+			this.ExitButton.Location = new System.Drawing.Point(237, 178);
+			this.ExitButton.Name = "ExitButton";
+			this.ExitButton.Size = new System.Drawing.Size(75, 23);
+			this.ExitButton.TabIndex = 5;
+			this.ExitButton.Text = global::SoftwareCompanySchedulingApp.Properties.translations.res_login_exitBtn;
+			this.ExitButton.UseVisualStyleBackColor = true;
+			this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
 			// loginError
 			// 
@@ -111,8 +111,8 @@ namespace SoftwareCompanySchedulingApp
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(444, 265);
 			this.Controls.Add(this.loginError);
-			this.Controls.Add(this.exitBtn);
-			this.Controls.Add(this.loginBtn);
+			this.Controls.Add(this.ExitButton);
+			this.Controls.Add(this.LoginButton);
 			this.Controls.Add(this.passwordTxt);
 			this.Controls.Add(this.usernameTxt);
 			this.Controls.Add(this.passwordLbl);
@@ -130,8 +130,8 @@ namespace SoftwareCompanySchedulingApp
 				private System.Windows.Forms.Label passwordLbl;
 				private System.Windows.Forms.TextBox usernameTxt;
 				private System.Windows.Forms.TextBox passwordTxt;
-				private System.Windows.Forms.Button loginBtn;
-				private System.Windows.Forms.Button exitBtn;
+				private System.Windows.Forms.Button LoginButton;
+				private System.Windows.Forms.Button ExitButton;
 				private System.Windows.Forms.Label loginError;
 			}
 	}

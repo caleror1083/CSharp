@@ -17,25 +17,24 @@ namespace SoftwareCompanySchedulingApp
 			{
 				public Login()
 					{
-						// Translation testing
-					    // Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-ES");
 						InitializeComponent();
+					    // Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-ES");  // Translation testing
 					}
 
-				private bool loginUser(string username, string password)
+				bool UserLogin(string username, string password)
 					{
 						using (MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString()))
 							{
-								MySqlCommand myCommand = new MySqlCommand($"SELECT * FROM user WHERE userName = '{username}' AND password = '{password}'");
+								MySqlCommand myCommand = new MySqlCommand($"SELECT * " +
+								                                          $"FROM user " +
+																		  $"WHERE userName = '{username}' AND password = '{password}'");
 								myCommand.Connection = myConnection;
-								myConnection.Open();
 
 								DataSet myDataSet = new DataSet();
 								MySqlDataAdapter myDataAdapter = new MySqlDataAdapter(myCommand);
 								myDataAdapter.Fill(myDataSet);
-								myConnection.Close();
 
-								bool successful = ((myDataSet.Tables.Count > 0) && (myDataSet.Tables[0].Rows.Count > 0));
+								bool successful = (myDataSet.Tables.Count > 0) && (myDataSet.Tables[0].Rows.Count > 0);
 
 								if (successful)
 									{
@@ -50,13 +49,13 @@ namespace SoftwareCompanySchedulingApp
 							}
 					}
 
-				private void loginBtn_Click(object sender, EventArgs e)
+				void LoginButton_Click(object sender, EventArgs e)
 					{
 						loginError.Text = "";
 
-						if (loginUser(usernameTxt.Text, passwordTxt.Text))
+						if (UserLogin(usernameTxt.Text, passwordTxt.Text))
 							{
-								this.Hide();
+								Hide();
 								Scheduling scheduling = new Scheduling();
 								Log.Login(usernameTxt.Text);
 								scheduling.Show();
@@ -69,7 +68,7 @@ namespace SoftwareCompanySchedulingApp
 							}
 					}
 
-				private void exitBtn_Click(object sender, EventArgs e)
+				private void ExitButton_Click(object sender, EventArgs e)
 					{
 						MessageBox.Show(Properties.translations.res_login_exit);
 						Application.Exit();

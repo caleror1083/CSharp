@@ -70,7 +70,8 @@ namespace SoftwareCompanySchedulingApp
                     {
                         MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
-                        MySqlCommand myCommand = new MySqlCommand($"SELECT {tbl + "Id"} FROM {tbl}", myConnection);
+                        MySqlCommand myCommand = new MySqlCommand($"SELECT {tbl + "Id"} " +
+                                                                  $"FROM {tbl}", myConnection);
                         MySqlDataReader myReader = myCommand.ExecuteReader();
                         List<int> listId = new List<int>();
                         while (myReader.Read())
@@ -88,12 +89,13 @@ namespace SoftwareCompanySchedulingApp
                         string insert;
                         if (user_Id == 0)
                             {
-                                insert = $"INSERT INTO {tbl} VALUES ('{recordId}', {query}, '{stamp}', '{user_Name}', '{stamp}', '{user_Name}')";
+                                insert = $"INSERT INTO {tbl} " +
+                                         $"VALUES ('{recordId}', {query}, '{stamp}', '{user_Name}', '{stamp}', '{user_Name}')";
                             }
                         else
                             {
-                                insert = $"INSERT INTO {tbl} (appointmentId, customerId, start, end, type, userId, createDate, createdBy, lastUpdate, lastUpdateBy)" +
-                                         $" VALUES ('{recordId}', {query}, '{user_Id}', '{stamp}', '{user_Name}', '{stamp}', '{user_Name}')";
+                                insert = $"INSERT INTO {tbl} (appointmentId, customerId, start, end, type, userId, createDate, createdBy, lastUpdate, lastUpdateBy) " +
+                                         $"VALUES ('{recordId}', {query}, '{user_Id}', '{stamp}', '{user_Name}', '{stamp}', '{user_Name}')";
                             }
                         MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
@@ -111,11 +113,15 @@ namespace SoftwareCompanySchedulingApp
                         
                         if (int.TryParse(find, out custId))
                             {
-                                myQuery = $"SELECT customerId FROM customer WHERE customerId = '{find.ToString()}'";
+                                myQuery = $"SELECT customerId " +
+                                          $"FROM customer " +
+                                          $"WHERE customerId = '{find}'";
                             }
                         else
                             {
-                                myQuery = $"SELECT customerId FROM customer WHERE customerName LIKE '{find}'";
+                                myQuery = $"SELECT customerId " +
+                                          $"FROM customer " +
+                                          $"WHERE customerName LIKE '{find}'";
                             }
                         MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
@@ -135,7 +141,9 @@ namespace SoftwareCompanySchedulingApp
 
                 static public Dictionary<string, string> CustDetails(int custId)
                     {
-                        string myQuery = $"SELECT * FROM customer WHERE customerId = '{custId.ToString()}'";
+                        string myQuery = $"SELECT * " +
+                                         $"FROM customer " +
+                                         $"WHERE customerId = '{custId}'";
                         MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         MySqlCommand myCommand = new MySqlCommand(myQuery, myConnection);
@@ -151,7 +159,9 @@ namespace SoftwareCompanySchedulingApp
 						custDict.Add("active", myReader[3].ToString());
                         myReader.Close();
 
-                        myQuery = $"SELECT * FROM address WHERE addressId = '{custDict["addressId"]}'";
+                        myQuery = $"SELECT * " +
+                                  $"FROM address " +
+                                  $"WHERE addressId = '{custDict["addressId"]}'";
                         myCommand = new MySqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
                         myReader.Read();
@@ -163,7 +173,9 @@ namespace SoftwareCompanySchedulingApp
                         custDict.Add("phone", myReader[5].ToString());
                         myReader.Close();
 
-                        myQuery = $"SELECT * FROM city WHERE cityId = '{custDict["cityId"]}'";
+                        myQuery = $"SELECT * " +
+                                  $"FROM city " +
+                                  $"WHERE cityId = '{custDict["cityId"]}'";
                         myCommand = new MySqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
                         myReader.Read();
@@ -173,7 +185,9 @@ namespace SoftwareCompanySchedulingApp
                         custDict.Add("countryId", myReader[2].ToString());
                         myReader.Close();
 
-                        myQuery = $"SELECT * FROM country WHERE countryId = '{custDict["countryId"]}'";
+                        myQuery = $"SELECT * " +
+                                  $"FROM country " +
+                                  $"WHERE countryId = '{custDict["countryId"]}'";
                         myCommand = new MySqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
                         myReader.Read();
@@ -187,7 +201,9 @@ namespace SoftwareCompanySchedulingApp
 
                 static public Dictionary<string, string> ApptDetails(string apptId)
                     {
-                        string myQuery = $"SELECT * FROM appointment WHERE appointmentId = '{apptId}'";
+                        string myQuery = $"SELECT * " +
+                                         $"FROM appointment " +
+                                         $"WHERE appointmentId = '{apptId}'";
                         MySqlConnection myConnection = new MySqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         MySqlCommand myCommand = new MySqlCommand(myQuery, myConnection);
