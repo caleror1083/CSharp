@@ -4,10 +4,10 @@
 	Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -36,12 +36,12 @@ namespace DentalOfficeSchedulingApp
 
 				public void ShowUserList()
 					{
-						MySqlConnection myConnection = new MySqlConnection(Database.GetConnectionString());
+						SqlConnection myConnection = new SqlConnection(Database.GetConnectionString());
 
 						try
 							{
 								string myQuery = "SELECT userId, concat(userName, ' --ID: ', userId) as Display FROM user;";
-								MySqlDataAdapter myDataAdapter = new MySqlDataAdapter(myQuery, myConnection);
+								SqlDataAdapter myDataAdapter = new SqlDataAdapter(myQuery, myConnection);
 								myConnection.Open();
 
 								DataSet myDataSet = new DataSet();

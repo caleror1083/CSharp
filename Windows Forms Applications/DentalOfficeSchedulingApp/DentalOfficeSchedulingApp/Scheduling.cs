@@ -4,12 +4,12 @@
 	Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,12 +28,12 @@ namespace DentalOfficeSchedulingApp
 
 				public static Array ShowCalendar(bool weekly)
 					{
-						MySqlConnection myConnection = new MySqlConnection(Database.myConnectionString);
+						SqlConnection myConnection = new SqlConnection(Database.myConnectionString);
 						myConnection.Open();
 
 						var myQuery = $"SELECT customerId, type, start, end, appointmentId, userId FROM appointment WHERE userId = '{Database.GetUserID()}'";
-						MySqlCommand myCommand = new MySqlCommand(myQuery, myConnection);
-						MySqlDataReader myReader = myCommand.ExecuteReader();
+						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+						SqlDataReader myReader = myCommand.ExecuteReader();
 						Dictionary<int, Hashtable> myAppointments = new Dictionary<int, Hashtable>();
 						Dictionary<int, Hashtable> myParsedAppointments = new Dictionary<int, Hashtable>();
 
@@ -54,7 +54,7 @@ namespace DentalOfficeSchedulingApp
 						foreach (var myAppointment in myAppointments.Values)
 							{
 								myQuery = $"SELECT userName FROM user WHERE userId = '{myAppointment["userId"]}'";
-								myCommand = new MySqlCommand(myQuery, myConnection);
+								myCommand = new SqlCommand(myQuery, myConnection);
 								myReader = myCommand.ExecuteReader();
 								myReader.Read();
 								myAppointment.Add("userName", myReader[0]);
@@ -65,7 +65,7 @@ namespace DentalOfficeSchedulingApp
 						foreach (var myAppointment in myAppointments.Values)
 							{
 								myQuery = $"SELECT customerName FROM customer WHERE customerId = '{myAppointment["customerId"]}'";
-								myCommand = new MySqlCommand(myQuery, myConnection);
+								myCommand = new SqlCommand(myQuery, myConnection);
 								myReader = myCommand.ExecuteReader();
 								myReader.Read();
 								myAppointment.Add("customerName", myReader[0]);

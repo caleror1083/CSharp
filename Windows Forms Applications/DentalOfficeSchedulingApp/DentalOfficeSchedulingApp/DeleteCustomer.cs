@@ -4,10 +4,10 @@
 	Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -27,12 +27,12 @@ namespace DentalOfficeSchedulingApp
 				// Fills combobox with customer information deom database
 				public void ShowCustomerList()
 					{
-						MySqlConnection myConnection = new MySqlConnection(Database.GetConnectionString());
+						SqlConnection myConnection = new SqlConnection(Database.GetConnectionString());
 
 						try
 							{
 								string myQuery = "SELECT customerId, concat(customerName, ' --ID: ', customerId) as Display FROM customer;";
-								MySqlDataAdapter mySqlDataAdapter = new MySqlDataAdapter(myQuery, myConnection);
+								SqlDataAdapter mySqlDataAdapter = new SqlDataAdapter(myQuery, myConnection);
 								myConnection.Open();
 
 								DataSet myDataSet = new DataSet();

@@ -4,10 +4,10 @@
 	Student ID# 000998416
 */
 
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -51,12 +51,12 @@ namespace DentalOfficeSchedulingApp
 
 				public void ShowCustomerList()
 					{
-						MySqlConnection myConnection = new MySqlConnection(Database.GetConnectionString());
+						SqlConnection myConnection = new SqlConnection(Database.GetConnectionString());
 
 						try
 							{
 								string myQuery = "SELECT customerId, concat(customerName, ' --ID: ', customerId) as Display FROM customer;";
-								MySqlDataAdapter myDataAdapter = new MySqlDataAdapter(myQuery, myConnection);
+								SqlDataAdapter myDataAdapter = new SqlDataAdapter(myQuery, myConnection);
 								myConnection.Open();
 
 								DataSet myDataSet = new DataSet();
@@ -73,13 +73,13 @@ namespace DentalOfficeSchedulingApp
 
 				public void ShowAppointmentList()
 					{
-						MySqlConnection myConnection = new MySqlConnection(Database.GetConnectionString());
+						SqlConnection myConnection = new SqlConnection(Database.GetConnectionString());
 						string myUTCOffset = (TimeZoneInfo.Local.GetUtcOffset(DateTime.UtcNow).ToString().Substring(0, 6));
 
 						try
 							{
 						        string myQuery = $"SELECT appointmentId, concat(type, ' --Time: ', DATE_FORMAT(CONVERT_TZ(start, '+00:00', '{myUTCOffset}'), '%M %D %Y %r')) as Display FROM appointment WHERE customerId = '{CustomerCombo.SelectedValue}';";
-								MySqlDataAdapter myDataAdapter = new MySqlDataAdapter(myQuery, myConnection);
+								SqlDataAdapter myDataAdapter = new SqlDataAdapter(myQuery, myConnection);
 								myConnection.Open();
 
 								DataSet myDataSet = new DataSet();
