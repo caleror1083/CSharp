@@ -1687,7 +1687,7 @@ namespace Cookbook.CookbookDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Cookbook.Properties.Settings.Default.CookbookConnectionString;
+            this._connection.ConnectionString = global::Cookbook.Properties.Settings.Default.Cookbook;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2016,7 +2016,7 @@ SELECT Id, Name, PrepTime, Instructions FROM Recipe WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Cookbook.Properties.Settings.Default.CookbookConnectionString;
+            this._connection.ConnectionString = global::Cookbook.Properties.Settings.Default.Cookbook;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2367,7 +2367,7 @@ SELECT Id, RecipeId, IngredientId FROM RecipeIngredient WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::Cookbook.Properties.Settings.Default.CookbookConnectionString;
+            this._connection.ConnectionString = global::Cookbook.Properties.Settings.Default.Cookbook;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

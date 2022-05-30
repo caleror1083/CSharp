@@ -12,7 +12,7 @@ namespace Cookbook.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.2.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -28,9 +28,9 @@ namespace Cookbook.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ROB-DESKTOP\\SQLEXPRESS;Initial Catalog=Cookbook;Integrated Security=T" +
             "rue")]
-        public string CookbookConnectionString {
+        public string Cookbook {
             get {
-                return ((string)(this["CookbookConnectionString"]));
+                return ((string)(this["Cookbook"]));
             }
         }
     }

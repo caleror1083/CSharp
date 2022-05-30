@@ -15,59 +15,119 @@ namespace Cookbook
 		
 				public MainForm()
 					{
-						InitializeComponent();
-
-						// SQL Server: ROB-DESKTOP\SQLEXPRESS
-						// Database: Cookbook
-						// Table: Recipe
-						// When the form is created, initialize the connectionString to the database
-						connectionString = ConfigurationManager.ConnectionStrings["Cookbook.Properties.Settings.CookbookConnectionString"].ConnectionString;
+						InitializeComponent();						
+						connectionString = ConfigurationManager.ConnectionStrings["Cookbook.Properties.Settings.Cookbook"].ConnectionString;  // When the form is created, initialize the connectionString to the database
 					}
 
 				private void MainForm_Load(object sender, EventArgs e)
 					{
-						PopulateRecipes();						
+						PopulateCounterIngredients();
+						PopulateRecipes();
 					}
 
-				public void PopulateRecipes()
+				void PopulateCounterIngredients()
 					{
-						string recipeQuery = "SELECT * FROM Recipe";
+						string counterQuery = $"SELECT * " +
+						                      $"FROM Ingredient";
+
+						using (connection = new SqlConnection(connectionString))
+						using (dataAdapter = new SqlDataAdapter(counterQuery, connection))
+							{
+								DataTable ingredientTable = new DataTable();
+								dataAdapter.Fill(ingredientTable);
+								CounterIngredientsListbox.DisplayMember = "Name";
+								CounterIngredientsListbox.ValueMember = "Id";
+								CounterIngredientsListbox.DataSource = ingredientTable;
+							}
+					}
+
+				void PopulateRecipes()
+					{
+						string recipeQuery = $"SELECT * " +
+						                     $"FROM Recipe";
 
 						//  Use a using statement with an object like SqlConnection because it implements IDisposable, it auto closes the object
-						using (SqlConnection connection = new SqlConnection(connectionString))    // initializes the connection
+						using (connection = new SqlConnection(connectionString))    // initializes the connection
 						using (dataAdapter = new SqlDataAdapter(recipeQuery, connection))     // SqlDataAdapter also implements IDisposable and also opens the connection
 							{
 								DataTable recipeTable = new DataTable();    // Holds the data returned by the SQL query
 								dataAdapter.Fill(recipeTable);    // Fills the table with the data in the DataTable
-								lstRecipes.DisplayMember = "Name";    // Displays the value of Name
-								lstRecipes.ValueMember = "Id";    // reference the value by the ID column
-								lstRecipes.DataSource = recipeTable;    // hook up listbox recipes to recipe DataTable
+								RecipesListbox.DisplayMember = "Name";    // Displays the value of Name
+								RecipesListbox.ValueMember = "Id";    // reference the value by the ID column
+								RecipesListbox.DataSource = recipeTable;    // hook up recipe listbox to recipe DataTable
 							}
 					}
 
-				private void LstRecipes_SelectedIndexChanged(object sender, EventArgs e)
+				void AddRecipeButton_Click(object sender, EventArgs e)
+					{
+						string addRecipeQuery = $"INSERT INTO Recipe " +
+						                        $"VALUES (@RecipeName, 80, 'Many instructions')";
+
+						using (connection = new SqlConnection(connectionString))
+						using (command = new SqlCommand(addRecipeQuery, connection))
+							{
+								connection.Open(); // When no DataAdapter is called, you must open the connection manually
+								command.Parameters.AddWithValue("@RecipeName", RecipeNameTextbox.Text);
+								command.ExecuteNonQuery();
+							}
+						PopulateRecipes();
+					}
+
+				void AddIngredientButton_Click(object sender, EventArgs e)
+					{
+						string addRecipeQuery = $"INSERT INTO RecipeIngredient " +
+						                        $"VALUES (@RecipeId, @IngredientId)";  // @RecipeId is syntax for parameter
+
+						using (connection = new SqlConnection(connectionString))
+						using (command = new SqlCommand(addRecipeQuery, connection))
+							{
+								connection.Open();
+								command.Parameters.AddWithValue("@RecipeId", RecipesListbox.SelectedValue);  // Whatever recipe is selected in the listbox, get the value of it and pass it into the ingredientQuery which will return the ingredients that are tied to that recipe
+								command.Parameters.AddWithValue("@IngredientId", CounterIngredientsListbox.SelectedValue);
+								command.ExecuteNonQuery();
+							}
+						PopulateRecipes();
+					}
+
+				void UpdateRecipeButton_Click(object sender, EventArgs e)
+					{
+						string addRecipeQuery = $"UPDATE Recipe " +
+						                        $"SET Name = @RecipeName " +
+												$"WHERE Id = @RecipeId";
+
+						using (connection = new SqlConnection(connectionString))
+						using (command = new SqlCommand(addRecipeQuery, connection))
+							{
+								connection.Open();
+								command.Parameters.AddWithValue("@RecipeName", RecipeNameTextbox.Text);
+								command.Parameters.AddWithValue("@RecipeId", RecipesListbox.SelectedValue);
+								command.ExecuteNonQuery();
+							}
+						PopulateRecipes();
+					}
+
+				void RecipesListbox_SelectedIndexChanged(object sender, EventArgs e)
 					{
 						PopulateIngredients();
 					}
 
-				public void PopulateIngredients()
+				void PopulateIngredients()
 					{
 						string ingredientQuery = $"SELECT a.Name " + 
 						                         $"FROM Ingredient a " +
 												 $"INNER JOIN RecipeIngredient b ON a.Id = b.IngredientId " +
-												 $"WHERE b.RecipeId = @RecipeId";    // @RecipeId is syntax for parameter
+												 $"WHERE b.RecipeId = @RecipeId";
 
-						//  Use a using statement with an object like SqlConnection because it implements IDisposable, it auto closes the object
-						using (connection = new SqlConnection(connectionString))    // initializes the connection
+						using (connection = new SqlConnection(connectionString))
 						using (command = new SqlCommand(ingredientQuery, connection))
-						using (dataAdapter = new SqlDataAdapter(command))     // SqlDataAdapter also implements IDisposable and also opens the connection
+						using (dataAdapter = new SqlDataAdapter(command))
 							{
-								command.Parameters.AddWithValue("@RecipeId", lstRecipes.SelectedValue);    // Whatever recipe is selected in the listbox, get the value of it and pass it into the ingredientQuery which will return the ingredients that are tied to that recipe
-								DataTable ingredientTable = new DataTable();    // Holds the data returned by the SQL query
-								dataAdapter.Fill(ingredientTable);    // Fills the table with the data in the DataTable
-								lstIngredients.DisplayMember = "Name";    // Displays the value of Name
-								lstIngredients.ValueMember = "Id";    // reference the value by the ID column
-								lstIngredients.DataSource = ingredientTable;    // hook up listbox recipes to recipe DataTable
+								command.Parameters.AddWithValue("@RecipeId", RecipesListbox.SelectedValue);
+								DataTable ingredientTable = new DataTable();
+								dataAdapter.Fill(ingredientTable);
+								IngredientsListbox.DisplayMember = "Name";
+								IngredientsListbox.ValueMember = "Id";
+								IngredientsListbox.DataSource = ingredientTable;  // hook up ingredients listbox recipes to ingredients DataTable
 							}
 					}
 			}
