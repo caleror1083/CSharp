@@ -49,7 +49,6 @@
 			this.Controls.Add(this.DaysLabel);
 			this.Name = "UserControlDays";
 			this.Size = new System.Drawing.Size(150, 108);
-			this.Load += new System.EventHandler(this.UserControlDays_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

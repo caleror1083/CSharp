@@ -1,30 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
+// Namespaces
 namespace Calendar
 	{
+		// Classes
 		public partial class UserControlDays : UserControl
 			{
+				// Constructors(Parameters)
 				public UserControlDays()
 					{
 						InitializeComponent();
 					}
 
-				private void UserControlDays_Load(object sender, EventArgs e)
-					{
-
-					}
-
 				public void Days(int numDay)
 					{
-						DaysLabel.Text = numDay + " ";
+						DaysLabel.Text = $"{numDay} ";  // Display the day in the user control
 					}
 			}
 	}
