@@ -173,8 +173,9 @@ namespace SoftwareCompanySchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 							{
-								string myQuery = $"SELECT customerId, type, start, end, appointmentId, userId FROM appointment WHERE userId = '{LoginControl.GetUserId()}'";
+								string myQuery = "SELECT [customerId], [type], [start], [end], [appointmentId], [userId] FROM [appointment] WHERE [userId] = @GetUserId";
 								SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+								myCommand.Parameters.AddWithValue("@GetUserId", LoginControl.GetUserId());
 								SqlDataReader myReader = myCommand.ExecuteReader();
 
 								Dictionary<int, Hashtable> appts = new Dictionary<int, Hashtable>();

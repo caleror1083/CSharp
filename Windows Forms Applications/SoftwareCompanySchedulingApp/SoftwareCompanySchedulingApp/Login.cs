@@ -25,8 +25,10 @@ namespace SoftwareCompanySchedulingApp
 					{
 						using (SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString()))
 							{
-								SqlCommand myCommand = new SqlCommand($"SELECT * FROM [user] WHERE userName = {username} AND password = {password}");
+								SqlCommand myCommand = new SqlCommand("SELECT * FROM [user] WHERE [userName] = @userName AND [password] = @password");
 								myCommand.Connection = myConnection;
+								myCommand.Parameters.AddWithValue("@username", username);
+								myCommand.Parameters.AddWithValue("@password", password);
 								DataSet myDataSet = new DataSet();
 								SqlDataAdapter myDataAdapter = new SqlDataAdapter(myCommand);
 								myDataAdapter.Fill(myDataSet);
