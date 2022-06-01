@@ -15,21 +15,43 @@ namespace Calendar
 				// Contructors(Parameters)
 				public MainForm()
 					{
+						_Month = DateTime.Now.Month;  // Retrieves the current month
+						_Year = DateTime.Now.Year; // Retrieves the current year
 						InitializeComponent();
 					}
 
 				// Methods(Parameters)
 				void MainForm_Load(object sender, EventArgs e)
 					{
-						DisplayDays();	
+						DisplayCurentMonth();
 					}
 
-				// Display the days of the month on the calendar
-				void DisplayDays()
+				void DisplayCurentMonth()
 					{
-						_Month = DateTime.Now.Month;  // Retrieves the current month
-						_Year = DateTime.Now.Year; // Retrieves the current year
-						DisplayCurentMonth();
+						string monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(_Month); // Gets the current month
+						DateLabel.Text = $"{monthName} {_Year}"; // Displays the value of the month name and the year
+
+						static_month = _Month;
+						static_year = _Year;
+						DateTime startoftheMonth = new DateTime(_Year, _Month, 1);  // // Gets the first day in the current month
+						int days = DateTime.DaysInMonth(_Year, _Month); // Gets the count of days in the current month
+						int dayoftheweek = Convert.ToInt32(startoftheMonth.DayOfWeek.ToString("D")) + 1;  // Convert the days in the month to integers formatted to numbers
+
+						// Iterate through the days of the week adding a blank user control in each iteration
+						for (int i = 1; i < dayoftheweek; i++)
+							{
+								UserControlBlank control = new UserControlBlank();
+								DayContainer.Controls.Add(control);
+							}
+
+						// Iterate through the days in the month adding a days user control in each iteration
+						for (int i = 1; i <= days; i++)
+							{
+								UserControlDays controlDays = new UserControlDays();
+								controlDays.Days(i);  // Calls the Days method in the UserControlDays class
+								DayContainer.Controls.Add(controlDays);
+								controlDays.DisplayEvents();  // Calls the DisplayEvents method in the UserControlDays class
+							}
 					}
 
 				void PreviousButton_Click(object sender, EventArgs e)
@@ -60,34 +82,6 @@ namespace Calendar
 						static_month = _Month;
 						static_year = _Year;
 						DisplayCurentMonth();
-					}
-
-
-				void DisplayCurentMonth()
-					{
-						string monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(_Month); // Gets the current month
-						DateLabel.Text = $"{monthName} {_Year}"; // Displays the value of the month name and the year
-
-						static_month = _Month;
-						static_year = _Year;
-						DateTime startoftheMonth = new DateTime(_Year, _Month, 1);  // // Gets the first day in the current month
-						int days = DateTime.DaysInMonth(_Year, _Month); // Gets the count of days in the current month
-						int dayoftheweek = Convert.ToInt32(startoftheMonth.DayOfWeek.ToString("D")) + 1;  // Convert the days in the month to integers formatted to numbers
-
-						// Iterate through the days of the week adding a blank user control in each iteration
-						for (int i = 1; i < dayoftheweek; i++)
-							{
-								UserControlBlank control = new UserControlBlank();
-								DayContainer.Controls.Add(control);
-							}
-
-						// Iterate through the days in the month adding a days user control in each iteration
-						for (int i = 1; i <= days; i++)
-							{
-								UserControlDays controlDays = new UserControlDays();
-								controlDays.Days(i);  // Calls the Days method in the UserControlDays class
-								DayContainer.Controls.Add(controlDays);
-							}
 					}
 			}
 	}

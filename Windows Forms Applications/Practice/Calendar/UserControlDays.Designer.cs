@@ -28,7 +28,10 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.DaysLabel = new System.Windows.Forms.Label();
+			this.EventLabel = new System.Windows.Forms.Label();
+			this.DisplayEventTimer = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// DaysLabel
@@ -41,11 +44,24 @@
 			this.DaysLabel.TabIndex = 0;
 			this.DaysLabel.Text = "00";
 			// 
+			// EventLabel
+			// 
+			this.EventLabel.Location = new System.Drawing.Point(8, 66);
+			this.EventLabel.Name = "EventLabel";
+			this.EventLabel.Size = new System.Drawing.Size(132, 42);
+			this.EventLabel.TabIndex = 1;
+			this.EventLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// DisplayEventTimer
+			// 
+			this.DisplayEventTimer.Tick += new System.EventHandler(this.DisplayEventTimer_Tick);
+			// 
 			// UserControlDays
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.EventLabel);
 			this.Controls.Add(this.DaysLabel);
 			this.Name = "UserControlDays";
 			this.Size = new System.Drawing.Size(150, 108);
@@ -58,5 +74,7 @@
 		#endregion
 
 		private System.Windows.Forms.Label DaysLabel;
+		private System.Windows.Forms.Label EventLabel;
+		private System.Windows.Forms.Timer DisplayEventTimer;
 	}
 }
