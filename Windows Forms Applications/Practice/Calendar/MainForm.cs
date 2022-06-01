@@ -9,8 +9,8 @@ namespace Calendar
 		public partial class MainForm : Form
 			{
 				// Fields
-				private int _Month;
-				private int _Year;
+				private int _Month, _Year;
+				public static int static_month, static_year;  // Static variables that passes to the EventForm for month and year
 
 				// Contructors(Parameters)
 				public MainForm()
@@ -42,6 +42,8 @@ namespace Calendar
 								_Year--;  // Decrement to the previous year
 							}
 						_Month--;  // Decrement month to go to previous month, When _Month's value is 12, user will be in December of the previous year
+						static_month = _Month;
+						static_year = _Year;
 						DisplayCurentMonth();
 					}
 
@@ -55,6 +57,8 @@ namespace Calendar
 								_Year++;  // Increase to the next year
 							}
 						_Month++;  // Increment month to go to next month. When _Month's value is 1, user will be in January of the following year
+						static_month = _Month;
+						static_year = _Year;
 						DisplayCurentMonth();
 					}
 
@@ -64,6 +68,8 @@ namespace Calendar
 						string monthName = DateTimeFormatInfo.CurrentInfo.GetMonthName(_Month); // Gets the current month
 						DateLabel.Text = $"{monthName} {_Year}"; // Displays the value of the month name and the year
 
+						static_month = _Month;
+						static_year = _Year;
 						DateTime startoftheMonth = new DateTime(_Year, _Month, 1);  // // Gets the first day in the current month
 						int days = DateTime.DaysInMonth(_Year, _Month); // Gets the count of days in the current month
 						int dayoftheweek = Convert.ToInt32(startoftheMonth.DayOfWeek.ToString("D")) + 1;  // Convert the days in the month to integers formatted to numbers

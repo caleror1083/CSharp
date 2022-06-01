@@ -29,15 +29,15 @@
 		private void InitializeComponent()
 		{
 			this.NextButton = new System.Windows.Forms.Button();
-			this.lblExit = new System.Windows.Forms.Label();
-			this.lblNum1 = new System.Windows.Forms.Label();
-			this.lblNum2 = new System.Windows.Forms.Label();
-			this.lblSum = new System.Windows.Forms.Label();
+			this.SundayLabel = new System.Windows.Forms.Label();
+			this.MondayLabel = new System.Windows.Forms.Label();
+			this.TuesdayLabel = new System.Windows.Forms.Label();
+			this.WednesdayLabel = new System.Windows.Forms.Label();
 			this.DayContainer = new System.Windows.Forms.FlowLayoutPanel();
 			this.PreviousButton = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
+			this.SaturdayLabel = new System.Windows.Forms.Label();
+			this.FridayLabel = new System.Windows.Forms.Label();
+			this.ThursdayLabel = new System.Windows.Forms.Label();
 			this.DateLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
@@ -51,45 +51,45 @@
 			this.NextButton.UseVisualStyleBackColor = true;
 			this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
 			// 
-			// lblExit
+			// SundayLabel
 			// 
-			this.lblExit.AutoSize = true;
-			this.lblExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblExit.Location = new System.Drawing.Point(60, 83);
-			this.lblExit.Name = "lblExit";
-			this.lblExit.Size = new System.Drawing.Size(63, 20);
-			this.lblExit.TabIndex = 1;
-			this.lblExit.Text = "Sunday";
+			this.SundayLabel.AutoSize = true;
+			this.SundayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SundayLabel.Location = new System.Drawing.Point(60, 83);
+			this.SundayLabel.Name = "SundayLabel";
+			this.SundayLabel.Size = new System.Drawing.Size(63, 20);
+			this.SundayLabel.TabIndex = 1;
+			this.SundayLabel.Text = "Sunday";
 			// 
-			// lblNum1
+			// MondayLabel
 			// 
-			this.lblNum1.AutoSize = true;
-			this.lblNum1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblNum1.Location = new System.Drawing.Point(215, 83);
-			this.lblNum1.Name = "lblNum1";
-			this.lblNum1.Size = new System.Drawing.Size(65, 20);
-			this.lblNum1.TabIndex = 2;
-			this.lblNum1.Text = "Monday";
+			this.MondayLabel.AutoSize = true;
+			this.MondayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.MondayLabel.Location = new System.Drawing.Point(215, 83);
+			this.MondayLabel.Name = "MondayLabel";
+			this.MondayLabel.Size = new System.Drawing.Size(65, 20);
+			this.MondayLabel.TabIndex = 2;
+			this.MondayLabel.Text = "Monday";
 			// 
-			// lblNum2
+			// TuesdayLabel
 			// 
-			this.lblNum2.AutoSize = true;
-			this.lblNum2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblNum2.Location = new System.Drawing.Point(372, 83);
-			this.lblNum2.Name = "lblNum2";
-			this.lblNum2.Size = new System.Drawing.Size(69, 20);
-			this.lblNum2.TabIndex = 3;
-			this.lblNum2.Text = "Tuesday";
+			this.TuesdayLabel.AutoSize = true;
+			this.TuesdayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.TuesdayLabel.Location = new System.Drawing.Point(372, 83);
+			this.TuesdayLabel.Name = "TuesdayLabel";
+			this.TuesdayLabel.Size = new System.Drawing.Size(69, 20);
+			this.TuesdayLabel.TabIndex = 3;
+			this.TuesdayLabel.Text = "Tuesday";
 			// 
-			// lblSum
+			// WednesdayLabel
 			// 
-			this.lblSum.AutoSize = true;
-			this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblSum.Location = new System.Drawing.Point(510, 83);
-			this.lblSum.Name = "lblSum";
-			this.lblSum.Size = new System.Drawing.Size(93, 20);
-			this.lblSum.TabIndex = 6;
-			this.lblSum.Text = "Wednesday";
+			this.WednesdayLabel.AutoSize = true;
+			this.WednesdayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.WednesdayLabel.Location = new System.Drawing.Point(510, 83);
+			this.WednesdayLabel.Name = "WednesdayLabel";
+			this.WednesdayLabel.Size = new System.Drawing.Size(93, 20);
+			this.WednesdayLabel.TabIndex = 6;
+			this.WednesdayLabel.Text = "Wednesday";
 			// 
 			// DayContainer
 			// 
@@ -108,35 +108,35 @@
 			this.PreviousButton.UseVisualStyleBackColor = true;
 			this.PreviousButton.Click += new System.EventHandler(this.PreviousButton_Click);
 			// 
-			// label1
+			// SaturdayLabel
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(995, 83);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(73, 20);
-			this.label1.TabIndex = 12;
-			this.label1.Text = "Saturday";
+			this.SaturdayLabel.AutoSize = true;
+			this.SaturdayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.SaturdayLabel.Location = new System.Drawing.Point(995, 83);
+			this.SaturdayLabel.Name = "SaturdayLabel";
+			this.SaturdayLabel.Size = new System.Drawing.Size(73, 20);
+			this.SaturdayLabel.TabIndex = 12;
+			this.SaturdayLabel.Text = "Saturday";
 			// 
-			// label2
+			// FridayLabel
 			// 
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(846, 83);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(52, 20);
-			this.label2.TabIndex = 11;
-			this.label2.Text = "Friday";
+			this.FridayLabel.AutoSize = true;
+			this.FridayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.FridayLabel.Location = new System.Drawing.Point(846, 83);
+			this.FridayLabel.Name = "FridayLabel";
+			this.FridayLabel.Size = new System.Drawing.Size(52, 20);
+			this.FridayLabel.TabIndex = 11;
+			this.FridayLabel.Text = "Friday";
 			// 
-			// label3
+			// ThursdayLabel
 			// 
-			this.label3.AutoSize = true;
-			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(675, 83);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(74, 20);
-			this.label3.TabIndex = 10;
-			this.label3.Text = "Thursday";
+			this.ThursdayLabel.AutoSize = true;
+			this.ThursdayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ThursdayLabel.Location = new System.Drawing.Point(675, 83);
+			this.ThursdayLabel.Name = "ThursdayLabel";
+			this.ThursdayLabel.Size = new System.Drawing.Size(74, 20);
+			this.ThursdayLabel.TabIndex = 10;
+			this.ThursdayLabel.Text = "Thursday";
 			// 
 			// DateLabel
 			// 
@@ -154,15 +154,15 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1132, 871);
 			this.Controls.Add(this.DateLabel);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label3);
+			this.Controls.Add(this.SaturdayLabel);
+			this.Controls.Add(this.FridayLabel);
+			this.Controls.Add(this.ThursdayLabel);
 			this.Controls.Add(this.PreviousButton);
 			this.Controls.Add(this.DayContainer);
-			this.Controls.Add(this.lblSum);
-			this.Controls.Add(this.lblNum2);
-			this.Controls.Add(this.lblNum1);
-			this.Controls.Add(this.lblExit);
+			this.Controls.Add(this.WednesdayLabel);
+			this.Controls.Add(this.TuesdayLabel);
+			this.Controls.Add(this.MondayLabel);
+			this.Controls.Add(this.SundayLabel);
 			this.Controls.Add(this.NextButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "MainForm";
@@ -177,15 +177,15 @@
 		#endregion
 
 		private System.Windows.Forms.Button NextButton;
-		private System.Windows.Forms.Label lblExit;
-		private System.Windows.Forms.Label lblNum1;
-		private System.Windows.Forms.Label lblNum2;
-		private System.Windows.Forms.Label lblSum;
+		private System.Windows.Forms.Label SundayLabel;
+		private System.Windows.Forms.Label MondayLabel;
+		private System.Windows.Forms.Label TuesdayLabel;
+		private System.Windows.Forms.Label WednesdayLabel;
 		private System.Windows.Forms.FlowLayoutPanel DayContainer;
 		private System.Windows.Forms.Button PreviousButton;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label SaturdayLabel;
+		private System.Windows.Forms.Label FridayLabel;
+		private System.Windows.Forms.Label ThursdayLabel;
 		private System.Windows.Forms.Label DateLabel;
 	}
 }
