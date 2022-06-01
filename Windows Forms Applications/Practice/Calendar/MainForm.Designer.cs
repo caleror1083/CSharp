@@ -38,6 +38,7 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
+			this.DateLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// NextButton
@@ -105,6 +106,7 @@
 			this.PreviousButton.TabIndex = 9;
 			this.PreviousButton.Text = "Previous";
 			this.PreviousButton.UseVisualStyleBackColor = true;
+			this.PreviousButton.Click += new System.EventHandler(this.PreviousButton_Click);
 			// 
 			// label1
 			// 
@@ -136,11 +138,22 @@
 			this.label3.TabIndex = 10;
 			this.label3.Text = "Thursday";
 			// 
+			// DateLabel
+			// 
+			this.DateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.DateLabel.Location = new System.Drawing.Point(276, 9);
+			this.DateLabel.Name = "DateLabel";
+			this.DateLabel.Size = new System.Drawing.Size(557, 45);
+			this.DateLabel.TabIndex = 7;
+			this.DateLabel.Text = "MONTH YEAR";
+			this.DateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1132, 871);
+			this.Controls.Add(this.DateLabel);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label3);
@@ -173,5 +186,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label DateLabel;
 	}
 }
