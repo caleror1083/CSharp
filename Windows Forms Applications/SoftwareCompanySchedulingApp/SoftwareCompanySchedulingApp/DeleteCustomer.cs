@@ -91,23 +91,27 @@ namespace SoftwareCompanySchedulingApp
 						myConnection.Open();
 
 						// Edit Customer Table
-						string edit = $"DELETE FROM customer WHERE customerName = '{custForm["customerName"]}'";
+						string edit = $"DELETE FROM [customer] WHERE [customerName] = @CustomerName";
 						SqlCommand myCommand = new SqlCommand(edit, myConnection);
+						myCommand.Parameters.AddWithValue("@CustomerName", $"{custForm["customerName"]}");
 						int editCust = myCommand.ExecuteNonQuery();
 
 						// Edit Address Table
-						edit = $"DELETE FROM address WHERE address = '{custForm["address"]}'";
+						edit = $"DELETE FROM [address] WHERE [address] = @Address";
 						myCommand = new SqlCommand(edit, myConnection);
+						myCommand.Parameters.AddWithValue("@Address", $"{custForm["address"]}");
 						int editAddress = myCommand.ExecuteNonQuery();
 
 						// Edit City Table
-						edit = $"DELETE FROM city WHERE city = '{custForm["city"]}'";
+						edit = $"DELETE FROM [city] WHERE [city] = @City";
 						myCommand = new SqlCommand(edit, myConnection);
+						myCommand.Parameters.AddWithValue("@City", $"{custForm["city"]}");
 						int editCity = myCommand.ExecuteNonQuery();
 
 						// Edit Country Table
-						edit = $"DELETE FROM country WHERE country = '{custForm["country"]}'";
+						edit = $"DELETE FROM [country] WHERE [country] = @Country";
 						myCommand = new SqlCommand(edit, myConnection);
+						myCommand.Parameters.AddWithValue("@Country", $"{custForm["country"]}");
 						int editCountry = myCommand.ExecuteNonQuery();
 						myConnection.Close();
 

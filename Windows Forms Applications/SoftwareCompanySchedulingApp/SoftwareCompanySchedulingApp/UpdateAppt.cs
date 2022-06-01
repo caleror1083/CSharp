@@ -136,8 +136,15 @@ namespace SoftwareCompanySchedulingApp
                         myConnection.Open();
                         
                         // Update Customer Table
-                        string myUpdates = $"UPDATE appointment SET customerId = '{updateInfo["customerId"]}', start = '{updateInfo["start"]}', end = '{updateInfo["end"]}', type = '{updateInfo["type"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE appointmentId = '{update["appointmentId"]}'";
+                        string myUpdates = $"UPDATE [appointment] SET [customerId] = @CustomerID, [start] = @Start, [end] = @End, [type] = @Type, [lastUpdate] = @LastUpdate, [lastUpdateBy] = @LastUpdateBy WHERE [appointmentId] = @AppointmentID";
                         SqlCommand myCommand = new SqlCommand(myUpdates, myConnection);
+                        myCommand.Parameters.AddWithValue("@CustomerID", $"{updateInfo["customerId"]}");
+                        myCommand.Parameters.AddWithValue("@Start", $"{updateInfo["start"]}");
+                        myCommand.Parameters.AddWithValue("@End", $"{updateInfo["end"]}");
+                        myCommand.Parameters.AddWithValue("@Type", $"{updateInfo["type"]}");
+                        myCommand.Parameters.AddWithValue("@LastUpdate", $"{LoginControl.CreateStamp()}");
+                        myCommand.Parameters.AddWithValue("@LastUpdateBy", $"{LoginControl.GetUserName()}");
+                        myCommand.Parameters.AddWithValue("@AppointmentID", $"{update["appointmentId"]}");
                         int updatedAppt = myCommand.ExecuteNonQuery();
                         if (updatedAppt != 0)
                             {

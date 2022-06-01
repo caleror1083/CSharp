@@ -95,8 +95,13 @@ namespace SoftwareCompanySchedulingApp
 						myConnection.Open();
 
 						// Edit Customer Table
-						string edit = $"UPDATE customer SET customerName = '{updateCust["customerName"]}', active = '{updateCust["active"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.GetUserName()}' WHERE customerName = '{_CustForm["customerName"]}'";
+						string edit = $"UPDATE [customer] SET [customerName] = @CustomerName, [active] = @Active, [lastUpdate] = @LastUpdate, [lastUpdateBy] = @LastUpdateBy WHERE [customerName] = @NewCustomerName'";
 						SqlCommand myCommand = new SqlCommand(edit, myConnection);
+						myCommand.Parameters.AddWithValue("@CustomerName", $"{updateCust["customerName"]}");
+						myCommand.Parameters.AddWithValue("@Active", $"{updateCust["active"]}");
+						myCommand.Parameters.AddWithValue("@LastUpdate", $"{LoginControl.CreateStamp()}");
+						myCommand.Parameters.AddWithValue("@LastUpdateBy", $"{LoginControl.GetUserName()}");
+						myCommand.Parameters.AddWithValue("@NewCustomerName", $"{_CustForm["customerName"]}");
 						int editCust = myCommand.ExecuteNonQuery();
 
 						// Edit Address Table

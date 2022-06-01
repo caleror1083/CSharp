@@ -140,8 +140,9 @@ namespace SoftwareCompanySchedulingApp
 					{
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
-						string delete = $"DELETE FROM appointment WHERE appointmentId = '{apptDetails["appointmentId"]}'";
+						string delete = $"DELETE FROM [appointment] WHERE [appointmentId] = @AppointmentID";
 						SqlCommand myCommand = new SqlCommand(delete, myConnection);
+						myCommand.Parameters.AddWithValue("@AppointmentID", $"{apptDetails["appointmentId"]}");
 						int apptDeleted = myCommand.ExecuteNonQuery();
 						myConnection.Close();
 						if (apptDeleted != 0)
@@ -195,9 +196,10 @@ namespace SoftwareCompanySchedulingApp
 
 								foreach (var appt in appts.Values)	// Assigns the username to each appointment
 									{
-										myQuery = $"SELECT userName FROM user WHERE userId = '{appt["userId"]}'";
+										myQuery = $"SELECT [userName] FROM [user] WHERE [userId] = @UserID";
 										myCommand = new SqlCommand(myQuery, myConnection);
 										myReader = myCommand.ExecuteReader();
+										myCommand.Parameters.AddWithValue("@UserID", $"{appt["userId"]}");
 										myReader.Read();
 										appt.Add("userName", myReader[0]);
 										myReader.Close();
@@ -205,8 +207,9 @@ namespace SoftwareCompanySchedulingApp
 
 								foreach (var app in appts.Values)	// Assigns the customerName to each appointment
 									{
-										myQuery = $"SELECT customerName FROM customer WHERE customerId = '{app["customerId"]}'";
+										myQuery = $"SELECT [customerName] FROM [customer] WHERE [customerId] = @CustomerID";
 										myCommand = new SqlCommand(myQuery, myConnection);
+										myCommand.Parameters.AddWithValue("@CustomerID", $"{app["customerId"]}");
 										myReader = myCommand.ExecuteReader();
 										myReader.Read();
 										app.Add("customerName", myReader[0]);

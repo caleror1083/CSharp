@@ -29,20 +29,20 @@ namespace SoftwareCompanySchedulingApp
                         StartDT.Value = DateTime.Now;
                         EndDT.Value = DateTime.Now.AddMinutes(60);
 
-                        string myQuery = $"SELECT customerId, customerName FROM customer";
-                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
-                        myConnection.Open();
-                        SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-                        SqlDataReader myReader;
-                        myReader = myCommand.ExecuteReader();
-                        DataTable myTable = new DataTable();
-                        myTable.Columns.Add("customerId", typeof(string));
-                        myTable.Columns.Add("customerName", typeof(string));
-                        myTable.Load(myReader);
-                        NameBox.ValueMember = "customerId";
-                        NameBox.DisplayMember = "customerName";
-                        NameBox.DataSource = myTable;
-                        myConnection.Close();
+                        using (SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString()))
+                            {
+                                myConnection.Open();
+                                SqlCommand myCommand = new SqlCommand("SELECT [customerId], [customerName] FROM [customer]", myConnection);
+                                SqlDataReader myReader;
+                                myReader = myCommand.ExecuteReader();
+                                DataTable myTable = new DataTable();
+                                myTable.Columns.Add("customerId", typeof(string));
+                                myTable.Columns.Add("customerName", typeof(string));
+                                myTable.Load(myReader);
+                                NameBox.ValueMember = "customerId";
+                                NameBox.DisplayMember = "customerName";
+                                NameBox.DataSource = myTable;
+                            }
                     }
 
                 private void NameBox_SelectedIndexChanged(object sender, EventArgs e)

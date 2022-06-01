@@ -71,8 +71,10 @@ namespace SoftwareCompanySchedulingApp
                     {
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
-                        SqlCommand myCommand = new SqlCommand($"SELECT {tbl + "Id"} " +
-                                                                  $"FROM {tbl}", myConnection);
+                        SqlCommand myCommand = new SqlCommand($"SELECT @TblID " +
+                                                                  $"FROM @Table", myConnection);
+                        myCommand.Parameters.AddWithValue("@Table", $"{tbl}");
+                        myCommand.Parameters.AddWithValue("@TblID", $"{tbl + "Id"}");
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         List<int> listId = new List<int>();
                         while (myReader.Read())
@@ -90,17 +92,23 @@ namespace SoftwareCompanySchedulingApp
                         string insert;
                         if (user_Id == 0)
                             {
-                                insert = $"INSERT INTO {tbl} " +
-                                         $"VALUES ('{recordId}', {query}, '{stamp}', '{user_Name}', '{stamp}', '{user_Name}')";
+                                insert = $"INSERT INTO @Table " +
+                                         $"VALUES (@RecordID, @Query, @Stamp, @UserName, @Stamp, @UserName)";
                             }
                         else
                             {
-                                insert = $"INSERT INTO {tbl} (appointmentId, customerId, start, end, type, userId, createDate, createdBy, lastUpdate, lastUpdateBy) " +
-                                         $"VALUES ('{recordId}', {query}, '{user_Id}', '{stamp}', '{user_Name}', '{stamp}', '{user_Name}')";
+                                insert = $"INSERT INTO @Table ([appointmentId], [customerId], [start], [end], [type], [userId], [createDate], [createdBy], [lastUpdate], [lastUpdateBy]) " +
+                                         $"VALUES (@RecordID, @Query, @UserId, @Stamp, @UserName, @Stamp, @UserName)";
                             }
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         SqlCommand myCommand = new SqlCommand(insert, myConnection);
+                        myCommand.Parameters.AddWithValue("@Table", $"{tbl}");
+                        myCommand.Parameters.AddWithValue("@RecordID", $"{recordId}");
+                        myCommand.Parameters.AddWithValue("@Query", $"{query}");
+                        myCommand.Parameters.AddWithValue("@UserId", $"{user_Id}");
+                        myCommand.Parameters.AddWithValue("@Stamp", $"{stamp}");
+                        myCommand.Parameters.AddWithValue("@UserName", $"{user_Name}");
                         myCommand.ExecuteNonQuery();
                         myConnection.Close();
 
@@ -114,19 +122,20 @@ namespace SoftwareCompanySchedulingApp
                         
                         if (int.TryParse(find, out custId))
                             {
-                                myQuery = $"SELECT customerId " +
-                                          $"FROM customer " +
-                                          $"WHERE customerId = '{find}'";
+                                myQuery = $"SELECT [customerId] " +
+                                          $"FROM [customer] " +
+                                          $"WHERE [customerId] = @Find";
                             }
                         else
                             {
-                                myQuery = $"SELECT customerId " +
-                                          $"FROM customer " +
-                                          $"WHERE customerName LIKE '{find}'";
+                                myQuery = $"SELECT [customerId] " +
+                                          $"FROM [customer] " +
+                                          $"WHERE [customerName] LIKE @Find";
                             }
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+                        myCommand.Parameters.AddWithValue("@Find", $"{find}");
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         
                         if (myReader.HasRows)
@@ -143,11 +152,12 @@ namespace SoftwareCompanySchedulingApp
                 static public Dictionary<string, string> CustDetails(int custId)
                     {
                         string myQuery = $"SELECT * " +
-                                         $"FROM customer " +
-                                         $"WHERE customerId = '{custId}'";
+                                         $"FROM [customer] " +
+                                         $"WHERE [customerId] = @CustID";
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+                        myCommand.Parameters.AddWithValue("@CustID", $"{custId}");
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         myReader.Read();
 
@@ -161,10 +171,11 @@ namespace SoftwareCompanySchedulingApp
                         myReader.Close();
 
                         myQuery = $"SELECT * " +
-                                  $"FROM address " +
-                                  $"WHERE addressId = '{custDict["addressId"]}'";
+                                  $"FROM [address] " +
+                                  $"WHERE [addressId] = @CustDict";
                         myCommand = new SqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
+                        myCommand.Parameters.AddWithValue("@CustDict", $"{custDict["addressId"]}");
                         myReader.Read();
 
                         // Address Table Details
@@ -175,10 +186,11 @@ namespace SoftwareCompanySchedulingApp
                         myReader.Close();
 
                         myQuery = $"SELECT * " +
-                                  $"FROM city " +
-                                  $"WHERE cityId = '{custDict["cityId"]}'";
+                                  $"FROM [city] " +
+                                  $"WHERE [cityId] = @CityID";
                         myCommand = new SqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
+                        myCommand.Parameters.AddWithValue("@CityID", $"{custDict["cityId"]}");
                         myReader.Read();
 
                         // City Table Details
@@ -187,10 +199,11 @@ namespace SoftwareCompanySchedulingApp
                         myReader.Close();
 
                         myQuery = $"SELECT * " +
-                                  $"FROM country " +
-                                  $"WHERE countryId = '{custDict["countryId"]}'";
+                                  $"FROM [country] " +
+                                  $"WHERE [countryId] = @CountryID";
                         myCommand = new SqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
+                        myCommand.Parameters.AddWithValue("@CountryID", $"{custDict["countryId"]}");
                         myReader.Read();
 
                         // Country Table Details
@@ -203,11 +216,12 @@ namespace SoftwareCompanySchedulingApp
                 static public Dictionary<string, string> ApptDetails(string apptId)
                     {
                         string myQuery = $"SELECT * " +
-                                         $"FROM appointment " +
-                                         $"WHERE appointmentId = '{apptId}'";
+                                         $"FROM [appointment] " +
+                                         $"WHERE [appointmentId] = @ApptID";
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+                        myCommand.Parameters.AddWithValue("@ApptID", $"{apptId}");
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         myReader.Read();
 
