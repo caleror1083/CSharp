@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+// Namespaces
 namespace Tetris
-{
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window
 	{
-		public MainWindow()
-		{
-			InitializeComponent();
-		}
+		// Classes
+		public partial class MainWindow : Window
+			{
+				// Constructors(Parameters)
+				public MainWindow()
+					{
+						InitializeComponent();
+					}
+			}
 	}
-}
