@@ -18,10 +18,8 @@ namespace DentalOfficeSchedulingApp
 			{
 				private static int myUserID;
 				private static string myUserName;
-				
-				public static string myConnectionString = @"Data Source=ROB-DESKTOP\SQLEXPRESS;Initial Catalog=Scheduling;Integrated Security=True;";
-
 				private static Dictionary<int, Hashtable> myAppointments = new Dictionary<int, Hashtable>();
+				public string myConnectionString = @"Data Source=ROB-DESKTOP\SQLEXPRESS;Initial Catalog=Scheduling;Integrated Security=True";
 
 				public static string GetUserName()
 					{
@@ -30,7 +28,7 @@ namespace DentalOfficeSchedulingApp
 
 				public static string GetConnectionString()
 					{
-						return myConnectionString;
+						return myConnection;
 					}
 				
 				// Get ID for Records
@@ -297,23 +295,25 @@ namespace DentalOfficeSchedulingApp
 
 				public static int CheckUser(string activeUser, string activePassword)
 					{
-						SqlConnection myConnection = new SqlConnection(myConnectionString);
-						myConnection.Open();
-
-						SqlCommand myCommand = new SqlCommand($"SELECT userId, userName FROM user WHERE userName = '{activeUser}' AND password = '{activePassword}'", myConnection);
-						SqlDataReader myReader = myCommand.ExecuteReader();
-
-						if (myReader.HasRows)
+						using (SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString()))
 							{
-								myReader.Read();
-								SetUserID(Convert.ToInt32(myReader[0]));
-								SetUserName(Convert.ToString(myReader[1]));
-								myReader.Close();
+								SqlCommand myCommand = new SqlCommand($"SELECT [userId], [userName] FROM [user] WHERE [userName] = @ActiveUser AND [password] = @ActivePassword", myConnection);
+								myCommand.Parameters.AddWithValue("@ActiveUser", $"{activeUser}");
+								myCommand.Parameters.AddWithValue("@ActivePassword", $"{activePassword}");
+								SqlDataReader myReader = myCommand.ExecuteReader();
+
+								if (myReader.HasRows)
+									{
+										myReader.Read();
+										SetUserID(Convert.ToInt32(myReader[0]));
+										SetUserName(Convert.ToString(myReader[1]));
+										myReader.Close();
+										myConnection.Close();
+										return 1;
+									}
 								myConnection.Close();
-								return 1;
+								return 0;
 							}
-						myConnection.Close();
-						return 0;
 					}
 
 				// Creates new user

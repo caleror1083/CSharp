@@ -5,27 +5,34 @@
 */
 
 using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Windows.Forms;
 
+// Namespaces
 namespace DentalOfficeSchedulingApp
 	{
+		// Classes
 		public partial class Login : Form
 			{
-				public string credentialsError = "The username and password did not match.";
-				public string applicationExit = "Are you sure you wish to exit the application?";
+				// Fields
+				private string credentialsError = "The username and password did not match.";
+				private string applicationExit = "Are you sure you wish to exit the application?";
 
+				// Constructors(Parameters)
 				public Login()
 					{
 						InitializeComponent();
 						CheckLanguage(CultureInfo.CurrentUICulture.LCID);
 					}
 
+				// Methods(Parameters)
 				private void CheckLanguage(int myLCID)
 					{
 						if (myLCID == 1034)
 							{
-								this.Text = "Acceso";
+								Text = "Acceso";
 								UserNameLbl.Text = "Nombre de usario";
 								PasswordLbl.Text = "Contraseña";
 								LoginBtn.Text = "Iniciar sesión";

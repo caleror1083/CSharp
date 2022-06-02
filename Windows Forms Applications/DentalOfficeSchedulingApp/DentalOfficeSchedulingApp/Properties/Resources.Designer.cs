@@ -59,5 +59,14 @@ namespace DentalOfficeSchedulingApp.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data Source=ROB-DESKTOP\SQLEXPRESS;Initial Catalog=Scheduling;Integrated Security=True.
+        /// </summary>
+        internal static string connectionString {
+            get {
+                return ResourceManager.GetString("connectionString", resourceCulture);
+            }
+        }
     }
 }
