@@ -41,7 +41,7 @@ namespace Tetris
 						return IsInside(r, c) && _Grid[r, c] == 0;
 					}
 
-				public bool IsRowFull(int r)  // Checks if an emtire row is full
+				public bool IsRowFull(int r)  // Checks if an entire row is full
 					{
 						for (int c = 0; c < Columns; c++)
 							{
