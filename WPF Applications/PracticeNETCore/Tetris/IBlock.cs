@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-// Namespaces
+﻿// Namespaces
 namespace Tetris
 	{
 		// Classes
 		internal class IBlock : Block
 			{
 				// Fields
-				private readonly Position[][] _Tiles = new Position[][]
+				// Store the tiles positions for the four rotation states
+				private readonly Position[][] _Tiles = new Position[][]  
 					{
 						new Position[] { new(1, 0), new(1, 1), new(1, 2), new(1, 3) },
 						new Position[] { new(0, 2), new(1, 2), new(2, 2), new(3, 2) },
@@ -21,6 +16,7 @@ namespace Tetris
 
 				// Properties
 				public override int Id => 1;
-				protected override Position StartOffset => new Position(-1, 3);
+				protected override Position StartOffset => new Position(-1, 3); // Makes the block spawn in the middle of the top row
+				protected override Position[][] Tiles => _Tiles;  // Return the _Tiles array field
 			}
 	}
