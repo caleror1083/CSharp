@@ -16,7 +16,7 @@ namespace Tetris
 
 				// Properties
 				public override int Id => 1;
-				protected override Position StartOffset => new Position(-1, 3); // Makes the block spawn in the middle of the top row
+				protected override Position StartOffset => new(-1, 3); // Makes the block spawn in the middle of the top row
 				protected override Position[][] Tiles => _Tiles;  // Return the _Tiles array field
 			}
 	}
