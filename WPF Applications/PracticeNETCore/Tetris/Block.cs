@@ -12,9 +12,9 @@ namespace Tetris
 				private readonly Position _Offset;
 
 				// Properties
-				protected abstract Position[][] Tiles { get; }  // 2d Position array which contains the tile positions in the 4 rotation states
-				protected abstract Position StartOffset { get; }  // A start offset which decides where the block spawns in the grid
 				public abstract int Id { get; }  // An integer Id which we need to distinguish the blocks
+				protected abstract Position StartOffset { get; }  // A start offset which decides where the block spawns in the grid
+				protected abstract Position[][] Tiles { get; }  // 2d Position array which contains the tile positions in the 4 rotation states
 
 				// Constructors(Parameters)
 				public Block()  // Set the _Offset equal to the StartOffset
