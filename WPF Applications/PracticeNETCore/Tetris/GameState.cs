@@ -19,11 +19,24 @@ namespace Tetris
 							{
 								_CurrentBlock = value;
 								_CurrentBlock.Reset();
+
+								for (int i = 0; i < 2; i++)
+									{
+										_CurrentBlock.Move(1, 0);
+
+										if (!BlockFits())
+											{
+												_CurrentBlock.Move(-1, 0);
+											}
+									}
 							}
 					}
 				public GameGrid GameGrid { get; }  // Properties for the game grid
 				public BlockQueue BlockQueue { get; }  // Properties for the block queue
 				public bool GameOver { get; private set; }  // Properties for a game over boolean
+				public int Score { get; private set; }
+				public Block HeldBlock { get; private set; }
+				public bool CanHold { get; private set; }
 
 				// Constructors(Parameters)
 				public GameState()
@@ -31,6 +44,7 @@ namespace Tetris
 						GameGrid = new GameGrid(22, 10);  // Initialize the game grid with 22 rows and 10 columns
 						BlockQueue = new BlockQueue();  // Initialize the block queue
 						CurrentBlock = BlockQueue.GetAndUpdate();  // Use it to get a random block for the current block property
+						CanHold = true;
 					}
 
 				// Methods(Parameters)
@@ -44,6 +58,25 @@ namespace Tetris
 									}
 							}
 						return true;  // Otherwise if we get through the entire loop we return true
+					}
+
+				public void HoldBlock()
+					{
+						if (!CanHold)
+							{
+								return;
+							}
+
+						if (HeldBlock == null)
+							{
+								HeldBlock = CurrentBlock;
+								CurrentBlock = BlockQueue.GetAndUpdate();
+							}
+						else
+							{
+								(HeldBlock, CurrentBlock) = (CurrentBlock, HeldBlock);
+							}
+							CanHold = false;
 					}
 
 				public void RotateBlockCW()  // Method to rotate the current block clockwise
@@ -97,7 +130,7 @@ namespace Tetris
 							{
 								GameGrid[p.Row, p.Column] = CurrentBlock.Id;  // Sets those positions in the game grid equal to the blocks Id
 							}
-						GameGrid.ClearFullRows();  // Clear any potentially full rows
+						Score += GameGrid.ClearFullRows();  // Clear any potentially full rows
 
 						if (IsGameOver())  // Check if the game is over
 							{
@@ -106,6 +139,7 @@ namespace Tetris
 						else
 							{
 								CurrentBlock = BlockQueue.GetAndUpdate();  // If not we update the current block
+								CanHold = true;
 							}
 					}
 
@@ -115,14 +149,39 @@ namespace Tetris
 
 						if (!BlockFits())
 							{
-								CurrentBlock.Move(1, 0);
-
-								if (!BlockFits())
-									{
-										CurrentBlock.Move(-1, 0);
-										PlaceBlock();  // Method called in case the block cannot be moved down
-									}
+								CurrentBlock.Move(-1, 0);
+								PlaceBlock();  // Method called in case the block cannot be moved down
 							}
+					}
+
+				private int TileDropDistance(Position p)
+					{
+						int drop = 0;
+
+						while (GameGrid.IsEmpty(p.Row + drop + 1, p.Column))
+						{
+							drop++;
+						}
+
+						return drop;
+					}
+
+				public int BlockDropDistance()
+					{
+						int drop = GameGrid.Rows;
+
+						foreach (Position p in CurrentBlock.TilePositions())
+						{
+							drop = Math.Min(drop, TileDropDistance(p));
+						}
+
+						return drop;
+					}
+
+				public void DropBlock()
+					{
+						CurrentBlock.Move(BlockDropDistance(), 0);
+						PlaceBlock();
 					}
 			}
 	}
