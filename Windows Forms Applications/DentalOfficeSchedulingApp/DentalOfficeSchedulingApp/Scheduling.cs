@@ -28,11 +28,12 @@ namespace DentalOfficeSchedulingApp
 
 				public static Array ShowCalendar(bool weekly)
 					{
-						SqlConnection myConnection = new SqlConnection(Database.myConnectionString);
+						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT customerId, type, start, end, appointmentId, userId FROM appointment WHERE userId = '{Database.GetUserID()}'";
+						var myQuery = $"SELECT [customerId], [type], [start], [end], [appointmentId], [userId] FROM [appointment] WHERE [userId] = @GetUserId";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+						myCommand.Parameters.AddWithValue("@GetUserId", $"{Database.GetUserID()}");
 						SqlDataReader myReader = myCommand.ExecuteReader();
 						Dictionary<int, Hashtable> myAppointments = new Dictionary<int, Hashtable>();
 						Dictionary<int, Hashtable> myParsedAppointments = new Dictionary<int, Hashtable>();
