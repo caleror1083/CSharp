@@ -25,8 +25,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddressBook", "AddressBook\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender", "EmailSender\EmailSender.csproj", "{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBsystem", "DBsystem\DBsystem.csproj", "{AEA12F60-0E05-4E7E-A898-E5A71EC8D5F0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_001_Multithreading", "_001_Multithreading\_001_Multithreading.csproj", "{106FADEB-B372-4482-BCA6-497BFF5B3ED2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calendar", "Calendar\Calendar.csproj", "{AA53E6C5-08E2-4BC5-BFD1-A4E582740FDF}"
@@ -81,10 +79,6 @@ Global
 		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC2F58D3-89C3-4FBE-AC22-2C2982DD60DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AEA12F60-0E05-4E7E-A898-E5A71EC8D5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AEA12F60-0E05-4E7E-A898-E5A71EC8D5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AEA12F60-0E05-4E7E-A898-E5A71EC8D5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AEA12F60-0E05-4E7E-A898-E5A71EC8D5F0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{106FADEB-B372-4482-BCA6-497BFF5B3ED2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{106FADEB-B372-4482-BCA6-497BFF5B3ED2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{106FADEB-B372-4482-BCA6-497BFF5B3ED2}.Release|Any CPU.ActiveCfg = Release|Any CPU
