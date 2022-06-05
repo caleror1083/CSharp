@@ -48,6 +48,7 @@
     <Compile Include="Animal2.cs" />
     <Compile Include="AutoPolicy.cs" />
     <Compile Include="Battle.cs" />
+    <Compile Include="Examples.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,59 +1,66 @@
 ﻿// Robert Calero - App demonstrating how to protect class fields using get and set methods
 using System;
 
-public class Student
+// Namespaces
+namespace _027_Properties_GetSetMethods
 	{
-		private int _ID;
-		private string _Name;
-		private readonly int _PassMark = 60;
-
-		public void SetID(int paramID)
+		// Classes
+		internal class Student
 			{
-				if (paramID <= 0)
+				// Fields
+				private int _ID;
+				private string _Name;
+				private readonly int _PassMark = 60;
+
+				// Methods(Parameters)
+				public void SetID(int paramID)
 					{
-						throw new Exception("Student ID cannot be negative");
+						if (paramID <= 0)
+							{
+								throw new Exception("Student ID cannot be negative");
+							}
+						_ID = paramID;
 					}
-				_ID = paramID;
-			}
 
-		public int GetID()
-			{
-				return _ID;
-			}
-
-		public void SetName(string paramName)
-			{
-				if (string.IsNullOrEmpty(paramName))
+				public int GetID()
 					{
-						throw new Exception("Name cannot be null or empty");
+						return _ID;
 					}
-				_Name = paramName;
-			}
 
-		public string GetName()
-			{
-				return string.IsNullOrEmpty(_Name) ? "No Name" : _Name;
-			}
+				public void SetName(string paramName)
+					{
+						if (string.IsNullOrEmpty(paramName))
+							{
+								throw new Exception("Name cannot be null or empty");
+							}
+						_Name = paramName;
+					}
 
-		public int GetPassMark()
-			{
-				return _PassMark;
-			}
+				public string GetName()
+					{
+						return string.IsNullOrEmpty(_Name) ? "No Name" : _Name;
+					}
 
-		public void PrintID()
-			{
-				SetID(101);
-				Console.WriteLine($"Student ID = {GetID()}");
-			}
+				public int GetPassMark()
+					{
+						return _PassMark;
+					}
 
-		public void PrintName()
-			{
-				SetName("Rob");
-				Console.WriteLine($"Student Name = {GetName()}");
-			}
+				public void PrintID()
+					{
+						SetID(101);
+						Console.WriteLine($"Student ID = {GetID()}");
+					}
 
-		public void PrintPassMark()
-			{
-				Console.WriteLine($"PassMark = {GetPassMark()}");
+				public void PrintName()
+					{
+						SetName("Rob");
+						Console.WriteLine($"Student Name = {GetName()}");
+					}
+
+				public void PrintPassMark()
+					{
+						Console.WriteLine($"PassMark = {GetPassMark()}");
+					}
 			}
 	}
