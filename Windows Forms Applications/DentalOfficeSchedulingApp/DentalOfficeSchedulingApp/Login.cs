@@ -52,11 +52,11 @@ namespace DentalOfficeSchedulingApp
 
 				private void ExitBtn_Click(object sender, EventArgs e)
 					{
-						var confirmation = MessageBox.Show(_ApplicationExit, this.Text, MessageBoxButtons.YesNo);
+						var confirmation = MessageBox.Show(_ApplicationExit, Text, MessageBoxButtons.YesNo);
 
 						if (confirmation == DialogResult.Yes)
 							{
-								this.Close();
+								Close();
 							}
 					}
 			}

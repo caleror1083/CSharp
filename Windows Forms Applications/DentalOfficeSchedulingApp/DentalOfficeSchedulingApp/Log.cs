@@ -1,37 +1,37 @@
-﻿/*
-	C868 Software Development Capstone
-	Robert Calero
-	Student ID# 000998416
-*/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+// Namespaces
 namespace DentalOfficeSchedulingApp
 	{
+		// Classes
 		class Log
 			{
-				private static DateTime? myTime;
+				// Fields
+				private static DateTime? _myTime;
+
+				// Methods(Parameters)
+				public static DateTime? GetTime()
+					{
+						return _myTime;
+					}
 
 				public static void SetTime(DateTime? currentTime)
 					{
-						myTime = currentTime;
-					}
-
-				public static DateTime? GetTime()
-					{
-						return myTime;
+						_myTime = currentTime;
 					}
 
 				public static void Login(string currentUserName)
 					{
 						DateTime myTime = DateTime.Now.ToLocalTime();
-						Dictionary<DateTime, string> myDictionary = new Dictionary<DateTime, string>();
-						myDictionary.Add(myTime, currentUserName);
+						Dictionary<DateTime, string> myDictionary = new Dictionary<DateTime, string>
+							{
+								{ myTime, currentUserName }
+							};
 						SetTime(myTime);
 
 						foreach (KeyValuePair<DateTime, string> myKeyValue in myDictionary)
