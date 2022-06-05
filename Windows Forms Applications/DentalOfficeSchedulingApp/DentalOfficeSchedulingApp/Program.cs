@@ -1,20 +1,13 @@
-﻿/*
-	C868 Software Development Capstone
-	Robert Calero
-	Student ID# 000998416
-*/
-
-using System;
+﻿// 	C868 Software Development Capstone - Robert Calero - Student ID# 000998416
 using System.Windows.Forms;
 
+// Namespaces
 namespace DentalOfficeSchedulingApp
 	{
+		// Classes
 		static class Program
 			{
-				/// <summary>
-				/// The main entry point for the application.
-				/// </summary>
-				[STAThread]
+				// Methods(Parameters)
 				static void Main()
 					{
 						Application.EnableVisualStyles();
