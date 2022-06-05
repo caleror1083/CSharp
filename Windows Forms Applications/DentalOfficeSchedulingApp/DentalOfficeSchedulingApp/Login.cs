@@ -1,10 +1,4 @@
-﻿/*
-	C868 Software Development Capstone
-	Robert Calero
-	Student ID# 000998416
-*/
-
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
@@ -17,8 +11,8 @@ namespace DentalOfficeSchedulingApp
 		public partial class Login : Form
 			{
 				// Fields
-				private string credentialsError = "The username and password did not match.";
-				private string applicationExit = "Are you sure you wish to exit the application?";
+				private string _CredentialsError = "The username and password did not match.";
+				private string _ApplicationExit = "Are you sure you wish to exit the application?";
 
 				// Constructors(Parameters)
 				public Login()
@@ -37,32 +31,30 @@ namespace DentalOfficeSchedulingApp
 								PasswordLbl.Text = "Contraseña";
 								LoginBtn.Text = "Iniciar sesión";
 								ExitBtn.Text = "Salida";
-								credentialsError = "El nombre de usuario y la contraseña no coinciden.";
-								applicationExit = "Quieres salir de la aplicación?";
+								_CredentialsError = "El nombre de usuario y la contraseña no coinciden.";
+								_ApplicationExit = "Quieres salir de la aplicación?";
 							}
 					}
 
 				private void LoginBtn_Click(object sender, EventArgs e)
 					{
-						// Checks the database to confirm username and password credentials are correct
-						if (Database.CheckUser(UserNameTxt.Text, PasswordTxt.Text) == 1)
-							{
-								// Login to application, saving username and current time to text file, open main page
-								Log.Login(Database.GetUserName());
+						if (Database.CheckUser(UserNameTxt.Text, PasswordTxt.Text) == 1)  // Checks the database to confirm username and password credentials are correct
+							{								
+								Log.Login(Database.GetUserName());  // Login to application
 								Form scheduling = new Scheduling();
-								Log.Reminder();
-								scheduling.Show();
+								Log.Reminder();  // Saving username and current time to text file
+								scheduling.Show();  // Open main page
 								Hide();
 							}
 						else
 							{
-								MessageBox.Show(credentialsError);
+								MessageBox.Show(_CredentialsError);
 							}
 					}
 
 				private void ExitBtn_Click(object sender, EventArgs e)
 					{
-						var confirmation = MessageBox.Show(applicationExit, this.Text, MessageBoxButtons.YesNo);
+						var confirmation = MessageBox.Show(_ApplicationExit, this.Text, MessageBoxButtons.YesNo);
 
 						if (confirmation == DialogResult.Yes)
 							{
