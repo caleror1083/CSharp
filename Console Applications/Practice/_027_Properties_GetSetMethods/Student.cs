@@ -13,6 +13,11 @@ namespace _027_Properties_GetSetMethods
 				private readonly int _PassMark = 60;
 
 				// Methods(Parameters)
+				public int GetID()
+					{
+						return _ID;
+					}
+
 				public void SetID(int paramID)
 					{
 						if (paramID <= 0)
@@ -22,9 +27,15 @@ namespace _027_Properties_GetSetMethods
 						_ID = paramID;
 					}
 
-				public int GetID()
+				public void PrintID()
 					{
-						return _ID;
+						SetID(101);
+						Console.WriteLine($"Student ID = {GetID()}");
+					}
+
+				public string GetName()
+					{
+						return string.IsNullOrEmpty(_Name) ? "No Name" : _Name;
 					}
 
 				public void SetName(string paramName)
@@ -36,26 +47,15 @@ namespace _027_Properties_GetSetMethods
 						_Name = paramName;
 					}
 
-				public string GetName()
+				public void PrintName()
 					{
-						return string.IsNullOrEmpty(_Name) ? "No Name" : _Name;
+						SetName("Rob");
+						Console.WriteLine($"Student Name = {GetName()}");
 					}
 
 				public int GetPassMark()
 					{
 						return _PassMark;
-					}
-
-				public void PrintID()
-					{
-						SetID(101);
-						Console.WriteLine($"Student ID = {GetID()}");
-					}
-
-				public void PrintName()
-					{
-						SetName("Rob");
-						Console.WriteLine($"Student Name = {GetName()}");
 					}
 
 				public void PrintPassMark()

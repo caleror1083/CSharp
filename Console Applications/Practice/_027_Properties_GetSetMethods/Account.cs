@@ -1,28 +1,34 @@
-﻿class Account                                   // A simple Account class that contains a private instance variable name and public methods to Set and Get name's value.
+﻿using System;
+
+// Namespaces
+namespace _027_Properties_GetSetMethods
     {
-        private string name;                     // instance variable
-        private string name2;                    // instance variable
-
-        public void SetName(string accountName)  // method that sets the account name in the object
+        // Classes
+        internal class Account                                   // A simple Account class that contains a private instance variable name and public methods to Set and Get name's value.
             {
-                name = accountName;               // store the account name
-            }
+                // Fields
+                private string _Name;                     // instance variable
 
-        public string GetName()                  // method that retrieves the account name from the object
-            {
-                return name;                      // returns name's value to this method's caller
-            }
-
-                      
-        public string Name2                      // property to get and set the name instance variable
-            {
-                get                               // returns the corresponding instance variable's value
+                // Methods(Parameters)
+                public string GetName()                  // method that retrieves the account name from the object
                     {
-                        return name2;              // returns the value of name to the client code
+                        return _Name;                      // returns name's value to this method's caller
                     }
-                set                               // assigns a new value to the corresponding instance variable
+
+                public void SetName(string accountName)  // method that sets the account name in the object
                     {
-                        name2 = value;             // value is implicitly declared and initialized
+                        _Name = accountName;               // store the account name
+                    }
+
+                public void PrintName()
+                    {
+                        Console.WriteLine($"Initial name is: {GetName()}");		// display myAccount's initial name (there isn't one)
+
+						Console.Write("Enter the name: ");									// prompt for the name
+						string theName = Console.ReadLine();										// read the name
+						SetName(theName);											// put theName in the myAccount object
+
+						Console.WriteLine($"myAccount's name is: {GetName()}");	// display the name stored in the myAccount object
                     }
             }
     }

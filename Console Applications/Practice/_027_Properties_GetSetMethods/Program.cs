@@ -11,57 +11,6 @@ namespace _027_Properties_GetSetMethods
 						Examples myExamples = new Examples();
 						myExamples.ProcessExamples();
 
-						Account myAccount = new Account();									// create an Account object and assign it to myAccount
-						string theName;
-
-						Console.WriteLine($"Initial name is: {myAccount.GetName()}");		// display myAccount's initial name (there isn't one)
-
-						Console.Write("Enter the name: ");									// prompt for the name
-						theName = Console.ReadLine();										// read the name
-						myAccount.SetName(theName);											// put theName in the myAccount object
-
-						Console.WriteLine($"myAccount's name is: {myAccount.GetName()}");	// display the name stored in the myAccount object
-
-						Account myAccount2 = new Account();									// create an Account object and assign it to myAccount
-
-						Console.WriteLine($"Initial name is: {myAccount.Name2}");			// display myAccount's initial name 
-
-						Console.Write("Enter the name: ");									// prompt for the name
-						string theName2 = Console.ReadLine();										// read the name
-						myAccount2.Name2 = theName;											// put theName in the myAccount object
-
-						Console.WriteLine($"myAccount's name is: {myAccount2.Name2}");		// display the name stored in the myAccount object
-
-						decimal depositAmount;
-
-						// create two Account objects
-						Account2 account1 = new Account2("Jane Green", 50.00m);
-						Account2 account2 = new Account2("John Blue", -7.53m);
-
-						// display initial balance of each object
-						Console.WriteLine($"{account1.Name}'s balance: {account1.Balance:C}");
-						Console.WriteLine($"{account2.Name}'s balance: {account2.Balance:C}");
-
-						// prompt for then read input
-						Console.Write("\nEnter deposit amount for account1: "); 
-						depositAmount = decimal.Parse(Console.ReadLine());
-						Console.WriteLine($"adding {depositAmount:C} to account1 balance\n");
-						account1.Deposit(depositAmount); // add to account1's balance
-
-						// display balances
-						Console.WriteLine($"{account1.Name}'s balance: {account1.Balance:C}");
-						Console.WriteLine($"{account2.Name}'s balance: {account2.Balance:C}");
-
-						// prompt for then read input
-						Console.Write("\nEnter deposit amount for account2: ");
-						depositAmount = decimal.Parse(Console.ReadLine());
-						Console.WriteLine($"adding {depositAmount:C} to account2 balance\n");
-						account2.Deposit(depositAmount); // add to account2's balance
-
-						// display balances
-						Console.WriteLine($"{account1.Name}'s balance: {account1.Balance:C}");
-						Console.WriteLine($"{account2.Name}'s balance: {account2.Balance:C}");
-
 						Student2 student1 = new Student2("Jane Green", 93);
 						Student2 student2 = new Student2("John Blue", 72);
 
