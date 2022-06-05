@@ -4,20 +4,14 @@ using System;
 // Namespaces
 namespace _027_Properties_GetSetMethods
 	{
+		// Classes
 		internal class Program
 			{
+				// Methods(Parameters)
 				static void Main()    // Main method begins execution of C# app
 					{
 						Examples myExamples = new Examples();
 						myExamples.ProcessExamples();
-
-						Student2 student1 = new Student2("Jane Green", 93);
-						Student2 student2 = new Student2("John Blue", 72);
-
-						Console.Write($"{student1.Name}'s letter grade equivalent of ");
-						Console.WriteLine($"{student1.Average} is {student1.LetterGrade}");
-						Console.Write($"{student2.Name}'s letter grade equivalent of ");
-						Console.WriteLine($"{student2.Average} is {student2.LetterGrade}");
 
 						// create two AutoPolicy objects
 						AutoPolicy policy1 = new AutoPolicy(11111111, "Toyota Camry", "NJ");

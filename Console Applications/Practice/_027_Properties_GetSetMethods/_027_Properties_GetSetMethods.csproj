@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="Account2.cs" />
     <Compile Include="Animal2.cs" />
     <Compile Include="AutoPolicy.cs" />
     <Compile Include="Battle.cs" />
@@ -53,7 +52,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
-    <Compile Include="Student2.cs" />
     <Compile Include="Warrior.cs" />
   </ItemGroup>
   <ItemGroup>

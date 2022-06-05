@@ -1,21 +1,25 @@
-﻿	    class Student2
-	        {
-		        public string Name { get; set; } // property
-                private int average; // instance variable
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-                // constructor initializes Name and Average properties
-                public Student2(string studentName, int studentAverage)
-                    {
-                        Name = studentName;
-                        Average = studentAverage; // sets average instance variable
-                    }
+// Namespaces
+namespace _028_Properties
+	{
+		// Classes
+		internal class Student2
+			{
+				// Fields
+				private int _Average; // instance field
 
-                // property to get and set instance variable average
-                public int Average
+				// Proeprties
+				public string Name { get; set; }
+				public int Average
                     {
                         get // returns the Student's average
                             {
-                                return average;
+                                return _Average;
                             }
                         set  // sets the Student's average
                             {
@@ -25,7 +29,7 @@
                                     {
                                         if (value <= 100)
                                             {
-                                                average = value; // assign to instance variable
+                                                _Average = value; // assign to instance variable
                                             }
                                     }
                             }
@@ -38,19 +42,19 @@
                             {
                                 string letterGrade = string.Empty; // string.Empty is ""
 
-                                if (average >= 90)
+                                if (_Average >= 90)
                                     {
                                         letterGrade = "A";
                                     }
-                                else if (average >= 80)
+                                else if (_Average >= 80)
                                     {
                                         letterGrade = "B";
                                     }
-                                else if (average >= 70)
+                                else if (_Average >= 70)
                                     {
                                         letterGrade = "C";
                                     }
-                                else if (average >= 60)
+                                else if (_Average >= 60)
                                     {
                                         letterGrade = "D";
                                     }
@@ -62,4 +66,12 @@
                                 return letterGrade;
                             }
                     }
-	        }
+
+				// Constructors(Parameters)
+				 public Student2(string studentName, int studentAverage)
+                    {
+                        Name = studentName;
+                        Average = studentAverage; // sets average instance variable
+                    }
+			}
+	}
