@@ -17,9 +17,6 @@ namespace AddressBook
 
 				private void FormLoad(object sender, EventArgs e)
 					{
-						// SQL Server: ROB-DESKTOP\SQLEXPRESS
-						// Database: AddressBook
-						// Table: AddressBookTable
 						string connectionString = @"Data Source=ROB-DESKTOP\SQLEXPRESS;Initial Catalog=AddressBook;Integrated Security=True;";
 						string queryString = "SELECT * FROM AddressBookTable";
 						SqlDataAdapter da = new SqlDataAdapter(queryString, connectionString);
