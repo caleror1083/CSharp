@@ -17,7 +17,7 @@ namespace _028_Properties
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-2: ");
+							Console.Write("Please select an example from 1-4: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -29,6 +29,12 @@ namespace _028_Properties
 												break;
 											case 2:
 												Example2();
+												break;
+											case 3:
+												Example3();
+												break;
+											case 4:
+												Example4();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
