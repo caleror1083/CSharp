@@ -29,7 +29,11 @@ namespace _027_Properties_GetSetMethods
 
 				public void PrintID()
 					{
-						SetID(101);
+						Console.Write($"What is your student ID? ");
+						_ID = int.Parse(Console.ReadLine());
+
+						SetID(_ID);
+
 						Console.WriteLine($"Student ID = {GetID()}");
 					}
 
@@ -49,7 +53,11 @@ namespace _027_Properties_GetSetMethods
 
 				public void PrintName()
 					{
-						SetName("Rob");
+						Console.Write($"What is your name? ");
+						_Name = Console.ReadLine();
+
+						SetName(_Name);
+
 						Console.WriteLine($"Student Name = {GetName()}");
 					}
 

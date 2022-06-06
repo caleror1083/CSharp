@@ -24,9 +24,10 @@ namespace _027_Properties_GetSetMethods
                     {
                         Console.WriteLine($"Initial name is: {GetName()}");		// display myAccount's initial name (there isn't one)
 
-						Console.Write("Enter the name: ");									// prompt for the name
-						string theName = Console.ReadLine();										// read the name
-						SetName(theName);											// put theName in the myAccount object
+						Console.Write("Enter the name: ");  // Prompt for the name
+						_Name = Console.ReadLine();  // Read the name
+
+						SetName(_Name);  // Put Name field in the myAccount object
 
 						Console.WriteLine($"myAccount's name is: {GetName()}");	// display the name stored in the myAccount object
                     }
