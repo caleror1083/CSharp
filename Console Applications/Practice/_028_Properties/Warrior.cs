@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-        class Warrior
-            {
-                // Define the Warriors properties
+namespace _028_Properties
+{
+	internal class Warrior
+	{
+		// Define the Warriors properties
                 public string Name { get; set; } = "Warrior";
                 public double Health { get; set; } = 0;
                 public double AttkMax { get; set; } = 0;
@@ -31,4 +37,5 @@
                     {
                         return rnd.Next(1, (int)BlockMax);
                     }
-            }
+	}
+}

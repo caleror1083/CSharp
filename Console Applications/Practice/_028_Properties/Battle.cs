@@ -1,6 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-        class Battle    // This is a utility class so it makes sense to have just static methods
+namespace _028_Properties
+{
+	internal class Battle    // This is a utility class so it makes sense to have just static methods
             {
                 // Recieve both Warrior objects
                 public static void StartFight(Warrior warrior1, Warrior warrior2)
@@ -55,3 +61,4 @@
                         else return "Fight Again";
                     }
             }
+}
