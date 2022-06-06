@@ -17,7 +17,7 @@ namespace _028_Properties
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-4: ");
+							Console.Write("Please select an example from 1-5: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -35,6 +35,9 @@ namespace _028_Properties
 												break;
 											case 4:
 												Example4();
+												break;
+											case 5:
+												Example5();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -118,6 +121,39 @@ namespace _028_Properties
 						Console.WriteLine($"{student1.Average} is {student1.LetterGrade}");
 						Console.Write($"{student2.Name}'s letter grade equivalent of ");
 						Console.WriteLine($"{student2.Average} is {student2.LetterGrade}");
+					}
+
+				static void Example5()
+					{
+						// create two AutoPolicy objects
+						AutoPolicy policy1 = new AutoPolicy(11111111, "Toyota Camry", "NJ");
+						AutoPolicy policy2 = new AutoPolicy(22222222, "Ford Fusion", "ME");
+
+						// display whether each policy is in a no-fault state
+						PolicyInNoFaultState(policy1);
+						PolicyInNoFaultState(policy2);
+
+						void PolicyInNoFaultState(AutoPolicy policy)					// method that displays whether an AutoPolicy is in a state with no-fault auto insurance 
+							{
+								Console.WriteLine("The auto policy:");
+								Console.Write($"Account #: {policy.AccountNumber}; ");
+								Console.WriteLine($"Car: {policy.MakeAndModel};");
+								Console.Write($"State {policy.State}; ");
+								Console.Write($"{(policy.IsNoFaultState ? "is": " is not")}");
+								Console.Write(" a no-fault state\n");
+							}
+					}
+
+				static void Example6()
+					{
+						Player tom = new Player();
+						Console.WriteLine("The player's health starts at " + tom.Health);
+						tom.Health -= 300;
+						Console.WriteLine("After getting damaged, the player's health is now at " + tom.Health);
+						tom.Health += 400;
+						Console.WriteLine("After gaining health, the player's health is now at " + tom.Health);
+
+						Console.WriteLine();
 					}
 			}
 	}

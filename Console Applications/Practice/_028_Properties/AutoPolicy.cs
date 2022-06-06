@@ -1,19 +1,20 @@
-﻿	    class AutoPolicy    // Class that represents an auto insurance policy.
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+// Namespaces
+namespace _028_Properties
+    {
+        // Classes
+	    internal class AutoPolicy
 	        {
-                public int AccountNumber { get; set; }      // policy account number
+                // Properties
+		        public int AccountNumber { get; set; }      // policy account number
                 public string MakeAndModel { get; set; }    // car that policy applies to
                 public string State { get; set; }           // two-letter state abbreviation
-
-                // constructor
-                public AutoPolicy(int accountNumber, string makeAndModel, string state)
-                    {
-                        AccountNumber = accountNumber;
-                        MakeAndModel = makeAndModel;
-                        State = state;
-                    }
-
-                // returns whether the state has no-fault insurance
-                public bool IsNoFaultState
+                public bool IsNoFaultState                  // returns whether the state has no-fault insurance
                     {
                         get
                             {
@@ -32,4 +33,13 @@
                                 return noFaultState;
                             }
                     }
+
+                // Constructors(Parameters)
+                public AutoPolicy(int accountNumber, string makeAndModel, string state)
+                    {
+                        AccountNumber = accountNumber;
+                        MakeAndModel = makeAndModel;
+                        State = state;
+                    }
 	        }
+    }

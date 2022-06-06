@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="Animal2.cs" />
-    <Compile Include="AutoPolicy.cs" />
     <Compile Include="Battle.cs" />
     <Compile Include="Examples.cs" />
     <Compile Include="Player.cs" />
