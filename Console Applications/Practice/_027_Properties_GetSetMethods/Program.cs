@@ -1,5 +1,4 @@
 ﻿// Robert Calero - App demonstrating how to protect and encapsulate class fields using get and set methods
-using System;
 
 // Namespaces
 namespace _027_Properties_GetSetMethods

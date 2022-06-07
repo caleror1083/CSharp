@@ -7,7 +7,7 @@ namespace _028_Properties
 		internal class Program
 			{
 				// Methods(Parameters)
-				static void Main()    // Main method begins execution of C# app
+				static void Main()
 					{
 						Examples myExamples = new Examples();
 						myExamples.ProcessExamples();
