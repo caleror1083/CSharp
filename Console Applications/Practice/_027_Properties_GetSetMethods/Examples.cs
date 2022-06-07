@@ -13,7 +13,7 @@ namespace _027_Properties_GetSetMethods
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-3: ");
+							Console.Write("Please select an example from 1-2: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -25,9 +25,6 @@ namespace _027_Properties_GetSetMethods
 												break;
 											case 2:
 												Example2();
-												break;
-											case 3:
-												Example3();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -67,30 +64,6 @@ namespace _027_Properties_GetSetMethods
 					{
 						Account myAccount = new Account();  // Create an instance of Account object
 						myAccount.PrintName();
-					}
-
-				static void Example3()
-					{
-						Animal cat = new Animal("");
-
-						// Call the setter
-						cat.SetName("Whiskers");
-
-						Console.WriteLine("The cat is named {0}", cat.GetName());
-
-						// Test auto generated getters and setters
-						cat.Owner = "Derek";
-
-						Console.WriteLine("{0} owner is {1}", cat.GetName(), cat.Owner);
-
-						// Get the read-only id number
-						Console.WriteLine("{0} shelter id is {1}", cat.GetName(), cat.idNum);
-
-						Animal frog = new Animal("Bob");
-
-						// Test static property
-						Console.WriteLine("# of Animals : {0}", Animal.NumOfAnimals2);
-						Console.WriteLine();
 					}
 			}
 	}
