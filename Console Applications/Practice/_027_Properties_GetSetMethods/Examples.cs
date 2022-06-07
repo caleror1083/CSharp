@@ -77,29 +77,26 @@ namespace _027_Properties_GetSetMethods
 
 				static void Example3()
 					{
-						Animal cat = new Animal();
+						Animal cat = new Animal("");
 
-					// Call the setter
-					cat.SetName("Whiskers");
+						// Call the setter
+						cat.SetName("Whiskers");
 
-					// Set the property
-					cat.Sound = "Meow";
+						Console.WriteLine("The cat is named {0}", cat.GetName());
 
-					Console.WriteLine("The cat is named {0} and says {1}", cat.GetName(), cat.Sound);
+						// Test auto generated getters and setters
+						cat.Owner = "Derek";
 
-					// Test auto generated getters and setters
-					cat.Owner = "Derek";
+						Console.WriteLine("{0} owner is {1}", cat.GetName(), cat.Owner);
 
-					Console.WriteLine("{0} owner is {1}", cat.GetName(), cat.Owner);
+						// Get the read-only id number
+						Console.WriteLine("{0} shelter id is {1}", cat.GetName(), cat.idNum);
 
-					// Get the read-only id number
-					Console.WriteLine("{0} shelter id is {1}", cat.GetName(), cat.idNum);
+						Animal frog = new Animal("Bob");
 
-					Animal frog = new Animal("Bob", "Ribbit");
-
-					// Test static property
-					Console.WriteLine("# of Animals : {0}", Animal.NumOfAnimals2);
-					Console.WriteLine();
+						// Test static property
+						Console.WriteLine("# of Animals : {0}", Animal.NumOfAnimals2);
+						Console.WriteLine();
 					}
 			}
 	}

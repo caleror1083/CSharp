@@ -8,37 +8,13 @@ namespace _027_Properties_GetSetMethods
             {
                 // Fields
                 private string _Name;
-                private string _Sound;
                 public const string SHELTER = "Derek's Home for Animals";  // You can define constants
                 public readonly int idNum;  // You can define read-only fields that are set at runtime in constructors, but then can't be changed
 
-                // Properties
-                public string Sound  // The preferred way to define getters and setters is through properties
-                    {
-                        get { return _Sound; }
-                        set
-                            {
-                                if (value.Length > 10)  // Value is assigned the value passed in
-                                    {
-                                        _Sound = "No Sound";
-                                        Console.WriteLine("Sound is too long");
-                                    }
-                                else
-                                    {
-                                        _Sound = value;
-                                    }
-                            }
-                    }
-
-                // Constructors(Parameters)
-                public Animal() : this("No Name", "No Sound") { }
-
-                public Animal(string name) : this(name, "No Sound") { }  // Constructor called if only name is passed this passes the parameters to the next constructor
-                
-                public Animal(string name, string sound)  // Constructor that receives parameters
+                // Constructors(Parameters)                
+                public Animal(string name)  // Constructor that receives parameters
                     {
                         SetName(name);
-                        Sound = sound;
                         NumOfAnimals2 = 1;  // Increment the number of animals property
 
                         Random rnd = new Random();// Define the read-only value which is the same for all Animals
@@ -66,7 +42,7 @@ namespace _027_Properties_GetSetMethods
 
                 public void MakeSound2()
                     {
-                        Console.WriteLine($"{_Name} says {_Sound}");
+                        Console.WriteLine($"{_Name}");
                     }
 
                 // You can have the getters and setters
