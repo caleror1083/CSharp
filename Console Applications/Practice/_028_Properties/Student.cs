@@ -1,5 +1,4 @@
-﻿// Robert Calero - App demonstrating how to protect and encapsulate class fields using properties
-using System;
+﻿using System;
 
 // Namespaces
 namespace _028_Properties
@@ -14,6 +13,10 @@ namespace _028_Properties
 				// Properties
 				public int ID    // ID read/write property
 					{
+						get
+							{
+								return _ID;
+							}
 						set
 							{
 								if (value <= 0)
@@ -22,11 +25,6 @@ namespace _028_Properties
 									}
 								_ID = value;
 							}
-						get
-							{
-								return _ID;
-							}
-				
 					}
 
 				public string Name    // Name read/write property
@@ -47,13 +45,12 @@ namespace _028_Properties
 					}
 
 				public int PassMark { get; set; }    // auto implemented PassMark property
-				public string City { get; set; }    // auto implemented City property
 
 				// Methods(Parameters)
 				public void PrintInfo()
 					{
 						// Object instantiations					
-						Console.Write("Whats is the ID? ");
+						Console.Write("Whats is the student ID? ");
 						ID = int.Parse(Console.ReadLine());
 
 						Console.Write("Whats is the name? ");
@@ -61,31 +58,23 @@ namespace _028_Properties
 
 						if (Name.StartsWith("M"))    // Searches a specific instance of the student class
 							{
-								Console.WriteLine($"Student exists");
+								Console.Write("Whats is the Passmark? ");
+								PassMark = int.Parse(Console.ReadLine());
+
+								Console.WriteLine($"ID = {ID}");
+								Console.WriteLine($"Name = {Name}");
+								Console.Write($"PassMark = {PassMark}");
+
+								if (PassMark <= 60)
+									{
+										Console.WriteLine(" - Try harder please");
+									}
 							}
 						else
 							{
-								Console.WriteLine($"Student does not exists");
+								Console.Write($"Student does not exists");
 							}
-
-						Console.Write("Whats is the Passmark? ");
-						PassMark = int.Parse(Console.ReadLine());
-
-						Console.Write("Whats is the City? ");
-						City = Console.ReadLine();
-
 						Console.WriteLine();
-
-						Console.WriteLine($"ID = {ID}");
-						Console.WriteLine($"Name = {Name}");
-						Console.Write($"PassMark = {PassMark}");
-
-						if (PassMark <= 60)
-							{
-								Console.WriteLine(" Try harder please");
-							}
-
-						Console.WriteLine($"City = {City}");
 					}
 			}
 	}

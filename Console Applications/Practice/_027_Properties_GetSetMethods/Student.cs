@@ -1,5 +1,4 @@
-﻿// Robert Calero - App demonstrating how to protect class fields using get and set methods
-using System;
+﻿using System;
 
 // Namespaces
 namespace _027_Properties_GetSetMethods
@@ -10,7 +9,7 @@ namespace _027_Properties_GetSetMethods
 				// Fields
 				private int _ID;
 				private string _Name;
-				private readonly int _PassMark = 60;
+				private int _PassMark;
 
 				// Methods(Parameters)
 				public int GetID()
@@ -27,16 +26,6 @@ namespace _027_Properties_GetSetMethods
 						_ID = paramID;
 					}
 
-				public void PrintID()
-					{
-						Console.Write($"What is your student ID? ");
-						_ID = int.Parse(Console.ReadLine());
-
-						SetID(_ID);
-
-						Console.WriteLine($"Student ID = {GetID()}");
-					}
-
 				public string GetName()
 					{
 						return string.IsNullOrEmpty(_Name) ? "No Name" : _Name;
@@ -51,24 +40,50 @@ namespace _027_Properties_GetSetMethods
 						_Name = paramName;
 					}
 
-				public void PrintName()
-					{
-						Console.Write($"What is your name? ");
-						_Name = Console.ReadLine();
-
-						SetName(_Name);
-
-						Console.WriteLine($"Student Name = {GetName()}");
-					}
-
 				public int GetPassMark()
 					{
 						return _PassMark;
 					}
 
-				public void PrintPassMark()
+				public void SetPassMark(int paramPassMark)
 					{
-						Console.WriteLine($"PassMark = {GetPassMark()}");
+						if (paramPassMark <= 0)
+							{
+								throw new Exception("Student ID cannot be negative");
+							}
+						_PassMark = paramPassMark;
+					}
+
+				public void PrintInfo()
+					{
+						Console.Write($"What is your student ID? ");
+						_ID = int.Parse(Console.ReadLine());
+						SetID(_ID);
+
+						Console.Write($"What is the name? ");
+						_Name = Console.ReadLine();
+						SetName(_Name);
+
+						if (_Name.StartsWith("M"))    // Searches a specific instance of the student class
+							{
+								Console.Write("Whats is the Passmark? ");
+								_PassMark = int.Parse(Console.ReadLine());
+								SetPassMark(_PassMark);
+
+								Console.WriteLine($"Student ID = {GetID()}");
+								Console.WriteLine($"Student Name = {GetName()}");
+								Console.Write($"PassMark = {GetPassMark()}");
+
+								if (_PassMark <= 60)
+									{
+										Console.WriteLine(" - Try harder please");
+									}
+							}
+						else
+							{
+								Console.Write($"Student does not exists");
+							}
+						Console.WriteLine();
 					}
 			}
 	}

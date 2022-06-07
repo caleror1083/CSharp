@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 // Namespaces
 namespace _027_Properties_GetSetMethods
@@ -64,9 +60,7 @@ namespace _027_Properties_GetSetMethods
 				static void Example1()
 					{
 						Student myStudent = new Student();
-						myStudent.PrintID();
-						myStudent.PrintName();
-						myStudent.PrintPassMark();
+						myStudent.PrintInfo();
 					}
 
 				static void Example2()
