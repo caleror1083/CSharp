@@ -71,7 +71,7 @@ namespace _028_Properties
 
 				static void Example2()
 					{
-						Account myAccount = new Account();									// create an Account object and assign it to myAccount
+						Account myAccount = new Account();
 						myAccount.PrintName();
 					}
 
