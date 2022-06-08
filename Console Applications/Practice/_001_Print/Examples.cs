@@ -10,7 +10,7 @@ namespace _001_Print
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-14: ");
+							Console.Write($"Please select an example from 1-15: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -58,6 +58,9 @@ namespace _001_Print
 												break;
 											case 14:
 												Example14();
+												break;
+											case 15:
+												Example15();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -157,6 +160,11 @@ namespace _001_Print
 					{
 						Console.WriteLine($"Something " +
 						                   $"else");       // Display 1 line of text in multiple lines of code
+					}
+
+				static void Example15()
+					{
+						Console.WriteLine($"Good day!");
 					}
 			}
 	}
