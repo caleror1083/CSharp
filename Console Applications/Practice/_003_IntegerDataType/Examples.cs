@@ -10,7 +10,7 @@ namespace _003_IntegerDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-30: ");
+							Console.Write($"Please select an example from 1-29: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -100,6 +100,9 @@ namespace _003_IntegerDataType
 												break;
 											case 28:
 												Example28();
+												break;
+											case 29:
+												Example29();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -397,6 +400,16 @@ namespace _003_IntegerDataType
 						(number2, number1) = (number1, number2);  // swaps the values of 2 integers using tuple
 						
 						Console.WriteLine($"After swapping, the values of the variables are: {number1}, {number2}");
+					}
+
+				static void Example29()
+					{
+						byte centuries = 20;     // A small number (up to 255)
+						ushort years = 2000;     // A small number (up to 32767)
+						uint days = 730480;      // A large number (up to 4.3 billion)
+						ulong hours = 17531520;  // A very big number (up to 18 quintillion)
+
+						Console.WriteLine($"{centuries} centuries is {years} years, or {days} days, or {hours} hours.");
 					}
 			}
 	}

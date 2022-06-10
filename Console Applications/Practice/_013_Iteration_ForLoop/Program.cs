@@ -1,10 +1,15 @@
 ﻿// Robert Calero - App displaying for loops
-
-class Program
+// Namespaces
+namespace _013_Iteration_ForLoop
 	{
-		static void Main()
+		// Classes
+		internal class Program
 			{
-				Example myExample = new Example();
-				myExample.Results();
+				// Methods(Parameters)
+				static void Main()
+					{
+						Examples myExample = new Examples();
+						myExample.ProcessExamples();
+					}
 			}
 	}
