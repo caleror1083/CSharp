@@ -292,10 +292,15 @@ namespace _006_FloatDataType
 
 				static void Example16()
 					{
-						Console.WriteLine("Example 2: Displaying decimal value");
 						decimal myDecimal = 4.5M;	// (128-bit) approximately 28-29 digits
-						Console.WriteLine($"The value of decimal is {myDecimal}");
+						Console.WriteLine($"The value of decimal is {myDecimal}");// Displaying decimal value
 						Console.WriteLine();						
+					}
+
+				static void Example17()
+					{
+						decimal decimalPI = 3.14159265358979323846M;
+						Console.WriteLine(decimalPI); // 3.14159265358979323846
 					}
 			}
 	}
