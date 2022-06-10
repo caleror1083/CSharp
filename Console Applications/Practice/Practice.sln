@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_007_DoubleDataType", "_007_DoubleDataType\_007_DoubleDataType.csproj", "{6F5B4B22-B590-410C-8F7A-5BA9E24D670A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_011_Iteration_WhileLoop", "_011_Iteration_WhileLoop\_011_Iteration_WhileLoop.csproj", "{113A1F05-35AA-4941-BFD5-4A74D4807830}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_016_Methods_Instance", "_016_Methods_Instance\_016_Methods_Instance.csproj", "{F764DA42-4EB6-4433-B93E-24A37F4A5132}"
@@ -123,10 +121,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6F5B4B22-B590-410C-8F7A-5BA9E24D670A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F5B4B22-B590-410C-8F7A-5BA9E24D670A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F5B4B22-B590-410C-8F7A-5BA9E24D670A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F5B4B22-B590-410C-8F7A-5BA9E24D670A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{113A1F05-35AA-4941-BFD5-4A74D4807830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{113A1F05-35AA-4941-BFD5-4A74D4807830}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{113A1F05-35AA-4941-BFD5-4A74D4807830}.Release|Any CPU.ActiveCfg = Release|Any CPU

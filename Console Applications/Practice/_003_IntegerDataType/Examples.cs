@@ -404,12 +404,17 @@ namespace _003_IntegerDataType
 
 				static void Example29()
 					{
+						// Declare some variables
 						byte centuries = 20;     // A small number (up to 255)
 						ushort years = 2000;     // A small number (up to 32767)
 						uint days = 730480;      // A large number (up to 4.3 billion)
 						ulong hours = 17531520;  // A very big number (up to 18 quintillion)
 
+						// Print the result on the console
 						Console.WriteLine($"{centuries} centuries is {years} years, or {days} days, or {hours} hours.");
+
+						ulong maxIntValue = UInt64.MaxValue;
+						Console.WriteLine($"{maxIntValue}");
 					}
 			}
 	}

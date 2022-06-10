@@ -1,10 +1,15 @@
 ﻿// Robert Calero - App displaying Float Data Types
-
-class Program    // Class declaration - a class defines the variables and methods used by objects
-	{	
-		static void Main()
-			{
-				Print myPrint = new Print();
-				myPrint.PrintSomething();
-			}    // end main
-	}    // end class Program
+// Namespaces
+namespace _006_FloatDataType
+	{
+		// Classes
+		class Program
+			{	
+				// Methods(Parameters)
+				static void Main()
+					{
+						Examples myExamples = new Examples();
+						myExamples.ProcessExamples();
+					}
+			}
+	}
