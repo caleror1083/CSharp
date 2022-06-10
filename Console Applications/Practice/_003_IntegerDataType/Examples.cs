@@ -10,7 +10,7 @@ namespace _003_IntegerDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-29: ");
+							Console.Write($"Please select an example from 1-30: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -103,6 +103,9 @@ namespace _003_IntegerDataType
 												break;
 											case 29:
 												Example29();
+												break;
+											case 30:
+												Example30();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -415,6 +418,22 @@ namespace _003_IntegerDataType
 
 						ulong maxIntValue = UInt64.MaxValue;
 						Console.WriteLine($"{maxIntValue}");
+					}
+
+				static void Example30()
+					{
+						/* Declare five variables choosing for each of them the most appropriate of the types byte, sbyte, 
+						   short, ushort, int, uint, long, ulong to represent the following values: 52130, -115, 4825932, 97, 
+						   -10000. Choose a large enough type for each number to ensure it will fit in it. */
+
+						ushort variable1 = 52130;
+						sbyte variable2 = -115;
+						int variable3 = 4825932;
+						byte variable4 = 97;
+						short variable5 = -10000;
+
+						// Print the result on the console
+						Console.WriteLine($"The 5 variables are {variable1}, {variable2}, {variable3}, {variable4}, {variable5}");
 					}
 			}
 	}
