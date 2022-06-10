@@ -102,7 +102,8 @@ namespace _001_Print
 
 				static void Example3()
 					{
-						Console.WriteLine($"Writes a string to the console followed by a new line");    // a statement
+						// Create a simple program that prints "Hello, C#!" on the console.
+						Console.WriteLine($"Hello, C#");    // a statement
 					}
 
 				static void Example4()
@@ -163,8 +164,11 @@ namespace _001_Print
 					}
 
 				static void Example15()
-					{
-						Console.WriteLine($"Good day!");
+					{	
+						// Write a program to print the numbers 1, 101 and 1001, each at a separate line.
+						Console.WriteLine(1);
+						Console.WriteLine(101);
+						Console.WriteLine(1001);
 					}
 			}
 	}

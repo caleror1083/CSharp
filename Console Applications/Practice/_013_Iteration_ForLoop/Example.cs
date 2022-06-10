@@ -233,107 +233,123 @@ class Example
 				Console.WriteLine();
 
 				Console.WriteLine("Example 15: Random For Loop Examples");
-                        int x;                                  // Variable declaration of type int
-                        int int2 = 0;                           // Variable declaration and initialization of type int
-                        int y;                                  // Variable declaration of type int
-                        string guess;                           // Variable declaration of type string
-                        string myName = "Rob";    // Variable declaration and initialization of type string
+                int x;                                  // Variable declaration of type int
+                int int2 = 0;                           // Variable declaration and initialization of type int
+                int y;                                  // Variable declaration of type int
+                string guess;                           // Variable declaration of type string
+                string myName = "Rob";    // Variable declaration and initialization of type string
 
-                        // For loop
-                        for (x = 1; x <= 5; x++)
+                // For loop
+                for (x = 1; x <= 5; x++)
+                    {
+                        Console.WriteLine("This for loop is at iteration: " + x);
+                    }
+
+                Console.WriteLine(); // Writes a blank line to the console
+
+                // Exit the For loop before it is finished
+                for (x = 1; x <= 5; x++)
+                    {
+                        Console.WriteLine("This for loop is at iteration: " + x);
+                        if (x == 3)
                             {
-                                Console.WriteLine("This for loop is at iteration: " + x);
+                                break;
                             }
+                    }
 
-                        Console.WriteLine(); // Writes a blank line to the console
+                Console.WriteLine(); // Writes a blank line to the console
 
-                        // Exit the For loop before it is finished
-                        for (x = 1; x <= 5; x++)
+                // Continue statement
+                for (x = 1; x <= 10; x++)
+                    {
+                        if (x == 5)
+                        {
+                            Console.WriteLine("The number equals: " + x);
+                            continue;
+                        }
+                    }
+
+                Console.WriteLine(); // Writes a blank line to the console
+
+                // For loop with Step Operator
+                for (x = 0; x <= 20; x += 5)
+                    {
+                        Console.WriteLine("The number equals: " + x);
+                    }
+
+                Console.WriteLine(); // Writes a blank line to the console
+
+                for (x = 1; x <= 10; x++)
+                    {
+                        for (y = 1; y <= 5; y++)
                             {
-                                Console.WriteLine("This for loop is at iteration: " + x);
-                                if (x == 3)
-                                    {
-                                        break;
-                                    }
+                                Console.Write(y);
                             }
+                        Console.WriteLine();
+                    }
 
-                        Console.WriteLine(); // Writes a blank line to the console
+                Console.WriteLine(); // Writes a blank line to the console
 
-                        // Continue statement
-                        for (x = 1; x <= 10; x++)
-                            {
-                                if (x == 5)
-                                {
-                                    Console.WriteLine("The number equals: " + x);
-                                    continue;
-                                }
-                            }
+                // Foreach loop
+                foreach (char ch in myName)
+                    {
+                        Console.WriteLine(ch);
+                    }
 
-                        Console.WriteLine(); // Writes a blank line to the console
+                // Do While loop aka Do Until in VB
+                do
+                    {
+                        Console.WriteLine("The number equals: " + int2);
+                        int2 += 1;
+                    }
+                while (int2 == 10);
 
-                        // For loop with Step Operator
-                        for (x = 0; x <= 20; x += 5)
-                            {
-                                Console.WriteLine("The number equals: " + x);
-                            }
+                Console.WriteLine(); // Writes a blank line to the console
 
-                        Console.WriteLine(); // Writes a blank line to the console
-
-                        for (x = 1; x <= 10; x++)
-                            {
-                                for (y = 1; y <= 5; y++)
-                                    {
-                                        Console.Write(y);
-                                    }
-                                Console.WriteLine();
-                            }
-
-                        Console.WriteLine(); // Writes a blank line to the console
-
-                        // Foreach loop
-                        foreach (char ch in myName)
-                            {
-                                Console.WriteLine(ch);
-                            }
-
-                        // Do While loop aka Do Until in VB
-                        do
-                            {
-                                Console.WriteLine("The number equals: " + int2);
-                                int2 += 1;
-                            }
-                        while (int2 == 10);
-
-                        Console.WriteLine(); // Writes a blank line to the console
-
-                        // Exit the Do loop
-                        do
-                            {
-                                if (int2 == 5)
-                                    {
-                                        Console.WriteLine("The number equals: " + int2);
-                                        int2 += 1;
-                                        break;
-                                    }
-                            }
-                        while (int2 == 10);
-
-                        Console.WriteLine(); // Writes a blank line to the console
-
-                        // While loop aka Do While in VB
-                        while (int2 <= 15)
+                // Exit the Do loop
+                do
+                    {
+                        if (int2 == 5)
                             {
                                 Console.WriteLine("The number equals: " + int2);
                                 int2 += 1;
+                                break;
                             }
+                    }
+                while (int2 == 10);
 
-                        Console.WriteLine(); // Writes a blank line to the console
+                Console.WriteLine(); // Writes a blank line to the console
 
-                        do
-                            {
-                                Console.Write("Guess a number from 1 to 20: ");
-                                guess = Console.ReadLine();
-                            }
-                        while (!guess.Equals("17"));
+                // While loop aka Do While in VB
+                while (int2 <= 15)
+                    {
+                        Console.WriteLine("The number equals: " + int2);
+                        int2 += 1;
+                    }
+
+                Console.WriteLine(); // Writes a blank line to the console
+
+                do
+                    {
+                        Console.Write("Guess a number from 1 to 20: ");
+                        guess = Console.ReadLine();
+                    }
+                while (!guess.Equals("17"));
+
+				Console.WriteLine("Example 16: Random For Loop Examples");
+				// Write a program that prints the first 100 members of the sequence: 2, -3, 4, -5, 6
+               for (int i = 2; i < 101; i++)
+					{
+						if (i % 2 == 0)
+						{
+							Console.WriteLine(i);
+						}
+            
+						else
+						{
+							Console.WriteLine(-i);
+						}
+					}
+
 			}
 	}

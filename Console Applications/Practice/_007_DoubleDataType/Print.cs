@@ -149,7 +149,7 @@ class Print    // Class declaration - a class defines the variables and methods 
 						double number = double.Parse(Console.ReadLine());
 
 						Console.WriteLine(Math.Pow(3, 2));    // displays the result of 3 to the power of 2 aka 3 squared
-						Console.WriteLine(Math.Sqrt(36));    // displays the square root of a value
+						Console.WriteLine(Math.Sqrt(12345));    // displays the square root of a value
 						Console.WriteLine($"The ceiling value of the number entered is: {Math.Floor(number)}");  // Displays the ceiling value
 					}
 	}    // end class Print
