@@ -10,7 +10,7 @@ namespace _004_BooleanDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-29: ");
+							Console.Write($"Please select an example from 1-3: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -22,6 +22,9 @@ namespace _004_BooleanDataType
 												break;
 											case 2:
 												Example2();
+												break;
+											case 3:
+												Example3();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -81,6 +84,14 @@ namespace _004_BooleanDataType
 							}
 						Console.WriteLine("greaterAB = " + greaterAB);
 						Console.WriteLine("equalA1 = " + equalA1);
+					}
+
+				static void Example3()
+					{
+						// Declare a Boolean variable called isFemale and assign an appropriate value corresponding to your gender. Print it on the console.
+						bool isFemale = false;
+
+						Console.WriteLine($"{isFemale}");
 					}
 			}
 	}
