@@ -1,10 +1,16 @@
 ﻿// Robert Calero - App displaying while loops
 
-class Program
+// Namespaces
+namespace _011_Iteration_WhileLoop
 	{
-		static void Main()
+		// Classes
+		internal class Program
 			{
-				Example myExample = new Example();
-				myExample.Results();
+				// Methods(Parameters)
+				static void Main()
+					{
+						Examples myExamples = new Examples();
+						myExamples.ProcessExamples();
+					}
 			}
 	}
