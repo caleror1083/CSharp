@@ -11,7 +11,7 @@ namespace _006_FloatDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-18: ");
+							Console.Write($"Please select an example from 1-20: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)

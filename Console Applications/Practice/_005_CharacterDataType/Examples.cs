@@ -12,7 +12,7 @@ namespace _005_CharacterDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-2: ");
+							Console.Write($"Please select an example from 1-3: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
