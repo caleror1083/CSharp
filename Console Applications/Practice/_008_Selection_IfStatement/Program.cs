@@ -1,10 +1,15 @@
 ﻿// Robert Calero - App displaying IF statements
-
-class Program    // Class declaration - a class defines the variables and methods used by objects
+// Namespaces
+namespace _008_Selection_IfStatement
 	{
-		static void Main()
+		// Classes
+		internal class Program
 			{
-				Example myExample = new Example();
-				myExample.Results();
+				// Methods(Parameters)
+				static void Main()
+					{
+						Examples myExamples = new Examples();
+						myExamples.ProcessExamples();
+					}
 			}
 	}
