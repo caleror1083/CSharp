@@ -92,6 +92,9 @@ namespace _002_StringDataType
 											case 25:
 												Example25();
 												break;
+											case 26:
+												Example26();
+												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
 												goto Start;
@@ -338,6 +341,21 @@ namespace _002_StringDataType
 							}
 
 						Console.WriteLine($"{numbers}");
+					}
+
+				static void Example26()
+					{
+						/* Declare two string variables and assign them with “Hello” and “World”. Declare an object 
+						 * variable and assign it with the concatenation of the first two variables (mind adding an 
+						 * interval between). Declare a third string variable and initialize it with the value of the 
+						 * object variable (you should perform type casting). */	
+
+						string firstString = "Hello";
+						string secondString = "World";
+						object concatenation = $"{firstString} {secondString}";
+						string thirdString = $"{concatenation}";
+
+						Console.WriteLine($"{thirdString}");
 					}
 			}
 	}
