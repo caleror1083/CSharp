@@ -24,7 +24,7 @@ namespace _010_Arrays
 							string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-27: ");
+							Console.Write("Please select an example from 1-28: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -111,6 +111,9 @@ namespace _010_Arrays
 												break;
 											case 27:
 												Example27();
+												break;
+											case 28:
+												Example28();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -569,7 +572,50 @@ namespace _010_Arrays
 							{
 								Console.WriteLine($"ID = {customer.ID}, Name = {customer.Name}, Salary = {customer.Salary}");
 							}
-						
+					}
+
+				static void Example28()
+					{
+						/* Once Teodor played the following game: he started from a sequence of white and black balls and flipped the color of the 1st ball, then the color of the 4th ball,
+						 * then the color of the 7th ball, etc. until the last ball. Flipping was performed by replacing a black b all with a white ball and vice versa.
+						 * Teodor was a smart mathematician so he wanted to generalize his game in a formal way. This is what he invented.
+						 
+						 * You are given a sequence of bytes. Consider each byte as sequences of exactly 8 bits.
+						 * You are given also a number step.
+						 * Write a program to invert the bits at positions: 1, 1 + step, 1 + 2*step, ...
+						 * Print the output as a sequence of bytes.
+						 * Bits in each byte are counted from the leftmost to the rightmost. Bits are numbered starting from 1. */
+
+						int n = int.Parse(Console.ReadLine());
+						int step = int.Parse(Console.ReadLine());
+						int[] bytes = new int[n];
+
+						for (int i = 0; i < n; i++)
+							{
+								bytes[i] = int.Parse(Console.ReadLine());
+							}
+
+						int position = 7;
+
+						for (int i = 0; i < n; i++)
+							{
+								while (position >= 0)
+									{
+										int currentBit = (bytes[i] >> position) & 1;
+
+										if (currentBit == 0)
+											{
+												bytes[i] = (1 << position) | bytes[i];
+											}
+										else
+											{
+												bytes[i] = ~(1 << position) & bytes[i];
+											}
+										position -= step;
+									}
+								Console.WriteLine(bytes[i]);
+								position += 8;
+							}
 					}
 			}
 	}
