@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 // Namespaces
 namespace _013_Iteration_ForLoop
@@ -10,7 +11,7 @@ namespace _013_Iteration_ForLoop
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-15: ");
+							Console.Write($"Please select an example from 1-17: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -64,6 +65,9 @@ namespace _013_Iteration_ForLoop
 												break;
 											case 16:
 												Example16();
+												break;
+											case 17:
+												Example17();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -457,6 +461,22 @@ namespace _013_Iteration_ForLoop
 								{
 									Console.WriteLine(-i);
 								}
+							}
+					}
+
+				static void Example17()
+					{
+						/* Find online more information about ASCII (American Standard Code for Information Interchange) and
+						 * write a program to prints the entire ASCII table of characters at the console (characters from 0 to 255).
+						 * Note that some characters have a special purpose and will not be displayed as expected.
+						 * You may skip them or display them differently. You may need to use for-loops (learn in Internet how). */
+
+						Console.OutputEncoding = Encoding.UTF8; 
+        
+						for (int i = 0; i < 256; i++)
+							{        
+								char symbol = (char)i;
+								Console.WriteLine(i + " --> " + symbol);
 							}
 					}
 			}
