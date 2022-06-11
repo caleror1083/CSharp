@@ -10,7 +10,7 @@ namespace _008_Selection_IfStatement
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-21: ");
+							Console.Write($"Please select an example from 1-22: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -79,6 +79,9 @@ namespace _008_Selection_IfStatement
 												break;
 											case 21:
 												Example21();
+												break;
+											case 22:
+												Example22();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -697,6 +700,47 @@ namespace _008_Selection_IfStatement
 							{            
 								Console.WriteLine("The two numbers are NOT equal with precision 0.000001"); 
 							}
+					}
+
+				static void Example22()
+					{
+						/* Joro loves a lot to play football. He used to play for his local village club “Pantera” Kaloyanovets. However, he is a programmer now and he is very busy.
+						 * Now he is able to play only in the holidays and in the weekends.
+						 * Joro plays in 1/2 of the holidays and twice in the weekends: each Saturday and each Sunday, but not every weekend 
+						 * – only when he is not tired and only when he is not going to his hometown.
+						 * Joro goes at his hometown h weekends in the year. The other weekends are considered “normal”. Joro is tired in 1/3 of the normal weekends.
+						 * When Joro is at his hometown, he always plays football with his old friends once, at Sunday.
+						 * In addition, if the year is leap, Joro plays football 3 more times additionally, in non-weekend days. We assume the year has exactly 52 weekends.
+						 * Your task is to write a program that calculates how many times Joro plays football (rounded down to the nearest integer number). */
+
+						 /* t leap year
+						  * 1 holiday
+						  * 2 hometown weekends
+						  * 38
+						  *
+						  * 52 weekends total in the year, split into:
+						  * 2 hometown weekends  2 Sundays  2 plays
+						  * 50 normal weekends  50 * 2 / 3  33.33 plays
+						  * 1 holiday  0.5 plays
+						  * Leap years  additional 3 plays
+						  * Total plays = 38.83 plays  38 (rounded) */
+
+						string isLeap = Console.ReadLine();
+						int holidays = int.Parse(Console.ReadLine());
+						int hometownWeekends = int.Parse(Console.ReadLine());
+
+						int normalWeekends = 52 - hometownWeekends;
+						double plays = 0;
+
+						plays += holidays / 2.0;
+						plays += (2.0 / 3) * normalWeekends;
+						plays += hometownWeekends;
+
+						if (isLeap == "t")
+							{
+								plays += 3;
+							}
+						Console.WriteLine((int)plays);
 					}
 			}
 	}
