@@ -1,5 +1,6 @@
 ﻿// Robert Calero - App displaying Character Data Type
 using System;
+using System.Text;
 
 // Namespaces
 namespace _005_CharacterDataType
@@ -23,6 +24,9 @@ namespace _005_CharacterDataType
 												break;
 											case 2:
 												Example2();
+												break;
+											case 3:
+												Example3();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -67,6 +71,17 @@ namespace _005_CharacterDataType
 
 						char unicodeChar = '\u002A';
 						Console.WriteLine($"{unicodeChar}");
+					}
+
+				static void Example3()
+					{
+						Console.OutputEncoding = Encoding.UTF8;
+						char copyRight = '\u00A9';
+
+						Console.WriteLine($"   {copyRight}\n" +
+						             $"  {copyRight} {copyRight}\n" +
+					                  $"{copyRight}   {copyRight}\n" +
+						   $"{copyRight} {copyRight} {copyRight} {copyRight}");
 					}
 			}
 	}
