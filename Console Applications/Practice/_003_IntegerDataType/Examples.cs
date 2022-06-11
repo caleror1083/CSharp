@@ -10,7 +10,7 @@ namespace _003_IntegerDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-30: ");
+							Console.Write($"Please select an example from 1-31: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -106,6 +106,9 @@ namespace _003_IntegerDataType
 												break;
 											case 30:
 												Example30();
+												break;
+											case 31:
+												Example31();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -434,6 +437,17 @@ namespace _003_IntegerDataType
 
 						// Print the result on the console
 						Console.WriteLine($"The 5 variables are {variable1}, {variable2}, {variable3}, {variable4}, {variable5}");
+					}
+
+				static void Example31()
+					{
+						/* Declare an integer variable and assign it with the value 254 in hexadecimal format (0x##). 
+						 * Use Windows Calculator to find its hexadecimal representation. Print the variable and ensure that the result is “254”. */
+
+						int hexadecimalVar = 0xFE;
+
+						// Print the result on the console
+						Console.WriteLine($"{hexadecimalVar}");
 					}
 			}
 	}
