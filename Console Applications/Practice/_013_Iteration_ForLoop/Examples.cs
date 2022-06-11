@@ -69,6 +69,15 @@ namespace _013_Iteration_ForLoop
 											case 17:
 												Example17();
 												break;
+											case 18:
+												Example18();
+												break;
+											case 19:
+												Example19();
+												break;
+											case 20:
+												Example20();
+												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
 												goto Start;
@@ -478,6 +487,142 @@ namespace _013_Iteration_ForLoop
 								char symbol = (char)i;
 								Console.WriteLine(i + " --> " + symbol);
 							}
+					}
+
+				static void Example18()
+					{
+						/* Nakov likes numbers. He often plays with their sums and differences. Once he invented the following game.
+						 * He takes a sequence of numbers, splits them into two subsequences with the same number of elements and sums the left and right sub-sums, and compares the sub-sums. Please help him.
+
+						 * You are given a number n and 2*n numbers. Write a program to check whether the sum of the first n numbers is equal to the sum of the second n numbers.
+						 * Print as result “Yes” or “No”. In case of yes, print also the sum. In case of no, print also the difference between the left and the right sums. 
+						 
+						 * Input
+						 * 4
+						 
+						 FirstSum
+						 * 3
+						 * 4
+						 * -1
+						 * -1
+						 
+						 SecondSum
+						 * 2
+						 * 1
+						 * 1
+						 * 1
+						 
+						 Output
+						 * Yes, sum=5 */	
+
+						int n = int.Parse(Console.ReadLine());
+						int firstSum = 0;
+						int secondSum = 0;
+        
+						for (int i = 0; i < n; i++)
+							{
+								firstSum += int.Parse(Console.ReadLine());
+							}
+       
+						for (int i = 0; i < n; i++)
+							{
+								secondSum += int.Parse(Console.ReadLine());
+							}
+       
+						if (firstSum == secondSum)
+							{            
+								Console.WriteLine("Yes, sum =" + firstSum);
+							}
+
+						else
+							{            
+								Console.WriteLine("No, diff=" + Math.Abs(firstSum - secondSum));
+							}
+					}
+
+				static void Example19()
+					{
+						// Sunglasses
+						int size = int.Parse(Console.ReadLine());
+						string slash = new string('/', 2 * size - 2);
+						string verticalLines = new string('|', size);
+						string emptySpace = new string(' ', size);
+						string asterisk = new string('*', 2 * size);        
+
+						for (int i = 1; i <= size; i++)
+							{
+								if ((i == 1) || (i == size))
+									{
+										Console.WriteLine("{0}{1}{0}", asterisk, emptySpace); // first and last line
+									}
+
+								else if (i == size / 2 + 1)
+									{
+										Console.WriteLine("*{0}*{1}*{0}*", slash, verticalLines); // middle line
+									}
+
+								else
+									{
+										Console.WriteLine("*{0}*{1}*{0}*",slash, emptySpace); // all other lines
+									}
+							}
+					}
+
+				static void Example20()
+					{            
+						/* Petya often plays with numbers. Her recent game was to play with 9-digit numbers and calculate their sums of digits, as well as to split them into triples with special properties.
+						 * Help her to calculate very special numbers called “nine-digit magic numbers”.
+						 
+						 * You are given two numbers: diff and sum.
+						 * Using the digits from 1 to 7 generate all 9-digit numbers in format abcdefghi,
+						 * such that their sub-numbers abc, def and ghi have a difference diff (ghi-def = def-abc = diff), their sum of digits is sum and abc ≤ def ≤ ghi.
+						 * Numbers holding these properties are also called “nine-digit magic numbers”.
+						 * Your task is to write a program to print these numbers in increasing order. */
+
+						int sum = int.Parse(Console.ReadLine());
+						int diff = int.Parse(Console.ReadLine());
+						bool magicFound = false;
+            
+						for (int firstTriplet = 111; firstTriplet <= 777 - (2 * diff); firstTriplet++)
+							{
+								int secondTriplet = firstTriplet + diff;
+								int thirdTriplet = secondTriplet + diff;
+								int digitSum = GetDigitSum(firstTriplet) + GetDigitSum(secondTriplet) + GetDigitSum(thirdTriplet);
+
+								if (NumberAllowed(firstTriplet) && NumberAllowed(secondTriplet) && NumberAllowed(thirdTriplet) && digitSum == sum)
+									{
+										Console.WriteLine($"{firstTriplet} {secondTriplet} {thirdTriplet}");
+										magicFound = true;
+									}                        
+                
+							}
+            
+						if (!magicFound)
+							{
+								Console.WriteLine("No");
+							}
+					}
+
+				static int GetDigitSum(int triplet)
+					{
+						int sum = 0;
+						sum += triplet / 100;       // add digit of hundreds
+						sum += (triplet / 10) % 10; // tens
+						sum += triplet % 10;        // ones
+
+						return sum;
+					}
+
+				static bool NumberAllowed(int triplet)
+					{
+						bool isAllowed = false;
+
+						if (triplet % 10 > 0 && (triplet / 10) % 10 > 0 && triplet % 10 < 8 && (triplet / 10) % 10 < 8)
+							{
+								isAllowed = true;
+							}
+
+						return isAllowed;
 					}
 			}
 	}
