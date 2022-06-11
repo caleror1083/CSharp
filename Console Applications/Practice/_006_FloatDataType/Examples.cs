@@ -11,7 +11,7 @@ namespace _006_FloatDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-29: ");
+							Console.Write($"Please select an example from 1-18: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -62,6 +62,15 @@ namespace _006_FloatDataType
 												break;
 											case 15:
 												Example15();
+												break;
+											case 16:
+												Example16();
+												break;
+											case 17:
+												Example17();
+												break;
+											case 18:
+												Example18();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -301,6 +310,20 @@ namespace _006_FloatDataType
 					{
 						decimal decimalPI = 3.14159265358979323846M;
 						Console.WriteLine(decimalPI); // 3.14159265358979323846
+					}
+
+				static void Example18()
+					{
+						/* Which of the following values can be assigned to a variable of type float and which to a variable 
+						 * of type double: 34.567839023, 12.345, 8923.1234857, 3456.091? Write a program to assign the numbers 
+						 * in variables and print them to ensure no precision is lost. */
+
+						double variable1 = 34.567839023;
+						float variable2 = 12.345F;
+						double variable3 = 8923.1234857;
+						float variable4 = 3456.091F;
+
+						Console.WriteLine($"The values of the four variables are:\n{variable1}\n{variable2}\n{variable3}\n{variable4}");
 					}
 			}
 	}
