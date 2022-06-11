@@ -396,16 +396,19 @@ namespace _003_IntegerDataType
 
 				static void Example28()
 					{
-						Console.Write("Enter the value of the 1st number: ");
-						int number1 = int.Parse(Console.ReadLine());
-						Console.Write("Enter the value of the 2nd number: ");
-						int number2 = int.Parse(Console.ReadLine());
+						/* Declare two integer variables a and b and assign them with 5 and 10 and after that exchange their values by using some programming logic.
+						 * Print the variable values before and after the exchange. */
 
-						Console.WriteLine($"The initial values of the variables are: {number1}, {number2}");
+						Console.Write("Enter the value of the 1st number: ");
+						int a = int.Parse(Console.ReadLine());
+						Console.Write("Enter the value of the 2nd number: ");
+						int b = int.Parse(Console.ReadLine());
+
+						Console.WriteLine($"The initial values of the variables are: {a}, {b}");
 						
-						(number2, number1) = (number1, number2);  // swaps the values of 2 integers using tuple
+						(b, a) = (a, b);  // swaps the values of 2 integers using tuple
 						
-						Console.WriteLine($"After swapping, the values of the variables are: {number1}, {number2}");
+						Console.WriteLine($"After swapping, the values of the variables are: {a}, {b}");
 					}
 
 				static void Example29()

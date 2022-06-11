@@ -10,7 +10,7 @@ namespace _002_StringDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-31: ");
+							Console.Write($"Please select an example from 1-28: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -97,6 +97,9 @@ namespace _002_StringDataType
 												break;
 											case 27:
 												Example27();
+												break;
+											case 28:
+												Example28();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -373,7 +376,29 @@ namespace _002_StringDataType
 
 						Console.WriteLine(new string('-', 52) + "\nMethod 1: using normal quotation and escaping with \\\n" + new string('-', 52) + $"\n{firstString}");
 						Console.WriteLine("\n\n\n"+new string('-', 54) + "\nMethod 2: using verbatim quotation and escaping with \"\n" + new string('-', 54) + $"\n{secondString}");
+					}
 
+				static void Example28()
+					{
+						/* A marketing company wants to keep record of its employees. Each record would have the following characteristics:
+                         * •	First name
+						 * •	Last name
+						 * •	Age (0...100)
+						 * •	Gender (m or f)
+						 * •	Personal ID number (e.g. 8306112507)
+					     * •	Unique employee number (27560000…27569999)
+
+						 * Declare the variables needed to keep the information for a single employee using appropriate primitive data types. 
+						 * Use descriptive names. Print the data at the console. */	
+
+						string firstName = "Robert";
+						string lastName = "Calero";
+						byte age = 44;
+						char gender = 'm';
+						string personalIDNumber = "8306112507";
+						string uniqueEmployeeNumber = "27564281";
+        
+						Console.WriteLine($"First Name: {firstName}\nLastName: {lastName}\nAge: {age}\nGender: {gender}\nPersonal ID Number: {personalIDNumber}\nUnique Employee Number: {uniqueEmployeeNumber}");
 					}
 			}
 	}

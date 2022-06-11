@@ -72,6 +72,9 @@ namespace _006_FloatDataType
 											case 18:
 												Example18();
 												break;
+											case 19:
+												Example19();
+												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
 												goto Start;
@@ -324,6 +327,28 @@ namespace _006_FloatDataType
 						float variable4 = 3456.091F;
 
 						Console.WriteLine($"The values of the four variables are:\n{variable1}\n{variable2}\n{variable3}\n{variable4}");
+					}
+
+				static void Example19()
+					{
+						/* A bank account has a holder name (first name, middle name and last name), available amount of money (balance),
+						 * bank name, IBAN, 3 credit card numbers associated with the account. Declare the variables needed to keep the
+						 * information for a single bank account using the appropriate data types and descriptive names. */
+
+						string holderFirstName = "George";
+						string holderMiddleName = "W.";
+						string holderLastName = "Bush";        
+						decimal accountBalance = 2000000m;
+						string bankName = "Wells Fargo Bank";        
+						string IBAN = "15468496152";   
+						string ccNumber1 = "1234567890123456";
+						string ccNumber2 = "2345678901234567";
+						string ccNumber3 = "3456789012345678";
+
+						Console.WriteLine(new string('-', 40) +
+						                  "\nBANK ACCOUNT DETAILS\n" +
+										  new string('-', 40) +
+										  $"\nAccount Holder: {holderLastName}, {holderFirstName} {holderMiddleName}\nAccount Balance: {accountBalance:c}\nBank Name: {bankName}\nIBAN: {IBAN}\nCredit Card Numbers: {ccNumber1}, {ccNumber2}, {ccNumber3}");
 					}
 			}
 	}
