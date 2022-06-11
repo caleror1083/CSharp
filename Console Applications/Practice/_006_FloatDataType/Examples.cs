@@ -75,6 +75,9 @@ namespace _006_FloatDataType
 											case 19:
 												Example19();
 												break;
+											case 20:
+												Example20();
+												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
 												goto Start;
@@ -349,6 +352,23 @@ namespace _006_FloatDataType
 						                  "\nBANK ACCOUNT DETAILS\n" +
 										  new string('-', 40) +
 										  $"\nAccount Holder: {holderLastName}, {holderFirstName} {holderMiddleName}\nAccount Balance: {accountBalance:c}\nBank Name: {bankName}\nIBAN: {IBAN}\nCredit Card Numbers: {ccNumber1}, {ccNumber2}, {ccNumber3}");
+					}
+
+				static void Example20()
+					{
+						/* Create a program that assigns null values to an integer and to a double variable.
+						 * Try to print these variables at the console.
+						 * Try to add some number or the null literal to these variables and print the result. */
+
+						int? nullInt = null;
+						double? nullDouble = null;
+        
+						Console.WriteLine($"An integer with a null value: {nullInt}\nA variable of type double with null value: {nullDouble}");
+        
+						nullInt += 5;
+						nullDouble += null;
+       
+						Console.WriteLine($"\nThe result of adding the number 5 to an integer with initial null value: {nullInt}\nThe result of adding the null literal to a variable with initial null value: {nullDouble}\n");
 					}
 			}
 	}
