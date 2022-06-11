@@ -95,6 +95,9 @@ namespace _002_StringDataType
 											case 26:
 												Example26();
 												break;
+											case 27:
+												Example27();
+												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
 												goto Start;
@@ -356,6 +359,21 @@ namespace _002_StringDataType
 						string thirdString = $"{concatenation}";
 
 						Console.WriteLine($"{thirdString}");
+					}
+
+				static void Example27()
+					{
+						/* Declare two string variables and assign them with following value:
+                         * 'The "use" of quotations causes difficulties.'
+                         * Do the above in two different ways: with and without using quoted strings.
+                         * Print the variables to ensure that their value was correctly defined.*/
+
+						string firstString = "The \"use\" of quotations cause difficulties.";
+						string secondString = @"The ""use"" of quotations causes difficulties.";
+
+						Console.WriteLine(new string('-', 52) + "\nMethod 1: using normal quotation and escaping with \\\n" + new string('-', 52) + $"\n{firstString}");
+						Console.WriteLine("\n\n\n"+new string('-', 54) + "\nMethod 2: using verbatim quotation and escaping with \"\n" + new string('-', 54) + $"\n{secondString}");
+
 					}
 			}
 	}
