@@ -24,8 +24,8 @@ namespace SoftwareCompanySchedulingApp
 					    // Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-ES");  // Spanish translation
 					}
 
-				// 
-				bool UserLogin(string username, string password)
+				// Methods(Parameters)
+				private static bool UserLogin(string username, string password)
 					{
 						using (SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString()))
 							{
@@ -54,7 +54,7 @@ namespace SoftwareCompanySchedulingApp
 							}
 					}
 
-				void LoginButton_Click(object sender, EventArgs e)
+				private void LoginButton_Click(object sender, EventArgs e)
 					{
 						loginError.Text = "";
 
