@@ -10,14 +10,18 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
+// Namespaces
 namespace SoftwareCompanySchedulingApp
 	{
+        // Classes
 		class LoginControl
 			{
+                // Fields
                 private static int user_Id;
                 private static string user_Name;
                 private static Dictionary<int, Hashtable> _appts = new Dictionary<int, Hashtable>();
 
+                // Methods(Parameters)
                 public static int GetUserId()
                     {
                         return user_Id;
@@ -33,7 +37,7 @@ namespace SoftwareCompanySchedulingApp
                         return user_Name;
                     }
 
-                internal static void SetUserName(string userName)
+                public static void SetUserName(string userName)
                     {
                         user_Name = userName;
                     }
@@ -86,7 +90,7 @@ namespace SoftwareCompanySchedulingApp
                         return NewId(listId);
                     }
 
-                static public int CreateRec(string stamp, string user_Name, string tbl, string query, int user_Id = 0)
+                public static int CreateRec(string stamp, string user_Name, string tbl, string query, int user_Id = 0)
                     {
                         int recordId = CreateID(tbl);
                         string insert;
@@ -115,12 +119,11 @@ namespace SoftwareCompanySchedulingApp
                         return recordId;
                     }     
 
-                static public int FindCust(string find)
+                public static int FindCust(string find)
                     {
-                        int custId;
                         string myQuery;
                         
-                        if (int.TryParse(find, out custId))
+                        if (int.TryParse(find, out int custId))
                             {
                                 myQuery = $"SELECT [customerId] " +
                                           $"FROM [customer] " +
@@ -149,7 +152,7 @@ namespace SoftwareCompanySchedulingApp
                         return 0;
                     }
 
-                static public Dictionary<string, string> CustDetails(int custId)
+                public static Dictionary<string, string> CustDetails(int custId)
                     {
                         string myQuery = $"SELECT * " +
                                          $"FROM [customer] " +
@@ -213,7 +216,7 @@ namespace SoftwareCompanySchedulingApp
                         return custDict;
                     }
 
-                static public Dictionary<string, string> ApptDetails(string apptId)
+                public static Dictionary<string, string> ApptDetails(string apptId)
                     {
                         string myQuery = $"SELECT * " +
                                          $"FROM [appointment] " +
@@ -237,7 +240,7 @@ namespace SoftwareCompanySchedulingApp
                         return apptDict;
                     }
 
-                static public string ConvertToTimezone(string time)
+                public static string ConvertToTimezone(string time)
                     {
                         DateTime utcTime = DateTime.Parse(time.ToString());
                         DateTime localTime = utcTime.ToLocalTime();
