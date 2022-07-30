@@ -18,7 +18,7 @@ namespace SoftwareCompanySchedulingApp
 				public Login()
 					{
 						InitializeComponent();
-					    // Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-ES");  // Translation testing
+					    // Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-ES");  // Spanish translation
 					}
 
 				bool UserLogin(string username, string password)
