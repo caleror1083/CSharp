@@ -11,16 +11,20 @@ using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
 
+// Namespaces
 namespace SoftwareCompanySchedulingApp
 	{
+		// Classes
 		public partial class Login : Form
 			{
+				// Constructors
 				public Login()
 					{
 						InitializeComponent();
 					    // Thread.CurrentThread.CurrentUICulture = CultureInfo.GetCultureInfo("es-ES");  // Spanish translation
 					}
 
+				// 
 				bool UserLogin(string username, string password)
 					{
 						using (SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString()))
