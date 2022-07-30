@@ -75,7 +75,7 @@ namespace SoftwareCompanySchedulingApp
 
 				private void AddBtn_Click(object sender, EventArgs e)
 					{
-                        int user_Id = LoginControl.GetUserId();
+                        int user_Id = LoginControl.UserId;
                         string user_Name = LoginControl.GetUserName();
                         string stamp = LoginControl.CreateStamp();
 

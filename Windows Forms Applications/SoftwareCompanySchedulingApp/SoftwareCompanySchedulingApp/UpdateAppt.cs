@@ -45,7 +45,7 @@ namespace SoftwareCompanySchedulingApp
                     {
                         Dictionary<string, string> updateInfo = new Dictionary<string, string>();
 
-                        int user_id = LoginControl.GetUserId();
+                        int user_id = LoginControl.UserId;
                         string user_name = LoginControl.GetUserName();
                         string stamp = LoginControl.CreateStamp();
 

@@ -21,12 +21,10 @@ namespace SoftwareCompanySchedulingApp
                 private static string user_Name;
                 private static Dictionary<int, Hashtable> _appts = new Dictionary<int, Hashtable>();
 
-                // Methods(Parameters)
-                public static int GetUserId()
-                    {
-                        return user_Id;
-                    }
+                // Properties
+                public static int UserId { get; }
 
+                // Methods(Parameters)
                 public static void SetUserId(int userId)
                     {
                         user_Id = userId;
