@@ -45,7 +45,7 @@ namespace SoftwareCompanySchedulingApp
                     {
                         Dictionary<string, string> updateInfo = new Dictionary<string, string>();
 
-                        int user_id = LoginControl.UserId;
+                        int user_id = LoginControl.UserID;
                         string user_name = LoginControl.UserName;
                         string stamp = LoginControl.CreateStamp();
 
@@ -158,7 +158,7 @@ namespace SoftwareCompanySchedulingApp
 
 				private void UpdateInformation()
 					{
-						string apptId = Scheduling.setApptId;
+						string apptId = Scheduling._ApptId;
 						update = LoginControl.ApptDetails(apptId);
 						NameTxt.Text = Scheduling.setCustName;
 						CustomerIdTxt.Text = update["customerId"];

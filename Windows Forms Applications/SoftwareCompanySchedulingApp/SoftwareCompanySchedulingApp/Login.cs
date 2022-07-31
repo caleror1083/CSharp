@@ -43,7 +43,7 @@ namespace SoftwareCompanySchedulingApp
 
 								if (successful)
 									{
-										LoginControl.SetUserId(Convert.ToInt32(myDataSet.Tables[0].Rows[0].ItemArray[0]));
+										LoginControl.SetUserID(Convert.ToInt32(myDataSet.Tables[0].Rows[0].ItemArray[0]));
 										LoginControl.SetUserName(myDataSet.Tables[0].Rows[0].ItemArray[1].ToString());
 										return true;
 									}

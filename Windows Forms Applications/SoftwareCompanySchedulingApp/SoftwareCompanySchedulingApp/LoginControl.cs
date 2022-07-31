@@ -17,23 +17,23 @@ namespace SoftwareCompanySchedulingApp
 		class LoginControl
 			{
                 // Fields
-                private static int user_Id;
-                private static string user_Name;
+                private static int _UserID;
+                private static string _UserName;
                 private static Dictionary<int, Hashtable> _appts = new Dictionary<int, Hashtable>();
 
                 // Properties
-                public static int UserId { get; }
+                public static int UserID { get; }
                 public static string UserName { get; }
 
                 // Methods(Parameters)
-                public static void SetUserId(int userId)
+                public static void SetUserID(int userId)
                     {
-                        user_Id = userId;
+                        _UserID = userId;
                     }
 
                 public static void SetUserName(string userName)
                     {
-                        user_Name = userName;
+                        _UserName = userName;
                     }
 
                 public static Dictionary<int, Hashtable> GetAppts()

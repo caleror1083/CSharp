@@ -12,12 +12,18 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
+// Namespaces
 namespace SoftwareCompanySchedulingApp
 	{
+		// Classes
 		public partial class Scheduling : Form
 			{
-				public Login login;
+				// Fields
+				public static string _ApptId = "";
+				public static string setCustName = "";
+				bool buttonWasClicked = false;
 
+				// Constructors
 				public Scheduling()
 					{
 						InitializeComponent();
@@ -25,10 +31,7 @@ namespace SoftwareCompanySchedulingApp
 						Reminder(calendarDGV);
 					}
 
-				public static string setApptId = "";
-				public static string setCustName = "";
-				bool buttonWasClicked = false;
-
+				// Methods(Parameters)
 				private void weeklyCalendar_CheckedChanged(object sender, EventArgs e)
 					{
 						UpdateCalendar();
@@ -72,7 +75,7 @@ namespace SoftwareCompanySchedulingApp
 						if (buttonWasClicked == true)
 							{
 								int rowIndex = calendarDGV.CurrentCell.RowIndex;
-								setApptId = calendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
+								_ApptId = calendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
 								setCustName = calendarDGV.Rows[rowIndex].Cells[4].Value.ToString();
 							}
 						UpdateAppt updateAppt = new UpdateAppt();
@@ -176,7 +179,7 @@ namespace SoftwareCompanySchedulingApp
 							{
 								string myQuery = "SELECT [customerId], [type], [start], [end], [appointmentId], [userId] FROM [appointment] WHERE [userId] = @GetUserId";
 								SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-								myCommand.Parameters.AddWithValue("@GetUserId", LoginControl.UserId);
+								myCommand.Parameters.AddWithValue("@GetUserId", LoginControl.UserID);
 								SqlDataReader myReader = myCommand.ExecuteReader();
 
 								Dictionary<int, Hashtable> appts = new Dictionary<int, Hashtable>();
