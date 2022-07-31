@@ -19,9 +19,9 @@ namespace SoftwareCompanySchedulingApp
 		public partial class Scheduling : Form
 			{
 				// Fields
-				public static string _ApptId = "";
-				public static string setCustName = "";
-				bool buttonWasClicked = false;
+				public static string _ApptID = "";
+				public static string _CustName = "";
+				bool _WasButtonClicked = false;
 
 				// Constructors
 				public Scheduling()
@@ -71,12 +71,12 @@ namespace SoftwareCompanySchedulingApp
 
 				private void UpdateApptBtn_Click(object sender, EventArgs e)
 					{
-						buttonWasClicked = true;
-						if (buttonWasClicked == true)
+						_WasButtonClicked = true;
+						if (_WasButtonClicked == true)
 							{
 								int rowIndex = calendarDGV.CurrentCell.RowIndex;
-								_ApptId = calendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
-								setCustName = calendarDGV.Rows[rowIndex].Cells[4].Value.ToString();
+								_ApptID = calendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
+								_CustName = calendarDGV.Rows[rowIndex].Cells[4].Value.ToString();
 							}
 						UpdateAppt updateAppt = new UpdateAppt();
 						updateAppt.scheduling = this;
@@ -86,8 +86,8 @@ namespace SoftwareCompanySchedulingApp
 				public static Dictionary<string, string> apptDetails = new Dictionary<string, string>();
 				private void DeleteApptBtn_Click(object sender, EventArgs e)
 					{
-						buttonWasClicked = true;
-						if (buttonWasClicked == true)
+						_WasButtonClicked = true;
+						if (_WasButtonClicked == true)
 							{
 								if (MessageBox.Show("Delete this appointment?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
 									{

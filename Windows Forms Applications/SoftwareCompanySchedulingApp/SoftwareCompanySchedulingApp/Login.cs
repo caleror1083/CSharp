@@ -58,18 +58,18 @@ namespace SoftwareCompanySchedulingApp
 					{
 						LoginError.Text = "";
 
-						if (UserLogin(usernameTxt.Text, passwordTxt.Text))
+						if (UserLogin(UsernameTxt.Text, PasswordTxt.Text))
 							{
 								Hide();
 								Scheduling scheduling = new Scheduling();
-								Log.Login(usernameTxt.Text);
+								Log.Login(UsernameTxt.Text);
 								scheduling.Show();
 							}
 						else
 							{
 								LoginError.Text = Properties.translations.res_login_error;
-								usernameTxt.Text = "";
-								passwordTxt.Text = "";
+								UsernameTxt.Text = "";
+								PasswordTxt.Text = "";
 							}
 					}
 

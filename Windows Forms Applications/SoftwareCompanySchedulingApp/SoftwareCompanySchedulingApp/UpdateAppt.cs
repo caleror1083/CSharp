@@ -158,9 +158,9 @@ namespace SoftwareCompanySchedulingApp
 
 				private void UpdateInformation()
 					{
-						string apptId = Scheduling._ApptId;
+						string apptId = Scheduling._ApptID;
 						update = LoginControl.ApptDetails(apptId);
-						NameTxt.Text = Scheduling.setCustName;
+						NameTxt.Text = Scheduling._CustName;
 						CustomerIdTxt.Text = update["customerId"];
 						ApptIdTxt.Text = apptId;
 						TypeTxt.Text = update["type"];

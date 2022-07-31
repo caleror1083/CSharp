@@ -34,10 +34,10 @@ namespace SoftwareCompanySchedulingApp
 				/// </summary>
 				private void InitializeComponent()
 					{
-			this.usernameLbl = new System.Windows.Forms.Label();
-			this.passwordLbl = new System.Windows.Forms.Label();
-			this.usernameTxt = new System.Windows.Forms.TextBox();
-			this.passwordTxt = new System.Windows.Forms.TextBox();
+			this.UsernameLbl = new System.Windows.Forms.Label();
+			this.PasswordLbl = new System.Windows.Forms.Label();
+			this.UsernameTxt = new System.Windows.Forms.TextBox();
+			this.PasswordTxt = new System.Windows.Forms.TextBox();
 			this.LoginButton = new System.Windows.Forms.Button();
 			this.ExitButton = new System.Windows.Forms.Button();
 			this.LoginError = new System.Windows.Forms.Label();
@@ -45,35 +45,35 @@ namespace SoftwareCompanySchedulingApp
 			// 
 			// usernameLbl
 			// 
-			this.usernameLbl.AutoSize = true;
-			this.usernameLbl.Location = new System.Drawing.Point(80, 59);
-			this.usernameLbl.Name = "usernameLbl";
-			this.usernameLbl.Size = new System.Drawing.Size(55, 13);
-			this.usernameLbl.TabIndex = 2;
-			this.usernameLbl.Text = "Username";
+			this.UsernameLbl.AutoSize = true;
+			this.UsernameLbl.Location = new System.Drawing.Point(80, 59);
+			this.UsernameLbl.Name = "usernameLbl";
+			this.UsernameLbl.Size = new System.Drawing.Size(55, 13);
+			this.UsernameLbl.TabIndex = 2;
+			this.UsernameLbl.Text = "Username";
 			// 
 			// passwordLbl
 			// 
-			this.passwordLbl.AutoSize = true;
-			this.passwordLbl.Location = new System.Drawing.Point(83, 108);
-			this.passwordLbl.Name = "passwordLbl";
-			this.passwordLbl.Size = new System.Drawing.Size(53, 13);
-			this.passwordLbl.TabIndex = 3;
-			this.passwordLbl.Text = "Password";
+			this.PasswordLbl.AutoSize = true;
+			this.PasswordLbl.Location = new System.Drawing.Point(83, 108);
+			this.PasswordLbl.Name = "passwordLbl";
+			this.PasswordLbl.Size = new System.Drawing.Size(53, 13);
+			this.PasswordLbl.TabIndex = 3;
+			this.PasswordLbl.Text = "Password";
 			// 
 			// usernameTxt
 			// 
-			this.usernameTxt.Location = new System.Drawing.Point(178, 59);
-			this.usernameTxt.Name = "usernameTxt";
-			this.usernameTxt.Size = new System.Drawing.Size(134, 20);
-			this.usernameTxt.TabIndex = 0;
+			this.UsernameTxt.Location = new System.Drawing.Point(178, 59);
+			this.UsernameTxt.Name = "usernameTxt";
+			this.UsernameTxt.Size = new System.Drawing.Size(134, 20);
+			this.UsernameTxt.TabIndex = 0;
 			// 
 			// passwordTxt
 			// 
-			this.passwordTxt.Location = new System.Drawing.Point(178, 100);
-			this.passwordTxt.Name = "passwordTxt";
-			this.passwordTxt.Size = new System.Drawing.Size(134, 20);
-			this.passwordTxt.TabIndex = 1;
+			this.PasswordTxt.Location = new System.Drawing.Point(178, 100);
+			this.PasswordTxt.Name = "passwordTxt";
+			this.PasswordTxt.Size = new System.Drawing.Size(134, 20);
+			this.PasswordTxt.TabIndex = 1;
 			// 
 			// LoginButton
 			// 
@@ -95,13 +95,13 @@ namespace SoftwareCompanySchedulingApp
 			this.ExitButton.UseVisualStyleBackColor = true;
 			this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
-			// loginError
+			// LoginError
 			// 
 			this.LoginError.AutoSize = true;
 			this.LoginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.LoginError.ForeColor = System.Drawing.SystemColors.HotTrack;
 			this.LoginError.Location = new System.Drawing.Point(50, 147);
-			this.LoginError.Name = "loginError";
+			this.LoginError.Name = "LoginError";
 			this.LoginError.Size = new System.Drawing.Size(0, 17);
 			this.LoginError.TabIndex = 6;
 			// 
@@ -113,10 +113,10 @@ namespace SoftwareCompanySchedulingApp
 			this.Controls.Add(this.LoginError);
 			this.Controls.Add(this.ExitButton);
 			this.Controls.Add(this.LoginButton);
-			this.Controls.Add(this.passwordTxt);
-			this.Controls.Add(this.usernameTxt);
-			this.Controls.Add(this.passwordLbl);
-			this.Controls.Add(this.usernameLbl);
+			this.Controls.Add(this.PasswordTxt);
+			this.Controls.Add(this.UsernameTxt);
+			this.Controls.Add(this.PasswordLbl);
+			this.Controls.Add(this.UsernameLbl);
 			this.Name = "Login";
 			this.Text = "Login";
 			this.ResumeLayout(false);
@@ -126,10 +126,10 @@ namespace SoftwareCompanySchedulingApp
 
 				#endregion
 
-				private System.Windows.Forms.Label usernameLbl;
-				private System.Windows.Forms.Label passwordLbl;
-				private System.Windows.Forms.TextBox usernameTxt;
-				private System.Windows.Forms.TextBox passwordTxt;
+				private System.Windows.Forms.Label UsernameLbl;
+				private System.Windows.Forms.Label PasswordLbl;
+				private System.Windows.Forms.TextBox UsernameTxt;
+				private System.Windows.Forms.TextBox PasswordTxt;
 				private System.Windows.Forms.Button LoginButton;
 				private System.Windows.Forms.Button ExitButton;
 				private System.Windows.Forms.Label LoginError;
