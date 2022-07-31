@@ -40,7 +40,7 @@ namespace SoftwareCompanySchedulingApp
 			this.passwordTxt = new System.Windows.Forms.TextBox();
 			this.LoginButton = new System.Windows.Forms.Button();
 			this.ExitButton = new System.Windows.Forms.Button();
-			this.loginError = new System.Windows.Forms.Label();
+			this.LoginError = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// usernameLbl
@@ -97,20 +97,20 @@ namespace SoftwareCompanySchedulingApp
 			// 
 			// loginError
 			// 
-			this.loginError.AutoSize = true;
-			this.loginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.loginError.ForeColor = System.Drawing.SystemColors.HotTrack;
-			this.loginError.Location = new System.Drawing.Point(50, 147);
-			this.loginError.Name = "loginError";
-			this.loginError.Size = new System.Drawing.Size(0, 17);
-			this.loginError.TabIndex = 6;
+			this.LoginError.AutoSize = true;
+			this.LoginError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LoginError.ForeColor = System.Drawing.SystemColors.HotTrack;
+			this.LoginError.Location = new System.Drawing.Point(50, 147);
+			this.LoginError.Name = "loginError";
+			this.LoginError.Size = new System.Drawing.Size(0, 17);
+			this.LoginError.TabIndex = 6;
 			// 
 			// Login
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(444, 265);
-			this.Controls.Add(this.loginError);
+			this.Controls.Add(this.LoginError);
 			this.Controls.Add(this.ExitButton);
 			this.Controls.Add(this.LoginButton);
 			this.Controls.Add(this.passwordTxt);
@@ -132,6 +132,6 @@ namespace SoftwareCompanySchedulingApp
 				private System.Windows.Forms.TextBox passwordTxt;
 				private System.Windows.Forms.Button LoginButton;
 				private System.Windows.Forms.Button ExitButton;
-				private System.Windows.Forms.Label loginError;
+				private System.Windows.Forms.Label LoginError;
 			}
 	}

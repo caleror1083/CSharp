@@ -56,7 +56,7 @@ namespace SoftwareCompanySchedulingApp
 
 				private void LoginButton_Click(object sender, EventArgs e)
 					{
-						loginError.Text = "";
+						LoginError.Text = "";
 
 						if (UserLogin(usernameTxt.Text, passwordTxt.Text))
 							{
@@ -67,7 +67,7 @@ namespace SoftwareCompanySchedulingApp
 							}
 						else
 							{
-								loginError.Text = Properties.translations.res_login_error;
+								LoginError.Text = Properties.translations.res_login_error;
 								usernameTxt.Text = "";
 								passwordTxt.Text = "";
 							}

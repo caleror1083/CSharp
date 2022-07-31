@@ -8,13 +8,16 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+// Namespaces
 namespace SoftwareCompanySchedulingApp
 	{
+		// Classes
 		class Log
 			{
+				// Methods(Parameters)
 				public static void Login(string user)
 					{
-						var logEvent = new List<string>();
+						List<string> logEvent = new List<string>();
 						logEvent.Add(user);
 						logEvent.Add(DateTime.Now.ToString());
 						
