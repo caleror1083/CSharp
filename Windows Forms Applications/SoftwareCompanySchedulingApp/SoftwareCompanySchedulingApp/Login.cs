@@ -56,20 +56,20 @@ namespace SoftwareCompanySchedulingApp
 
 				private void LoginButton_Click(object sender, EventArgs e)
 					{
-						LoginError.Text = "";
+						_LoginErrorLabel.Text = "";
 
-						if (UserLogin(UsernameTxt.Text, PasswordTxt.Text))
+						if (UserLogin(_UsernameTextbox.Text, _PasswordTextbox.Text))
 							{
 								Hide();
 								Scheduling scheduling = new Scheduling();
-								Log.Login(UsernameTxt.Text);
+								Log.Login(_UsernameTextbox.Text);
 								scheduling.Show();
 							}
 						else
 							{
-								LoginError.Text = Properties.translations.res_login_error;
-								UsernameTxt.Text = "";
-								PasswordTxt.Text = "";
+								_LoginErrorLabel.Text = Properties.translations.res_login_error;
+								_UsernameTextbox.Text = "";
+								_PasswordTextbox.Text = "";
 							}
 					}
 
