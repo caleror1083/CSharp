@@ -27,7 +27,7 @@ namespace SoftwareCompanySchedulingApp
 				private void AddBtn_Click(object sender, EventArgs e)
 					{
 						string stamp = LoginControl.CreateStamp();
-						string userName = LoginControl.GetUserName();
+						string userName = LoginControl.UserName;
 
 						if (string.IsNullOrEmpty(NameTxt.Text) ||
 							string.IsNullOrEmpty(PhoneTxt.Text) ||

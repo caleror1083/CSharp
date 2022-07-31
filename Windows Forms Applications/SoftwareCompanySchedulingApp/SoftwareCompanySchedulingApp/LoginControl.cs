@@ -23,6 +23,7 @@ namespace SoftwareCompanySchedulingApp
 
                 // Properties
                 public static int UserId { get; }
+                public static string UserName { get; }
 
                 // Methods(Parameters)
                 public static void SetUserId(int userId)

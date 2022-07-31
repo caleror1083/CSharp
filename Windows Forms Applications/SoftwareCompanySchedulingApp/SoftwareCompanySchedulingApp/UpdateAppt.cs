@@ -46,7 +46,7 @@ namespace SoftwareCompanySchedulingApp
                         Dictionary<string, string> updateInfo = new Dictionary<string, string>();
 
                         int user_id = LoginControl.UserId;
-                        string user_name = LoginControl.GetUserName();
+                        string user_name = LoginControl.UserName;
                         string stamp = LoginControl.CreateStamp();
 
                         DateTime begin = StartDT.Value.ToUniversalTime();
@@ -143,7 +143,7 @@ namespace SoftwareCompanySchedulingApp
                         myCommand.Parameters.AddWithValue("@End", $"{updateInfo["end"]}");
                         myCommand.Parameters.AddWithValue("@Type", $"{updateInfo["type"]}");
                         myCommand.Parameters.AddWithValue("@LastUpdate", $"{LoginControl.CreateStamp()}");
-                        myCommand.Parameters.AddWithValue("@LastUpdateBy", $"{LoginControl.GetUserName()}");
+                        myCommand.Parameters.AddWithValue("@LastUpdateBy", $"{LoginControl.UserName}");
                         myCommand.Parameters.AddWithValue("@AppointmentID", $"{update["appointmentId"]}");
                         int updatedAppt = myCommand.ExecuteNonQuery();
                         if (updatedAppt != 0)
