@@ -27,21 +27,21 @@ namespace SoftwareCompanySchedulingApp
 				public Scheduling()
 					{
 						InitializeComponent();
-						CalendarDGV.DataSource = CalendarPop(WeeklyCalendar.Checked);
-						Reminder(CalendarDGV);
+						_CalendarDataGridView.DataSource = CalendarPop(_WeeklyCalendarRadioButton.Checked);
+						Reminder(_CalendarDataGridView);
 					}
 
 				// Methods(Parameters)
 				private void weeklyCalendar_CheckedChanged(object sender, EventArgs e)
 					{
 						UpdateCalendar();
-						Message.Text = "Showing appointments for the next 7 days";
+						_MessageLabel.Text = "Showing appointments for the next 7 days";
 					}
 
 				private void monthlyCalendar_CheckedChanged(object sender, EventArgs e)
 					{
 						UpdateCalendar();
-						Message.Text = "Showing appointments for the next 30 days";
+						_MessageLabel.Text = "Showing appointments for the next 30 days";
 					}
 
 				private void AddBtn_Click(object sender, EventArgs e)
@@ -74,9 +74,9 @@ namespace SoftwareCompanySchedulingApp
 						_WasButtonClicked = true;
 						if (_WasButtonClicked == true)
 							{
-								int rowIndex = CalendarDGV.CurrentCell.RowIndex;
-								_ApptID = CalendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
-								_CustName = CalendarDGV.Rows[rowIndex].Cells[4].Value.ToString();
+								int rowIndex = _CalendarDataGridView.CurrentCell.RowIndex;
+								_ApptID = _CalendarDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
+								_CustName = _CalendarDataGridView.Rows[rowIndex].Cells[4].Value.ToString();
 							}
 						UpdateAppt updateAppt = new UpdateAppt();
 						updateAppt.scheduling = this;
@@ -91,8 +91,8 @@ namespace SoftwareCompanySchedulingApp
 							{
 								if (MessageBox.Show("Delete this appointment?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
 									{
-										int rowIndex = CalendarDGV.CurrentCell.RowIndex;
-										string apptId = CalendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
+										int rowIndex = _CalendarDataGridView.CurrentCell.RowIndex;
+										string apptId = _CalendarDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
 										apptDetails = LoginControl.ApptDetails(apptId);
 										DeleteAppt();
 										UpdateCalendar();
@@ -161,14 +161,14 @@ namespace SoftwareCompanySchedulingApp
 				public void UpdateCalendar()
 					{
 						bool view = true;
-						if (WeeklyCalendar.Checked)
+						if (_WeeklyCalendarRadioButton.Checked)
 							{
-								CalendarDGV.DataSource = CalendarPop(view);
+								_CalendarDataGridView.DataSource = CalendarPop(view);
 							}
 						else
 							{
 								view = false;
-								CalendarDGV.DataSource = CalendarPop(view);
+								_CalendarDataGridView.DataSource = CalendarPop(view);
 							}
 					}
 
