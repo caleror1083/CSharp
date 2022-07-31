@@ -88,7 +88,7 @@ namespace SoftwareCompanySchedulingApp
 			this._DeleteApptButton.TabIndex = 7;
 			this._DeleteApptButton.Text = "Delete";
 			this._DeleteApptButton.UseVisualStyleBackColor = true;
-			this._DeleteApptButton.Click += new System.EventHandler(this.DeleteApptBtn_Click);
+			this._DeleteApptButton.Click += new System.EventHandler(this.DeleteApptButton_Click);
 			// 
 			// EditApptBtn
 			// 
@@ -99,7 +99,7 @@ namespace SoftwareCompanySchedulingApp
 			this._UpdateApptButton.TabIndex = 6;
 			this._UpdateApptButton.Text = "Update";
 			this._UpdateApptButton.UseVisualStyleBackColor = true;
-			this._UpdateApptButton.Click += new System.EventHandler(this.UpdateApptBtn_Click);
+			this._UpdateApptButton.Click += new System.EventHandler(this.UpdateApptButton_Click);
 			// 
 			// message
 			// 
@@ -159,7 +159,7 @@ namespace SoftwareCompanySchedulingApp
 			this._AddApptButton.TabIndex = 1;
 			this._AddApptButton.Text = "Add";
 			this._AddApptButton.UseVisualStyleBackColor = true;
-			this._AddApptButton.Click += new System.EventHandler(this.AddApptBtn_Click);
+			this._AddApptButton.Click += new System.EventHandler(this.AddApptButton_Click);
 			// 
 			// calendar
 			// 
@@ -196,7 +196,7 @@ namespace SoftwareCompanySchedulingApp
 			this._DeleteButton.TabIndex = 3;
 			this._DeleteButton.Text = "Delete";
 			this._DeleteButton.UseVisualStyleBackColor = true;
-			this._DeleteButton.Click += new System.EventHandler(this.DeleteBtn_Click);
+			this._DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
 			// 
 			// UpdateBtn
 			// 
@@ -218,7 +218,7 @@ namespace SoftwareCompanySchedulingApp
 			this._AddButton.TabIndex = 1;
 			this._AddButton.Text = "Add";
 			this._AddButton.UseVisualStyleBackColor = true;
-			this._AddButton.Click += new System.EventHandler(this.AddBtn_Click);
+			this._AddButton.Click += new System.EventHandler(this.AddButton_Click);
 			// 
 			// customers
 			// 

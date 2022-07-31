@@ -21,6 +21,7 @@ namespace SoftwareCompanySchedulingApp
 				// Fields
 				public static string _ApptID = "";
 				public static string _CustName = "";
+				public static Dictionary<string, string> _ApptDetails = new Dictionary<string, string>();
 				bool _WasButtonClicked = false;
 
 				// Constructors
@@ -44,7 +45,7 @@ namespace SoftwareCompanySchedulingApp
 						_MessageLabel.Text = "Showing appointments for the next 30 days";
 					}
 
-				private void AddBtn_Click(object sender, EventArgs e)
+				private void AddButton_Click(object sender, EventArgs e)
 					{
 						AddCustomer addCustomer = new AddCustomer();
 						addCustomer.Show();
@@ -56,20 +57,20 @@ namespace SoftwareCompanySchedulingApp
 						updateCustomer.Show();
 					}
 
-				private void DeleteBtn_Click(object sender, EventArgs e)
+				private void DeleteButton_Click(object sender, EventArgs e)
 					{
 						DeleteCustomer deleteCustomer = new DeleteCustomer();
 						deleteCustomer.Show();
 					}
 
-				private void AddApptBtn_Click(object sender, EventArgs e)
+				private void AddApptButton_Click(object sender, EventArgs e)
 					{
 						AddAppt addAppt = new AddAppt();
 						addAppt.mainAppt = this;
 						addAppt.Show();
 					}
 
-				private void UpdateApptBtn_Click(object sender, EventArgs e)
+				private void UpdateApptButton_Click(object sender, EventArgs e)
 					{
 						_WasButtonClicked = true;
 						if (_WasButtonClicked == true)
@@ -83,8 +84,7 @@ namespace SoftwareCompanySchedulingApp
 						updateAppt.Show();
 					}
 				
-				public static Dictionary<string, string> apptDetails = new Dictionary<string, string>();
-				private void DeleteApptBtn_Click(object sender, EventArgs e)
+				private void DeleteApptButton_Click(object sender, EventArgs e)
 					{
 						_WasButtonClicked = true;
 						if (_WasButtonClicked == true)
@@ -93,7 +93,7 @@ namespace SoftwareCompanySchedulingApp
 									{
 										int rowIndex = _CalendarDataGridView.CurrentCell.RowIndex;
 										string apptId = _CalendarDataGridView.Rows[rowIndex].Cells[0].Value.ToString();
-										apptDetails = LoginControl.ApptDetails(apptId);
+										_ApptDetails = LoginControl.ApptDetails(apptId);
 										DeleteAppt();
 										UpdateCalendar();
 									}
@@ -145,7 +145,7 @@ namespace SoftwareCompanySchedulingApp
 						myConnection.Open();
 						string delete = $"DELETE FROM [appointment] WHERE [appointmentId] = @AppointmentID";
 						SqlCommand myCommand = new SqlCommand(delete, myConnection);
-						myCommand.Parameters.AddWithValue("@AppointmentID", $"{apptDetails["appointmentId"]}");
+						myCommand.Parameters.AddWithValue("@AppointmentID", $"{_ApptDetails["appointmentId"]}");
 						int apptDeleted = myCommand.ExecuteNonQuery();
 						myConnection.Close();
 						if (apptDeleted != 0)
