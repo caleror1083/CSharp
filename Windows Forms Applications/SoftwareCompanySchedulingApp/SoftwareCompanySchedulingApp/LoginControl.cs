@@ -65,14 +65,16 @@ namespace SoftwareCompanySchedulingApp
                         return DateTime.Now.ToString("u");
                     }
 
-                public static int CreateID(string tbl)
+                public static int CreateID(string table)
                     {
-                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
-                        myConnection.Open();
-                        SqlCommand myCommand = new SqlCommand($"SELECT @TblID " +
-                                                                  $"FROM @Table", myConnection);
-                        myCommand.Parameters.AddWithValue("@Table", $"{tbl}");
-                        myCommand.Parameters.AddWithValue("@TblID", $"{tbl + "Id"}");
+                        using (SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString())) 
+                            {
+                                SqlCommand myCommand = new SqlCommand("SELECT @tableID FROM @table")
+                                    {
+                                        Connection = myConnection
+                                    };
+                        myCommand.Parameters.AddWithValue("@table", $"{table}");
+                        myCommand.Parameters.AddWithValue("@TblID", $"{table + "Id"}");
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         List<int> listId = new List<int>();
                         while (myReader.Read())
@@ -80,8 +82,8 @@ namespace SoftwareCompanySchedulingApp
                                 listId.Add(Convert.ToInt32(myReader[0]));
                             }
                         myReader.Close();
-                        myConnection.Close();
                         return NewId(listId);
+                            }
                     }
 
                 public static int CreateRec(string stamp, string user_Name, string tbl, string query, int user_Id = 0)
