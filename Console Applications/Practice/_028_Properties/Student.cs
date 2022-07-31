@@ -29,6 +29,10 @@ namespace _028_Properties
 
 				public string Name    // Name read/write property
 					{
+						get
+							{
+								return string.IsNullOrEmpty(_Name) ? "No Name" : _Name;
+							}
 						set
 							{
 								if (string.IsNullOrEmpty(value))
@@ -37,11 +41,6 @@ namespace _028_Properties
 									}
 								_Name = value;
 							}
-						get
-							{
-								return string.IsNullOrEmpty(_Name) ? "No Name" : _Name;
-							}
-				
 					}
 
 				public int PassMark { get; set; }    // auto implemented PassMark property

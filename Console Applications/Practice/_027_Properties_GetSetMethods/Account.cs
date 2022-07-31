@@ -4,10 +4,10 @@
 namespace _027_Properties_GetSetMethods
     {
         // Classes
-        internal class Account                                   // A simple Account class that contains a private instance variable name and public methods to Set and Get name's value.
+        internal class Account    // A simple account class that contains a private instance variable name and public methods to Set and Get name's value.
             {
                 // Fields
-                private string _Name;                     // instance variable
+                private string _Name;    // instance variable
 
                 // Methods(Parameters)
                 public string GetName()                  // method that retrieves the account name from the object
