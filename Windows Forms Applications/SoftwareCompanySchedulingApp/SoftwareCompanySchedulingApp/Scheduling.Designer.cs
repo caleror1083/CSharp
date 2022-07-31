@@ -36,7 +36,7 @@ namespace SoftwareCompanySchedulingApp
 					{
 			this._CalendarGroupBox = new System.Windows.Forms.GroupBox();
 			this._DeleteApptButton = new System.Windows.Forms.Button();
-			this._EditApptButton = new System.Windows.Forms.Button();
+			this._UpdateApptButton = new System.Windows.Forms.Button();
 			this._MessageLabel = new System.Windows.Forms.Label();
 			this._MonthlyCalendarRadioButton = new System.Windows.Forms.RadioButton();
 			this._WeeklyCalendarRadioButton = new System.Windows.Forms.RadioButton();
@@ -64,7 +64,7 @@ namespace SoftwareCompanySchedulingApp
 			// 
 			this._CalendarGroupBox.BackColor = System.Drawing.SystemColors.MenuHighlight;
 			this._CalendarGroupBox.Controls.Add(this._DeleteApptButton);
-			this._CalendarGroupBox.Controls.Add(this._EditApptButton);
+			this._CalendarGroupBox.Controls.Add(this._UpdateApptButton);
 			this._CalendarGroupBox.Controls.Add(this._MessageLabel);
 			this._CalendarGroupBox.Controls.Add(this._MonthlyCalendarRadioButton);
 			this._CalendarGroupBox.Controls.Add(this._WeeklyCalendarRadioButton);
@@ -92,14 +92,14 @@ namespace SoftwareCompanySchedulingApp
 			// 
 			// EditApptBtn
 			// 
-			this._EditApptButton.Location = new System.Drawing.Point(565, 381);
-			this._EditApptButton.Margin = new System.Windows.Forms.Padding(2);
-			this._EditApptButton.Name = "EditApptBtn";
-			this._EditApptButton.Size = new System.Drawing.Size(57, 31);
-			this._EditApptButton.TabIndex = 6;
-			this._EditApptButton.Text = "Update";
-			this._EditApptButton.UseVisualStyleBackColor = true;
-			this._EditApptButton.Click += new System.EventHandler(this.UpdateApptBtn_Click);
+			this._UpdateApptButton.Location = new System.Drawing.Point(565, 381);
+			this._UpdateApptButton.Margin = new System.Windows.Forms.Padding(2);
+			this._UpdateApptButton.Name = "EditApptBtn";
+			this._UpdateApptButton.Size = new System.Drawing.Size(57, 31);
+			this._UpdateApptButton.TabIndex = 6;
+			this._UpdateApptButton.Text = "Update";
+			this._UpdateApptButton.UseVisualStyleBackColor = true;
+			this._UpdateApptButton.Click += new System.EventHandler(this.UpdateApptBtn_Click);
 			// 
 			// message
 			// 
@@ -121,7 +121,7 @@ namespace SoftwareCompanySchedulingApp
 			this._MonthlyCalendarRadioButton.TabIndex = 4;
 			this._MonthlyCalendarRadioButton.Text = "Monthly";
 			this._MonthlyCalendarRadioButton.UseVisualStyleBackColor = true;
-			this._MonthlyCalendarRadioButton.CheckedChanged += new System.EventHandler(this.monthlyCalendar_CheckedChanged);
+			this._MonthlyCalendarRadioButton.CheckedChanged += new System.EventHandler(this.MonthlyCalendarRadioButton_CheckedChanged);
 			// 
 			// weeklyCalendar
 			// 
@@ -135,7 +135,7 @@ namespace SoftwareCompanySchedulingApp
 			this._WeeklyCalendarRadioButton.TabStop = true;
 			this._WeeklyCalendarRadioButton.Text = "Weekly";
 			this._WeeklyCalendarRadioButton.UseVisualStyleBackColor = true;
-			this._WeeklyCalendarRadioButton.CheckedChanged += new System.EventHandler(this.weeklyCalendar_CheckedChanged);
+			this._WeeklyCalendarRadioButton.CheckedChanged += new System.EventHandler(this.WeeklyCalendarRadioButton_CheckedChanged);
 			// 
 			// calendarDGV
 			// 
@@ -207,7 +207,7 @@ namespace SoftwareCompanySchedulingApp
 			this._UpdateButton.TabIndex = 2;
 			this._UpdateButton.Text = "Update";
 			this._UpdateButton.UseVisualStyleBackColor = true;
-			this._UpdateButton.Click += new System.EventHandler(this.UpdateBtn_Click);
+			this._UpdateButton.Click += new System.EventHandler(this.UpdateButton_Click);
 			// 
 			// AddBtn
 			// 
@@ -255,7 +255,7 @@ namespace SoftwareCompanySchedulingApp
 			this._ReportCustomerButton.TabIndex = 5;
 			this._ReportCustomerButton.Text = "Appointments by Customer";
 			this._ReportCustomerButton.UseVisualStyleBackColor = true;
-			this._ReportCustomerButton.Click += new System.EventHandler(this.ReportShort_Click);
+			this._ReportCustomerButton.Click += new System.EventHandler(this.ReportCustomerButton_Click);
 			// 
 			// reports
 			// 
@@ -277,7 +277,7 @@ namespace SoftwareCompanySchedulingApp
 			this._ReportConsultantButton.TabIndex = 1;
 			this._ReportConsultantButton.Text = "Consultant Schedules";
 			this._ReportConsultantButton.UseVisualStyleBackColor = true;
-			this._ReportConsultantButton.Click += new System.EventHandler(this.ReportConsultant_Click);
+			this._ReportConsultantButton.Click += new System.EventHandler(this.ReportConsultantButton_Click);
 			// 
 			// ReportApptMonth
 			// 
@@ -287,7 +287,7 @@ namespace SoftwareCompanySchedulingApp
 			this._ReportApptMonthButton.TabIndex = 0;
 			this._ReportApptMonthButton.Text = "Appointment types by month";
 			this._ReportApptMonthButton.UseVisualStyleBackColor = true;
-			this._ReportApptMonthButton.Click += new System.EventHandler(this.ReportApptMonth_Click);
+			this._ReportApptMonthButton.Click += new System.EventHandler(this.ReportApptMonthButton_Click);
 			// 
 			// ExitBtn
 			// 
@@ -298,7 +298,7 @@ namespace SoftwareCompanySchedulingApp
 			this._ExitButton.TabIndex = 3;
 			this._ExitButton.Text = "Exit";
 			this._ExitButton.UseVisualStyleBackColor = true;
-			this._ExitButton.Click += new System.EventHandler(this.ExitBtn_Click);
+			this._ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
 			// 
 			// Scheduling
 			// 
@@ -342,7 +342,7 @@ namespace SoftwareCompanySchedulingApp
 				private System.Windows.Forms.Label _ReportsLabel;
 				private System.Windows.Forms.Button _ReportConsultantButton;
 				private System.Windows.Forms.Button _ReportCustomerButton;
-		private System.Windows.Forms.Button _EditApptButton;
+		private System.Windows.Forms.Button _UpdateApptButton;
 		private System.Windows.Forms.Button _DeleteApptButton;
 	}
 	}

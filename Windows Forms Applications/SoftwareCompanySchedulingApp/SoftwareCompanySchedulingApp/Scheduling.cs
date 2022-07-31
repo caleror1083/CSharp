@@ -27,18 +27,18 @@ namespace SoftwareCompanySchedulingApp
 				public Scheduling()
 					{
 						InitializeComponent();
-						_CalendarDataGridView.DataSource = CalendarPop(_WeeklyCalendarRadioButton.Checked);
-						Reminder(_CalendarDataGridView);
+						_CalendarDataGridView.DataSource = PopulateCalendar(_WeeklyCalendarRadioButton.Checked);
+						DisplayReminder(_CalendarDataGridView);
 					}
 
 				// Methods(Parameters)
-				private void weeklyCalendar_CheckedChanged(object sender, EventArgs e)
+				void WeeklyCalendarRadioButton_CheckedChanged(object sender, EventArgs e)
 					{
 						UpdateCalendar();
 						_MessageLabel.Text = "Showing appointments for the next 7 days";
 					}
 
-				private void monthlyCalendar_CheckedChanged(object sender, EventArgs e)
+				private void MonthlyCalendarRadioButton_CheckedChanged(object sender, EventArgs e)
 					{
 						UpdateCalendar();
 						_MessageLabel.Text = "Showing appointments for the next 30 days";
@@ -50,7 +50,7 @@ namespace SoftwareCompanySchedulingApp
 						addCustomer.Show();
 					}
 
-				private void UpdateBtn_Click(object sender, EventArgs e)
+				private void UpdateButton_Click(object sender, EventArgs e)
 					{
 						UpdateCustomer updateCustomer = new UpdateCustomer();
 						updateCustomer.Show();
@@ -100,32 +100,32 @@ namespace SoftwareCompanySchedulingApp
 							}
 					}
 
-				private void ReportApptMonth_Click(object sender, EventArgs e)
+				private void ReportApptMonthButton_Click(object sender, EventArgs e)
 					{
 						AppointmentTypeReport showAppointmentReport = new AppointmentTypeReport();
 						showAppointmentReport.Show();
 					}
 
-				private void ReportConsultant_Click(object sender, EventArgs e)
+				private void ReportConsultantButton_Click(object sender, EventArgs e)
 					{
 						ConsultantReport showConsultantReport = new ConsultantReport();
 						showConsultantReport.Show();
 					}
 
-				private void ReportShort_Click(object sender, EventArgs e)
+				private void ReportCustomerButton_Click(object sender, EventArgs e)
 					{
 						CustomerReport showShortReport = new CustomerReport();
 						showShortReport.Show();
 					}
 
-				private void ExitBtn_Click(object sender, EventArgs e)
+				private void ExitButton_Click(object sender, EventArgs e)
 					{
 						this.Close();
 						MessageBox.Show("Goodbye!");
 						Application.Exit();
 					}
 
-				private void Reminder(DataGridView myCalendar)
+				private void DisplayReminder(DataGridView myCalendar)
 					{
 						foreach (DataGridViewRow row in myCalendar.Rows)
 							{
@@ -163,16 +163,16 @@ namespace SoftwareCompanySchedulingApp
 						bool view = true;
 						if (_WeeklyCalendarRadioButton.Checked)
 							{
-								_CalendarDataGridView.DataSource = CalendarPop(view);
+								_CalendarDataGridView.DataSource = PopulateCalendar(view);
 							}
 						else
 							{
 								view = false;
-								_CalendarDataGridView.DataSource = CalendarPop(view);
+								_CalendarDataGridView.DataSource = PopulateCalendar(view);
 							}
 					}
 
-				private static Array CalendarPop(bool view)
+				private static Array PopulateCalendar(bool view)
 					{
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
