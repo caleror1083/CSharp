@@ -95,7 +95,7 @@ namespace SoftwareCompanySchedulingApp
 						myConnection.Open();
 
 						// Edit Customer Table
-						string edit = $"UPDATE [customer] SET [customerName] = @CustomerName, [active] = @Active, [lastUpdate] = @LastUpdate, [lastUpdateBy] = @LastUpdateBy WHERE [customerName] = @NewCustomerName'";
+						string edit = $"UPDATE [customer] SET [customerName] = @CustomerName, [active] = @Active, [lastUpdate] = @LastUpdate, [lastUpdateBy] = @LastUpdateBy WHERE [customerName] = @NewCustomerName";
 						SqlCommand myCommand = new SqlCommand(edit, myConnection);
 						myCommand.Parameters.AddWithValue("@CustomerName", $"{updateCust["customerName"]}");
 						myCommand.Parameters.AddWithValue("@Active", $"{updateCust["active"]}");
@@ -105,17 +105,17 @@ namespace SoftwareCompanySchedulingApp
 						int editCust = myCommand.ExecuteNonQuery();
 
 						// Edit Address Table
-						edit = $"UPDATE address SET address = '{updateCust["address"]}', postalCode = '{updateCust["postalCode"]}', phone = '{updateCust["phone"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.UserName}' WHERE address = '{_CustForm["address"]}'";
+						edit = $"UPDATE address SET address = {updateCust["address"]}, postalCode = {updateCust["postalCode"]}, phone = {updateCust["phone"]}, lastUpdate = {LoginControl.CreateStamp()}, lastUpdateBy = {LoginControl.UserName} WHERE address = {_CustForm["address"]}";
 						myCommand = new SqlCommand(edit, myConnection);
 						int editAddress = myCommand.ExecuteNonQuery();
 
 						// Edit City Table
-						edit = $"UPDATE city SET city = '{updateCust["city"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.UserName}' WHERE city = '{_CustForm["city"]}'";
+						edit = $"UPDATE city SET city = {updateCust["city"]}, lastUpdate = {LoginControl.CreateStamp()}, lastUpdateBy = {LoginControl.UserName} WHERE city = {_CustForm["city"]}";
 						myCommand = new SqlCommand(edit, myConnection);
 						int editCity = myCommand.ExecuteNonQuery();
 
 						// Edit Country Table
-						edit = $"UPDATE country SET country = '{updateCust["country"]}', lastUpdate = '{LoginControl.CreateStamp()}', lastUpdateBy = '{LoginControl.UserName}' WHERE country = '{_CustForm["country"]}'";
+						edit = $"UPDATE country SET country = {updateCust["country"]}, lastUpdate = {LoginControl.CreateStamp()}, lastUpdateBy = {LoginControl.UserName} WHERE country = {_CustForm["country"]}";
 						myCommand = new SqlCommand(edit, myConnection);
 						int editCountry = myCommand.ExecuteNonQuery();
 						myConnection.Close();

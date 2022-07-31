@@ -105,7 +105,7 @@ namespace SoftwareCompanySchedulingApp
                                                             }
                                                         else
                                                             {
-                                                                LoginControl.CreateRec(stamp, user_Name, "appointment", $"'{CustomerIdTxt.Text}', '{StartDT.Value.ToUniversalTime().ToString("u")}', '{EndDT.Value.ToUniversalTime().ToString("u")}', '{TypeTxt.Text}'", user_Id);
+                                                                LoginControl.CreateRec(stamp, user_Name, "appointment", $"{CustomerIdTxt.Text}, {StartDT.Value.ToUniversalTime().ToString("u")}, {EndDT.Value.ToUniversalTime().ToString("u")}, {TypeTxt.Text}", user_Id);
                                                                 MessageBox.Show("Appointment apped successfully");
                                                             }
                                                     }

@@ -65,16 +65,13 @@ namespace SoftwareCompanySchedulingApp
                         return DateTime.Now.ToString("u");
                     }
 
-                public static int CreateID(string table)
+                public static int CreateID(string tbl)
                     {
-                        using (SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString())) 
-                            {
-                                SqlCommand myCommand = new SqlCommand("SELECT @tableID FROM @table")
-                                    {
-                                        Connection = myConnection
-                                    };
-                        myCommand.Parameters.AddWithValue("@table", $"{table}");
-                        myCommand.Parameters.AddWithValue("@TblID", $"{table + "Id"}");
+                        SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
+                        myConnection.Open();
+                        SqlCommand myCommand = new SqlCommand("SELECT @TblId FROM @Table", myConnection);
+                        myCommand.Parameters.AddWithValue("@Table", tbl);
+                        myCommand.Parameters.AddWithValue("@TblId", tbl + "Id");
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         List<int> listId = new List<int>();
                         while (myReader.Read())
@@ -82,8 +79,8 @@ namespace SoftwareCompanySchedulingApp
                                 listId.Add(Convert.ToInt32(myReader[0]));
                             }
                         myReader.Close();
+                        myConnection.Close();
                         return NewId(listId);
-                            }
                     }
 
                 public static int CreateRec(string stamp, string user_Name, string tbl, string query, int user_Id = 0)
@@ -103,12 +100,12 @@ namespace SoftwareCompanySchedulingApp
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         SqlCommand myCommand = new SqlCommand(insert, myConnection);
-                        myCommand.Parameters.AddWithValue("@Table", $"{tbl}");
-                        myCommand.Parameters.AddWithValue("@RecordID", $"{recordId}");
-                        myCommand.Parameters.AddWithValue("@Query", $"{query}");
-                        myCommand.Parameters.AddWithValue("@UserId", $"{user_Id}");
-                        myCommand.Parameters.AddWithValue("@Stamp", $"{stamp}");
-                        myCommand.Parameters.AddWithValue("@UserName", $"{user_Name}");
+                        myCommand.Parameters.AddWithValue("@Table", tbl);
+                        myCommand.Parameters.AddWithValue("@RecordID", recordId);
+                        myCommand.Parameters.AddWithValue("@Query", query);
+                        myCommand.Parameters.AddWithValue("@UserId", user_Id);
+                        myCommand.Parameters.AddWithValue("@Stamp", stamp);
+                        myCommand.Parameters.AddWithValue("@UserName", user_Name);
                         myCommand.ExecuteNonQuery();
                         myConnection.Close();
 
@@ -134,7 +131,7 @@ namespace SoftwareCompanySchedulingApp
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-                        myCommand.Parameters.AddWithValue("@Find", $"{find}");
+                        myCommand.Parameters.AddWithValue("@Find", find);
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         
                         if (myReader.HasRows)
@@ -156,7 +153,7 @@ namespace SoftwareCompanySchedulingApp
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-                        myCommand.Parameters.AddWithValue("@CustID", $"{custId}");
+                        myCommand.Parameters.AddWithValue("@CustID", custId);
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         myReader.Read();
 
@@ -174,7 +171,7 @@ namespace SoftwareCompanySchedulingApp
                                   $"WHERE [addressId] = @CustDict";
                         myCommand = new SqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
-                        myCommand.Parameters.AddWithValue("@CustDict", $"{custDict["addressId"]}");
+                        myCommand.Parameters.AddWithValue("@CustDict", custDict["addressId"]);
                         myReader.Read();
 
                         // Address Table Details
@@ -189,7 +186,7 @@ namespace SoftwareCompanySchedulingApp
                                   $"WHERE [cityId] = @CityID";
                         myCommand = new SqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
-                        myCommand.Parameters.AddWithValue("@CityID", $"{custDict["cityId"]}");
+                        myCommand.Parameters.AddWithValue("@CityID", custDict["cityId"]);
                         myReader.Read();
 
                         // City Table Details
@@ -202,7 +199,7 @@ namespace SoftwareCompanySchedulingApp
                                   $"WHERE [countryId] = @CountryID";
                         myCommand = new SqlCommand(myQuery, myConnection);
                         myReader = myCommand.ExecuteReader();
-                        myCommand.Parameters.AddWithValue("@CountryID", $"{custDict["countryId"]}");
+                        myCommand.Parameters.AddWithValue("@CountryID", custDict["countryId"]);
                         myReader.Read();
 
                         // Country Table Details
@@ -220,7 +217,7 @@ namespace SoftwareCompanySchedulingApp
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-                        myCommand.Parameters.AddWithValue("@ApptID", $"{apptId}");
+                        myCommand.Parameters.AddWithValue("@ApptID", apptId);
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         myReader.Read();
 
