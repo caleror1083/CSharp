@@ -31,11 +31,6 @@ namespace SoftwareCompanySchedulingApp
                         user_Id = userId;
                     }
 
-                public static string GetUserName()
-                    {
-                        return user_Name;
-                    }
-
                 public static void SetUserName(string userName)
                     {
                         user_Name = userName;
