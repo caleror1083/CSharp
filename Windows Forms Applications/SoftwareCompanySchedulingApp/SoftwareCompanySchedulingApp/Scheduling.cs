@@ -27,21 +27,21 @@ namespace SoftwareCompanySchedulingApp
 				public Scheduling()
 					{
 						InitializeComponent();
-						calendarDGV.DataSource = CalendarPop(weeklyCalendar.Checked);
-						Reminder(calendarDGV);
+						CalendarDGV.DataSource = CalendarPop(WeeklyCalendar.Checked);
+						Reminder(CalendarDGV);
 					}
 
 				// Methods(Parameters)
 				private void weeklyCalendar_CheckedChanged(object sender, EventArgs e)
 					{
 						UpdateCalendar();
-						message.Text = "Showing appointments for the next 7 days";
+						Message.Text = "Showing appointments for the next 7 days";
 					}
 
 				private void monthlyCalendar_CheckedChanged(object sender, EventArgs e)
 					{
 						UpdateCalendar();
-						message.Text = "Showing appointments for the next 30 days";
+						Message.Text = "Showing appointments for the next 30 days";
 					}
 
 				private void AddBtn_Click(object sender, EventArgs e)
@@ -74,9 +74,9 @@ namespace SoftwareCompanySchedulingApp
 						_WasButtonClicked = true;
 						if (_WasButtonClicked == true)
 							{
-								int rowIndex = calendarDGV.CurrentCell.RowIndex;
-								_ApptID = calendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
-								_CustName = calendarDGV.Rows[rowIndex].Cells[4].Value.ToString();
+								int rowIndex = CalendarDGV.CurrentCell.RowIndex;
+								_ApptID = CalendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
+								_CustName = CalendarDGV.Rows[rowIndex].Cells[4].Value.ToString();
 							}
 						UpdateAppt updateAppt = new UpdateAppt();
 						updateAppt.scheduling = this;
@@ -91,8 +91,8 @@ namespace SoftwareCompanySchedulingApp
 							{
 								if (MessageBox.Show("Delete this appointment?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
 									{
-										int rowIndex = calendarDGV.CurrentCell.RowIndex;
-										string apptId = calendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
+										int rowIndex = CalendarDGV.CurrentCell.RowIndex;
+										string apptId = CalendarDGV.Rows[rowIndex].Cells[0].Value.ToString();
 										apptDetails = LoginControl.ApptDetails(apptId);
 										DeleteAppt();
 										UpdateCalendar();
@@ -161,14 +161,14 @@ namespace SoftwareCompanySchedulingApp
 				public void UpdateCalendar()
 					{
 						bool view = true;
-						if (weeklyCalendar.Checked)
+						if (WeeklyCalendar.Checked)
 							{
-								calendarDGV.DataSource = CalendarPop(view);
+								CalendarDGV.DataSource = CalendarPop(view);
 							}
 						else
 							{
 								view = false;
-								calendarDGV.DataSource = CalendarPop(view);
+								CalendarDGV.DataSource = CalendarPop(view);
 							}
 					}
 
