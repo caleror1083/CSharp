@@ -42,9 +42,9 @@ namespace SoftwareCompanySchedulingApp
 							}
 						else
 							{
-								int country = LoginControl.CreateRec(stamp, userName, "country", CountryDD.Text);
-								int city = LoginControl.CreateRec(stamp, userName, "city", CityTxt.Text, country);
-								int address = LoginControl.CreateRec(stamp, userName, "address", $"{AddressTxt.Text}, {city}, {PostalCodeTxt.Text}, {PhoneTxt.Text}");
+								int country = LoginControl.CreateRec(stamp, userName, "country", $"{CountryDD.Text}");
+								int city = LoginControl.CreateRec(stamp, userName, "city", $"{CityTxt.Text}, {country}");
+								int address = LoginControl.CreateRec(stamp, userName, "address", $"{AddressTxt.Text},  ,{city}, {PostalCodeTxt.Text}, {PhoneTxt.Text}");
 								LoginControl.CreateRec(stamp, userName, "customer", $"{NameTxt.Text}, {address}, {(YesRadio.Checked ? 1 : 0)}");
 								MessageBox.Show("Customer added successfully");
 								this.Close();

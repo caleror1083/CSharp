@@ -69,9 +69,9 @@ namespace SoftwareCompanySchedulingApp
                     {
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
-                        SqlCommand myCommand = new SqlCommand("SELECT @TblId FROM @Table", myConnection);
-                        myCommand.Parameters.AddWithValue("@Table", tbl);
-                        myCommand.Parameters.AddWithValue("@TblId", tbl + "Id");
+                        SqlCommand myCommand = new SqlCommand("SELECT @tableId FROM @table", myConnection);
+                        myCommand.Parameters.AddWithValue("@table", tbl);
+                        myCommand.Parameters.AddWithValue("@tableId", tbl + "Id");
                         SqlDataReader myReader = myCommand.ExecuteReader();
                         List<int> listId = new List<int>();
                         while (myReader.Read())
@@ -89,18 +89,18 @@ namespace SoftwareCompanySchedulingApp
                         string insert;
                         if (user_Id == 0)
                             {
-                                insert = $"INSERT INTO @Table " +
+                                insert = $"INSERT INTO @table " +
                                          $"VALUES (@RecordID, @Query, @Stamp, @UserName, @Stamp, @UserName)";
                             }
                         else
                             {
-                                insert = $"INSERT INTO @Table ([appointmentId], [customerId], [start], [end], [type], [userId], [createDate], [createdBy], [lastUpdate], [lastUpdateBy]) " +
+                                insert = $"INSERT INTO @table ([appointmentId], [customerId], [start], [end], [type], [userId], [createDate], [createdBy], [lastUpdate], [lastUpdateBy]) " +
                                          $"VALUES (@RecordID, @Query, @UserId, @Stamp, @UserName, @Stamp, @UserName)";
                             }
                         SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
                         myConnection.Open();
                         SqlCommand myCommand = new SqlCommand(insert, myConnection);
-                        myCommand.Parameters.AddWithValue("@Table", tbl);
+                        myCommand.Parameters.AddWithValue("@table", tbl);
                         myCommand.Parameters.AddWithValue("@RecordID", recordId);
                         myCommand.Parameters.AddWithValue("@Query", query);
                         myCommand.Parameters.AddWithValue("@UserId", user_Id);
@@ -108,7 +108,6 @@ namespace SoftwareCompanySchedulingApp
                         myCommand.Parameters.AddWithValue("@UserName", user_Name);
                         myCommand.ExecuteNonQuery();
                         myConnection.Close();
-
                         return recordId;
                     }     
 
