@@ -41,6 +41,62 @@ namespace DentalOfficeSchedulingApp
 							}
 					}
 
+				// Creates new user
+				public static void CreateUser(int myUserID, string myUserName, string myPassword, int myActive, DateTime myDateTime, string myUser)
+					{
+						string mySqlDate = DateSqlFormat(myDateTime);
+						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
+						myConnection.Open();
+
+						SqlTransaction myTransaction = myConnection.BeginTransaction();
+						var myQuery = $"INSERT INTO user (userId, userName, password, active, [createDate, createdBy, lastUpdateBy)" +
+						    $"VALUES (@UserID, @UserName, @Password, @Active, @DateTime, @User, @User)";
+						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+						myCommand.Parameters.AddWithValue("@UserID", $"{myUserID}");
+						myCommand.Parameters.AddWithValue("@UserName", $"{myUserName}");
+						myCommand.Parameters.AddWithValue("@Password", $"{myPassword}");
+						myCommand.Parameters.AddWithValue("@Active", $"{myActive}");
+						myCommand.Parameters.AddWithValue("@DateTime", $"{DateSqlFormat(myDateTime)}");
+						myCommand.Parameters.AddWithValue("@User", $"{myUser}");
+						myCommand.Transaction = myTransaction;
+						myCommand.ExecuteNonQuery();
+						myTransaction.Commit();
+						myConnection.Close();
+					}
+
+				// Get ID for Records
+				public static int GetID(string myTable, string myID)
+					{
+						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
+						myConnection.Open();
+
+						var myQuery = $"SELECT MAX({myID}) FROM {myTable}";
+
+						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+						SqlDataReader myReader = myCommand.ExecuteReader();
+
+						if (myReader.HasRows)
+							{
+								myReader.Read();
+								if (myReader[0] == DBNull.Value)
+									{
+										return 0;
+									}
+								return Convert.ToInt32(myReader[0]);
+							}
+						return 0;
+					}
+
+				public static DateTime GetTime()
+					{
+						return DateTime.Now.ToUniversalTime();
+					}
+
+				public static string GetUserName()
+					{
+						return user_Name;
+					}
+
 				public static int GetUserID()
 					{
 						return user_Id;
@@ -49,11 +105,6 @@ namespace DentalOfficeSchedulingApp
 				public static void SetUserID(int myCurrentUserID)
 					{
 						user_Id = myCurrentUserID;
-					}
-
-				public static string GetUserName()
-					{
-						return user_Name;
 					}
 
 				public static void SetUserName(string myCurrentUserName)
@@ -74,34 +125,6 @@ namespace DentalOfficeSchedulingApp
 				public static string GetConnectionString()
 					{
 						return Properties.Resources.connectionString.ToString();
-					}
-				
-				// Get ID for Records
-				public static int GetID(string myTable, string myID)
-					{
-						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
-						myConnection.Open();
-
-						var myQuery = $"SELECT max({myID}) FROM {myTable}";
-
-						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-						SqlDataReader myReader = myCommand.ExecuteReader();
-
-						if (myReader.HasRows)
-							{
-								myReader.Read();
-								if (myReader[0] == DBNull.Value)
-									{
-										return 0;
-									}
-								return Convert.ToInt32(myReader[0]);
-							}
-						return 0;
-					}
-
-				public static DateTime GetTime()
-					{
-						return DateTime.Now.ToUniversalTime();
 					}
 
 				public static string DateSqlFormat(DateTime myDateValue)
@@ -307,29 +330,6 @@ namespace DentalOfficeSchedulingApp
 						var myCustomerQuery = $"UPDATE customer SET customerName = '{myDictionary["customerName"]}', lastUpdateBy = '{myUser}', active = '{myDictionary["active"]}' WHERE customerId = '{myDictionary["customerId"]}'";
 						myCommand.CommandText = myCustomerQuery;
 						myCommand.Connection = myConnection;
-						myCommand.Transaction = myTransaction;
-						myCommand.ExecuteNonQuery();
-						myTransaction.Commit();
-						myConnection.Close();
-					}
-
-				// Creates new user
-				public static void CreateUser(int myUserID, string myUserName, string myPassword, int myActive, DateTime myDateTime, string myUser)
-					{
-						string mySqlDate = DateSqlFormat(myDateTime);
-						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
-						myConnection.Open();
-
-						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myQuery = $"INSERT into user (userId, userName, password, active, createDate, createdBy, lastUpdateBy)" +
-						    $"VALUES (@UserID, @UserName, @Password, @Active, @DateTime, @User, @User)";
-						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-						myCommand.Parameters.AddWithValue("@UserID", $"{myUserID}");
-						myCommand.Parameters.AddWithValue("@UserName", $"{myUserName}");
-						myCommand.Parameters.AddWithValue("@Password", $"{myPassword}");
-						myCommand.Parameters.AddWithValue("@Active", $"{myActive}");
-						myCommand.Parameters.AddWithValue("@DateTime", $"{DateSqlFormat(myDateTime)}");
-						myCommand.Parameters.AddWithValue("@User", $"{myUser}");
 						myCommand.Transaction = myTransaction;
 						myCommand.ExecuteNonQuery();
 						myTransaction.Commit();

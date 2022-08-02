@@ -23,7 +23,7 @@ namespace DentalOfficeSchedulingApp
 							{
 								if (PasswordTxt.Text == ConfirmTxt.Text)
 									{
-										Database.CreateUser(Database.GetID("user", "userId") + 1, UserNameTxt.Text, PasswordTxt.Text, YesRadio.Checked ? 1 : 0, Database.GetTime(), Database.GetUserName());
+										Database.CreateUser(Database.GetID($"user", $"userId") + 1, UserNameTxt.Text, PasswordTxt.Text, YesRadio.Checked ? 1 : 0, Database.GetTime(), Database.GetUserName());
 										MessageBox.Show("User created successfully!");
 										this.Owner.Show();
 										this.Close();
