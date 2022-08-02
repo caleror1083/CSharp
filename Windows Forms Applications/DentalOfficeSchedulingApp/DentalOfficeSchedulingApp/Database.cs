@@ -322,8 +322,14 @@ namespace DentalOfficeSchedulingApp
 
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
 						var myQuery = $"INSERT into user (userId, userName, password, active, createDate, createdBy, lastUpdateBy)" +
-						    $"VALUES ('{myUserID}', '{myUserName}', '{myPassword}', '{myActive}', '{DateSqlFormat(myDateTime)}', '{myUser}', '{myUser}')";
+						    $"VALUES (@UserID, @UserName, @Password, @Active, @DateTime, @User, @User)";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+						myCommand.Parameters.AddWithValue("@UserID", $"{myUserID}");
+						myCommand.Parameters.AddWithValue("@UserName", $"{myUserName}");
+						myCommand.Parameters.AddWithValue("@Password", $"{myPassword}");
+						myCommand.Parameters.AddWithValue("@Active", $"{myActive}");
+						myCommand.Parameters.AddWithValue("@DateTime", $"{DateSqlFormat(myDateTime)}");
+						myCommand.Parameters.AddWithValue("@User", $"{myUser}");
 						myCommand.Transaction = myTransaction;
 						myCommand.ExecuteNonQuery();
 						myTransaction.Commit();
