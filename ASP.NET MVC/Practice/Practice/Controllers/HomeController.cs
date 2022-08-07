@@ -15,6 +15,6 @@ namespace Project.Controllers
                 public string Index()
                     {
                         return "Hello from MVC App";
-                  }
+                    }
             }
     }
