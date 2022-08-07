@@ -1,30 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿// Robert Calero - ASP.NET MVC Web Application
+using System.Web.Mvc;    // Namespace declaration
 
-namespace Practice.Controllers
-{
-	public class HomeController : Controller
-	{
-		public ActionResult Index()
-		{
-			return View();
-		}
+// Namespaces
+namespace Project.Controllers
+    {
+        // Classes
+        public class HomeController : Controller
+            {
+                // Fields
+                // Properties
+                // Constructors(Parameters)
 
-		public ActionResult About()
-		{
-			ViewBag.Message = "Your application description page.";
-
-			return View();
-		}
-
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
-		}
-	}
-}
+                // Methods(Parameters)
+                public string Index()
+                    {
+                        return "Hello from MVC App";
+                  }
+            }
+    }
