@@ -1,4 +1,5 @@
 ﻿// Robert Calero - ASP.NET MVC Web Application
+using System.Collections.Generic;
 using System.Web.Mvc;    // Namespace declaration
 
 // Namespaces
@@ -12,9 +13,13 @@ namespace Project.Controllers
                 // Constructors(Parameters)
 
                 // Methods(Parameters)
-                public string Index()
+                public ActionResult Index()
                     {
-                        return "Hello from MVC App";
+                        ViewBag.Countries = new List<string>()
+                            {
+                                "India", "US", "UK", "Canada"
+                            };
+                        return View();
                     }
             }
     }
