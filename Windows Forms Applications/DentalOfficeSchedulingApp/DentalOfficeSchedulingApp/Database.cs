@@ -75,15 +75,16 @@ namespace DentalOfficeSchedulingApp
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlDataReader myReader = myCommand.ExecuteReader();
 
+						myReader.Read();
 						if (myReader.HasRows)
 							{
-								myReader.Read();
-								if (myReader[0] == DBNull.Value)
+								if (myReader.GetString(0) == string.Empty)
 									{
 										return 0;
 									}
-								return Convert.ToInt32(myReader[0]);
+								return Convert.ToInt32(myReader.GetString(0));
 							}
+						myReader.Close();
 						return 0;
 					}
 
