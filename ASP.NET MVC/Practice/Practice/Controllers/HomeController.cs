@@ -1,30 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿// Practice MVC application
 using System.Web.Mvc;
 
+// Namespaces
 namespace Practice.Controllers
-{
-	public class HomeController : Controller
 	{
-		public ActionResult Index()
-		{
-			return View();
-		}
-
-		public ActionResult About()
-		{
-			ViewBag.Message = "Your application description page.";
-
-			return View();
-		}
-
-		public ActionResult Contact()
-		{
-			ViewBag.Message = "Your contact page.";
-
-			return View();
-		}
+		// Classes
+		public class HomeController : Controller
+			{
+				// Methods(Parameters)
+				public string Index()
+					{
+						return "Hello from MVC App";
+					}
+			}
 	}
-}
