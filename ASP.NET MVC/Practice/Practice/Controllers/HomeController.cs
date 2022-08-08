@@ -15,7 +15,7 @@ namespace Project.Controllers
                 // Methods(Parameters)
                 public ActionResult Index()
                     {
-                        ViewBag.Countries = new List<string>()
+                        ViewData["Countries"] = new List<string>()
                             {
                                 "India", "US", "UK", "Canada"
                             };

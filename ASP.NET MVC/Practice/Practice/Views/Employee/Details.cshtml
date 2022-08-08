@@ -1,0 +1,26 @@
+﻿@model Practice.Models.Employee
+@{ ViewBag.Title = "My Employee Details"; }
+<h2>Employee Details</h2>
+
+<table style="font-family: Arial">
+	<tr>
+		<td> <b>ID</b> </td>
+		<td> @Model.ID </td>
+	</tr>
+	<tr>
+		<td> <b>Name</b> </td>
+		<td> @Model.Name </td>
+	</tr>
+	<tr>
+		<td> <b>Salary</b> </td>
+		<td> @Model.Salary </td>
+	</tr>
+	<tr>
+		<td> <b>Gender</b> </td>
+		<td> @Model.Gender </td>
+	</tr>
+	<tr>
+		<td> <b>DepartmentID</b> </td>
+		<td> @Model.DepartmentID </td>
+	</tr>
+</table>
