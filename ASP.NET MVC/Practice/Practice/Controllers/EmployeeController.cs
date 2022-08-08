@@ -1,4 +1,5 @@
 ﻿using Practice.Models;
+using System.Linq;
 using System.Web.Mvc;
 
 // Namespaces
@@ -8,16 +9,10 @@ namespace Practice.Controllers
         public class EmployeeController : Controller
             {
                 // Methods(Parameters)
-                public ActionResult Details()
+                public ActionResult Details(int id)
                     {
-                        Employee myEmployee = new Employee()
-                            {
-                                ID = 1,
-                                Name = "John",
-                                Salary = 5000,
-                                Gender = "Male",
-                                DepartmentID = 3
-                            };
+                        EmployeeContext myEmployeeContext = new EmployeeContext();
+                        Employee myEmployee = myEmployeeContext.Employees.Single(emp => emp.ID == id);
                         return View(myEmployee);
                     }
             }

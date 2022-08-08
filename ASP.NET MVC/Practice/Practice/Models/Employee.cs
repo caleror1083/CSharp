@@ -1,6 +1,11 @@
-﻿// Namespaces
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+// Namespaces
 namespace Practice.Models
 	{
+		// Attributes
+		[Table("Employee")]
+
 		// Classes
 		public class Employee
 			{
