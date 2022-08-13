@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 
 namespace _044_Thread
@@ -11,7 +12,7 @@ namespace _044_Thread
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-8: ");
+							Console.Write("Please select an example from 1-10: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -41,6 +42,12 @@ namespace _044_Thread
 												break;
 											case 8:
 												Example8();
+												break;
+											case 9:
+												Example9();
+												break;
+											case 10:
+												Example10();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -110,7 +117,7 @@ namespace _044_Thread
 						thread1.Join();
 					}
 
-				static void PrintSum(int sumOfNumbers) // Callback method
+					static void PrintSum(int sumOfNumbers) // Callback method
 					{
 						Console.WriteLine($"The sum of the target number entered is {sumOfNumbers}");
 					}
@@ -153,14 +160,14 @@ namespace _044_Thread
 						Console.WriteLine("Main completed");
 					}
 
-				static void Thread1()
+					static void Thread1()
 					{
 						Console.WriteLine("Thread1 started");
 						Console.WriteLine("Thread1 almost complete");
 						Thread.Sleep(5000);    // sleep for 5 seconds
 					}
 
-				static void Thread2()
+					static void Thread2()
 					{
 						Console.WriteLine("Thread2 started");
 					}
@@ -209,6 +216,53 @@ namespace _044_Thread
 						thread3.Join();
 
 						Console.WriteLine($"Total = {add._Total}");
+					}
+
+				static void Example9()    // multi threaded application
+					{
+						// Provides a set of methods and properties that you can use to accurately measure elapsed time
+						// Sets the elapsed time property to zero and starts measuring elapsed time
+						Stopwatch myStopwatch = Stopwatch.StartNew();
+
+						Number add = new Number();
+						Thread thread1 = new Thread(add.AddOneMillionMonitor);
+						Thread thread2 = new Thread(add.AddOneMillionMonitor);
+						Thread thread3 = new Thread(add.AddOneMillionMonitor);
+
+						thread1.Start();
+						thread2.Start();
+						thread3.Start();
+
+						thread1.Join();
+						thread2.Join();
+						thread3.Join();
+
+						Console.WriteLine($"Total = {add._Total}");
+						
+						myStopwatch.Stop();  // Stops measuring elapsed time for an interval
+						Console.WriteLine($"Time taken in ticks: {myStopwatch.ElapsedTicks}");  // Gets the total elapsed time measured by the current instance im timer ticks
+					}
+
+				static void Example10()  // Deadlock
+					{
+						Console.WriteLine("Main started");
+						Account a = new Account(101, 5000);
+						Account b = new Account(102, 3000);
+
+						AccountManager managerA = new AccountManager(a, b, 1000);
+						Thread t1 = new Thread(managerA.Transfer);
+						t1.Name = "Thread 1";
+
+						AccountManager managerB = new AccountManager(b, a, 2000);
+						Thread t2 = new Thread(managerB.Transfer);
+						t2.Name = "Thread 2";
+
+						t1.Start();
+						t2.Start();
+
+						t1.Join();
+						t2.Join();
+						Console.WriteLine("Main completed");
 					}
 			}
 	}

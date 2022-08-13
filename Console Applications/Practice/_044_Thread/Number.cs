@@ -25,6 +25,7 @@ namespace _044_Thread
 						_CallbackMethod = callbackMethod;
 					}
 
+				// Methods(Parameters)
 				public static void PrintNumbers()
 					{
 						for (int i = 1; i <= 10; i++)  // Print numbers from 1-10
@@ -86,6 +87,30 @@ namespace _044_Thread
 								lock (_Lock)
 									{
 										_Total++;
+									}
+							}
+					}
+
+				public void AddOneMillionMonitor()
+					{
+						for (int i = 1; i <= 1000000; i++)
+							{
+								// Provides a mechanism that synchronizes access to objects
+								// Acquires an exclusive lock on the specified object
+								// The object on which to acquire the monitor lock
+								Monitor.Enter(_Lock);    // Acquires the exclusive lock
+
+								try    // within try block we are trying to execute the increment
+									{
+										// if there is an exception create a catch block
+										// if you don't want to handle the exception and want to allow it to be thrown omit catch block
+										_Total++;  
+									}
+								finally
+									{
+										// Releases an exclusive lock on the specified object
+										// The object on which to release the lock
+										Monitor.Exit(_Lock);
 									}
 							}
 					}
