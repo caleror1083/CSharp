@@ -9,7 +9,7 @@ namespace _044_Thread
 				private readonly int _Target; // Data that the thread method requires
 				private readonly SumofNumbers _CallbackMethod;
 				public int _Total = 0;
-				public object _Lock = new object();
+				private readonly object _Lock = new object();
 
 				// Constructors
 				public Number() {}

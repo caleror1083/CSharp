@@ -118,13 +118,14 @@ namespace _044_Thread
 				static void Example5()
 					{
 						// Joining threads
-						Console.WriteLine($"Main started");
-						Thread thread1 = new Thread(Thread1);
+						Console.WriteLine("Main started");      // Main method is always 1st thread
+						Thread thread1 = new Thread(Thread1);    // Worker thread
 						thread1.Start();
 						
-						if (thread1.Join(1000))
+						// time willing to wait until the thread completes execution
+						if (thread1.Join(1000))    // forces Main thread to wait for other threads to complete
 							{
-								Console.WriteLine($"Thread1 has completed");
+								Console.WriteLine("Thread1 has completed");
 							}
 						else
 							{
@@ -134,34 +135,34 @@ namespace _044_Thread
 						Thread thread2 = new Thread(Thread2);
 						thread2.Start();
 						thread2.Join();
-						Console.WriteLine($"Thread2 completed");
+						Console.WriteLine("Thread2 completed");
 
-						for (int i = 1; i <= 10; i++)
+						for (int i = 1; i <= 10; i++) // repeatedly check if Thread1 is still alive
 							{
-								if (thread1.IsAlive)
+								if (thread1.IsAlive)  // Thread1 still working
 									{
 										Console.WriteLine("Thread1 still processing");
 										Thread.Sleep(500);
 									}
 								else
 									{
-										Console.WriteLine($"Thread1 completed");
+										Console.WriteLine("Thread1 completed");
 										break;
 									}
 							}
-						Console.WriteLine($"Main completed");
+						Console.WriteLine("Main completed");
 					}
 
 				static void Thread1()
 					{
-						Console.WriteLine($"Thread1 started");
-						Console.WriteLine($"Thread1 almost complete");
-						Thread.Sleep(5000);
+						Console.WriteLine("Thread1 started");
+						Console.WriteLine("Thread1 almost complete");
+						Thread.Sleep(5000);    // sleep for 5 seconds
 					}
 
 				static void Thread2()
 					{
-						Console.WriteLine($"Thread2 started");
+						Console.WriteLine("Thread2 started");
 					}
 
 				static void Example6() // single threaded application
