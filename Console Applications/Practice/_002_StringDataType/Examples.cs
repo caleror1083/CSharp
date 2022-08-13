@@ -10,7 +10,7 @@ namespace _002_StringDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-28: ");
+							Console.Write($"Please select an example from 1-32: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -100,6 +100,18 @@ namespace _002_StringDataType
 												break;
 											case 28:
 												Example28();
+												break;
+											case 29:
+												Example29();
+												break;
+											case 30:
+												Example30();
+												break;
+											case 31:
+												Example31();
+												break;
+											case 32:
+												Example32();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -399,6 +411,37 @@ namespace _002_StringDataType
 						string uniqueEmployeeNumber = "27564281";
         
 						Console.WriteLine($"First Name: {firstName}\nLastName: {lastName}\nAge: {age}\nGender: {gender}\nPersonal ID Number: {personalIDNumber}\nUnique Employee Number: {uniqueEmployeeNumber}");
+					}
+
+				static void Example29()
+					{
+						string firstName = "John ";
+						string lastName = "Doe";
+						string name = string.Concat(firstName, lastName);
+
+						Console.WriteLine(name);
+					}
+
+				static void Example30()
+					{
+						string name = "Robert";
+
+						Console.WriteLine(name[0]);    // returns the first character in name
+					}
+
+				static void Example31()
+					{
+						string name = "Robert";
+
+						Console.WriteLine(name.IndexOf("r"));    // returns the index position of a specific character in name
+					}
+
+				static void Example32()
+					{
+						string name = "Robert Calero";
+						int charPosition = name.IndexOf("C");
+
+						Console.WriteLine(name.Substring(charPosition));    // returns the characters from name starting from the index of charPosition
 					}
 			}
 	}
