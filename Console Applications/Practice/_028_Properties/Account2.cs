@@ -35,7 +35,7 @@ namespace _028_Properties
 					}
 
 				// Methods(Parameters)
-				public void Deposit(decimal depositAmount)  // Method that deposits only a valis amount to the balance
+				public void Deposit(decimal depositAmount)  // Method that deposits only a valid amount to the balance
 					{
 						if (depositAmount > 0.0m)  // If the depositAmount is valis
 							{

@@ -11,7 +11,7 @@ namespace _015_Methods_Static
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-25: ");
+							Console.Write("Please select an example from 1-27: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -92,6 +92,12 @@ namespace _015_Methods_Static
 												break;
 											case 25:
 												Example25();
+												break;
+											case 26:
+												Example26();
+												break;
+											case 27:
+												Example27();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -554,7 +560,7 @@ namespace _015_Methods_Static
 						Console.WriteLine($"The product of all numbers is: {result}");
 					}
 
-				public static void Example25()
+				static void Example25()
 					{
 						NamedParameters(1, c: 2);  // named parameters can make parameter default values optional
 					}
@@ -564,6 +570,22 @@ namespace _015_Methods_Static
 						Console.WriteLine($"The value of A is: {a}");
 						Console.WriteLine($"The value of B is: {b}");
 						Console.WriteLine($"The value of C is: {c}");
+					}
+
+				static void Example26()
+					{
+						int x = 5;
+						Console.WriteLine($"The value of x is {x}");
+					}
+
+				static void Example27()
+					{
+						IntXParameter(5);
+					}
+
+				static void IntXParameter(int x)
+					{
+						Console.WriteLine($"The value of x is {x}");
 					}
 			}
 	}

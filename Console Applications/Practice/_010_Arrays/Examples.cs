@@ -145,7 +145,7 @@ namespace _010_Arrays
 
 				static void Example1()
 					{
-						int[] intArray = new int[5];
+						int[] intArray = new int[5];  // Create an array of elements and add values later
 						Examples[] empArray = new Examples[3];
 
 						for (int i = 0; i < empArray.Length; i++)
@@ -172,7 +172,7 @@ namespace _010_Arrays
 				static void Example2()
 					{
 						int[] EvenNumbers = new int[3] { 0, 2, 4 };    // declaration and instantiation of an array holding 3 integers - Arrays have fixed sizes
-						int[] OddNumbers = new int[3] { 1, 3, 5 };    // declaration, initialization and assigning an array of 3 integers with values - Create and fill array
+						int[] OddNumbers = new int[3] { 1, 3, 5 };    // create an array of elements and adding values right away
 
 						Console.WriteLine($"The value of the 2nd index of EvenNumbers array is {EvenNumbers[1]}");    // writes the value of an element of array
 						Console.WriteLine($"The value of the last index of OddNumbers array is {OddNumbers[2]}");					}

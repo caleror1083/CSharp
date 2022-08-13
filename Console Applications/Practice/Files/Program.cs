@@ -1,10 +1,16 @@
 ﻿// Robert Calero - App displaying Files
 
-class Program    // Class declaration
+// Namespaces
+namespace Files
 	{
-		static void Main()    // Main method begins execution of C# app
+		#region Classes
+		internal class Program    // Class declaration
 			{
-				Example myExample = new Example();
-				myExample.Results();
-			}    // end main
-	}    // emd class Program
+				private static void Main()    // Main method begins execution of C# app
+					{
+						Examples myExample = new Examples();
+						myExample.ProcessExamples();
+					}    // end main
+			}    // end class Program
+		#endregion
+	}
