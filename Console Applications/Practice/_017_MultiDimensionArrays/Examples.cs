@@ -3,7 +3,7 @@
 // Namespaces
 namespace _017_MultiDimensionArrays
 	{
-		class Examples
+		internal class Examples
 			{
 				// Methods(Parameters)
 				public void ProcessExamples()
@@ -147,15 +147,20 @@ namespace _017_MultiDimensionArrays
 						                                          {"Bob", "Smith"},
 																  {"Sally", "Marks"}
 															  };
-				
-						Console.WriteLine($"Value at (1,1) is {custNames.GetValue(1,1)}");  // Returns the value at the specified position in the 2-dimensional array
+						Console.Write("What row do you want: ");
+						int x = int.Parse(Console.ReadLine());
+
+						Console.Write("What column do you want: ");
+						int y = int.Parse(Console.ReadLine());
+
+						Console.WriteLine($"Value at ({x},{y}) is {custNames.GetValue(1,1)}");  // Returns the value at the specified position in the 2-dimensional array
 						Console.WriteLine();
 
 						for (int i = 0; i < custNames.GetLength(0); i++)    // Cycle through the multidimensional array - Get length of multidimensional array column
 							{
 								for(int j = 0; j < custNames.GetLength(1); j++)    // Get length of multidimensional array row
 									{
-										Console.Write($"{custNames[i,j]} ");
+										Console.Write($"{custNames.GetValue(i,j)} ");
 									}
 								Console.WriteLine();
 							}	
