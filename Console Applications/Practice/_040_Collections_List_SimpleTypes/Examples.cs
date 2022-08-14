@@ -1,10 +1,11 @@
-﻿// Robert Calero - App displaying arrays
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
+// Namespaces
 namespace _040_Collections_List_SimpleTypes
 	{
+		// Classes
 		class Examples
 			{
 				public void ProcessExamples()
@@ -13,7 +14,7 @@ namespace _040_Collections_List_SimpleTypes
 							string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-9: ");
+							Console.Write("Please select an example from 1-10: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -46,6 +47,9 @@ namespace _040_Collections_List_SimpleTypes
 												break;
 											case 9:
 												Example9();
+												break;
+											case 10:
+												Example10();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -204,6 +208,27 @@ namespace _040_Collections_List_SimpleTypes
 								Console.Write($"{letter} ");
 							}
 						Console.WriteLine();
+					}
+
+				static void Example10()
+					{
+						// Storing n number of lists of different types in a single generic list
+						List<List<object>> myList = new List<List<object>>();
+
+						List<object> list1 = new List<object> { 101, 102, 103 };
+						List<object> list2 = new List<object> { "Test1", "Test2", "Test3" };
+
+						myList.Add(list1);
+						myList.Add(list2);
+
+						foreach (List<object> objectList in myList)
+							{
+								foreach (object obj in objectList)
+									{
+										Console.WriteLine(obj);
+									}
+								Console.WriteLine();
+							}
 					}
 			}
 	}

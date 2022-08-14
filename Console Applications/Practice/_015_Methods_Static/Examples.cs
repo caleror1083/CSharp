@@ -11,7 +11,7 @@ namespace _015_Methods_Static
 						string decision;
 
 						Start:
-							Console.Write("Please select an example from 1-27: ");
+							Console.Write("Please select an example from 1-29: ");
 							check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -98,6 +98,12 @@ namespace _015_Methods_Static
 												break;
 											case 27:
 												Example27();
+												break;
+											case 28:
+												Example28();
+												break;
+											case 29:
+												Example29();
 												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
@@ -586,6 +592,50 @@ namespace _015_Methods_Static
 				static void IntXParameter(int x)
 					{
 						Console.WriteLine($"The value of x is {x}");
+					}
+
+				static void Example28()
+					{
+						Console.Write("Please enter a number: ");
+						int response = int.Parse(Console.ReadLine());
+						
+						Console.WriteLine($"Factorial of {response} = {Factorial(response)}");
+					}
+
+				static double Factorial(int number)
+					{
+						double factorial = 1;
+						
+						if (number == 0)
+							{
+								return 1;
+							}
+
+						// 4! = 4 * 3 * 2 * 1 = 24
+						for (int i = number; i >= 1; i--)
+							{
+								factorial *= i;
+							}
+						return factorial;
+					}
+
+				static void Example29()
+					{
+						Console.Write("Please enter a number: ");
+						int response = int.Parse(Console.ReadLine());
+						
+						Console.WriteLine($"Factorial of {response} = {Recursion(response)}");
+					}
+
+				static double Recursion(int number)
+					{
+						if (number == 0)
+							{
+								return 1;
+							}
+
+						// 4! = 4 * (4-1) * (4-2) * (4-3) = 24
+						return number * Factorial(number - 1);
 					}
 			}
 	}
