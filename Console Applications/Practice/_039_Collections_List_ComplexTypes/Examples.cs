@@ -9,16 +9,15 @@ namespace _039_Collections_List_ComplexTypes
 			{
 				public void ProcessExamples()
 					{
-						int choice;
+						bool check;
 						string decision;
 
-					do
-						{
-							do
-								{
-									Console.Write("Please select an example from 1-29: ");
-									choice = int.Parse(Console.ReadLine());
+						Start:
+							Console.Write("Please select an example from 1-31: ");
+							check = int.TryParse(Console.ReadLine(), out int choice);
 
+							if (check)
+								{
 									switch (choice)
 										{
 											case 1:
@@ -108,34 +107,39 @@ namespace _039_Collections_List_ComplexTypes
 											case 29:
 												Example29();
 												break;
+											case 30:
+												Example30();
+												break;
+											case 31:
+												Example31();
+												break;
 											default:
 												Console.WriteLine("Your choice is invalid");
-												break;
+												goto Start;
 										}
 								}
-							while (choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7 && choice != 8 && choice != 9 && choice != 10 && choice != 11 && choice != 12 && choice != 13 && choice != 14 && choice != 15 && choice != 16 && choice != 17 && choice != 18 && choice != 19 && choice != 20 && choice != 21 && choice != 22 && choice != 23 && choice != 24 && choice != 25 && choice != 26 && choice != 27 && choice != 28 && choice != 29);
-
-							do
+							else
 								{
-									Console.Write("Do you want to do another example? - Yes or No: ");
-									decision = Console.ReadLine().ToUpper();
-									Console.WriteLine();
-
-									switch (decision.ToUpper())
-										{
-											case "YES":
-												break;
-											case "NO":
-												break;
-											default:
-												Console.WriteLine("Your decision is invalid. Try again");
-												break;
-										}
+									Console.WriteLine("Selection chosen is incorrect");
+									goto Start;
 								}
-							while (decision != "YES" && decision != "NO");
+
+						Decide:
+							Console.Write("Do you want to do another example? - Yes or No: ");
+							decision = Console.ReadLine();
+							Console.WriteLine();
+
+							switch (decision.ToUpper())
+								{
+									case "YES":
+										goto Start;
+									case "NO":
+										break;
+									default:
+										Console.WriteLine("Your decision is invalid. Try again");
+										goto Decide;
+								}
 					}
-				while (decision != "NO");
-			}
 				static void Example1()
 					{
 						List<Customer> customers = new List<Customer>
@@ -642,7 +646,7 @@ namespace _039_Collections_List_ComplexTypes
 						Country country5 = new Country() { Code = "CAN", Name = "Canada", Capital = "Ottawa" };
 
 						// Variable initializations
-						List<Country> countries = new List<Country> { country1, country2, country3, country4, country5 };
+						List<Country> countries = new List<Country>() { country1, country2, country3, country4, country5 };
 
 
 								Console.Write("Please enter country code: ");  // Prompt user to enter country code
@@ -660,6 +664,40 @@ namespace _039_Collections_List_ComplexTypes
 									{
 										Console.WriteLine($"Capital = {countryCodeResult.Capital}\nName = {countryCodeResult.Name}");
 									}
+					}
+
+				static void Example30()
+					{
+						Employee employee1 = new Employee() { ID = 101, Name = "Mark" };
+						Employee employee2 = new Employee() { ID = 102, Name = "John" };
+						Employee employee3 = new Employee() { ID = 103, Name = "Mary" };
+
+						List<Employee> employees = new List<Employee>() {employee1, employee2, employee3 };
+
+						// Step 2
+						Predicate<Employee> empPred = new Predicate<Employee>(FindEmployee);
+
+						// Step 3
+						Employee employee = employees.Find(emp => FindEmployee(emp));
+						Console.WriteLine($"ID = {employee.ID}, Name = {employee.Name}");
+					}
+
+				// Step 1
+				static bool FindEmployee(Employee emp)
+					{
+						return emp.ID == 102;
+					}
+
+				static void Example31()
+					{
+						Employee employee1 = new Employee() { ID = 101, Name = "Mark" };
+						Employee employee2 = new Employee() { ID = 102, Name = "John" };
+						Employee employee3 = new Employee() { ID = 103, Name = "Mary" };
+
+						List<Employee> employees = new List<Employee>() {employee1, employee2, employee3 };
+
+						Employee employee = employees.Find(delegate(Employee emp) { return emp.ID == 102; });  // anonymous method
+						Console.WriteLine($"ID = {employee.ID}, Name = {employee.Name}");
 					}
 			}
 	}
