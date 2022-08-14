@@ -1,4 +1,5 @@
 ﻿// Robert Calero - App displaying arrays
+using _Arrays;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,6 @@ namespace _010_Arrays
 		// Classes
 		internal class Examples    // Class declaration - a class defines the variables and methods used by objects
 			{
-				// Fields
-				private readonly int _empID;
-
-				// Constructors
-				public Examples() {}
-				public Examples(int empID) { _empID = empID; }
-
 				// Methods(Parameters)
 				public void ProcessExamples()
 						{
@@ -144,29 +138,24 @@ namespace _010_Arrays
 					}
 
 				static void Example1()
-					{
-						int[] intArray = new int[5];  // Create an array of elements and add values later
-						Examples[] empArray = new Examples[3];
+					{	
+						int[] integers = new int[5];  // Create an array of type integer with 5 elements and add values later
+						Employee[] employees = new Employee[3];
 
-						for (int i = 0; i < empArray.Length; i++)
+						for (int i = 0; i < employees.Length; i++)
 							{
-								empArray[i] = new Examples(i + 5);
+								employees[i] = new Employee(i + 5);
 							}
 
-						for (int i = 0; i < intArray.Length; i++)
+						for (int i = 0; i < integers.Length; i++)
 							{
-								Console.WriteLine(Convert.ToString(intArray[i]));
+								Console.WriteLine(Convert.ToString(integers[i]));
 							}
 
-						for (int i = 0; i < empArray.Length; i++)
+						for (int i = 0; i < employees.Length; i++)
 							{
-								Console.WriteLine(Convert.ToString(empArray[i]));
+								Console.WriteLine(Convert.ToString(employees[i]));
 							}
-					}
-
-				public override string ToString()
-					{
-						return Convert.ToString(_empID);
 					}
 					
 				static void Example2()
@@ -247,6 +236,7 @@ namespace _010_Arrays
 
 				static void Example10()
 					{
+						// Can you store different types in an array? Yes
 						object[] randomArray = new object[3] { "Paul", 45, 1.234 };    // Create an array of base objects which is the base type of all other types
 		
 						foreach (object value in randomArray)    // displays the element, value and type for each index in the array using foreach loop

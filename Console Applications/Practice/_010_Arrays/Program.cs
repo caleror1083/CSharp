@@ -15,6 +15,6 @@ namespace _010_Arrays
 						// Statements
 						myExamples.ProcessExamples();
 
-					}    // end main
-			}    // end class Program
+					}
+			}
 	}
