@@ -1,10 +1,17 @@
 ﻿// Robert Calero - App displaying multidimensional arrays
 
-class Program
+// Namespaces
+namespace _017_MultiDimensionArrays
 	{
-		static void Main()
+		// Classes
+		internal class Program
 			{
-				Example myExample = new Example();
-				myExample.Results();
+				// Methods(Parameters)
+				static void Main()
+					{
+						// Variable declarations and initializations
+						Examples myExamples = new Examples();  // Creating an instance of the Examples class
+						myExamples.ProcessExamples();
+					}
 			}
 	}
