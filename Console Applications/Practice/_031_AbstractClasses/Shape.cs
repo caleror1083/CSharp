@@ -1,5 +1,10 @@
-﻿// Robert Calero - App demonstrating abstract classes
-abstract class Shape
+﻿// Namespaces
+namespace _031_AbstractClasses
     {
-        public abstract double Area();    // abstract member cannot have implementation
+        // Abstract classes
+        internal abstract class Shape
+            {
+                // Abstract methods
+                public abstract double Area();    // abstract member cannot have implementation
+            }
     }

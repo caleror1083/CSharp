@@ -1,25 +1,32 @@
-﻿// Robert Calero - App demonstrating abstract classes
-class Rectangle : Shape
+﻿// Namespaces
+namespace _031_AbstractClasses
     {
-        private readonly double _Length;
-        private readonly double _Width;
-
-        public Rectangle(double lengthParam, double widthParam)
+        class Rectangle : Shape
             {
-                _Length = lengthParam;
-                _Width = widthParam;
-            }
+                // Properties
+                public double Length { get; set; }
+                public double Width { get; set; }
 
-        public override double Area()    // derived class must provide implementation for all abtract members.
-            {
-                return _Length * _Width; 
-            }
+                // Constructors
+                public Rectangle(double length, double width)
+                    {
+                        Length = length;
+                        Width = width;
+                    }
 
-        public static Rectangle operator+(Rectangle rect1, Rectangle rect2)
-            {
-                double rectLength = rect1._Length + rect2._Length;
-                double rectWidth = rect1._Width + rect2._Width;
+                // Overriden methods
+                public override double Area()    // derived class must provide implementation for all abtract members.
+                    {
+                        return Length * Width; 
+                    }
 
-                return new Rectangle(rectLength, rectWidth);
+                // Operators
+                public static Rectangle operator+(Rectangle rectangle1, Rectangle rectangle2)
+                    {
+                        double lengthRectangle = rectangle1.Length + rectangle2.Length;
+                        double widthRectangle = rectangle1.Width + rectangle2.Width;
+
+                        return new Rectangle(lengthRectangle, widthRectangle);
+                    }
             }
     }

@@ -1,17 +1,23 @@
-﻿// Robert Calero - App demonstrating abstract classes
-class Triangle : Shape
+﻿// Namespaces
+namespace _031_AbstractClasses
     {
-        private readonly double _Base;
-        private readonly double _Height;
-
-        public Triangle(double num1, double num2)
+        class Triangle : Shape
             {
-                _Base = num1;
-                _Height = num2;
-            }
+                // Properties
+                public double Base { get; set; }
+                public double Height { get; set; }
 
-        public override double Area()    // derived class must provide implementation for all abtract members.
-            {
-                return .5 * (_Base * _Height);
+                // Constructors
+                public Triangle(double basex, double height)
+                    {
+                        Base = basex;
+                        Height = height;
+                    }
+
+                // Overriden methods
+                public override double Area()    // derived class must provide implementation for all abtract members.
+                    {
+                        return .5 * (Base * Height);
+                    }
             }
     }
