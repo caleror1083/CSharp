@@ -51,14 +51,13 @@ namespace _038_EqualsMethod
 				public static void Example1()
 					{
 						ExamplesInfo customer1 = new ExamplesInfo();
+						ExamplesInfo customer2 = new ExamplesInfo();
 
 						Console.Write($"What is your first name? ");
 						customer1.FirstName = Console.ReadLine();
 
 						Console.Write($"What is your last name? ");
 						customer1.LastName = Console.ReadLine();
-
-						ExamplesInfo customer2 = new ExamplesInfo();
 
 						Console.Write($"What is your first name? ");
 						customer2.FirstName = Console.ReadLine();

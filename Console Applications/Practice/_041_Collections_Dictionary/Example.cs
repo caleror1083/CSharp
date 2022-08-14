@@ -70,35 +70,17 @@ namespace _041_Collections_Dictionary
 
 				static void Example1()
 					{
-						Dictionary<string, string> fruitDefinitions = new Dictionary<string, string>
-							{
-								{ "Watermelon", "a fruit" }
-							};
-
-						Console.WriteLine($"Watermelon - {fruitDefinitions["Watermelon"]}");    // outputs the integer value of Watermelon
+						Dictionary<string, string> fruitDefinitions = new Dictionary<string, string>() { {"Watermelon", "is a fruit"} };
+						Console.WriteLine($"Watermelon - {fruitDefinitions["Watermelon"]}");    // outputs the string value of Watermelon
 					}
 
 				static void Example2()
 					{
-						Customer customer1 = new Customer()
-							{
-								ID = 101, Name = "Mark", Salary = 5000
-							};
-						Customer customer2 = new Customer()
-							{
-								ID = 111, Name = "Pam", Salary = 6500
-							};
-						Customer customer3 = new Customer()
-							{
-								ID = 119, Name = "John", Salary = 3500
-							};
+						Customer customer1 = new Customer() { ID = 101, Name = "Mark", Salary = 5000 };
+						Customer customer2 = new Customer() { ID = 111, Name = "Pam", Salary = 6500 };
+						Customer customer3 = new Customer() { ID = 119, Name = "John", Salary = 3500 };
 
-						Dictionary<int, Customer> customerRecords = new Dictionary<int, Customer>
-							{
-								{ customer1.ID, customer1 },
-								{ customer2.ID, customer2 },
-								{ customer3.ID, customer3 }
-							};
+						Dictionary<int, Customer> customerRecords = new Dictionary<int, Customer>() { {customer1.ID, customer1}, {customer2.ID, customer2}, {customer3.ID, customer3} };
 
 						foreach (KeyValuePair<int, Customer> customer in customerRecords)
 							{

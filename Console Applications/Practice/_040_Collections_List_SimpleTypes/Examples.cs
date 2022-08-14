@@ -78,7 +78,7 @@ namespace _040_Collections_List_SimpleTypes
 				static void Example1()
 					{
 						// Declaration and initialization of list
-						List<int> numbers = new List<int> { 5, 15, 25 };
+						List<int> numbers = new List<int>() { 5, 15, 25 };
 
 						// Statements
 						Console.WriteLine(numbers[0]);    // displays the value of the 1st element in the list
@@ -86,7 +86,7 @@ namespace _040_Collections_List_SimpleTypes
 
 				static void Example2()
 					{
-						List<int> numbers = new List<int> { 5, 15, 25 };    // declaration and initialization of list
+						List<int> numbers = new List<int>() { 5, 15, 25 };    // declaration and initialization of list
 
 						numbers.Insert(1, 10);
 						numbers.Remove(5);
@@ -111,7 +111,7 @@ namespace _040_Collections_List_SimpleTypes
 
 				static void Example5()
 					{
-						List<int> numbers = new List<int> { 5, 15, 25 };
+						List<int> numbers = new List<int>() { 5, 15, 25 };
 						int[] randArray = new int[] { 1, 2, 3, 4, 5, 6 };
 
 						numbers.AddRange(randArray);    // Adds the elements of the array to end end of the list
