@@ -93,7 +93,7 @@ namespace _031_AbstractClasses
 						// get type name of each object in employees
 						for (int typeName = 0; typeName < employees.Count; typeName++)
 							{
-								Console.WriteLine($"Employee {typeName} is a {employees[typeName].GetType()}");
+								Console.WriteLine($"Employee {typeName} is a {employees[typeName].GetType().Name}");
 							}
 					}
 
