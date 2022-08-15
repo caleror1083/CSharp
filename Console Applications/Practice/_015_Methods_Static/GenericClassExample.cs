@@ -4,24 +4,24 @@
 namespace _015_Methods_Static
 	{
 		// Classes
-		public class GenericClassExample<TypeName, TypeValue>	// Generic class declaration with types
+		public class Employees<Type1, Type2>	// Generic class declaration with different types
 			{
-				// Fields
-				private readonly TypeName _name;
-				private readonly TypeValue _value;
-				
+				// Properties
+				public Type1 Name { get; set; }
+				public Type2 Age { get; set; }
+
 				// Constructors(Parameters)
-				public GenericClassExample(TypeName nameParameter, TypeValue valueParameter)
+				public Employees(Type1 name, Type2 age)
 					{
-						_name = nameParameter;
-						_value = valueParameter;
+						Name = name;
+						Age = age;
 					}
 
-				// Methods
+				// Methods(Parameters)
 				public void DisplayGenericTypes()
 					{
-						Console.WriteLine($"Name: {_name}");
-						Console.WriteLine($"Age: {_value}");
+						Console.WriteLine($"Name: {Name}");
+						Console.WriteLine($"Age: {Age}");
 					}
 			}
 	}

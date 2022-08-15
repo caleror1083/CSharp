@@ -6,7 +6,7 @@ namespace _015_Methods_Static
 			{
 				private static void Main()
 					{
-						Examples myExample = new Examples();
+						Employees myExample = new Employees();
 						myExample.ProcessExamples();
 					}
 			}

@@ -3,7 +3,7 @@ using System;
 
 namespace _015_Methods_Static
 	{
-		internal class Examples
+		internal class Employees
 			{
 				public void ProcessExamples()
 					{
@@ -519,7 +519,7 @@ namespace _015_Methods_Static
 						int age = int.Parse(Console.ReadLine());
 
 						// Instantiate an object of the Generic class
-						GenericClassExample<string, int> types = new GenericClassExample<string, int>(name, age);
+						Employees<string, int> types = new Employees<string, int>(name, age);
 						types.DisplayGenericTypes();
 					}
 
