@@ -67,14 +67,13 @@ namespace _031_AbstractClasses
 						HourlyEmployee hourlyEmployee = new HourlyEmployee("IT", "Rob", "222-22-2222", 16.35M, 40.0M);
 						CommissionEmployee commissionEmployee = new CommissionEmployee("Sue", "Jones", "333-33-3333", 10000.00M, .06M);
 						BasePlusCommissionEmployee basePlusCommissionEmployee = new BasePlusCommissionEmployee("Bob", "Lewis", "444-44-4444", 5000.00M, .04M, 300.00M);
+						List<Employee> employees = new List<Employee> { ftEmployee, hourlyEmployee, commissionEmployee, basePlusCommissionEmployee };  // create List<Employee> and initialize with employee objects
 
 						Console.WriteLine("Employees processed individually:\n");
 						Console.WriteLine($"{ftEmployee}\nEarned: " + $"{ftEmployee.Earnings():C}\n");
 						Console.WriteLine($"{hourlyEmployee}\nEarned: " + $"{hourlyEmployee.Earnings():C}\n");
 						Console.WriteLine($"{commissionEmployee}\nEarned: " + $"{commissionEmployee.Earnings():C}\n");
 						Console.WriteLine($"{basePlusCommissionEmployee}\nEarned: " + $"{basePlusCommissionEmployee.Earnings():C}\n");
-
-						List<Employee> employees = new List<Employee> { ftEmployee, hourlyEmployee, commissionEmployee, basePlusCommissionEmployee };  // create List<Employee> and initialize with employee objects
 
 						Console.WriteLine("Employees process polymorphically:\n");
 						foreach (Employee currentEmployee in employees)
