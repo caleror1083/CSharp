@@ -2,20 +2,25 @@
 namespace _031_AbstractClasses
 	{
 		// Abstract classes
-		internal abstract class Employee
+		public abstract class Employee
 			{
 				// Properties
-				public int ID { get; set; }
-				public string FirstName { get; set; }
-				public string LastName { get; set; }
+				public string FirstName { get; }
+				public string LastName { get; }
+				public string SocialSecurityNumber { get; }
 
-				// Abstract methods
-				public abstract int GetMonthlySalary();
-
-				// Methods(Parameters)
-				public string FullName()
+				// Constructors(Parameters)
+				public Employee(string firstName, string lastName, string socialSecurityNumber)
 					{
-						return $"{FirstName} {LastName}";
+						FirstName = firstName;
+						LastName = lastName;
+						SocialSecurityNumber = socialSecurityNumber;
 					}
+
+				// return the string representation of Employee object, using properties
+				public override string ToString() => $"{FirstName} {LastName}\n" + $"Social Security Number: {SocialSecurityNumber}";
+
+				// Abstract methods that will be overriden by derived classes
+				public abstract decimal Earnings();
 			}
 	}

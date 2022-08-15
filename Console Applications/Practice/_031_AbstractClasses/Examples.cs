@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 // Namespaces
 namespace _031_AbstractClasses
@@ -62,27 +63,38 @@ namespace _031_AbstractClasses
 
 				static void Example1()
 					{
-						FullTimeEmployee ftEmployee = new FullTimeEmployee()
-							{
-								ID = 101,
-								FirstName = "Mark",
-								LastName = "May",
-								AnnualSalary = 41616
-							};
-						Console.WriteLine($"{ftEmployee.FullName()}");
-						Console.WriteLine($"{ftEmployee.GetMonthlySalary()}");
+						FullTimeEmployee ftEmployee = new FullTimeEmployee("Programmer", "Rob", "111-11-1111", 800.00M);
+						HourlyEmployee hourlyEmployee = new HourlyEmployee("IT", "Rob", "222-22-2222", 16.35M, 40.0M);
+						CommissionEmployee commissionEmployee = new CommissionEmployee("Sue", "Jones", "333-33-3333", 10000.00M, .06M);
+						BasePlusCommissionEmployee basePlusCommissionEmployee = new BasePlusCommissionEmployee("Bob", "Lewis", "444-44-4444", 5000.00M, .04M, 300.00M);
 
-						Console.WriteLine("----------");
+						Console.WriteLine("Employees processed individually:\n");
+						Console.WriteLine($"{ftEmployee}\nEarned: " + $"{ftEmployee.Earnings():C}\n");
+						Console.WriteLine($"{hourlyEmployee}\nEarned: " + $"{hourlyEmployee.Earnings():C}\n");
+						Console.WriteLine($"{commissionEmployee}\nEarned: " + $"{commissionEmployee.Earnings():C}\n");
+						Console.WriteLine($"{basePlusCommissionEmployee}\nEarned: " + $"{basePlusCommissionEmployee.Earnings():C}\n");
 
-						ContractEmployee hrlyEmployee = new ContractEmployee()
+						List<Employee> employees = new List<Employee> { ftEmployee, hourlyEmployee, commissionEmployee, basePlusCommissionEmployee };  // create List<Employee> and initialize with employee objects
+
+						Console.WriteLine("Employees process polymorphically:\n");
+						foreach (Employee currentEmployee in employees)
 							{
-								ID = 102,
-								FirstName = "Sara",
-								LastName = "S",
-								HourlyPay = 16
-							};
-						Console.WriteLine($"{hrlyEmployee.FullName()}");
-						Console.WriteLine($"{hrlyEmployee.GetMonthlySalary()}");
+								Console.WriteLine(currentEmployee);  // invokes ToString
+
+								// determine whether element is a BasePlusCommissionEmployee
+								if (currentEmployee is BasePlusCommissionEmployee employee)  // downcast Employee reference to BasePlusCommissionEmployee reference
+									{ 
+										employee.BaseSalary *= 1.10M;
+										Console.WriteLine("New base salary with 10% increase is: " + $"{employee.BaseSalary:C}");
+									}
+								Console.WriteLine($"Earned: {currentEmployee.Earnings():C}\n");
+							}
+
+						// get type name of each object in employees
+						for (int typeName = 0; typeName < employees.Count; typeName++)
+							{
+								Console.WriteLine($"Employee {typeName} is a {employees[typeName].GetType()}");
+							}
 					}
 
 				static void Example2()

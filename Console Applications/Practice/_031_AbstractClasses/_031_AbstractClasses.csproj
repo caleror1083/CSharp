@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContractEmployee.cs" />
+    <Compile Include="BasePlusCommissionEmployee.cs" />
+    <Compile Include="CommissionEmployee.cs" />
+    <Compile Include="HourlyEmployee.cs" />
     <Compile Include="FullTimeEmployee.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="Examples.cs" />
