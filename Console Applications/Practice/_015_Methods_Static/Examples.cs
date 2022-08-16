@@ -170,7 +170,7 @@ namespace _015_Methods_Static
 							}
 					}
 
-				public static void Example3()
+				static void Example3()
 					{
 						string name = "Rob";
 						SingHappyBirthday(name);  // calling a static method with 1 string parameter
@@ -185,7 +185,7 @@ namespace _015_Methods_Static
 						Console.WriteLine("Happy birthday to you!");
 					}
 
-				public static void Example4()
+				static void Example4()
 					{
 						Console.Write("What number do you want cubed? ");
 						double num = double.Parse(Console.ReadLine());
@@ -193,10 +193,7 @@ namespace _015_Methods_Static
 						Console.WriteLine(Cube(num));  // invoking static method with 1 double parameter
 					}
 
-				static double Cube(double numberParameter)    // method that prints the cubed number of the value entered utilizing a double parameter
-					{
-						return Math.Pow(numberParameter, 3);
-					}
+				static double Cube(double numberParameter) => Math.Pow(numberParameter, 3);   // method that prints the cubed number of the value entered utilizing a double parameter
 
 				public static void Example5()
 					{
@@ -215,10 +212,7 @@ namespace _015_Methods_Static
 						return product;
 					}
 
-				public static void Example6()
-					{
-						Console.WriteLine(GetPow(3, 3));  // invoking static method with 2 integer parameters
-					}
+				public static void Example6() => Console.WriteLine(GetPow(3, 3));  // invoking static method with 2 integer parameters
 
 				static int GetPow(int baseParameter, int exponentParameter)    // method that accepts a base number value and an exponent number value
 					{
@@ -239,11 +233,7 @@ namespace _015_Methods_Static
 
 						Console.WriteLine(numberValue);
 					}
-
-				static void PassReference(ref int numberParameter)    // example 7: static method with parameters
-					{
-						numberParameter = 101;
-					}
+				static void PassReference(ref int numberParameter) => numberParameter = 101;   // example 7: static method with parameters
 
 				public static void Example8()
 					{
@@ -256,12 +246,8 @@ namespace _015_Methods_Static
 
 						Console.WriteLine($"After swap number1 is {number1} and number2 is {number2}");
 					}
-
 				// If a variable is passed by reference changes to its value in the method effect it outside of the method					
-				static void PassReference(ref int number1Parameter, ref int number2Parameter)    // method that passes by reference
-					{
-						(number2Parameter, number1Parameter) = (number1Parameter, number2Parameter);
-					}					
+				static void PassReference(ref int number1Parameter, ref int number2Parameter) => (number2Parameter, number1Parameter) = (number1Parameter, number2Parameter);    // method that passes by reference				
 
 				public static void Example9()
 					{
@@ -282,7 +268,7 @@ namespace _015_Methods_Static
 						productParameter = number1Parameter * number2Parameter;
 					}
 
-				public static void Example10()
+				static void Example10()
 					{
 						Console.Write("Enter a number to to double the value: ");
 						int number = int.Parse(Console.ReadLine());
@@ -293,12 +279,9 @@ namespace _015_Methods_Static
 						Console.WriteLine();
 					}
 
-				static void DoubleIt(int numberParameter, out int resultParameter)    // A parameter marked with out must be assigned a value in the method
-					{
-						resultParameter = numberParameter * 2;
-					}
+				static void DoubleIt(int numberParameter, out int resultParameter) => resultParameter = numberParameter * 2;    // A parameter marked with out must be assigned a value in the method
 
-				public static void Example11()
+				static void Example11()
 					{
 						// Method overloading
 						Console.WriteLine($"The sum of 2 Integers are {Sum(5, 6)}");
@@ -307,22 +290,13 @@ namespace _015_Methods_Static
 						Console.WriteLine();
 					}
 
-				static int Sum(int x, int y)    // Sum method with 2 value parameters
-					{
-						return x + y;
-					}
+				static int Sum(int x, int y) => x + y;   // Sum method with 2 value parameters
 
-				static int Sum(int x, int y, int z)    // Sum method with 3 value paramters
-					{
-						return x + y + z;
-					}
+				static int Sum(int x, int y, int z) => x + y + z;    // Sum method with 3 value paramters
 
-				static double Sum(double x, double y)
-					{
-						return x + y;
-					}
+				static double Sum(double x, double y) => x + y;
 
-				public static void Example12()
+				static void Example12()
 					{
 						AddOverload(5, 6);
 						AddOverload(6, 7, 8);
@@ -331,30 +305,15 @@ namespace _015_Methods_Static
 						AddOverload(5, 5, out _);
 					}
 				
-				static void AddOverload(int FN, int SN)    // AddOverload method with 2 int parameters
-					{
-						Console.WriteLine($"The sum is {FN + SN}");
-					}
+				static void AddOverload(int FN, int SN) => Console.WriteLine($"The sum is {FN + SN}");    // AddOverload method with 2 int parameters
 
-				static void AddOverload(int FN, int SN, int TN)    // AddOverload method with 3 int parameters
-					{
-						Console.WriteLine($"The sum is {FN + SN + TN}");
-					}
+				static void AddOverload(int FN, int SN, int TN) => Console.WriteLine($"The sum is {FN + SN + TN}");     // AddOverload method with 3 int parameters
 
-				static void AddOverload(float FN, float SN)    // AddOverload with 2 float type parameters
-					{
-						Console.WriteLine($"The sum is {FN + SN}");
-					}
+				static void AddOverload(float FN, float SN) => Console.WriteLine($"The sum is {FN + SN}");     // AddOverload with 2 float type parameters
 
-				static void AddOverload(int FN, float SN)    // AddOverload with 2 parameters of different types
-					{
-						Console.WriteLine($"The sum is {FN + SN}");
-					}
+				static void AddOverload(int FN, float SN) => Console.WriteLine($"The sum is {FN + SN}");     // AddOverload with 2 parameters of different types
 
-				static void AddOverload(int FN, int SN, out int Sum)  // AddOverload with 3 parameters of different types
-					{
-						Console.WriteLine($"The sum is {Sum = FN + SN}");
-					}
+				static void AddOverload(int FN, int SN, out int Sum) => Console.WriteLine($"The sum is {Sum = FN + SN}");  // AddOverload with 3 parameters of different types
 
 				public static void Example13()
 					{
@@ -362,10 +321,7 @@ namespace _015_Methods_Static
 						Console.WriteLine($"The sum of the 2 doubles converted from strings is {GetSum("5", "4")}");
 					}
 					
-				static double GetSum(double x, double y)
-					{
-						return x + y;
-					}
+				static double GetSum(double x, double y) => x + y;
 
 				static double GetSum(string x, string y)
 					{
@@ -374,10 +330,7 @@ namespace _015_Methods_Static
 						return dblX + dblY;
 					}
 
-				public static void Example14()
-					{
-						SayHello();    // Call for the function to execute
-					}
+				public static void Example14() => SayHello();  // Call for the function to execute
 
 				static void SayHello()
 					{
@@ -395,20 +348,10 @@ namespace _015_Methods_Static
 						SayHello(name);
 					}
 					
-				static void SayHello(string nameParameter)
-					{						
-						Console.WriteLine($"Hello {nameParameter}");
-					}
+				static void SayHello(string nameParameter) => Console.WriteLine($"Hello {nameParameter}");
 
-				public static void Example16()
-					{
-						PrintInfo(nameParameter: "Rob C", zipCodeParameter: "07524");
-					}
-				
-				static void PrintInfo(string nameParameter, string zipCodeParameter)
-					{
-						Console.WriteLine($"{nameParameter} lives in zip code {zipCodeParameter}");
-					}
+				static void Example16() => PrintInfo(nameParameter: "Rob C", zipCodeParameter: "07524");
+				static void PrintInfo(string nameParameter, string zipCodeParameter) => Console.WriteLine($"{nameParameter} lives in zip code {zipCodeParameter}");
 
 				public static void Example17()
 					{
@@ -523,15 +466,8 @@ namespace _015_Methods_Static
 						types.DisplayGenericTypes();
 					}
 
-				public static void Example23()
-					{
-						AddNumbers(10, 20);    // method overloading makes the 3rd parameter optional
-					}
-
-				static void AddNumbers(int firstNumber, int secondNumber)
-					{
-						AddNumbers(firstNumber, secondNumber, null);
-					}
+				static void Example23() => AddNumbers(10, 20);    // method overloading makes the 3rd parameter optional
+				static void AddNumbers(int firstNumber, int secondNumber) => AddNumbers(firstNumber, secondNumber, null);
 
 				static void AddNumbers(int firstNumber, int secondNumber, int[] restOfNumbers)
 					{
@@ -547,11 +483,7 @@ namespace _015_Methods_Static
 						Console.WriteLine($"The sum of all numbers is: {result}");
 					}
 
-				public static void Example24()
-					{
-						MultiplyNumbers(1, 3, new int[] {5, 10});
-					}
-
+				static void Example24() => MultiplyNumbers(1, 3, new int[] {5, 10});
 				static void MultiplyNumbers(int firstNumber, int secondNumber, int[] restOfNumbers = null)    // // parameter defaults can make the 3rd parameter optional
 					{
 						int result = firstNumber * secondNumber;
@@ -566,11 +498,7 @@ namespace _015_Methods_Static
 						Console.WriteLine($"The product of all numbers is: {result}");
 					}
 
-				static void Example25()
-					{
-						NamedParameters(1, c: 2);  // named parameters can make parameter default values optional
-					}
-
+				static void Example25() => NamedParameters(1, c: 2);  // named parameters can make parameter default values optional
 				static void NamedParameters(int a, int b = 10, int c = 20)    
 					{
 						Console.WriteLine($"The value of A is: {a}");
@@ -584,15 +512,8 @@ namespace _015_Methods_Static
 						Console.WriteLine($"The value of x is {x}");
 					}
 
-				static void Example27()
-					{
-						IntXParameter(5);
-					}
-
-				static void IntXParameter(int x)
-					{
-						Console.WriteLine($"The value of x is {x}");
-					}
+				static void Example27() => IntXParameter(5);
+				static void IntXParameter(int x) => Console.WriteLine($"The value of x is {x}");
 
 				static void Example28()
 					{
