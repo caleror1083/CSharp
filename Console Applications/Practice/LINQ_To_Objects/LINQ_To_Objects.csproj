@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E1BE136A-A6BA-4A6B-B267-D23865A6384E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>LINQ_Query_Expression_Syntax</RootNamespace>
-    <AssemblyName>LINQ_Query_Expression_Syntax</AssemblyName>
+    <RootNamespace>LINQ_To_Objects</RootNamespace>
+    <AssemblyName>LINQ_To_Objects</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -63,6 +63,20 @@ namespace _031_AbstractClasses
 
 				static void Example1()
 					{
+						/*
+						    Performing payroll calculations base on the type of employee.
+							
+							A company pays its employees on a weekly basis. The employees are of four types:
+							    Full time employees are paid a fixed weekly salary regardless of the number of hours worked.
+								Hourly employees are paid by the hour and receive "time-and-a-half" overtime pay for all hours worked in excess of 40 hours.
+								Commission employees are paid a percentage of their sales.
+								Base salaried-commission employees receive a base salary plus a percentage of their sales.
+
+							For the current pay period, the company has decided to reward base salaried-commission employees by adding 10% to their base salaries.
+							The company wants to implement an app that performs its payroll calculations polymorphically.
+						*/
+						 
+
 						FullTimeEmployee ftEmployee = new FullTimeEmployee("Programmer", "Rob", "111-11-1111", 800.00M);
 						HourlyEmployee hourlyEmployee = new HourlyEmployee("IT", "Rob", "222-22-2222", 16.35M, 40.0M);
 						CommissionEmployee commissionEmployee = new CommissionEmployee("Sue", "Jones", "333-33-3333", 10000.00M, .06M);

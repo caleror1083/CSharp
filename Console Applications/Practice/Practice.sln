@@ -87,8 +87,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_051_Databases", "_051_Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_Expressions", "LINQ_Expressions\LINQ_Expressions.csproj", "{1D69D2E2-F9E4-4985-8CF1-A9C2ADD206C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_Query_Expression_Syntax", "LINQ_Query_Expression_Syntax\LINQ_Query_Expression_Syntax.csproj", "{E1BE136A-A6BA-4A6B-B267-D23865A6384E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_Lambda_Method_Syntax", "LINQ_Lambda_Method_Syntax\LINQ_Lambda_Method_Syntax.csproj", "{5AE5DF15-12F7-43E7-995F-B70C501E257E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_To_SQL", "LINQ_To_SQL\LINQ_To_SQL.csproj", "{BD99160C-43F6-46C0-879E-7543CDC6311A}"
@@ -118,6 +116,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_045_Collections_Objects_ArrayList", "_045_Collections_Objects_ArrayList\_045_Collections_Objects_ArrayList.csproj", "{BE5DB805-82B3-4AF2-979A-3571861908D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_017_MultiDimensionalArrays_Jagged", "_017_MultiDimensionalArrays_Jagged\_017_MultiDimensionalArrays_Jagged.csproj", "{1A1CE027-3C91-41C4-AF78-D2FA0AD1C884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ_To_Objects", "LINQ_To_Objects\LINQ_To_Objects.csproj", "{E1BE136A-A6BA-4A6B-B267-D23865A6384E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -293,10 +293,6 @@ Global
 		{1D69D2E2-F9E4-4985-8CF1-A9C2ADD206C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D69D2E2-F9E4-4985-8CF1-A9C2ADD206C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D69D2E2-F9E4-4985-8CF1-A9C2ADD206C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E1BE136A-A6BA-4A6B-B267-D23865A6384E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1BE136A-A6BA-4A6B-B267-D23865A6384E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1BE136A-A6BA-4A6B-B267-D23865A6384E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1BE136A-A6BA-4A6B-B267-D23865A6384E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5AE5DF15-12F7-43E7-995F-B70C501E257E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5AE5DF15-12F7-43E7-995F-B70C501E257E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AE5DF15-12F7-43E7-995F-B70C501E257E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -357,6 +353,10 @@ Global
 		{1A1CE027-3C91-41C4-AF78-D2FA0AD1C884}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A1CE027-3C91-41C4-AF78-D2FA0AD1C884}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A1CE027-3C91-41C4-AF78-D2FA0AD1C884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1BE136A-A6BA-4A6B-B267-D23865A6384E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1BE136A-A6BA-4A6B-B267-D23865A6384E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1BE136A-A6BA-4A6B-B267-D23865A6384E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1BE136A-A6BA-4A6B-B267-D23865A6384E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
