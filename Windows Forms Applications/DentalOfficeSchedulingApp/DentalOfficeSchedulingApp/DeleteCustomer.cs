@@ -80,7 +80,7 @@ namespace DentalOfficeSchedulingApp
 					{
 						DataRowView myDataRowView = SelectCombo.SelectedItem as DataRowView;
 						int myID = Convert.ToInt32(SelectCombo.SelectedValue);
-						var myCustomerList = Database.FindCustomer(myID);
+						List<KeyValuePair<string, object>> myCustomerList = Database.FindCustomer(myID);
 						SetCustomerList(myCustomerList);
 
 						if (myCustomerList != null)

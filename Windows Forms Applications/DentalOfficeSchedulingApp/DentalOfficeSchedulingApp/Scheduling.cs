@@ -31,7 +31,7 @@ namespace DentalOfficeSchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT [customerId], [type], [start], [end], [appointmentId], [userId] FROM [appointment] WHERE [userId] = @GetUserId";
+						string myQuery = $"SELECT [customerId], [type], [start], [end], [appointmentId], [userId] FROM [appointment] WHERE [userId] = @GetUserId";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						myCommand.Parameters.AddWithValue("@GetUserId", $"{Database.GetUserID()}");
 						SqlDataReader myReader = myCommand.ExecuteReader();
@@ -52,7 +52,7 @@ namespace DentalOfficeSchedulingApp
 						myReader.Close();
 
 						// Assigns a userName to appointment dictionary
-						foreach (var myAppointment in myAppointments.Values)
+						foreach (Hashtable myAppointment in myAppointments.Values)
 							{
 								myQuery = $"SELECT userName FROM user WHERE userId = '{myAppointment["userId"]}'";
 								myCommand = new SqlCommand(myQuery, myConnection);
@@ -63,7 +63,7 @@ namespace DentalOfficeSchedulingApp
 							}
 
 						// Assigns a customerName to appointment dictionary
-						foreach (var myAppointment in myAppointments.Values)
+						foreach (Hashtable myAppointment in myAppointments.Values)
 							{
 								myQuery = $"SELECT customerName FROM customer WHERE customerId = '{myAppointment["customerId"]}'";
 								myCommand = new SqlCommand(myQuery, myConnection);
@@ -73,7 +73,7 @@ namespace DentalOfficeSchedulingApp
 								myReader.Close();
 							}
 
-						foreach (var myAppointment in myAppointments)
+						foreach (KeyValuePair<int, Hashtable> myAppointment in myAppointments)
 							{
 								DateTime myStart = DateTime.Parse(myAppointment.Value["start"].ToString());
 								DateTime myEnd = DateTime.Parse(myAppointment.Value["end"].ToString());
@@ -106,7 +106,7 @@ namespace DentalOfficeSchedulingApp
 
 						// What is displayed to the user in the calendar view
 						Database.SetAppointments(myAppointments);
-						var myAppointmenttArray = from row in myParsedAppointments select new
+						IEnumerable<object> myAppointmentArray = from row in myParsedAppointments select new
 							{
 								id = row.Key,
 								type = row.Value["type"],
@@ -115,7 +115,7 @@ namespace DentalOfficeSchedulingApp
 								customer = row.Value["customerName"]
 							};
 						myConnection.Close();
-						return myAppointmenttArray.ToArray();
+						return myAppointmentArray.ToArray();
 					}
 
 				public void UpdateCalendar()

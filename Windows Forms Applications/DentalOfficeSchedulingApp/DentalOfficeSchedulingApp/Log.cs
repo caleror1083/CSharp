@@ -15,23 +15,13 @@ namespace DentalOfficeSchedulingApp
 				private static DateTime? _myTime;
 
 				// Methods(Parameters)
-				public static DateTime? GetTime()
-					{
-						return _myTime;
-					}
-
-				public static void SetTime(DateTime? currentTime)
-					{
-						_myTime = currentTime;
-					}
+				public static DateTime? GetTime() => _myTime;
+				public static void SetTime(DateTime? currentTime) => _myTime = currentTime;
 
 				public static void Login(string currentUserName)
 					{
 						DateTime myTime = DateTime.Now.ToLocalTime();
-						Dictionary<DateTime, string> myDictionary = new Dictionary<DateTime, string>
-							{
-								{ myTime, currentUserName }
-							};
+						Dictionary<DateTime, string> myDictionary = new Dictionary<DateTime, string> { {myTime, currentUserName} };
 						SetTime(myTime);
 
 						foreach (KeyValuePair<DateTime, string> myKeyValue in myDictionary)
@@ -48,7 +38,7 @@ namespace DentalOfficeSchedulingApp
 					{
 						try
 							{
-								var myList = Database.GetNextAppointment();
+								Dictionary<string, object> myList = Database.GetNextAppointment();
 								IDictionary<string, object> myDictionary = myList.ToDictionary(myPair => myPair.Key, myPair => myPair.Value);
 								DateTime? theCurrentTime = GetTime();
 								string myType = myDictionary["type"].ToString();
