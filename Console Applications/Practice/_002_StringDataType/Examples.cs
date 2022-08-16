@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 // Namespaces
 namespace _002_StringDataType
@@ -11,7 +10,7 @@ namespace _002_StringDataType
 				public void ProcessExamples()
 					{
 						Start:
-							Console.Write($"Please select an example from 1-33: ");
+							Console.Write($"Please select an example from 1-32: ");
 							bool check = int.TryParse(Console.ReadLine(), out int choice);
 
 							if (check)
@@ -113,9 +112,6 @@ namespace _002_StringDataType
 												break;
 											case 32:
 												Example32();
-												break;
-											case 33:
-												Example33();
 												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
@@ -446,17 +442,6 @@ namespace _002_StringDataType
 						int charPosition = name.IndexOf("C");
 
 						Console.WriteLine(name.Substring(charPosition));    // returns the characters from name starting from the index of charPosition
-					}
-
-				static void Example33()
-					{
-						string word = "top";
-
-						// splits the string into substrings that are based on the characters in an array
-						string result = string.Join(" ", word
-						    .Split(' ')
-							.Select(x => new string(x.Reverse().ToArray())));
-						Console.WriteLine(result);
 					}
 			}
 	}
