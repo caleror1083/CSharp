@@ -11,12 +11,16 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
+// Namespaces
 namespace DentalOfficeSchedulingApp
 	{
+		// Partial classes
 		public partial class DeleteCustomer : Form
 			{
+				// Fields
 				public static List<KeyValuePair<string, object>> myCustomerList;
 
+				// Constructors
 				public DeleteCustomer()
 					{
 						InitializeComponent();
@@ -24,8 +28,8 @@ namespace DentalOfficeSchedulingApp
 						ComboBoxSettings();
 					}
 
-				// Fills combobox with customer information deom database
-				public void ShowCustomerList()
+				// Methods(Parameters)
+				public void ShowCustomerList()  // Fills combobox with customer information from database
 					{
 						SqlConnection myConnection = new SqlConnection(Database.GetConnectionString());
 
@@ -47,15 +51,9 @@ namespace DentalOfficeSchedulingApp
 							}
 					}
 
-				public void SetCustomerList(List<KeyValuePair<string, object>> myList)
-					{
-						myCustomerList = myList;
-					}
+				public void SetCustomerList(List<KeyValuePair<string, object>> myList) =>  myCustomerList = myList;
 
-				public static List<KeyValuePair<string, object>> GetCustomerList()
-					{
-						return myCustomerList;
-					}
+				public static List<KeyValuePair<string, object>> GetCustomerList() => myCustomerList;
 
 				// Once customer has been selected, text boxes are filled with customer information
 				public void DisplayFields(List<KeyValuePair<string, object>> myCustomerList)
@@ -170,7 +168,7 @@ namespace DentalOfficeSchedulingApp
 							{
 								try
 									{
-										var myList = GetCustomerList();
+										List<KeyValuePair<string, object>> myList = GetCustomerList();
 
 										// Lambda expression converting CustomerList to dictionary
 										IDictionary<string, object> myDictionary = myList.ToDictionary(myPair => myPair.Key, myPair => myPair.Value);
@@ -195,8 +193,8 @@ namespace DentalOfficeSchedulingApp
 													}
 											}
 										MessageBox.Show("Customer deleted successfully!");
-										this.Owner.Show();
-										this.Close();
+										Owner.Show();
+										Close();
 									}
 								catch (Exception myException)
 									{
@@ -207,8 +205,8 @@ namespace DentalOfficeSchedulingApp
 
 				private void ExitBtn_Click(object sender, EventArgs e)
 					{
-						this.Owner.Show();
-						this.Close();
+						Owner.Show();
+						Close();
 					}
 			}
-}
+	}

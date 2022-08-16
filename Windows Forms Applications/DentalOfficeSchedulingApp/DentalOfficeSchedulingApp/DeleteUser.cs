@@ -11,28 +11,26 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
+// Namespaces
 namespace DentalOfficeSchedulingApp
 	{
+		// Partial classes
 		public partial class DeleteUser : Form
 			{
+				// Fields
 				public static List<KeyValuePair<string, object>> myUserList;				
 
-				public void SetUserList(List<KeyValuePair<string, object>> myList)
-					{
-						myUserList = myList;
-					}
-
-				public static List<KeyValuePair<string,object>> GetUserList()
-					{
-						return myUserList;
-					}
-
+				// Constructors
 				public DeleteUser()
 					{
 						InitializeComponent();
 						ShowUserList();
 						ComboBoxSettings();
 					}
+
+				// Methods(Parameters)
+				public static List<KeyValuePair<string,object>> GetUserList() => myUserList;
+				public void SetUserList(List<KeyValuePair<string, object>> myList) => myUserList = myList;
 
 				public void ShowUserList()
 					{
@@ -75,7 +73,7 @@ namespace DentalOfficeSchedulingApp
 							{
 								DataRowView myDataRow = UserCombo.SelectedItem as DataRowView;
 								int myID = Convert.ToInt32(UserCombo.SelectedValue);
-								var myUserList = Database.GetUserList(myID);
+								List<KeyValuePair<string, object>> myUserList = Database.GetUserList(myID);
 								SetUserList(myUserList);
 
 								if (UserCombo.SelectedIndex != -1)
@@ -87,8 +85,7 @@ namespace DentalOfficeSchedulingApp
 
 				private void DeleteBtn_Click(object sender, EventArgs e)
 					{
-						int myUserID;
-						bool myParseOK = Int32.TryParse(UserCombo.SelectedValue.ToString(), out myUserID);
+						bool myParseOK = int.TryParse(UserCombo.SelectedValue.ToString(), out int myUserID);
 
 						if (myUserID == Database.GetUserID())
 							{
@@ -102,15 +99,15 @@ namespace DentalOfficeSchedulingApp
 									{
 										try
 											{
-												var myList = GetUserList();
+												List<KeyValuePair<string, object>> myList = GetUserList();
 
 												// Lambda expression converting UserList to dictionary
 												IDictionary<string, object> myDictionary = myList.ToDictionary(myKeyValuePair => myKeyValuePair.Key, myKeyValuePair => myKeyValuePair.Value);
 												Database.DeleteUser(myDictionary["userId"].ToString());
 
 												MessageBox.Show("User deleted successfully!");
-												this.Owner.Show();
-												this.Close();
+												Owner.Show();
+												Close();
 											}
 										catch (Exception myException)
 											{
@@ -122,8 +119,8 @@ namespace DentalOfficeSchedulingApp
 
 				private void ExitBtn_Click(object sender, EventArgs e)
 					{
-						this.Owner.Show();
-						this.Close();
+						Owner.Show();
+						Close();
 					}
 			}
 	}
