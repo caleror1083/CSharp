@@ -62,6 +62,9 @@ namespace _001_Print
 											case 15:
 												Example15();
 												break;
+											case 16:
+												Example16();
+												break;
 											default:
 												Console.WriteLine($"Your choice is invalid");
 												goto Start;
@@ -102,7 +105,6 @@ namespace _001_Print
 
 				static void Example3()
 					{
-						// Create a simple program that prints "Hello, C#!" on the console.
 						Console.WriteLine($"Hello, C#");    // a statement
 					}
 
@@ -170,5 +172,7 @@ namespace _001_Print
 						Console.WriteLine(101);
 						Console.WriteLine(1001);
 					}
+
+				static void Example16() => Console.WriteLine("testing"); // using a lambda operator goes to print to the console
 			}
 	}
