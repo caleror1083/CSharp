@@ -6,23 +6,60 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
 
+// Namespaces
 namespace DentalOfficeSchedulingApp
 	{
+		// Classes
 		class Database
 			{
+				// Fields
 				private static int user_Id;
 				private static string user_Name;
 				private static Dictionary<int, Hashtable> myAppointments = new Dictionary<int, Hashtable>();
 
-				public static int CheckUser(string activeUser, string activePassword)
+				// Properties
+				public static int GetUserID()
 					{
-						using (SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString()))
+						return user_Id;
+					}
+
+				public static void SetUserID(int myCurrentUserID)
+					{
+						user_Id = myCurrentUserID;
+					}
+
+				public static string GetUserName()
+					{
+						return user_Name;
+					}
+
+				public static void SetUserName(string myCurrentUserName)
+					{
+						user_Name = myCurrentUserName;
+					}
+
+				public static Dictionary<int, Hashtable> GetAppointments()
+					{
+						return myAppointments;
+					}
+
+				public static void SetAppointments(Dictionary<int, Hashtable> myCurrentAppointments)
+					{
+						myAppointments = myCurrentAppointments;
+					}
+
+				// Constructors
+
+				// Methods(Parameters)
+				internal static string GetConnectionString() => Properties.Resources.connectionString.ToString();
+
+				internal static int CheckUser(string activeUser, string activePassword)
+					{
+						// using statement
+						using (SqlConnection myConnection = new SqlConnection(GetConnectionString()))
 							{
 								myConnection.Open();
-								SqlCommand myCommand = new SqlCommand($"SELECT [userId], [userName] FROM [user] WHERE [userName] = @ActiveUser AND [password] = @ActivePassword")
-									{
-										Connection = myConnection
-									};
+								SqlCommand myCommand = new SqlCommand($"SELECT userId, userName FROM user WHERE userName = @ActiveUser AND password = @ActivePassword") { Connection = myConnection };
 								myCommand.Parameters.AddWithValue("@ActiveUser", $"{activeUser}");
 								myCommand.Parameters.AddWithValue("@ActivePassword", $"{activePassword}");
 								SqlDataReader myReader = myCommand.ExecuteReader();
@@ -41,36 +78,13 @@ namespace DentalOfficeSchedulingApp
 							}
 					}
 
-				// Creates new user
-				public static void CreateUser(int myUserID, string myUserName, string myPassword, int myActive, DateTime myDateTime, string myUser)
-					{
-						string mySqlDate = DateSqlFormat(myDateTime);
-						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
-						myConnection.Open();
-
-						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myQuery = $"INSERT INTO user (userId, userName, password, active, [createDate, createdBy, lastUpdateBy)" +
-						    $"VALUES (@UserID, @UserName, @Password, @Active, @DateTime, @User, @User)";
-						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-						myCommand.Parameters.AddWithValue("@UserID", $"{myUserID}");
-						myCommand.Parameters.AddWithValue("@UserName", $"{myUserName}");
-						myCommand.Parameters.AddWithValue("@Password", $"{myPassword}");
-						myCommand.Parameters.AddWithValue("@Active", $"{myActive}");
-						myCommand.Parameters.AddWithValue("@DateTime", $"{DateSqlFormat(myDateTime)}");
-						myCommand.Parameters.AddWithValue("@User", $"{myUser}");
-						myCommand.Transaction = myTransaction;
-						myCommand.ExecuteNonQuery();
-						myTransaction.Commit();
-						myConnection.Close();
-					}
-
 				// Get ID for Records
-				public static int GetID(string myTable, string myID)
+				internal static int GetID(string myTable, string myID)
 					{
-						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
+						SqlConnection myConnection = new SqlConnection(GetConnectionString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT MAX({myID}) FROM {myTable}";
+						string myQuery = $"SELECT MAX({myID}) FROM {myTable}";
 
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlDataReader myReader = myCommand.ExecuteReader();
@@ -88,67 +102,48 @@ namespace DentalOfficeSchedulingApp
 						return 0;
 					}
 
-				public static DateTime GetTime()
-					{
-						return DateTime.Now.ToUniversalTime();
-					}
+				internal static DateTime GetTime() => DateTime.Now.ToUniversalTime();
 
-				public static string GetUserName()
+				// Creates new user
+				internal static void CreateUser(int myUserID, string myUserName, string myPassword, int myActive, DateTime myDateTime, string myUser)
 					{
-						return user_Name;
-					}
-
-				public static int GetUserID()
-					{
-						return user_Id;
-					}
-
-				public static void SetUserID(int myCurrentUserID)
-					{
-						user_Id = myCurrentUserID;
-					}
-
-				public static void SetUserName(string myCurrentUserName)
-					{
-						user_Name = myCurrentUserName;
-					}
-
-				public static Dictionary<int, Hashtable> GetAppointments()
-					{
-						return myAppointments;
-					}
-
-				public static void SetAppointments(Dictionary<int, Hashtable> myCurrentAppointments)
-					{
-						myAppointments = myCurrentAppointments;
-					}
-
-				public static string GetConnectionString()
-					{
-						return Properties.Resources.connectionString.ToString();
-					}
-
-				public static string DateSqlFormat(DateTime myDateValue)
-					{
-						string mySqlDateTime = myDateValue.ToString("yyyy-MM-dd HH:mm");
-						return mySqlDateTime;
-					}
-
-				// Create Country Record
-				public static int CreateCountry(string myCountry)
-					{
-						int myCountryID = GetID("country", "countryID") + 1;
-						string myUser = GetUserName();
-						DateTime myUTC = GetTime();
-
-						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
+						string mySqlDate = DateSqlFormat(myDateTime);
+						SqlConnection myConnection = new SqlConnection(GetConnectionString());
 						myConnection.Open();
 
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myQuery = $"INSERT INTO country (countryId, country, createDate, createdBy, lastUpdateBy)" +
-							$"VALUES ('{myCountryID}', '{myCountry}', '{DateSqlFormat(myUTC)}', '{myUser}', '{myUser}')";
+						string myQuery = $"INSERT INTO user (userId, userName, password, active, createDate, createdBy, lastUpdateBy)" +
+						                 $"VALUES (@UserID, @UserName, @Password, @Active, @DateTime, @User, @User)";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
+						myCommand.Parameters.AddWithValue("@UserID", $"{myUserID}");
+						myCommand.Parameters.AddWithValue("@UserName", $"{myUserName}");
+						myCommand.Parameters.AddWithValue("@Password", $"{myPassword}");
+						myCommand.Parameters.AddWithValue("@Active", $"{myActive}");
+						myCommand.Parameters.AddWithValue("@DateTime", $"{mySqlDate}");
+						myCommand.Parameters.AddWithValue("@User", $"{myUser}");
 						myCommand.Transaction = myTransaction;
+						myCommand.ExecuteNonQuery();
+						myTransaction.Commit();
+						myConnection.Close();
+					}
+
+				// Create Country Record
+				internal static int CreateCountry(string myCountry)
+					{
+						int myCountryID = GetID("country", "countryID") + 1;
+						string myUser = GetUserName();
+						string myDateTime = DateSqlFormat(GetTime());
+
+						SqlConnection myConnection = new SqlConnection(GetConnectionString());
+						myConnection.Open();
+
+						SqlTransaction myTransaction = myConnection.BeginTransaction();
+						string myQuery = $"INSERT INTO country (countryId, country, createDate, createdBy, lastUpdateBy)" +
+							             $"VALUES ('{myCountryID}', '{myCountry}', '{myDateTime}', '{myUser}', '{myUser}')";
+						SqlCommand myCommand = new SqlCommand(myQuery, myConnection)
+						    {
+							    Transaction = myTransaction
+							};
 						myCommand.ExecuteNonQuery();
 						myTransaction.Commit();
 						myConnection.Close();
@@ -160,16 +155,18 @@ namespace DentalOfficeSchedulingApp
 					{
 						int myCityID = GetID("city", "cityID") + 1;
 						string myUser = GetUserName();
-						DateTime myUTC = GetTime();
+						string myDateTime = DateSqlFormat(GetTime());
 
-						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
+						SqlConnection myConnection = new SqlConnection(GetConnectionString());
 						myConnection.Open();
 
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myQuery = $"INSERT INTO city (cityId, city, countryId, createDate, createdBy, lastUpdateBy)" +
-							$"VALUES ('{myCityID}', '{myCity}', '{myCountryID}', '{DateSqlFormat(myUTC)}', '{myUser}', '{myUser}')";
-						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-						myCommand.Transaction = myTransaction;
+						string myQuery = $"INSERT INTO city (cityId, city, countryId, createDate, createdBy, lastUpdateBy)" +
+							             $"VALUES ('{myCityID}', '{myCity}', '{myCountryID}', '{myDateTime}', '{myUser}', '{myUser}')";
+						SqlCommand myCommand = new SqlCommand(myQuery, myConnection)
+							{
+								Transaction = myTransaction
+							};
 						myCommand.ExecuteNonQuery();
 						myTransaction.Commit();
 						myConnection.Close();
@@ -181,16 +178,18 @@ namespace DentalOfficeSchedulingApp
 					{
 						int myAddressID = GetID("address", "addressID") + 1;
 						string myUser = GetUserName();
-						DateTime myUTC = GetTime();
+						string myDateTime = DateSqlFormat(GetTime());
 
-						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
+						SqlConnection myConnection = new SqlConnection(GetConnectionString());
 						myConnection.Open();
 
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myQuery = $"INSERT INTO address (addressId, address, address2, cityId, postalCode, phone, createDate, createdBy, lastUpdateBy)" +
-							$"VALUES ('{myAddressID}', '{myAddress}', ' ', '{myCityID}', '{myZipCode}', '{myPhone}', '{DateSqlFormat(myUTC)}', '{myUser}', '{myUser}')";
-						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-						myCommand.Transaction = myTransaction;
+						string myQuery = $"INSERT INTO address (addressId, address, address2, cityId, postalCode, phone, createDate, createdBy, lastUpdateBy)" +
+							             $"VALUES ('{myAddressID}', '{myAddress}', ' ', '{myCityID}', '{myZipCode}', '{myPhone}', '{myDateTime}', '{myUser}', '{myUser}')";
+						SqlCommand myCommand = new SqlCommand(myQuery, myConnection)
+							{
+								Transaction = myTransaction
+							};
 						myCommand.ExecuteNonQuery();
 						myTransaction.Commit();
 						myConnection.Close();
@@ -205,10 +204,12 @@ namespace DentalOfficeSchedulingApp
 						myConnection.Open();
 
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myQuery = $"INSERT into customer (customerId, customerName, addressId, active, createDate, createdBy, lastUpdateBy)" +
-						    $"VALUES ('{myID}', '{myName}', '{myaddressID}', '{myActive}', '{DateSqlFormat(myDateTime)}', '{myUser}', '{myUser}')";
-						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
-						myCommand.Transaction = myTransaction;
+						string myQuery = $"INSERT into customer (customerId, customerName, addressId, active, createDate, createdBy, lastUpdateBy)" +
+						    $"VALUES ('{myID}', '{myName}', '{myaddressID}', '{myActive}', '{mySqlDate}', '{myUser}', '{myUser}')";
+						SqlCommand myCommand = new SqlCommand(myQuery, myConnection)
+							{
+								Transaction = myTransaction
+							};
 						myCommand.ExecuteNonQuery();
 						myTransaction.Commit();
 						myConnection.Close();
@@ -217,11 +218,11 @@ namespace DentalOfficeSchedulingApp
 				// Take the CustomerID and return a list of all customer information from the database
 				public static List<KeyValuePair<string, object>> FindCustomer(int myCustomerID)
 					{
-						var myList = new List<KeyValuePair<string, object>>();
+						List<KeyValuePair<string, object>> myList = new List<KeyValuePair<string, object>>();
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT * FROM customer WHERE customerId = {myCustomerID}";
+						string myQuery = $"SELECT * FROM customer WHERE customerId = {myCustomerID}";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlDataReader myReader = myCommand.ExecuteReader();
 
@@ -241,8 +242,8 @@ namespace DentalOfficeSchedulingApp
 										return null;
 									}
 
-								var myAddressID = myList.First(myKeyValuePair => myKeyValuePair.Key == "addressId").Value;
-								var myAddressQuery = $"SELECT * FROM address WHERE addressId = {myAddressID}";
+								object myAddressID = myList.First(myKeyValuePair => myKeyValuePair.Key == "addressId").Value;
+								string myAddressQuery = $"SELECT * FROM address WHERE addressId = {myAddressID}";
 								myCommand.CommandText = myAddressQuery;
 								myCommand.Connection = myConnection;
 								SqlDataReader myAddressReader = myCommand.ExecuteReader();
@@ -257,8 +258,8 @@ namespace DentalOfficeSchedulingApp
 										myAddressReader.Close();
 									}
 								
-								var myCityID = myList.First(myKeyValuePair => myKeyValuePair.Key == "cityId").Value;
-								var myCityQuery = $"SELECT * FROM city WHERE cityId = {myCityID}";
+								object myCityID = myList.First(myKeyValuePair => myKeyValuePair.Key == "cityId").Value;
+								string myCityQuery = $"SELECT * FROM city WHERE cityId = {myCityID}";
 								myCommand.CommandText = myCityQuery;
 								myCommand.Connection = myConnection;
 								SqlDataReader myCityReader = myCommand.ExecuteReader();
@@ -271,8 +272,8 @@ namespace DentalOfficeSchedulingApp
 										myCityReader.Close();
 									}
 
-								var myCountryID = myList.First(myKeyValuePair => myKeyValuePair.Key == "countryId").Value;
-								var myCountryQuery = $"SELECT * FROM country WHERE countryId = {myCountryID}";
+								object myCountryID = myList.First(myKeyValuePair => myKeyValuePair.Key == "countryId").Value;
+								string myCountryQuery = $"SELECT * FROM country WHERE countryId = {myCountryID}";
 								myCommand.CommandText = myCountryQuery;
 								myCommand.Connection = myConnection;
 								SqlDataReader myCountryReader = myCommand.ExecuteReader();
@@ -302,7 +303,7 @@ namespace DentalOfficeSchedulingApp
 
 						// Update Country Table
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myCountryQuery = $"UPDATE country SET country = '{myDictionary["country"]}', lastUpdateBy = '{myUser}' WHERE countryId = '{myDictionary["countryId"]}'";
+						string myCountryQuery = $"UPDATE country SET country = '{myDictionary["country"]}', lastUpdateBy = '{myUser}' WHERE countryId = '{myDictionary["countryId"]}'";
 						SqlCommand myCommand = new SqlCommand(myCountryQuery, myConnection);
 						myCommand.Transaction = myTransaction;
 						myCommand.ExecuteNonQuery();
@@ -310,7 +311,7 @@ namespace DentalOfficeSchedulingApp
 
 						// Update City Table
 						myTransaction = myConnection.BeginTransaction();
-						var myCityQuery = $"UPDATE city SET city = '{myDictionary["city"]}', lastUpdateBy = '{myUser}' WHERE cityId = '{myDictionary["cityId"]}'";
+						string myCityQuery = $"UPDATE city SET city = '{myDictionary["city"]}', lastUpdateBy = '{myUser}' WHERE cityId = '{myDictionary["cityId"]}'";
 						myCommand.CommandText = myCityQuery;
 						myCommand.Connection = myConnection;
 						myCommand.Transaction = myTransaction;
@@ -319,7 +320,7 @@ namespace DentalOfficeSchedulingApp
 
 						// Update Address Table
 						myTransaction = myConnection.BeginTransaction();
-						var myAddressQuery = $"UPDATE address SET address = '{myDictionary["address"]}', lastUpdateBy = '{myUser}', postalCode = '{myDictionary["postalCode"]}', phone = '{myDictionary["phone"]}' WHERE addressId = '{myDictionary["addressId"]}'";
+						string myAddressQuery = $"UPDATE address SET address = '{myDictionary["address"]}', lastUpdateBy = '{myUser}', postalCode = '{myDictionary["postalCode"]}', phone = '{myDictionary["phone"]}' WHERE addressId = '{myDictionary["addressId"]}'";
 						myCommand.CommandText = myAddressQuery;
 						myCommand.Connection = myConnection;
 						myCommand.Transaction = myTransaction;
@@ -328,7 +329,7 @@ namespace DentalOfficeSchedulingApp
 
 						// Update Customer Table
 						myTransaction = myConnection.BeginTransaction();
-						var myCustomerQuery = $"UPDATE customer SET customerName = '{myDictionary["customerName"]}', lastUpdateBy = '{myUser}', active = '{myDictionary["active"]}' WHERE customerId = '{myDictionary["customerId"]}'";
+						string myCustomerQuery = $"UPDATE customer SET customerName = '{myDictionary["customerName"]}', lastUpdateBy = '{myUser}', active = '{myDictionary["active"]}' WHERE customerId = '{myDictionary["customerId"]}'";
 						myCommand.CommandText = myCustomerQuery;
 						myCommand.Connection = myConnection;
 						myCommand.Transaction = myTransaction;
@@ -346,7 +347,7 @@ namespace DentalOfficeSchedulingApp
 						myConnection.Open();
 
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myUserQuery = $"UPDATE user" +
+						string myUserQuery = $"UPDATE user" +
 						    $" SET userName = '{myDictionary["userName"]}', password = '{myDictionary["password"]}', active = '{myDictionary["active"]}', lastUpdateBy = '{myUser}'" +
 							$" WHERE userId = '{myDictionary["userId"]}'";
 						SqlCommand myCommand = new SqlCommand(myUserQuery, myConnection);
@@ -362,7 +363,7 @@ namespace DentalOfficeSchedulingApp
 						myConnection.Open();
 
 						// Delete from Customer Table
-						var myCustomerQuery = $"DELETE FROM customer WHERE customerId = '{myDictionary["customerId"]}'";
+						string myCustomerQuery = $"DELETE FROM customer WHERE customerId = '{myDictionary["customerId"]}'";
 						SqlCommand myCommand = new SqlCommand(myCustomerQuery, myConnection);
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
 						myCommand.CommandText = myCustomerQuery;
@@ -373,7 +374,7 @@ namespace DentalOfficeSchedulingApp
 
 						// Delete from Address Table
 						myTransaction = myConnection.BeginTransaction();
-						var myAddressQuery = $"DELETE FROM address WHERE addressId = '{myDictionary["addressId"]}'";
+						string myAddressQuery = $"DELETE FROM address WHERE addressId = '{myDictionary["addressId"]}'";
 						myCommand.CommandText = myAddressQuery;
 						myCommand.Connection = myConnection;
 						myCommand.Transaction = myTransaction;
@@ -382,7 +383,7 @@ namespace DentalOfficeSchedulingApp
 
 						// Delete from City Table
 						myTransaction = myConnection.BeginTransaction();
-						var myCityQuery = $"DELETE FROM city WHERE cityId = '{myDictionary["cityId"]}'";
+						string myCityQuery = $"DELETE FROM city WHERE cityId = '{myDictionary["cityId"]}'";
 						myCommand.CommandText = myCityQuery;
 						myCommand.Connection = myConnection;
 						myCommand.Transaction = myTransaction;
@@ -391,7 +392,7 @@ namespace DentalOfficeSchedulingApp
 
 						// Delete from Country Table
 						myTransaction = myConnection.BeginTransaction();
-						var myCountryQuery = $"DELETE FROM country WHERE countryId = '{myDictionary["countryId"]}'";
+						string myCountryQuery = $"DELETE FROM country WHERE countryId = '{myDictionary["countryId"]}'";
 						myCommand.CommandText = myCountryQuery;
 						myCommand.Connection = myConnection;
 						myCommand.Transaction = myTransaction;
@@ -402,11 +403,11 @@ namespace DentalOfficeSchedulingApp
 				
 				public static List<KeyValuePair<string, object>> FindUser(int myUserId)
 					{
-						var myList = new List<KeyValuePair<string, object>>();
-						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
+						List<KeyValuePair<string, object>> myList = new List<KeyValuePair<string, object>>();
+						SqlConnection myConnection = new SqlConnection(GetConnectionString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT * FROM user WHERE userId = {user_Id}";
+						string myQuery = $"SELECT * FROM user WHERE userId = {user_Id}";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlDataReader myReader = myCommand.ExecuteReader();
 
@@ -436,7 +437,7 @@ namespace DentalOfficeSchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myUserQuery = $"DELETE FROM user WHERE userId = '{myUserId}'";
+						string myUserQuery = $"DELETE FROM user WHERE userId = '{myUserId}'";
 						SqlCommand myCommand = new SqlCommand(myUserQuery, myConnection);
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
 						myCommand.CommandText = myUserQuery;
@@ -452,13 +453,15 @@ namespace DentalOfficeSchedulingApp
 					{
 						int myAppointmentID = GetID("appointment", "appointmentId") + 1;
 						int myUserID = 1;
-						DateTime myUTC = GetTime();
+						string mySqlStartDate = DateSqlFormat(myStart);
+						string mySqlEndDate = DateSqlFormat(myEnd);
+						string myDateTime = DateSqlFormat(GetTime());
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myQuery = $"INSERT INTO appointment (appointmentId, customerId, title, userId, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdateBy)" +
-							$"VALUES ('{myAppointmentID}', '{myCustomerID}', '{myTitle}', '{GetUserID()}', '{myDescription}', '{myLocation}', '{myContact}', '{myType}', ' ', '{DateSqlFormat(myStart)}', '{DateSqlFormat(myEnd)}', '{DateSqlFormat(myUTC)}', '{myUserID}', '{myUserID}')";
+						string myQuery = $"INSERT INTO appointment (appointmentId, customerId, title, userId, description, location, contact, type, url, start, end, createDate, createdBy, lastUpdateBy)" +
+							$"VALUES ('{myAppointmentID}', '{myCustomerID}', '{myTitle}', '{GetUserID()}', '{myDescription}', '{myLocation}', '{myContact}', '{myType}', ' ', '{mySqlStartDate}', '{mySqlEndDate}', '{myDateTime}', '{myUserID}', '{myUserID}')";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						myCommand.Transaction = myTransaction;
 						myCommand.ExecuteNonQuery();
@@ -477,7 +480,7 @@ namespace DentalOfficeSchedulingApp
 						myConnection.Open();
 
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
-						var myQuery = $"UPDATE appointment SET customerId = '{myDictionary["customerId"]}', title = '{myDictionary["title"]}', description = '{myDictionary["description"]}', location = '{myDictionary["location"]}', contact = '{myDictionary["contact"]}', type = '{myDictionary["type"]}',  start = '{DateSqlFormat(myStart.ToUniversalTime())}', end = '{DateSqlFormat(myEnd.ToUniversalTime())}', url = '{myDictionary["url"]}', lastUpdate = '{DateSqlFormat(myUTC)}',  lastUpdateBy = '{myUser}' WHERE appointmentId = '{myDictionary["appointmentId"]}'";
+						string myQuery = $"UPDATE appointment SET customerId = '{myDictionary["customerId"]}', title = '{myDictionary["title"]}', description = '{myDictionary["description"]}', location = '{myDictionary["location"]}', contact = '{myDictionary["contact"]}', type = '{myDictionary["type"]}',  start = '{DateSqlFormat(myStart.ToUniversalTime())}', end = '{DateSqlFormat(myEnd.ToUniversalTime())}', url = '{myDictionary["url"]}', lastUpdate = '{DateSqlFormat(myUTC)}',  lastUpdateBy = '{myUser}' WHERE appointmentId = '{myDictionary["appointmentId"]}'";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						myCommand.Transaction = myTransaction;
 						myCommand.ExecuteNonQuery();
@@ -488,11 +491,11 @@ namespace DentalOfficeSchedulingApp
 				// Returns the appointment information based on appointmentID
 				public static List<KeyValuePair<string, object>> GetAppointmentList(int myAppointmentID)
 					{
-						var myList = new List<KeyValuePair<string, object>>();
+						List<KeyValuePair<string, object>> myList = new List<KeyValuePair<string, object>>();
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT * FROM appointment WHERE appointmentId = {myAppointmentID}";
+						string myQuery = $"SELECT * FROM appointment WHERE appointmentId = {myAppointmentID}";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlDataReader myReader = myCommand.ExecuteReader();
 
@@ -527,11 +530,11 @@ namespace DentalOfficeSchedulingApp
 
 				public static List<KeyValuePair<string, object>> GetUserList(int myUserID)
 					{
-						var myList = new List<KeyValuePair<string, object>>();
+						List<KeyValuePair<string, object>> myList = new List<KeyValuePair<string, object>>();
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT * FROM user WHERE userId = {myUserID}";
+						string myQuery = $"SELECT * FROM user WHERE userId = {myUserID}";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlDataReader myReader = myCommand.ExecuteReader();
 
@@ -567,7 +570,7 @@ namespace DentalOfficeSchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT * FROM appointment WHERE customerId = {myCustomerID}";
+						string myQuery = $"SELECT * FROM appointment WHERE customerId = {myCustomerID}";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlDataReader myReader = myCommand.ExecuteReader();
 
@@ -587,7 +590,7 @@ namespace DentalOfficeSchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT type,  start, (SELECT customerName FROM customer WHERE customerId = appointment.customerId) AS 'Name' FROM appointment WHERE start > now() ORDER BY start LIMIT 1";
+						string myQuery = $"SELECT type,  start, (SELECT customerName FROM customer WHERE customerId = appointment.customerId) AS 'Name' FROM appointment WHERE start > now() ORDER BY start LIMIT 1";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlDataReader myReader = myCommand.ExecuteReader();
 
@@ -607,7 +610,7 @@ namespace DentalOfficeSchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"SELECT count(*)" +
+						string myQuery = $"SELECT count(*)" +
 							$"FROM `appointment`" +
 							$"WHERE (('{DateSqlFormat(myStart.ToUniversalTime())}' > start AND '{DateSqlFormat(myStart.ToUniversalTime())}' < end) OR ('{DateSqlFormat(myEnd.ToUniversalTime())}'> start AND '{DateSqlFormat(myEnd.ToUniversalTime())}' < end)) AND end > now()" +
 							$"ORDER BY start" +
@@ -626,7 +629,7 @@ namespace DentalOfficeSchedulingApp
 
 				public static bool AppointmentOverlaps(DateTime myStart, DateTime myEnd)
 					{
-						foreach (var myAppointment in Database.GetAppointments().Values)
+						foreach (Hashtable myAppointment in GetAppointments().Values)
 							{
 								if (myStart < DateTime.Parse(myAppointment["end"].ToString()) && DateTime.Parse(myAppointment["start"].ToString()) < myEnd)
 									{
@@ -642,7 +645,7 @@ namespace DentalOfficeSchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"DELETE FROM appointment WHERE customerId = '{myCustomerID}'";
+						string myQuery = $"DELETE FROM appointment WHERE customerId = '{myCustomerID}'";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
 						myCommand.CommandText = myQuery;
@@ -659,7 +662,7 @@ namespace DentalOfficeSchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = $"DELETE FROM appointment WHERE appointmentId = '{myDictionary["appointmentId"]}'";
+						string myQuery = $"DELETE FROM appointment WHERE appointmentId = '{myDictionary["appointmentId"]}'";
 						SqlCommand myCommand = new SqlCommand(myQuery, myConnection);
 						SqlTransaction myTransaction = myConnection.BeginTransaction();
 						myCommand.CommandText = myQuery;
@@ -676,7 +679,7 @@ namespace DentalOfficeSchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = "SELECT DISTINCT" +
+						string myQuery = "SELECT DISTINCT" +
 							$" (SELECT COUNT(type) FROM appointment WHERE type = '{myType}' and MONTH(appointment.start) = 1) as 'Jan'," +
 							$" (SELECT COUNT(type) FROM appointment WHERE type = '{myType}' and MONTH(appointment.start) = 2) as 'Feb'," +
 							$" (SELECT COUNT(type) FROM appointment WHERE type = '{myType}' and MONTH(appointment.start) = 3) as 'Mar'," +
@@ -760,7 +763,7 @@ namespace DentalOfficeSchedulingApp
 						SqlConnection myConnection = new SqlConnection(Properties.Resources.connectionString.ToString());
 						myConnection.Open();
 
-						var myQuery = "SELECT DISTINCT" +
+						string myQuery = "SELECT DISTINCT" +
 							$" (SELECT COUNT(type) FROM appointment WHERE type = 'Cleaning') AS 'Cleaning'," +
 							$" (SELECT COUNT(type) FROM appointment WHERE type = 'Cavities') AS 'Cavities'," +
 							$" (SELECT COUNT(type) FROM appointment WHERE type = 'Wisdom Teeth') AS 'Wisdom Teeth'," +
@@ -782,6 +785,12 @@ namespace DentalOfficeSchedulingApp
 								myReport.Add("other", myReader[5]);
 							}
 						return myReport;
+					}
+
+				private static string DateSqlFormat(DateTime myDateValue)
+					{
+						string mySqlDateTime = myDateValue.ToString("yyyy-MM-dd HH:mm");
+						return mySqlDateTime;
 					}
 			}
 	}

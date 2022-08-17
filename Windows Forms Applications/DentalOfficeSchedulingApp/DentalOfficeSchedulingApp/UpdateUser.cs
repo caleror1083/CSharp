@@ -78,7 +78,7 @@ namespace DentalOfficeSchedulingApp
 					{
 						DataRowView myDataRow = UserCombo.SelectedItem as DataRowView;
 						int myID = Convert.ToInt32(UserCombo.SelectedValue);
-						var myUserList = Database.FindUser(myID);
+						List<KeyValuePair<string, object>> myUserList = Database.FindUser(myID);
 						SetUserList(myUserList);
 
 						if (myUserList != null)
@@ -105,7 +105,7 @@ namespace DentalOfficeSchedulingApp
 											{
 												try
 													{
-														var myList = GetUserList();
+														List<KeyValuePair<string, object>> myList = GetUserList();
 
 														// Lambda expression converting UserList to dictionary
 														IDictionary<string, object> myDictionary = myList.ToDictionary(myKeyValuePair => myKeyValuePair.Key, myKeyValuePair => myKeyValuePair.Value);

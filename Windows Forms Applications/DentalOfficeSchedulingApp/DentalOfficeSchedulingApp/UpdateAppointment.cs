@@ -117,7 +117,7 @@ namespace DentalOfficeSchedulingApp
 					{
 						DataRowView myDataRowView = AppointmentCombo.SelectedItem as DataRowView;
 						int myID = Convert.ToInt32(AppointmentCombo.SelectedValue);
-						var myAppointmentList = Database.GetAppointmentList(myID);
+						List<KeyValuePair<string, object>> myAppointmentList = Database.GetAppointmentList(myID);
 						SetAppointmentList(myAppointmentList);
 
 						if (AppointmentCombo.SelectedIndex != -1)
@@ -198,7 +198,7 @@ namespace DentalOfficeSchedulingApp
 												switch (availability)
 													{
 														case 0:
-															var myList = GetAppointmentList();
+															List<KeyValuePair<string, object>> myList = GetAppointmentList();
 
 															// Lambda expression converting AppointmentList to dictionary
 															IDictionary<string, object> myDictionary = myList.ToDictionary(myKeyValuePair => myKeyValuePair.Key, myKeyValuePair => myKeyValuePair.Value);
