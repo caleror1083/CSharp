@@ -133,7 +133,7 @@ namespace _015_Methods_Static
 									}
 					}
 
-				public static void Example1()
+				static void Example1()
 					{
 						OddNumbers();    // invoking static method OddNumbers
 						Console.WriteLine();
@@ -150,7 +150,7 @@ namespace _015_Methods_Static
 							}
 					}
 
-				public static void Example2()
+				static void Example2()
 					{
 						Console.Write("What do you want the target number to be? ");
 						int target = int.Parse(Console.ReadLine());
@@ -195,7 +195,7 @@ namespace _015_Methods_Static
 
 				static double Cube(double numberParameter) => Math.Pow(numberParameter, 3);   // method that prints the cubed number of the value entered utilizing a double parameter
 
-				public static void Example5()
+				static void Example5()
 					{
 						Console.Write("Enter number 1: ");
 						double x = double.Parse(Console.ReadLine());
@@ -212,7 +212,7 @@ namespace _015_Methods_Static
 						return product;
 					}
 
-				public static void Example6() => Console.WriteLine(GetPow(3, 3));  // invoking static method with 2 integer parameters
+				static void Example6() => Console.WriteLine(GetPow(3, 3));  // invoking static method with 2 integer parameters
 
 				static int GetPow(int baseParameter, int exponentParameter)    // method that accepts a base number value and an exponent number value
 					{
@@ -225,7 +225,7 @@ namespace _015_Methods_Static
 						return result;
 					}
 
-				public static void Example7()
+				static void Example7()
 					{
 						int numberValue = 0;
 
@@ -235,7 +235,7 @@ namespace _015_Methods_Static
 					}
 				static void PassReference(ref int numberParameter) => numberParameter = 101;   // example 7: static method with parameters
 
-				public static void Example8()
+				static void Example8()
 					{
 						int number1 = 10;
 						int number2 = 20;
@@ -249,7 +249,7 @@ namespace _015_Methods_Static
 				// If a variable is passed by reference changes to its value in the method effect it outside of the method					
 				static void PassReference(ref int number1Parameter, ref int number2Parameter) => (number2Parameter, number1Parameter) = (number1Parameter, number2Parameter);    // method that passes by reference				
 
-				public static void Example9()
+				static void Example9()
 					{
 						Console.Write("Enter number 1: ");
 						int number1 = int.Parse(Console.ReadLine());
@@ -315,7 +315,7 @@ namespace _015_Methods_Static
 
 				static void AddOverload(int FN, int SN, out int Sum) => Console.WriteLine($"The sum is {Sum = FN + SN}");  // AddOverload with 3 parameters of different types
 
-				public static void Example13()
+				static void Example13()
 					{
 						Console.WriteLine($"The sum of the 2 doubles is {GetSum(5.0, 4.5)}");
 						Console.WriteLine($"The sum of the 2 doubles converted from strings is {GetSum("5", "4")}");
@@ -330,7 +330,7 @@ namespace _015_Methods_Static
 						return dblX + dblY;
 					}
 
-				public static void Example14() => SayHello();  // Call for the function to execute
+				static void Example14() => SayHello();  // Call for the function to execute
 
 				static void SayHello()
 					{
@@ -340,7 +340,7 @@ namespace _015_Methods_Static
 						Console.WriteLine($"Hello {name}");
 					}
 
-				public static void Example15()
+				static void Example15()
 					{
 						Console.Write("What is your name: ");
 						string name = Console.ReadLine();    // Save the input the user provides
@@ -353,7 +353,7 @@ namespace _015_Methods_Static
 				static void Example16() => PrintInfo(nameParameter: "Rob C", zipCodeParameter: "07524");
 				static void PrintInfo(string nameParameter, string zipCodeParameter) => Console.WriteLine($"{nameParameter} lives in zip code {zipCodeParameter}");
 
-				public static void Example17()
+				static void Example17()
 					{
 						bool equal = AreEqual(8, 6);
 
@@ -373,7 +373,7 @@ namespace _015_Methods_Static
 						return outcome;
 					}
 
-				public static void Example18()
+				static void Example18()
 					{
 						bool equal = AreEqual(5.0, 5.0);
 
@@ -393,9 +393,9 @@ namespace _015_Methods_Static
 						return outcome;
 					}
 
-				public static void Example19()
+				static void Example19()
 					{
-						bool equal = CompareValues<int>(11, 10);
+						bool equal = CompareValues(4, 5);
 
 						if (equal)
 							{
@@ -413,7 +413,7 @@ namespace _015_Methods_Static
 						return outcome;
 					}
 
-				public static void Example20()
+				static void Example20()
 					{
 						bool equal = CompareTypes(10, 20.3);
 
@@ -433,7 +433,7 @@ namespace _015_Methods_Static
 						return outcome;
 					}
 
-				public static void Example21()
+				static void Example21()
 					{
 						// Initializing an int and a string array with values
 						int[] intArray = new int[3] { 1, 2, 3 };
@@ -446,14 +446,14 @@ namespace _015_Methods_Static
 				static void DisplayElements<Type>(Type[] arrays)  // Generic method - alternative to methods with equal parameters of the same type
 					{
 						Console.Write($"The values for the {arrays} array are: ");
-						foreach (var index in arrays)  // iterates through the elements in each array
+						foreach (Type index in arrays)  // iterates through the elements in each array
 							{
 								Console.Write($"{index} ");
 							}
 						Console.WriteLine();
 					}
 
-				public static void Example22()  // Generic class
+				static void Example22()  // Generic class
 					{
 						Console.Write("What is your name? ");
 						string name = Console.ReadLine();
