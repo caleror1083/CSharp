@@ -1,5 +1,4 @@
 ﻿// Robert Calero - App displaying arrays
-using _Arrays;
 using System;
 using System.Collections.Generic;
 using System.Linq;
