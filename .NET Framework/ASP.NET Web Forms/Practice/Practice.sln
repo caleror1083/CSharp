@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_003_Collections_Dictionary
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_004_Collections_Stack", "_004_Collections_Stack\_004_Collections_Stack.csproj", "{87FE14E5-8B99-441B-862D-E88C9647DD2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFormsDemo", "WebFormsDemo\WebFormsDemo.csproj", "{A21FF226-5959-4E8E-8C27-60BE9E6BE3CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{87FE14E5-8B99-441B-862D-E88C9647DD2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87FE14E5-8B99-441B-862D-E88C9647DD2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87FE14E5-8B99-441B-862D-E88C9647DD2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A21FF226-5959-4E8E-8C27-60BE9E6BE3CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21FF226-5959-4E8E-8C27-60BE9E6BE3CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21FF226-5959-4E8E-8C27-60BE9E6BE3CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21FF226-5959-4E8E-8C27-60BE9E6BE3CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
