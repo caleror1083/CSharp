@@ -23,56 +23,56 @@ namespace LINQ_To_SQL
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Company")]
-	public partial class IndexCompanyDataContext : System.Data.Linq.DataContext
+	public partial class IndexCopmpanyDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertEmployee(Employees instance);
-    partial void UpdateEmployee(Employees instance);
-    partial void DeleteEmployee(Employees instance);
+    partial void InsertEmployee(Employee instance);
+    partial void UpdateEmployee(Employee instance);
+    partial void DeleteEmployee(Employee instance);
     partial void InsertDepartment(Department instance);
     partial void UpdateDepartment(Department instance);
     partial void DeleteDepartment(Department instance);
     #endregion
 		
-		public IndexCompanyDataContext() : 
+		public IndexCopmpanyDataContext() : 
 				base(global::LINQ_To_SQL.Properties.Settings.Default.CompanyConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public IndexCompanyDataContext(string connection) : 
+		public IndexCopmpanyDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public IndexCompanyDataContext(System.Data.IDbConnection connection) : 
+		public IndexCopmpanyDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public IndexCompanyDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public IndexCopmpanyDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public IndexCompanyDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public IndexCopmpanyDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Employees> Employees
+		public System.Data.Linq.Table<Employee> Employees
 		{
 			get
 			{
-				return this.GetTable<Employees>();
+				return this.GetTable<Employee>();
 			}
 		}
 		
@@ -86,7 +86,7 @@ namespace LINQ_To_SQL
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Employees")]
-	public partial class Employees : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class Employee : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -123,7 +123,7 @@ namespace LINQ_To_SQL
     partial void OnDepartmentsIDChanged();
     #endregion
 		
-		public Employees()
+		public Employee()
 		{
 			this._Department = default(EntityRef<Department>);
 			OnCreated();
@@ -320,7 +320,7 @@ namespace LINQ_To_SQL
 		
 		private string _Location;
 		
-		private EntitySet<Employees> _Employees;
+		private EntitySet<Employee> _Employees;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -336,7 +336,7 @@ namespace LINQ_To_SQL
 		
 		public Department()
 		{
-			this._Employees = new EntitySet<Employees>(new Action<Employees>(this.attach_Employees), new Action<Employees>(this.detach_Employees));
+			this._Employees = new EntitySet<Employee>(new Action<Employee>(this.attach_Employees), new Action<Employee>(this.detach_Employees));
 			OnCreated();
 		}
 		
@@ -401,7 +401,7 @@ namespace LINQ_To_SQL
 		}
 		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Department_Employee", Storage="_Employees", ThisKey="ID", OtherKey="DepartmentsID")]
-		public EntitySet<Employees> Employees
+		public EntitySet<Employee> Employees
 		{
 			get
 			{
@@ -433,13 +433,13 @@ namespace LINQ_To_SQL
 			}
 		}
 		
-		private void attach_Employees(Employees entity)
+		private void attach_Employees(Employee entity)
 		{
 			this.SendPropertyChanging();
 			entity.Department = this;
 		}
 		
-		private void detach_Employees(Employees entity)
+		private void detach_Employees(Employee entity)
 		{
 			this.SendPropertyChanging();
 			entity.Department = null;

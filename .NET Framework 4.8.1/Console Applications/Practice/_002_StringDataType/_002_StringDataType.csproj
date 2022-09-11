@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>_002_StringDataType</RootNamespace>
     <AssemblyName>_002_StringDataType</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>

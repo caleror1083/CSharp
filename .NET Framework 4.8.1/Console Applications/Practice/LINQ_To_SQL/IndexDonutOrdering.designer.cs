@@ -71,7 +71,7 @@ namespace LINQ_To_SQL
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Customer> Customer
+		public System.Data.Linq.Table<Customer> Customers
 		{
 			get
 			{
