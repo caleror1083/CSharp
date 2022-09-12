@@ -24,6 +24,8 @@ namespace CompanyAPI.Controllers
 						_configuration = configuration;
 					}
 
+				// [Attributes]
+				// Methods(Parameters)
 				[HttpGet]
 				public JsonResult Get()
 					{
