@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeWebsiteBlazorServer", "PracticeWebsiteBlazorServer\PracticeWebsiteBlazorServer.csproj", "{43CA1A85-D869-40BE-815D-D20441E93083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practice WebsiteBlazorWebAssembly", "Practice WebsiteBlazorWebAssembly\Practice WebsiteBlazorWebAssembly.csproj", "{378635EA-7AED-4E6B-9EE4-38ABD37AB582}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43CA1A85-D869-40BE-815D-D20441E93083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CA1A85-D869-40BE-815D-D20441E93083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CA1A85-D869-40BE-815D-D20441E93083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CA1A85-D869-40BE-815D-D20441E93083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{378635EA-7AED-4E6B-9EE4-38ABD37AB582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378635EA-7AED-4E6B-9EE4-38ABD37AB582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378635EA-7AED-4E6B-9EE4-38ABD37AB582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378635EA-7AED-4E6B-9EE4-38ABD37AB582}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A20F5BAF-72AE-41CF-BD4C-5A4B857FE1BD}
+	EndGlobalSection
+EndGlobal
