@@ -1,4 +1,6 @@
-﻿// Namespaces
+﻿using System;
+
+// Namespaces
 namespace _001_Print
 {
 	// Classes
