@@ -1,19 +1,38 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-// Namespaces
 namespace EmployeeManagement
 	{
-		// Classes
 		public class Program
 			{
-				// Methods(Parameters)
 				public static void Main(string[] args)
 					{
-						WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
-						WebApplication? app = builder.Build();
+						WebApplicationBuilder builder;
+						WebApplication app;
+						
+						builder = WebApplication.CreateBuilder(args);
 
-						app.MapGet("/", () => System.Diagnostics.Process.GetCurrentProcess().ProcessName);
+						// Add services to the container.
+						builder.Services.AddRazorPages();
+
+						app = builder.Build();
+
+						// Configure the HTTP request pipeline.
+						if (!app.Environment.IsDevelopment())
+							{
+								app.UseExceptionHandler("/Error");
+								app.UseHsts();
+							}
+
+						app.UseHttpsRedirection();
+						app.UseStaticFiles();
+
+						app.UseRouting();
+
+						app.UseAuthorization();
+
+						app.MapRazorPages();
 
 						app.Run();
 					}
