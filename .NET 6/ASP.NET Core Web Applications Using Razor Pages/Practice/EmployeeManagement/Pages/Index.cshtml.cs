@@ -1,14 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeManagement.Pages;
 
 public class IndexModel : PageModel
 	{
-		private readonly ILogger<IndexModel> _logger;
-
-		public IndexModel(ILogger<IndexModel> logger)
-			{
-				_logger = logger;
-			}
+		[MaxLength(17)] public string ISBN { get; set; }
 	}

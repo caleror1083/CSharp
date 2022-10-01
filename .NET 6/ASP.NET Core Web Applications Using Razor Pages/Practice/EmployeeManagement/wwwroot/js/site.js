@@ -1,4 +1,19 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const isbn = document.getElementById('ISBN');
 
-// Write your JavaScript code.
+isbn.addEventListener("keydown", (e) => {
+    if (e.key === "Backspace" || e.key === "Delete") {
+		return;
+	}
+    if (e.target.value.length === 3) {
+        isbn.value = isbn.value + "-";
+    }
+    if(e.target.value.length === 5) {
+        isbn.value = isbn.value + "-";
+    }
+    if(e.target.value.length === 8) {
+        isbn.value = isbn.value + "-";
+    }
+    if(e.target.value.length === 15) {
+        isbn.value = isbn.value + "-";
+    }
+})
