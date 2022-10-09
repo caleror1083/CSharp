@@ -1,4 +1,7 @@
-﻿using System;
+﻿using _051_DatabaseFirstEFCore.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,6 +57,8 @@ namespace _051_DatabaseFirstEFCore
 
 				static void Example1()
 					{
+						using CompanyContext db = new CompanyContext();
+
 						Console.WriteLine("Getting Connection ...");
 
 						try

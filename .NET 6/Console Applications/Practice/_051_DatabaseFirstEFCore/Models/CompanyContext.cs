@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 namespace _051_DatabaseFirstEFCore.Models
 	{
 		public partial class CompanyContext : DbContext
 			{
+				public virtual DbSet<Departments> Departments { get; set; } = null!;
+				public virtual DbSet<Employees> Employees { get; set; } = null!;
+
 				public CompanyContext()
 					{
 					}
@@ -15,14 +19,13 @@ namespace _051_DatabaseFirstEFCore.Models
 					{
 					}
 
-				public virtual DbSet<Departments> Departments { get; set; } = null!;
-				public virtual DbSet<Employees> Employees { get; set; } = null!;
-
 				protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 					{
+						var config = new ConfigurationBuilder().AddJsonFile("appconfig.json", optional: false).Build();
+
 						if (!optionsBuilder.IsConfigured)
 							{
-								optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=Company;Trusted_Connection=true;");
+								optionsBuilder.UseSqlServer(config.GetConnectionString("myDbConn"));
 							}
 					}
 
