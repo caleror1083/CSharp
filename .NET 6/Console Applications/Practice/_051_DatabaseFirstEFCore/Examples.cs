@@ -1,7 +1,7 @@
 ﻿using _051_DatabaseFirstEFCore.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace _051_DatabaseFirstEFCore
 	{
@@ -52,25 +52,71 @@ namespace _051_DatabaseFirstEFCore
 					}
 
 				static void Example1()
-					{						
-						var config = new ConfigurationBuilder().AddJsonFile("appconfig.json", optional: false).Build();
-
-						var options = new DbContextOptionsBuilder<CompanyContext>().UseSqlServer(config.GetConnectionString("DefaultConnection")).Options;
-						
-						using var db = new CompanyContext(options);
-
+					{
 						Console.WriteLine("Getting Connection ...");
-
-						try
+						using (var results = new CompanyContext())
 							{
-								Console.WriteLine("Opening Connection ...");
+								try
+									{
+										Console.WriteLine("Opening Connection ...");
+										Console.WriteLine("Connection successful!");
+									}
+								catch (Exception e)
+									{
+										Console.WriteLine("Error: " + e.Message);
+									}
+							}						
+					}
 
-								Console.WriteLine("Connection successful!");
-							}
-						catch (Exception e)
+				static void SelectandReadData()
+					{
+						using (var results = new CompanyContext())
 							{
-								Console.WriteLine("Error: " + e.Message);
+								// SELECT * FROM Employees
+								List<Employees> select = results.Employees.ToList();
+						
+								foreach (Employees selectObj in select)
+									{
+										Console.WriteLine($"{selectObj.EmployeeId} {selectObj.EmployeeName} {selectObj.Department} {selectObj.DateofJoining} {selectObj.PhotoFileName}");
+									}
 							}
+					}
+
+				static void CreateData()
+					{
+						string employeeName, department, photoFileName;
+						Console.Write("Enter employee name: ");
+						employeeName = Console.ReadLine();
+
+						Console.Write("Enter department: ");
+						department = Console.ReadLine();
+
+						DateTime dateofJoining;
+						Console.Write("Enter date of joining");
+						dateofJoining = DateTime.Parse(Console.ReadLine());
+
+						Console.Write("Enter photo file name: ");
+						photoFileName = Console.ReadLine();
+
+						using (var results = new CompanyContext())
+							{
+								Employees emp = new Employees();
+								emp.EmployeeName = employeeName.ToString();
+								emp.Department = department.ToString();
+								emp.DateofJoining = dateofJoining.ToLocalTime();
+								emp.PhotoFileName = photoFileName.ToString();
+
+								results.Add(emp);
+								results.SaveChanges();
+							}
+					}
+
+				static void UpdateData()
+					{
+					}
+
+				static void DeleteData()
+					{
 					}
 			}
 	}

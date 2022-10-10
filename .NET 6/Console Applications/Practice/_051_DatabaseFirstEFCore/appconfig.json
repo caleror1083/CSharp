@@ -1,5 +1,0 @@
-{
-	"ConnectionStrings": {
-		"DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=Company;Trusted_Connection=true;"
-	}
-}

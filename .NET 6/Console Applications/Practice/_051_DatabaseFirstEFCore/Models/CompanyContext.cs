@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace _051_DatabaseFirstEFCore.Models
 	{
@@ -18,11 +17,9 @@ namespace _051_DatabaseFirstEFCore.Models
 
 				protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 					{
-						var config = new ConfigurationBuilder().AddJsonFile("appconfig.json", optional: false).Build();
-
 						if (!optionsBuilder.IsConfigured)
 							{
-								optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+								optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=Company;Trusted_Connection=true;");
 							}
 					}
 
