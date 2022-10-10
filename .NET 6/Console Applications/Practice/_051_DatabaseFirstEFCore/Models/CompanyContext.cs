@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace _051_DatabaseFirstEFCore.Models
@@ -25,7 +22,7 @@ namespace _051_DatabaseFirstEFCore.Models
 
 						if (!optionsBuilder.IsConfigured)
 							{
-								optionsBuilder.UseSqlServer(config.GetConnectionString("myDbConn"));
+								optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
 							}
 					}
 

@@ -1,11 +1,7 @@
 ﻿using _051_DatabaseFirstEFCore.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration.Json;
+using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _051_DatabaseFirstEFCore
 	{
@@ -56,8 +52,12 @@ namespace _051_DatabaseFirstEFCore
 					}
 
 				static void Example1()
-					{
-						using CompanyContext db = new CompanyContext();
+					{						
+						var config = new ConfigurationBuilder().AddJsonFile("appconfig.json", optional: false).Build();
+
+						var options = new DbContextOptionsBuilder<CompanyContext>().UseSqlServer(config.GetConnectionString("DefaultConnection")).Options;
+						
+						using var db = new CompanyContext(options);
 
 						Console.WriteLine("Getting Connection ...");
 
