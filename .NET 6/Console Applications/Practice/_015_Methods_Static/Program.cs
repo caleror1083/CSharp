@@ -13,7 +13,7 @@ namespace _015_Methods_Static
 		private static void Main()
 		{
 			Examples myExample = new Examples();
-						myExample.ProcessExamples();
+			myExample.ProcessExamples();
 		}
 	}
 }
