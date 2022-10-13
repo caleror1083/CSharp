@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _015_Methods_Static
 {
@@ -13,10 +9,10 @@ namespace _015_Methods_Static
 				public Type2 Age { get; set; }
 
 				// Constructors(Parameters)
-				public Employee(Type1 name, Type2 age)
+				public Employee(Type1 nameParameter, Type2 ageParameter)
 					{
-						Name = name;
-						Age = age;
+						Name = nameParameter;
+						Age = ageParameter;
 					}
 
 				// Methods(Parameters)
