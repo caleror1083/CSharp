@@ -11,9 +11,9 @@ namespace PracticeApp.Pages
 {
     public class DetailsModel : PageModel
     {
-        private readonly PracticeApp.Models.CompanyContext _context;
+        private readonly CompanyContext _context;
 
-        public DetailsModel(PracticeApp.Models.CompanyContext context)
+        public DetailsModel(CompanyContext context)
         {
             _context = context;
         }

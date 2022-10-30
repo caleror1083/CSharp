@@ -1,54 +1,51 @@
 ﻿@page
 @model PracticeApp.Pages.IndexModel
-
-@{
-    ViewData["Title"] = "Index";
-}
+@{ViewData["Title"] = "Index";}
 
 <h1>Index</h1>
+<p><a asp-page="Create">Create New</a></p>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Employee[0].EmployeeName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Employee[0].Department)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Employee[0].DateofJoining)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Employee[0].PhotoFileName)
-            </th>
-            <th></th>
+            <th>@Html.DisplayNameFor(model => model.Employee[0].EmployeeName)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee[0].Department)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee[0].DateofJoining)</th>
+            <th>@Html.DisplayNameFor(model => model.Employee[0].PhotoFileName)</th>
+            <th>Options</th>
         </tr>
     </thead>
+
     <tbody>
-@foreach (var item in Model.Employee) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmployeeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Department)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateofJoining)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhotoFileName)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.EmployeeId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.EmployeeId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.EmployeeId">Delete</a>
-            </td>
-        </tr>
-}
+		@foreach (Models.Employee item in Model.Employee)
+		 {
+			<tr>
+				<td>@Html.DisplayFor(modelItem => item.EmployeeName)</td>
+				<td>@Html.DisplayFor(modelItem => item.Department)</td>
+				<td>@Html.DisplayFor(modelItem => item.DateofJoining)</td>
+				<td>@Html.DisplayFor(modelItem => item.PhotoFileName)</td>
+				<td><a asp-page="./Edit" asp-route-id="@item.EmployeeId">Edit</a> | <a asp-page="./Details" asp-route-id="@item.EmployeeId">Details</a> | <a asp-page="./Delete" asp-route-id="@item.EmployeeId">Delete</a></td>
+			</tr>
+		 }
     </tbody>
 </table>
+
+@using (Html.BeginForm("Search", "Index", FormMethod.Post))
+@Html.TextBox("Entervalue")
+<button type="submit" id="sub">Sub</button>
+
+<div id="result"></div>
+@section scripts
+{
+	<script>
+		$("#search").click(function() {
+			$.ajax({
+				       url: "@Url.Action("Sub", "Search")",
+				       type: "POST",
+				       data: { value: $("#Entervalue").val() },
+				       success: function(data) { $("#result").html(data); }
+			      });
+		});
+	</script>
+}
+<partial name="Search" />

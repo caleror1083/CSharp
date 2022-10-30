@@ -7,19 +7,22 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using PracticeApp.Models;
 
+// Namespaces
 namespace PracticeApp.Pages
 {
+	// Classes
     public class IndexModel : PageModel
     {
-        private readonly PracticeApp.Models.CompanyContext _context;
+		// Fields
+        private readonly CompanyContext _context;
 
-        public IndexModel(PracticeApp.Models.CompanyContext context)
-        {
-            _context = context;
-        }
+		// Properties
+        public IList<Employee> Employee { get; set; } = default!;
 
-        public IList<Employee> Employee { get;set; } = default!;
+		// Constructors(Parameters)
+        public IndexModel(CompanyContext context) { _context = context; }
 
+		// Methods(Parameters)
         public async Task OnGetAsync()
         {
             if (_context.Employees != null)
@@ -27,5 +30,10 @@ namespace PracticeApp.Pages
                 Employee = await _context.Employees.ToListAsync();
             }
         }
+
+		public ActionResult Sub(int value)
+		{
+			return Partial("Search", _context.Employees.Where(x => x.EmployeeId == value).ToList());
+		}
     }
 }
