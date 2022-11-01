@@ -13,5 +13,7 @@ namespace PracticeApp.Models
         public string Department { get; set; } = null!;
         public DateTime DateofJoining { get; set; }
         public string PhotoFileName { get; set; }
+
+		public Employee() {}
     }
 }

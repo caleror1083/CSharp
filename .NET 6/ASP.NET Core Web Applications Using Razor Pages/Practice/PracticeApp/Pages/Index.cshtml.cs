@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -31,9 +30,9 @@ namespace PracticeApp.Pages
             }
         }
 
-		public ActionResult Sub(int value)
+		public ActionResult OnPostSearch(int value)
 		{
-			return Partial("Search", _context.Employees.Where(x => x.EmployeeId == value).ToList());
+			return Partial("_DisplaySearchPartial", _context.Employees.Where(x => x.EmployeeId == value).ToList());
 		}
     }
 }
