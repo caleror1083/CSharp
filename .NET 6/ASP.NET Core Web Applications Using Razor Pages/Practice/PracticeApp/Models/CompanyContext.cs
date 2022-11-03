@@ -21,9 +21,9 @@ namespace PracticeApp.Models
             modelBuilder.Entity<Employee>(entity =>
             {
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
-                entity.Property(e => e.DateofJoining).HasColumnType("date");
                 entity.Property(e => e.DepartmentId).HasColumnName("DepartmentID");
                 entity.Property(e => e.DepartmentName).HasMaxLength(500);
+                entity.Property(e => e.DateofJoining).HasColumnType("date");
                 entity.Property(e => e.EmployeeName).HasMaxLength(500);
                 entity.Property(e => e.PhotoFileName).HasMaxLength(500);
             });

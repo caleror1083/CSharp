@@ -5,27 +5,35 @@
 <form method="post">
 	<table>
 		<tr>
-			<td>@Html.TextBox("Entervalue")</td>
-			<td><button type="button" id="search">Search</button></td>
+			<td>
+				@Html.TextBox("TxtDepartment")
+			</td>
+			<td>
+				<button type="button" id="DepartmentSearch">Search</button>
+			</td>
 		</tr>
 	</table>
-
-	<div id="result">
-
-	</div>
 </form>
+<br />
+
+<table>
+	<tr>
+		<td><div id="DepartmentResult"></div></td>&nbsp;
+		<td><div id="EmployeeResult"></div></td>
+	</tr>
+</table>
 
 @section Scripts {
 	<script>
-		$("#search").click(function()
+		$("#DepartmentSearch").click(function()
 		{
 			$.ajax(
 			{
-				url: "/Index?handler=Display",
+				url: "/Index?handler=DisplayDepartment",
 				type: "POST",
-				data: { value: $("#Entervalue").val() },
+				data: { value: $("#TxtDepartment").val() },
 				headers: { RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val() },
-				success: function(data) { $("#result").html(data); }
+				success: function(data) { $("#DepartmentResult").html(data); }
 			});
 		});
 	</script>

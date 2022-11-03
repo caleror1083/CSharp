@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Models.Department>
+
+@if (Model.Count() != 0)
+ {
+	<table style="border: 1px solid black">
+		<thead>
+			<tr>
+				<th colspan="2" style="border: 1px solid black; text-align: center;">Department Results</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td align="center" style="border: 1px solid black; font-weight: bold;">
+					@Html.DisplayNameFor(m => m.DepartmentId)
+				</td>
+				<td align="center" style="border: 1px solid black; font-weight: bold;">
+					@Html.DisplayNameFor(m => m.DepartmentName)
+				</td>
+			</tr>
+
+			@foreach (Models.Department item in Model)
+			 {
+				<tr>
+					<td id="TxtEmployee" align="center" style="border: 1px solid black;">
+						<a id="EmployeeSearch" href="javascript:aa()">
+							@item.DepartmentId
+						</a>
+					</td>
+					<td align="center" style="border: 1px solid black;">
+						@item.DepartmentName
+					</td>
+				</tr>
+			 }
+		</tbody>
+	</table>
+ }
+else
+{
+	<p>No data</p>
+}
+
+<script>
+	$("#EmployeeSearch").click(function()
+	{
+		$.ajax(
+		{
+			url: "Index?handler=DisplayEmployee",
+			type: "POST",
+			data: { value: $("#EmployeeSearch").text() },
+			headers: { RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val() },
+			success: function(data) { $("#EmployeeResult").html(data); }
+		});
+	});
+</script>
