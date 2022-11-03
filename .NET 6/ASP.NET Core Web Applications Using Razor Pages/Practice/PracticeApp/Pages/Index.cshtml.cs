@@ -20,5 +20,10 @@ namespace PracticeApp.Pages
 		{
 			return Partial("_DisplayEmployeePartial", _context.Employees.Where(x => x.DepartmentName == value).ToList());
 		}
+
+		public PartialViewResult OnPostDisplayInfo(string value)
+		{
+			return Partial("_DisplayEmployeePartial", _context.Employees.Where(x => x.DepartmentName == value).ToString());
+		}
     }
 }
