@@ -12,9 +12,6 @@
 		<tbody>
 			<tr>
 				<td align="center" style="border: 1px solid black; font-weight: bold;">
-					@Html.DisplayNameFor(m => m.DepartmentId)
-				</td>
-				<td align="center" style="border: 1px solid black; font-weight: bold;">
 					@Html.DisplayNameFor(m => m.DepartmentName)
 				</td>
 			</tr>
@@ -23,12 +20,7 @@
 			 {
 				<tr>
 					<td id="TxtEmployee" align="center" style="border: 1px solid black;">
-						<a id="EmployeeSearch" href="javascript:aa()">
-							@item.DepartmentId
-						</a>
-					</td>
-					<td align="center" style="border: 1px solid black;">
-							@item.DepartmentName
+						<a id="EmployeeSearch" href="javascript:aa()">@item.DepartmentName</a>
 					</td>
 				</tr>
 			 }
