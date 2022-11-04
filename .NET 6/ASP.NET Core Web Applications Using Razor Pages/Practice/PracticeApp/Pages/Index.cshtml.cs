@@ -11,19 +11,14 @@ namespace PracticeApp.Pages
 
         public IndexModel(CompanyContext context) { _context = context; }
 
-		public PartialViewResult OnPostDisplayDepartment(int value)
+		public PartialViewResult OnGetDisplayDepartment(int value)
 		{
 			return Partial("_DisplayDepartmentPartial", _context.Departments.Where(x => x.DepartmentId == value).ToList());
 		}
 
-		public PartialViewResult OnPostDisplayEmployee(string value)
+		public PartialViewResult OnGetDisplayEmployee(string value)
 		{
-			return Partial("_DisplayEmployeePartial", _context.Employees.Where(x => x.DepartmentName == value).ToList());
-		}
-
-		public PartialViewResult OnPostDisplayInfo(string value)
-		{
-			return Partial("_DisplayEmployeePartial", _context.Employees.Where(x => x.DepartmentName == value).ToString());
+			return Partial("_DisplayEmployeePartial", _context.Employees.Where(x => x.DepartmentName == value).GroupBy(x => x.EmployeeName).Select(x => x.First()).ToList());
 		}
     }
 }

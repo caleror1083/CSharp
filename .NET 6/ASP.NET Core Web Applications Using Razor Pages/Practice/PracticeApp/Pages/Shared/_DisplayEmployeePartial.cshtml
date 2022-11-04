@@ -20,7 +20,7 @@
 			 {
 				<tr>
 					<td align="center" style="border: 1px solid black;">
-						<a id="PopulateNameData" href="javascript:aa()">@item.EmployeeName</a>
+						<a id="PopulateNameData">@item.EmployeeName</a>
 					</td>
 				</tr>
 			 }
@@ -31,17 +31,3 @@ else
 {
 	<p>No data</p>
 }
-
-<script>
-	$("#PopulateNameData").click(function()
-	{
-		$.ajax(
-		{
-			url: "Index?handler=DisplayEmployee",
-			type: "POST",
-			data: { value: $("#PopulateNameData").text() },
-			headers: { RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val() },
-			success: function(data) { $("#NameResult").html(data); }
-		});
-	});
-</script>

@@ -2,7 +2,7 @@
 @model IndexModel
 @{ ViewData["Title"] = "Index"; }
 
-<form method="post">
+<form method="get">
 	<table>
 		<tr>
 			<td>
@@ -23,7 +23,7 @@
 	</tr>
 </table>
 
-<form method="post">
+<form method="get">
 	<label>Department Name:</label>
 	<input type="text" id="DeptName" />
 	<label>Photo File Name:</label>
@@ -37,7 +37,7 @@
 			$.ajax(
 			{
 				url: "/Index?handler=DisplayDepartment",
-				type: "POST",
+				type: "GET",
 				data: { value: $("#TxtDepartment").val() },
 				headers: { RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val() },
 				success: function(data) { $("#DepartmentResult").html(data); }

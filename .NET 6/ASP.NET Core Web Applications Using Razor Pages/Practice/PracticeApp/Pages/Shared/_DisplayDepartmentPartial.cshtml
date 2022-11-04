@@ -38,7 +38,7 @@ else
 		$.ajax(
 		{
 			url: "Index?handler=DisplayEmployee",
-			type: "POST",
+			type: "GET",
 			data: { value: $("#EmployeeSearch").text() },
 			headers: { RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val() },
 			success: function(data) { $("#EmployeeResult").html(data); }
