@@ -2,30 +2,30 @@
 
 @if (Model.Count() != 0)
  {
-	<table style="border: 1px solid black">
-		<thead>
-			<tr>
-				<th colspan="2" style="border: 1px solid black; text-align: center;">Department Results</th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<tr>
-				<td align="center" style="border: 1px solid black; font-weight: bold;">
-					@Html.DisplayNameFor(m => m.DepartmentName)
-				</td>
-			</tr>
-
-			@foreach (Models.Department item in Model)
-			 {
+	<div id="EmployeeSection">
+		<table style="border: 1px solid black">
+			<thead>
 				<tr>
-					<td id="TxtEmployee" align="center" style="border: 1px solid black;">
-						<a id="EmployeeSearch" href="javascript:aa()">@item.DepartmentName</a>
+					<th colspan="2" style="border: 1px solid black; text-align: center;">Department Results</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td align="center" style="border: 1px solid black; font-weight: bold;">
+						@Html.DisplayNameFor(m => m.DepartmentName)
 					</td>
 				</tr>
-			 }
-		</tbody>
-	</table>
+
+				@foreach (Models.Department item in Model)
+				 {
+					<tr>
+						<td style="border: 1px solid black; text-align: center"><a href="Index?handler=DisplayEmployee&value=@item.DepartmentName">@item.DepartmentName</a></td>
+					</tr>
+				 }
+			</tbody>
+		</table>
+	</div>
  }
 else
 {
@@ -33,15 +33,10 @@ else
 }
 
 <script>
-	$("#EmployeeSearch").click(function()
-	{
-		$.ajax(
-		{
-			url: "Index?handler=DisplayEmployee",
-			type: "GET",
-			data: { value: $("#EmployeeSearch").text() },
-			headers: { RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val() },
-			success: function(data) { $("#EmployeeResult").html(data); }
-		});
-	});
+	$('#EmployeeSection a').click(function(event) {
+		$('#EmployeeResult').hide().load($(this).attr('href'), function() {
+			$('#EmployeeResult').show()
+		})
+		return false
+	})
 </script>
