@@ -9,6 +9,8 @@ namespace PracticeApp.Pages
     {
         public CompanyContext _context;
 
+		[BindProperty(SupportsGet = true)] public int Id { get; set; }
+
         public IndexModel(CompanyContext context) { _context = context; }
 
 		public PartialViewResult OnGetDisplayDepartment(int value)
