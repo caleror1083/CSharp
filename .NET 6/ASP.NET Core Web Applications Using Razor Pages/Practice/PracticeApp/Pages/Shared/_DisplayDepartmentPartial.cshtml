@@ -6,21 +6,21 @@
 		<table style="border: 1px solid black">
 			<thead>
 				<tr>
-					<th colspan="2" style="border: 1px solid black; text-align: center;">Department Results</th>
+					<th colspan="2" style="border: 1px solid black; text-align: center;">Department Info</th>
 				</tr>
 			</thead>
 
 			<tbody>
 				<tr>
-					<td align="center" style="border: 1px solid black; font-weight: bold;">
-						@Html.DisplayNameFor(m => m.DepartmentName)
-					</td>
+					<td style="border: 1px solid black; font-weight: bold; text-align: center;">@Html.DisplayNameFor(m => m.DepartmentName)</td>
 				</tr>
 
 				@foreach (Models.Department item in Model)
 				 {
 					<tr>
-						<td style="border: 1px solid black; text-align: center"><a href="Index?handler=DisplayEmployee&value=@item.DepartmentName">@item.DepartmentName</a></td>
+						<td style="border: 1px solid black; text-align: center">
+							<a href="Index/?handler=DisplayEmployee&value=@item.DepartmentName">@item.DepartmentName</a>
+						</td>
 					</tr>
 				 }
 			</tbody>

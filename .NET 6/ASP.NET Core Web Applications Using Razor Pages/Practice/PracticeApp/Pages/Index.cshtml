@@ -1,59 +1,68 @@
 ﻿@page "{id?}"
 @model IndexModel
-@{ ViewData["Title"] = "Index"; }
-<!--
-<form method="get">
-	<table>
-		<tr>
-			<td>
-				@Html.TextBox("TxtDepartment")
-			</td>
-			<td>
-				<button type="button" id="DepartmentSearch">Search</button>
-			</td>
-		</tr>
-	</table>
-</form>
-	-->
-<br />
 
-<table>
-	<tr>
-		<td><div id="DepartmentResult"></div></td>&nbsp;
-		<td><div id="EmployeeResult"></div></td>
-	</tr>
-</table>
+@{ViewData["Title"] = "Main";}
 
-<form method="get">
-	<label>Department Name:</label>
-	<input type="text" id="DeptName" />
-	<label>Photo File Name:</label>
-	<input type="text" id="NameResult" />
-</form>
+<div class=" container">
+	<div class="row">
+		<div class="text-center">
+			<h1 class="display-4">@Model.PageTitle</h1>
+		</div>
+	</div>
+	<div class="row">
+		<form class="mt-0" method="get">
+			<div class="row">
+				<div class="col-3 offset-2" id="DepartmentResult"></div>
+			    <div class="col-4" id="EmployeeResult"></div>
+			</div>
+		</form>
+		<form class="mt=0" method="post">
+			<div class="row">
+				<label class="col-2 offset-3 col-form-label">Employee Name:</label>
+				<div class="col-2">
+				    <input class="form-control" title="Employee name" asp-for="Name">
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<label class="col-2 offset-3 col-form-label">Department Name:</label>
+				<div class="col-2">
+					<input class="form-control" title="Department name" asp-for="DeptName">
+				</div>
+			</div>
+			<br />
+			<div class="row">
+				<button class="btn btn-outline-dark col-1 offset-5" type="submit" id="SubmitBtn" name="SubmitBtn" value="Submit" asp-page-handler="Submit">Submit</button>
+			</div>
+			<br />
+			<div class="row">
+				<div col-4>
+				<br />
+					<div class=" row">
+						<label class="col-6 col-form-label">Social Security #:</label>
+						<div class="col-5">
+							<input class="form-control" type="text" asp-for="OutputSSN" disabled />
+							<i class="fa fa-eye-slash"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
 
 @section Scripts {
-	<script>
-/*		$("#DepartmentSearch").click(function()
+<script>
+	$(document).ready(function()
+	{
+		$.ajax(
 		{
-			$.ajax(
-			{
-				url: "/Index?handler=DisplayDepartment",
-				type: "GET",
-				data: { value: $("#TxtDepartment").val() },
-				headers: { RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val() },
-				success: function(data) { $("#DepartmentResult").html(data); }
-			});
-		}); */
-		$(document).ready(function()
-		{
-			$.ajax(
-			{
-				url: "/Index?handler=DisplayDepartment",
-				type: "GET",
-				data: { value: @Model.Id },
-				headers: { RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val() },
-				success: function(data) { $("#DepartmentResult").html(data); }
-			});
+			url: "/Index?handler=DisplayDepartment",
+			type: "GET",
+			data: { value: @Model.Id },
+			headers: { RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val() },
+			success: function(data) { $("#DepartmentResult").html(data); }
 		});
-	</script>
+	});
+</script>
 }

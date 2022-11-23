@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PracticeApp.Models
 {
     public partial class Department
     {
-        [Display(Name = "ID")] public int DepartmentId { get; set; }
-        [Display(Name = "Name")] public string DepartmentName { get; set; } = null!;
+        public int DepartmentId { get; set; }
+        public string DepartmentName { get; set; } = null!;
     }
 }
