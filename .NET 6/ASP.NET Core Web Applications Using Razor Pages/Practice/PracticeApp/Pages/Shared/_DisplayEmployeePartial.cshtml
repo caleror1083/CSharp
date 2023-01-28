@@ -14,7 +14,6 @@
 				<tr>
 					<td style="border: 1px solid black; font-weight: bold; text-align: center;">@Html.DisplayNameFor(m => m.EmployeeName)</td>
 					<td style="border: 1px solid black; font-weight: bold; text-align: center;">@Html.DisplayNameFor(m => m.DepartmentName)</td>
-					<td style="border: 1px solid black; font-weight: bold; text-align: center;">@Html.DisplayNameFor(m => m.DateofJoining)</td>
 				</tr>
 
 				@foreach (Models.Employee item in Model)
@@ -22,7 +21,6 @@
 					<tr>
 						<td style="border: 1px solid black; text-align: center;">@item.EmployeeName</td>
 						<td style="border: 1px solid black; text-align: center;">@item.DepartmentName</td>
-						<td style="border: 1px solid black; text-align: center;">@item.DateofJoining</td>
 					</tr>
 				 }
 			</tbody>
