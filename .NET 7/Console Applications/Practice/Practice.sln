@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_051_DatabaseFirstEFCore", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_015_Methods_Static", "_015_Methods_Static\_015_Methods_Static.csproj", "{23B29EB9-6CCD-4B3D-B6D7-20FAB14E495F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dice", "Dice\Dice.csproj", "{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{23B29EB9-6CCD-4B3D-B6D7-20FAB14E495F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23B29EB9-6CCD-4B3D-B6D7-20FAB14E495F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23B29EB9-6CCD-4B3D-B6D7-20FAB14E495F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
