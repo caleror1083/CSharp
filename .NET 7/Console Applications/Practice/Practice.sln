@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_051_DatabaseFirstEFCore", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_015_Methods_Static", "_015_Methods_Static\_015_Methods_Static.csproj", "{23B29EB9-6CCD-4B3D-B6D7-20FAB14E495F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dice", "Dice\Dice.csproj", "{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dice", "Dice\Dice.csproj", "{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{B43F6652-5B83-4AF9-A139-875AC312EA31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68CD1A2C-3715-47F2-8AD3-9078B0FADFDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B43F6652-5B83-4AF9-A139-875AC312EA31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43F6652-5B83-4AF9-A139-875AC312EA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43F6652-5B83-4AF9-A139-875AC312EA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43F6652-5B83-4AF9-A139-875AC312EA31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
