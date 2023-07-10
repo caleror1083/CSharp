@@ -1,10 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Main";
-}
+﻿@{ViewData["Title"] = "Main";}
 
-<form class="mt=0" method="post" asp-action="Click">
-    <div class="col-2">
-        <input id="TextBox1" type="text" value="@ViewBag.ClicksCount">
-        <input id="Button1" type="submit" value="Click Me" />
+<form class="mt=0" method="post">
+    <div>
+        <input name="TextBox1" id="TextBox1" type="text" value="@Model.ClicksCount" style="width: 48px;">
+        <input name="Button1" id="Button1" type="submit" value="Click Me" />
     </div>
 </form>

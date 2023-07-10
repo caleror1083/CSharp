@@ -1,28 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace PracticeApp.Controllers
+namespace PracticeApp.Controllers;
+
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    public int ClicksCount { get; set; }
+
+    public void Index()
     {
-        public int ClicksCount { get; set; }
-
-        [HttpGet]
-        public IActionResult Index()
+        if (Request.Method != "POST")
         {
-            if (Request.Method != "POST")
-            {
-                ClicksCount = 0;
-            }
-
-            ViewBag.ClicksCount = ClicksCount;
-            return View();
+            ClicksCount = 0;
         }
+    }
 
-        [HttpPost]
-        public IActionResult Click()
-        {
-            ClicksCount++;
-            return RedirectToAction(nameof(Index));
-        }
+    [HttpPost]
+    public IActionResult Click()
+    {
+        ClicksCount++;
+        return View();
     }
 }
