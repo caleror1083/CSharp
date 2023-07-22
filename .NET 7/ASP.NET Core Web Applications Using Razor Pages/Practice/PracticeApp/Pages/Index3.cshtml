@@ -1,0 +1,12 @@
+﻿@page "/Index3"
+@model Index3Model
+
+@{ViewData["Title"] = "Main";}
+
+<form class="mt=0" method="post">
+    <div>
+        <input type="hidden" asp-for="ClicksCount" />
+        <input name="TextBox1" id="TextBox1" type="text" value="@Model.ClicksCount" style="width: 48px;" />
+        <input name="Button1" id="Button1" type="submit" value="Click Me" />
+    </div>
+</form>

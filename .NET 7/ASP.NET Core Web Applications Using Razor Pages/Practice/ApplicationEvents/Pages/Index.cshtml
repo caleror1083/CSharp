@@ -1,0 +1,11 @@
+﻿@page
+@model IndexModel
+
+@{ ViewData["Title"] = "Main"; }
+
+<form class="mt=0" method="post">
+    <div>
+        <p>Number of Applications: @Model.TotalApplications</p>
+        <p>Number of Users Online: @Model.TotalUserSessions</p>
+    </div>
+</form>
