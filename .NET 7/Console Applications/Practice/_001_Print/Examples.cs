@@ -93,17 +93,10 @@ internal class Examples
 			}
 	}
 
-	private static void Example1()
-	{
-		Console.Write($"Writes a string to the console followed by a newline escape sequence\n");    // alternate way to go to newline
-	}
-
-	private static void Example2()
-	{
-		Console.WriteLine();    // displays blank line, goes to new line
-	}
-
-	private static void Example3()
+    // alternate way to go to newline
+    private static void Example1() => Console.Write($"Writes a string to the console followed by a newline escape sequence\n");
+    private static void Example2() => Console.WriteLine(); // displays blank line, goes to new line
+    private static void Example3()
 	{
 		Console.WriteLine($"Hello, C#");    // a statement
 	}
