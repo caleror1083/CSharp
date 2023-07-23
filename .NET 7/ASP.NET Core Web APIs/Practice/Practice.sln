@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CityInfo.API", "CityInfo.API\CityInfo.API.csproj", "{C2707328-2695-4B92-8F40-758F7ABBEBE4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompanyAPI", "CompanyAPI\CompanyAPI.csproj", "{EE60679D-964E-49E4-B48B-25F9B60D550B}"
 EndProject
 Global
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C2707328-2695-4B92-8F40-758F7ABBEBE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2707328-2695-4B92-8F40-758F7ABBEBE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2707328-2695-4B92-8F40-758F7ABBEBE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2707328-2695-4B92-8F40-758F7ABBEBE4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE60679D-964E-49E4-B48B-25F9B60D550B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE60679D-964E-49E4-B48B-25F9B60D550B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE60679D-964E-49E4-B48B-25F9B60D550B}.Release|Any CPU.ActiveCfg = Release|Any CPU
