@@ -25,9 +25,6 @@ internal class Examples
                     case 2:
                         Example2();
                         break;
-                    case 3:
-                        Example3();
-                        break;
                     default:
                         Console.WriteLine("Your choice is invalid");
                         goto Start;
@@ -58,25 +55,6 @@ internal class Examples
 
     private static void Example1()
     {
-        Console.WriteLine("Getting Connection ...");
-
-        // simplified using statement allows you to declare and initialize a disposable resource in a single line
-        // the resources will be automatically disposed when it goes out of scope.
-        using var results = new CompanyContext();
-
-        try
-        {
-            Console.WriteLine("Opening Connection ...");
-            Console.WriteLine("Connection successful!");
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Error: " + e.Message);
-        }
-    }
-
-    private static void Example2()
-    {
         // Create data for the database
         Console.Write("Enter employee name: ");
         var employeeName = Console.ReadLine();
@@ -90,9 +68,9 @@ internal class Examples
         Console.Write("Enter photo file name: ");
         var photoFileName = Console.ReadLine();
 
-        using var results = new CompanyContext();
+        using var context = new CompanyContext();
         
-        var emp = new Employees
+        var emp = new Employee
         {
             EmployeeName = employeeName.ToString(),
             DepartmentName = department.ToString(),
@@ -100,19 +78,19 @@ internal class Examples
             PhotoFileName = photoFileName.ToString()
         };
 
-        results.Add(emp);
-        results.SaveChanges();
+        context.Add(emp);
+        context.SaveChanges();
     }
 
-    private static void Example3()
+    private static void Example2()
     {
         // Read data from database
-        using var results = new CompanyContext();
-        var select = results.Employees.ToList(); // SELECT * FROM Employees
+        using var context = new CompanyContext();
+        var select = context.Employees.ToList(); // SELECT * FROM Employees
 
         foreach (var employeeObj in select)
         {
-            Console.WriteLine($"{employeeObj.EmployeeId} {employeeObj.EmployeeName} {employeeObj.DepartmentName} {employeeObj.DateofJoining:M/d/yyyy} {employeeObj.PhotoFileName}");
+            Console.WriteLine($"{employeeObj.EmployeeID} {employeeObj.EmployeeName} {employeeObj.DepartmentName} {employeeObj.DateofJoining:M/d/yyyy} {employeeObj.PhotoFileName}");
         }
     }
 }
