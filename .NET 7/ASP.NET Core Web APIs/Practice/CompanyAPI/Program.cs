@@ -1,6 +1,7 @@
 using CompanyAPI.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CompanyAPI;
@@ -13,7 +14,7 @@ internal class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
-        builder.Services.AddDbContext<CompanyContext>(options => options.UseSqlServer("CompanyDbConnection"));
+        builder.Services.AddDbContext<CompanyContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CompanyDbConnection")));
 
         var app = builder.Build();
 
