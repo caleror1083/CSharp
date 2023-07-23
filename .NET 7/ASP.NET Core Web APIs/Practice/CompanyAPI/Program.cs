@@ -1,15 +1,26 @@
+using CompanyAPI.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-var builder = WebApplication.CreateBuilder(args);
+namespace CompanyAPI;
 
-// Add services to the container.
-builder.Services.AddControllers();
+internal class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
+        // Add services to the container.
+        builder.Services.AddControllers();
+        builder.Services.AddDbContext<CompanyContext>(options => options.UseSqlServer("CompanyDbConnection"));
 
-// Configure the HTTP request pipeline.
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
-app.Run();
+        var app = builder.Build();
+
+        // Configure the HTTP request pipeline.
+        app.UseHttpsRedirection();
+        app.UseAuthorization();
+        app.MapControllers();
+        app.Run();
+    }
+}
