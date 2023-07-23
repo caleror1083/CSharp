@@ -33,8 +33,7 @@ public partial class CompanyContext : DbContext
 			entity.Property(e => e.DepartmentName).HasMaxLength(500);
 			entity.Property(e => e.DateofJoining).HasColumnType("date");
 			entity.Property(e => e.PhotoFileName).HasMaxLength(500);
-            entity.Property(e => e.DepartmentID);
-            entity.Property(e => e.SSN).HasMaxLength(50);
+
 		});
 		OnModelCreatingPartial(modelBuilder);
 	}
