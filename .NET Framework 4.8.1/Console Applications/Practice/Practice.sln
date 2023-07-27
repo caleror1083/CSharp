@@ -41,8 +41,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateTimeInp", "DateTimeInp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_033_ExceptionHandling", "_033_ExceptionHandling\_033_ExceptionHandling.csproj", "{86CE4C3E-D7F8-43D6-9BE1-D99E1AE82E73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_004_BooleanDataType", "_004_BooleanDataType\_004_BooleanDataType.csproj", "{A0649591-DEE7-41EE-96EC-205E55206813}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_005_CharacterDataType", "_005_CharacterDataType\_005_CharacterDataType.csproj", "{7EFFBE99-71FE-4D74-B623-AE3E2E7C6613}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_006_FloatDataType", "_006_FloatDataType\_006_FloatDataType.csproj", "{6DFBAF6D-B9DD-4EEF-B054-A4A09D9D825D}"
@@ -195,10 +193,6 @@ Global
 		{86CE4C3E-D7F8-43D6-9BE1-D99E1AE82E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86CE4C3E-D7F8-43D6-9BE1-D99E1AE82E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86CE4C3E-D7F8-43D6-9BE1-D99E1AE82E73}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0649591-DEE7-41EE-96EC-205E55206813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0649591-DEE7-41EE-96EC-205E55206813}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0649591-DEE7-41EE-96EC-205E55206813}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0649591-DEE7-41EE-96EC-205E55206813}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7EFFBE99-71FE-4D74-B623-AE3E2E7C6613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7EFFBE99-71FE-4D74-B623-AE3E2E7C6613}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EFFBE99-71FE-4D74-B623-AE3E2E7C6613}.Release|Any CPU.ActiveCfg = Release|Any CPU
