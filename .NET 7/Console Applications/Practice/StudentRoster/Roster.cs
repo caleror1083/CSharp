@@ -1,9 +1,8 @@
-﻿// Robert Calero - App displaying a roster of students in a given class
-using System;
+﻿using System;
 
 // Namespace
-namespace StudentRoster
-	{
+namespace StudentRoster;
+	
 		// Classes
 		class Roster
 			{
@@ -31,7 +30,7 @@ namespace StudentRoster
 									}
 								Console.WriteLine();
 							}
-                        Console.ReadKey();
+                    Console.ReadKey();
 					}
 
 				static void Add()
@@ -57,4 +56,4 @@ namespace StudentRoster
 					{
 					}
 			}
-	}
+	
