@@ -15,11 +15,11 @@ namespace StudentRoster
 				public void RunRoster()
 					{
 						object[,] studentData = {
-													{ "A1", "John",   "Smith",    "John1989@gm ail.com",    20, 30, 35, 40, (int)EnumDegree.SECURITY },
-												    { "A2", "Suzan",  "Erickson", "Erickson_1990@gmailcom", 19, 50, 30, 40, (int)EnumDegree.NETWORK },
-												    { "A3", "Jack",   "Napoli",   "The_lawyer99yahoo.com",  19, 20, 40, 33, (int)EnumDegree.SOFTWARE },
-												    { "A4", "Erin",   "Black",    "Erin.black@comcast.net", 22, 50, 58, 40, (int)EnumDegree.SECURITY },
-												    { "A5", "Robert", "Calero",   "rcalero@wgu.edu",        36, 15, 20, 25, (int)EnumDegree.SOFTWARE }
+													{ "A1", "John",   "Smith",    "John1989@gm ail.com",    20, 30, 35, 40, (int)Degree.SECURITY },
+												    { "A2", "Suzan",  "Erickson", "Erickson_1990@gmailcom", 19, 50, 30, 40, (int)Degree.NETWORK },
+												    { "A3", "Jack",   "Napoli",   "The_lawyer99yahoo.com",  19, 20, 40, 33, (int)Degree.SOFTWARE },
+												    { "A4", "Erin",   "Black",    "Erin.black@comcast.net", 22, 50, 58, 40, (int)Degree.SECURITY },
+												    { "A5", "Robert", "Calero",   "rcalero@wgu.edu",        36, 15, 20, 25, (int)Degree.SOFTWARE }
 												};
 						
 						
