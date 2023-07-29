@@ -86,13 +86,7 @@ public class Student
 
 	public virtual void Print()
 	{
-		// Console.WriteLine($"Student ID: {StudentId}\t" + $"First Name: {FirstName}\t" + )
-		Console.WriteLine($"Student ID: {StudentId} \t");
-		Console.WriteLine($"First Name: {FirstName} \t");
-		Console.WriteLine($"Last Name: {LastName} \t");
-		Console.WriteLine($"Age: {Age} \t");
-		Console.WriteLine($"Days In Course: {{{DaysToComplete[0]}, {DaysToComplete[1]}, {DaysToComplete[2]}}}\t");
-		Console.WriteLine($"Degree Program: {DegreeString(Degree)}");
+		Console.WriteLine($"Student ID: {StudentId} \tFirst Name: {FirstName} \tLast Name: {LastName} \tAge: {Age} \tDays In Course: {{{DaysToComplete[0]}, {DaysToComplete[1]}, {DaysToComplete[2]}}}\tDegree Program: {DegreeString(Degree)}");
 	}
 
 	private static string DegreeString(Degree degree)
