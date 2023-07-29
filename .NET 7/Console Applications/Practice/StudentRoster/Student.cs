@@ -1,18 +1,15 @@
-﻿// Robert Calero - App displaying a roster of students in a given class
-using System;
+﻿using System;
 
 namespace StudentRoster;
 
 public class Student
 {
-	// Fields
 	protected string studentId, firstName, lastName, emailAddress;
 	protected int age;
 	protected int[] daysToComplete;
 	protected Degree degree;
 	public const int daysInCourseArraySize = 3;
 
-	// Properties
 	public string StudentId
 	{
 		get { return studentId; }
@@ -25,7 +22,36 @@ public class Student
 		set { firstName = value; }
 	}
 
-	// Constructors
+	public string LastName
+	{
+		get { return lastName; }
+		set { lastName = value; }
+	}
+
+	public string EmailAddress
+	{
+		get { return emailAddress; }
+		set { emailAddress = value; }
+	}
+
+	public int Age
+	{
+		get { return age; }
+		set { age = value; }
+	}
+
+	public int[] DaysToComplete
+	{
+		get { return daysToComplete; }
+		set { daysToComplete = value; }
+	}
+
+	public virtual Degree Degree
+	{
+		get { return degree; }
+		set { degree = value; }
+	}
+
 	public Student()
 	{
 		studentId = "";
@@ -42,50 +68,45 @@ public class Student
 	}
 
 	public Student(string studentId, string firstName, string lastName, string emailAddress, int age, int[] daysToComplete, Degree degree)
+	{
+		this.studentId = studentId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailAddress = emailAddress;
+		this.age = age;
+
+		this.daysToComplete = new int[daysInCourseArraySize];
+		for (int i = 0; i < daysInCourseArraySize; i++)
 		{
-			this.studentId = studentId;
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.emailAddress = emailAddress;
-			this.age = age;
-
-			this.daysToComplete = new int[daysInCourseArraySize];
-			for (int i = 0; i < daysInCourseArraySize; i++)
-			{
-				this.daysToComplete[i] = daysToComplete[i];
-			}
-
-			this.degree = degree;
+			this.daysToComplete[i] = daysToComplete[i];
 		}
 
-	// Methods
+		this.degree = degree;
+	}
+
 	public virtual void Print()
+	{
+		// Console.WriteLine($"Student ID: {StudentId}\t" + $"First Name: {FirstName}\t" + )
+		Console.WriteLine($"Student ID: {StudentId} \t");
+		Console.WriteLine($"First Name: {FirstName} \t");
+		Console.WriteLine($"Last Name: {LastName} \t");
+		Console.WriteLine($"Age: {Age} \t");
+		Console.WriteLine($"Days In Course: {{{DaysToComplete[0]}, {DaysToComplete[1]}, {DaysToComplete[2]}}}\t");
+		Console.WriteLine($"Degree Program: {DegreeString(Degree)}");
+	}
+
+	private static string DegreeString(Degree degree)
+	{
+		switch (degree)
 		{
-			Console.WriteLine($"Student ID: {StudentID} \t");
-			Console.WriteLine($"First Name: {FirstName} \t");
-			Console.WriteLine($"Last Name: {LastName} \t");
-			Console.WriteLine($"Age: {Age} \t");
-
-			int days = DaysToComplete;
-			Console.WriteLine($"Days In Course: {(int)days}, {(int)days}, {(int)days} \t");
-
-			string degreeString = "";
-			switch (Degree)
-				{
-					case (int)Degree.NETWORK:
-						degreeString = "Network";
-						break;
-					case (int)Degree.SECURITY:
-						degreeString = "Security";
-						break;
-					case (int)Degree.SOFTWARE:
-						degreeString = "Software";
-						break;
-				}
-			Console.WriteLine($"Degree Program: {degreeString}");
+			case Degree.NETWORK:
+				return "NETWORK";
+			case Degree.SECURITY:
+				return "SECURITY";
+			case Degree.SOFTWARE:
+				return "SOFTWARE";
+			default:
+				return "UNKNOWN";
 		}
-
-	~Student()    // Destructor used to cleanup and resources that the class was holding on to
-		{
-		}
+	}
 }
