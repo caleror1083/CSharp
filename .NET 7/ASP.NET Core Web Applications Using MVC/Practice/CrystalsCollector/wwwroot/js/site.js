@@ -66,7 +66,7 @@
         }
 
         // when user loses, update losses, update message, reset random number and gem values
-        else if (yourScoreIs > randomNumber) {
+        if (yourScoreIs > randomNumber) {
             losses++;
             $("#losses").html("Losses: " + losses);
             $("#message").html("YOU LOSE!");
@@ -99,8 +99,14 @@
 
     // reset game stats, when the user clicks on the reset button, reset all game stats
     $("#reset").on("click", function () {
-        $("#wins").html("Wins: " + (wins = 0)).add("#losses").html("Losses: " + (losses = 0)).add("#yourScore").html(yourScoreIs = 0).add("#message").html("");
-        randomNumberGenerator();
-        randomGemValuesGenerator();
+			wins = 0;
+			losses = 0;
+			yourScoreIs = 0;
+			$("#wins").html("Wins: " + 0);
+			$("#losses").html("Losses: " + 0);
+			$("#yourScore").html(yourScoreIs);
+			$("#message").html();
+			randomNumberGenerator();
+			randomGemValuesGenerator();
     });
 });
