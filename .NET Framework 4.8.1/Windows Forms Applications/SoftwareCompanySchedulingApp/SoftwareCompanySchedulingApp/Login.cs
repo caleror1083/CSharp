@@ -50,7 +50,7 @@ namespace SoftwareCompanySchedulingApp
 								else
 									{
 										return false;
-									}								
+									}
 							}
 					}
 

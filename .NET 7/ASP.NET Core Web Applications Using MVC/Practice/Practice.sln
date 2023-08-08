@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "EmployeeManagement\EmployeeManagement.csproj", "{D79F5234-5F8A-4F4E-B946-15066EA6CFB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeApp", "PracticeApp\PracticeApp.csproj", "{FBAAF7EF-0144-4750-8944-3B31413F642C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticeApp", "PracticeApp\PracticeApp.csproj", "{FBAAF7EF-0144-4750-8944-3B31413F642C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalsCollector", "CrystalsCollector\CrystalsCollector.csproj", "{FE89C88D-1874-470C-A004-DBD6F5528DDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FBAAF7EF-0144-4750-8944-3B31413F642C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBAAF7EF-0144-4750-8944-3B31413F642C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBAAF7EF-0144-4750-8944-3B31413F642C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE89C88D-1874-470C-A004-DBD6F5528DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE89C88D-1874-470C-A004-DBD6F5528DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE89C88D-1874-470C-A004-DBD6F5528DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE89C88D-1874-470C-A004-DBD6F5528DDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

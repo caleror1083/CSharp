@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.CookbookDataSet = new Cookbook.CookbookDataSet();
 			this.RecipesLabel = new System.Windows.Forms.Label();
 			this.RecipesListbox = new System.Windows.Forms.ListBox();
 			this.IngredientsListbox = new System.Windows.Forms.ListBox();
@@ -39,13 +38,7 @@
 			this.CounterIngredientsListbox = new System.Windows.Forms.ListBox();
 			this.CounterIngredientsLabel = new System.Windows.Forms.Label();
 			this.AddIngredientButton = new System.Windows.Forms.Button();
-			((System.ComponentModel.ISupportInitialize)(this.CookbookDataSet)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// CookbookDataSet
-			// 
-			this.CookbookDataSet.DataSetName = "CookbookDataSet";
-			this.CookbookDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// RecipesLabel
 			// 
@@ -155,7 +148,6 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Cookbook";
 			this.Load += new System.EventHandler(this.MainForm_Load);
-			((System.ComponentModel.ISupportInitialize)(this.CookbookDataSet)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -163,7 +155,6 @@
 
 		#endregion
 
-		private CookbookDataSet CookbookDataSet;
 		private System.Windows.Forms.Label RecipesLabel;
 		private System.Windows.Forms.ListBox RecipesListbox;
 		private System.Windows.Forms.ListBox IngredientsListbox;
