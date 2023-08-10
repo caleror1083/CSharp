@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PracticeApp", "PracticeApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "EmployeeManagement\EmployeeManagement.csproj", "{91DB99FC-1550-413C-90E3-07B38475CCE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationEvents", "ApplicationEvents\ApplicationEvents.csproj", "{4603FF6A-C985-4E6D-9485-C0DDB88CA9FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationEvents", "ApplicationEvents\ApplicationEvents.csproj", "{4603FF6A-C985-4E6D-9485-C0DDB88CA9FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalsCollector", "CrystalsCollector\CrystalsCollector.csproj", "{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{4603FF6A-C985-4E6D-9485-C0DDB88CA9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4603FF6A-C985-4E6D-9485-C0DDB88CA9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4603FF6A-C985-4E6D-9485-C0DDB88CA9FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

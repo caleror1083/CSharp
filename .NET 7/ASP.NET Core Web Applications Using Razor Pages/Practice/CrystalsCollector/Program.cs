@@ -10,7 +10,7 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        builder.Services.AddControllersWithViews();
+        builder.Services.AddRazorPages();
 
         var app = builder.Build();
 
@@ -19,7 +19,7 @@ public class Program
         app.UseStaticFiles();
         app.UseRouting();
         app.UseAuthorization();
-        app.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+        app.MapRazorPages();
         app.Run();
     }
 }

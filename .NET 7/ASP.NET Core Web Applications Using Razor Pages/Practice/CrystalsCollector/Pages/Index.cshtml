@@ -1,0 +1,61 @@
+﻿@page
+@model IndexModel
+
+<div class="jumbo" id="hero">
+  <div class="container">
+    <h1>Crystals Container Game</h1>
+    <p>Match the number by clicking on one of the crystals. Do not go over the amount or it's GAME OVER!</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" id="rndmNumbCol">
+      <h2>Random Number</h2>
+      <p id="randomNumberId">###</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" id="buttnsCol">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+          <img src="images/crystal01.svg" alt="Green Diamond" id="greenGem" />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+          <img src="images/crystal02.svg" alt="Red Diamond" id="redGem" />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+          <img src="images/crystal03.svg" alt="Yellow Diamond" id="yellowGem" />
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+          <img src="images/crystal04.svg" alt="Purple Diamond" id="purpleGem" />
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3" id="scoreCol">
+      <h2>Your score is:</h2>
+      <p id="yourScore">0</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3 id="message"></h3>
+    </div>
+  </div>
+
+  <div class="row" id="gameStats">
+    <div class="col-md-6">
+      <h2 id="wins">Wins: 0</h2>
+    </div>
+    <div class="col-md-6">
+      <h2 id="losses">Losses: 0</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12" id="resetCol">
+      <button type="button" class="btn btn-default btn-lg" id="reset">RESET GAME</button>
+    </div>
+  </div>
+</div>
