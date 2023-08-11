@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeManagement", "Emplo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApplicationEvents", "ApplicationEvents\ApplicationEvents.csproj", "{4603FF6A-C985-4E6D-9485-C0DDB88CA9FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalsCollector", "CrystalsCollector\CrystalsCollector.csproj", "{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrystalsCollector", "CrystalsCollector\CrystalsCollector.csproj", "{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snake", "Snake\Snake.csproj", "{7EE5FE9E-CFEC-49C9-B6AE-B53AA3F903AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC4AF643-7FE1-4C95-A359-9E3144B5A8D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EE5FE9E-CFEC-49C9-B6AE-B53AA3F903AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EE5FE9E-CFEC-49C9-B6AE-B53AA3F903AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EE5FE9E-CFEC-49C9-B6AE-B53AA3F903AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EE5FE9E-CFEC-49C9-B6AE-B53AA3F903AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
