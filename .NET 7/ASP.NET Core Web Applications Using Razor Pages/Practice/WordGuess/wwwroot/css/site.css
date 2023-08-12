@@ -1,0 +1,17 @@
+body {
+  background-image: url(../images/blackMarble.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh; /* 100% of the viewport height */
+  color: #FFFFFF;
+  display: flex;
+}
+
+.container {
+  margin: auto;
+  text-align: center;
+}
+
+#currentWord {
+  letter-spacing: 10px;
+}
