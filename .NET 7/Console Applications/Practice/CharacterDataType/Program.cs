@@ -1,4 +1,5 @@
-﻿namespace _051_DatabaseFirstEFCore;
+﻿// Robert Calero - App displaying character data type
+namespace CharacterDataType;
 
 internal class Program
 {

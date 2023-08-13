@@ -21,7 +21,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_002_StringDataType", "_002
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_003_IntegerDataType", "_003_IntegerDataType\_003_IntegerDataType.csproj", "{9295DF35-A0F6-4CD0-95DF-387E98ACF5C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooleanDataType", "BooleanDataType\BooleanDataType.csproj", "{5A3244E2-0854-44EC-9EE0-766A34B38D54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooleanDataType", "BooleanDataType\BooleanDataType.csproj", "{5A3244E2-0854-44EC-9EE0-766A34B38D54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterDataType", "CharacterDataType\CharacterDataType.csproj", "{80560726-C2A8-4B64-841B-9E9B8E88F2CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{5A3244E2-0854-44EC-9EE0-766A34B38D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A3244E2-0854-44EC-9EE0-766A34B38D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A3244E2-0854-44EC-9EE0-766A34B38D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80560726-C2A8-4B64-841B-9E9B8E88F2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80560726-C2A8-4B64-841B-9E9B8E88F2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80560726-C2A8-4B64-841B-9E9B8E88F2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80560726-C2A8-4B64-841B-9E9B8E88F2CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
