@@ -1,14 +1,14 @@
-﻿using System.Windows.Forms;
+﻿// Robert Calero - App displays cookbook recipes
+using System.Windows.Forms;
 
-namespace Cookbook
+namespace Cookbook;
+
+internal static class Program
+{
+	private static void Main()
 	{
-		internal static class Program
-			{
-				static void Main()
-					{
-						Application.EnableVisualStyles();
-						Application.SetCompatibleTextRenderingDefault(false);
-						Application.Run(new MainForm());
-					}
-			}
+		Application.EnableVisualStyles();
+		Application.SetCompatibleTextRenderingDefault(false);
+		Application.Run(new MainForm());
 	}
+}
