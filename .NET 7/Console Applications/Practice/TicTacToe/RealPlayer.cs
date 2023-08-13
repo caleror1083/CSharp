@@ -1,4 +1,7 @@
-﻿// Robert Calero - App displaying Tic Tac Toe Game
+﻿using System;
+
+namespace TicTacToe;
+
 class RealPlayer : IPlayer
 	{
 		public string? player;	

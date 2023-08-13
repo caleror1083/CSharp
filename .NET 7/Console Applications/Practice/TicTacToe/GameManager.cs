@@ -1,4 +1,7 @@
-﻿// Robert Calero - App displaying Tic Tac Toe Game
+﻿using System;
+
+namespace TicTacToe;
+
 class GameManager
 	{
 		public static void PlayGame(string[,] argTicTacToeBoard, IPlayer argPlayer1, IPlayer argPlayer2)

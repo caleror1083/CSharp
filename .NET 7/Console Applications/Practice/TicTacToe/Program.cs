@@ -1,4 +1,5 @@
 ﻿// Robert Calero - App displaying Tic Tac Toe Game
+namespace TicTacToe;
 
 class Program    // Class declaration
 	{

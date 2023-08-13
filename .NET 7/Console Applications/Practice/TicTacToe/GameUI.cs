@@ -1,5 +1,8 @@
-﻿// Robert Calero - App displaying Tic Tac Toe Game
-class GameUI
+﻿using System;
+
+namespace TicTacToe;
+
+internal class GameUI
 	{
 		public static void GameBoard()
 			{

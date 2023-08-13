@@ -1,6 +1,7 @@
-﻿// Namespaces
-namespace _003_IntegerDataType
-	{
+﻿using System;
+
+namespace _003_IntegerDataType;
+	
 		// Classes
 		class Examples
 			{
@@ -264,7 +265,7 @@ namespace _003_IntegerDataType
 
 				static void Example17()
 					{
-						Random numbers = new Random();
+						var numbers = new Random();
 						Console.WriteLine($"Random integers between 1 to 10: {numbers.Next(1, 11)}"); // Returns random integers between 1 and 10
 					}
 
@@ -342,7 +343,7 @@ namespace _003_IntegerDataType
 						// If you want to cast from one type to another
 						long num10 = 1234;
 						int num20 = (int)num10;
- 
+
 						Console.WriteLine("Orig : {0} Cast : {1}", num10.GetType(), num20.GetType());
 						Console.WriteLine("");
 					}
@@ -451,4 +452,4 @@ namespace _003_IntegerDataType
 						Console.WriteLine($"{hexadecimalVar}");
 					}
 			}
-	}
+	

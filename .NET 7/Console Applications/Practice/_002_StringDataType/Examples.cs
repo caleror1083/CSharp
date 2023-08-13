@@ -1,6 +1,7 @@
-﻿// Namespaces
-namespace _002_StringDataType
-	{
+﻿using System;
+
+namespace _002_StringDataType;
+	
 		// Classes
 		internal class Examples
 			{
@@ -209,9 +210,9 @@ namespace _002_StringDataType
 				static void Example9()
 					{
 						Console.Write($"What is your name? ");
-						string name = Console.ReadLine();
+						var name = Console.ReadLine();
 
-						Console.WriteLine($"Is the letter o in my name? {name.Contains("o")}");    // Returns true or false if the string parameter is in the current string
+						Console.WriteLine($"Is the letter o in my name? {name.Contains('o')}");    // Returns true or false if the string parameter is in the current string
 					}
 
 				static void Example10()
@@ -282,7 +283,7 @@ namespace _002_StringDataType
 					{
 						Console.Write($"What is your name? ");
 						string name = Console.ReadLine();
- 
+
 						Console.WriteLine($"Your name with letters removed is: {name.Remove(0, 2)}"); // Returns a new string in which 2 characters from the entered string were removed starting from a specific index position
 					}
 
@@ -377,9 +378,9 @@ namespace _002_StringDataType
 				static void Example27()
 					{
 						/* Declare two string variables and assign them with following value:
-                         * 'The "use" of quotations causes difficulties.'
-                         * Do the above in two different ways: with and without using quoted strings.
-                         * Print the variables to ensure that their value was correctly defined.*/
+                     * 'The "use" of quotations causes difficulties.'
+                     * Do the above in two different ways: with and without using quoted strings.
+                     * Print the variables to ensure that their value was correctly defined.*/
 
 						string firstString = "The \"use\" of quotations cause difficulties.";
 						string secondString = @"The ""use"" of quotations causes difficulties.";
@@ -391,7 +392,7 @@ namespace _002_StringDataType
 				static void Example28()
 					{
 						/* A marketing company wants to keep record of its employees. Each record would have the following characteristics:
-                         * •	First name
+                     * •	First name
 						 * •	Last name
 						 * •	Age (0...100)
 						 * •	Gender (m or f)
@@ -407,7 +408,7 @@ namespace _002_StringDataType
 						char gender = 'm';
 						string personalIDNumber = "8306112507";
 						string uniqueEmployeeNumber = "27564281";
-        
+    
 						Console.WriteLine($"First Name: {firstName}\nLastName: {lastName}\nAge: {age}\nGender: {gender}\nPersonal ID Number: {personalIDNumber}\nUnique Employee Number: {uniqueEmployeeNumber}");
 					}
 
@@ -439,7 +440,7 @@ namespace _002_StringDataType
 						string name = "Robert Calero";
 						int charPosition = name.IndexOf("C");
 
-						Console.WriteLine(name.Substring(charPosition));    // returns the characters from name starting from the index of charPosition
+						Console.WriteLine(name[charPosition..]);    // returns the characters from name starting from the index of charPosition
 					}
 			}
-	}
+	

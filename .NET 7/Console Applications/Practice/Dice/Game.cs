@@ -1,4 +1,7 @@
-﻿namespace Dice;
+﻿using System;
+using System.Threading;
+
+namespace Dice;
 
 internal class Game
 {
