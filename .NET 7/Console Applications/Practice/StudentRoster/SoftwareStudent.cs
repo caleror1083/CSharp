@@ -1,5 +1,5 @@
 ﻿namespace StudentRoster;
-	
+
 public class SoftwareStudent : Student
 {
     private new Degree degree = Degree.SOFTWARE;

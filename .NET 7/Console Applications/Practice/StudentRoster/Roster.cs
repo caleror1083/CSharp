@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace StudentRoster;
 
@@ -8,14 +6,6 @@ public class Roster
 {
     private const int NUMBER_OF_STUDENTS = 5;
     public Student[] classRosterArray = new Student[NUMBER_OF_STUDENTS];
-
-    public static void PrintHeaders()
-    {
-        Console.WriteLine("C867 Scripting and Programming Applications");
-        Console.WriteLine("Programming language used: C#");
-        Console.WriteLine("Student ID: 000998416, Robert Calero");
-        Console.WriteLine();
-    }
 
     public static void ProcessRoster()
     {

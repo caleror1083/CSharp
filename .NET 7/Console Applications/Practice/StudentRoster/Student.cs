@@ -2,6 +2,7 @@
 
 namespace StudentRoster;
 
+// this is the stundent base class
 public class Student
 {
 	protected string studentId, firstName, lastName, emailAddress;
@@ -94,13 +95,21 @@ public class Student
 		switch (degree)
 		{
 			case Degree.NETWORK:
+            {
 				return "NETWORK";
+            }
 			case Degree.SECURITY:
+            {
 				return "SECURITY";
+            }
 			case Degree.SOFTWARE:
+            {
 				return "SOFTWARE";
+            }
 			default:
+            {
 				return "UNKNOWN";
+            }
 		}
 	}
 }
