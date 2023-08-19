@@ -10,6 +10,6 @@ internal static class Program
     private static void Main()
     {
         ApplicationConfiguration.Initialize();
-        Application.Run();
+        Application.Run(new Login());
     }
 }
