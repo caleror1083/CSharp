@@ -1,17 +1,15 @@
-namespace SoftwareCompanyScheduling
+/* C969 Software II - Advanced C#
+   Robert Calero
+   Student ID: 000998416
+*/
+
+namespace SoftwareCompanyScheduling;
+
+internal static class Program
 {
-    internal static class Program
+    private static void Main()
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
-        }
+        ApplicationConfiguration.Initialize();
+        Application.Run();
     }
 }
