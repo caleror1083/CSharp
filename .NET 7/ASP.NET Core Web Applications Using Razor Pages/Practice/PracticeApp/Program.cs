@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -7,26 +8,29 @@ namespace PracticeApp;
 
 public class Program
 {
-	public static void Main(string[] args)
-	{
-		var builder = WebApplication.CreateBuilder(args);
+  public static void Main(string[] args)
+  {
+    var builder = WebApplication.CreateBuilder(args);
 
-		// Add services to the container.
-		builder.Services.AddRazorPages();
+    // Add services to the container.
+    builder.Services.AddRazorPages();
 
-		var app = builder.Build();
+    // Set Secure attribute
+    builder.Services.AddAntiforgery(options => options.Cookie.SecurePolicy = CookieSecurePolicy.Always);
 
-		// Configure the HTTP request pipeline.
-		if (!app.Environment.IsDevelopment())
-		{
-			app.UseHsts();
-		}
+    var app = builder.Build();
 
-		app.UseHttpsRedirection();
-		app.UseStaticFiles();
-		app.UseRouting();
-		app.UseAuthorization();
-		app.MapRazorPages();
-		app.Run();
-	}
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
+    {
+      app.UseHsts();
+    }
+
+    app.UseHttpsRedirection();
+    app.UseStaticFiles();
+    app.UseRouting();
+    app.UseAuthorization();
+    app.MapRazorPages();
+    app.Run();
+  }
 }
