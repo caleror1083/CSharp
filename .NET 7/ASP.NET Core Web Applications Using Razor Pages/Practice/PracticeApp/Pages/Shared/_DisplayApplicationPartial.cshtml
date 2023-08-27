@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Models.ExemptionApplication>
+@if (Model.Count() > 0)
+{
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th class="row-data" colspan="3">Exemption Applications</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="category-data">@Html.DisplayNameFor(m => m.YearId)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+}
+else
+{
+  <div>
+    <p>No exemption applications found.</p>
+  </div>
+}
