@@ -1,40 +1,34 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System.Runtime.Versioning;
+using System.Security.Principal;
 
-namespace EmployeeManagement
-	{
-		public class Program
-			{
-				public static void Main(string[] args)
-					{
-						WebApplicationBuilder builder;
-						WebApplication app;
-						
-						builder = WebApplication.CreateBuilder(args);
+namespace EmployeeManagement;
 
-						// Add services to the container.
-						builder.Services.AddRazorPages();
+public class Program
+{
+    [SupportedOSPlatform("Windows")]
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
 
-						app = builder.Build();
+        // Add services to the container.
+        builder.Services.AddRazorPages();
 
-						// Configure the HTTP request pipeline.
-						if (!app.Environment.IsDevelopment())
-							{
-								app.UseExceptionHandler("/Error");
-								app.UseHsts();
-							}
+        var app = builder.Build();
 
-						app.UseHttpsRedirection();
-						app.UseStaticFiles();
+        // Configure the HTTP request pipeline.
+        // Create a logger factory and configure it, add Eventlog logger provider
+        var loggerFactory = LoggerFactory.Create(builder => { builder.AddEventLog(); });
 
-						app.UseRouting();
+        // Create a logger instance
+        var logger = loggerFactory.CreateLogger<Program>();
 
-						app.UseAuthorization();
+        // Writes a string to the application event logbefore the application starts
+        logger.LogInformation($"User trying to authenticate: {WindowsIdentity.GetCurrent().Name}");
 
-						app.MapRazorPages();
-
-						app.Run();
-					}
-			}
-	}
+        app.MapRazorPages();
+        app.Run();
+    }
+}
