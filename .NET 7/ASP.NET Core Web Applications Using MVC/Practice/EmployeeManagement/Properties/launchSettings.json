@@ -1,18 +1,8 @@
 ﻿{
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:58357",
-      "sslPort": 44387
-    }
-  },
   "profiles": {
-    "EmployeeManagement": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
+    "IIS": {
+      "commandName": "IIS",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7266;http://localhost:5266",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -23,6 +13,27 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "EmployeeManagement": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7266;http://localhost:5266"
+    }
+  },
+    "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iis": {
+    "applicationUrl": "https://localhost/EmployeeManagementMVC",
+    "sslPort": 0
+    },
+    "iisExpress": {
+      "applicationUrl": "http://localhost:58357",
+      "sslPort": 44387
     }
   }
 }

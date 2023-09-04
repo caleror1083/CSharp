@@ -1,15 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
 using System.Runtime.Versioning;
 using System.Security.Principal;
 using System.Text;
 
-namespace EmployeeManagement.Pages;
+namespace EmployeeManagement.Controllers;
 
-public class IndexModel : PageModel
+public class HomeController : Controller
 {
-    public IActionResult OnGet()
+    [HttpGet]
+    public IActionResult Index()
     {
         return new JsonResult(new
         {
