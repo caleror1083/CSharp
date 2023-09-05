@@ -1,20 +1,29 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EmployeeManagement.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Diagnostics;
-using System.Runtime.Versioning;
-using System.Security.Principal;
-using System.Text;
 
 namespace EmployeeManagement.Pages;
 
 public class IndexModel : PageModel
 {
+    private readonly IEmployeeRepository _EmployeeRepository;
+
+    public IndexModel(IEmployeeRepository employeeRepository)
+    {
+        _EmployeeRepository = employeeRepository;
+    }
+
     public IActionResult OnGet()
     {
-        return new JsonResult(new
-        {
-            id = 1,
-            name = "Pragim"
-        });
+        var name = _EmployeeRepository.GetEmployee(1).Name;
+
+        return Content(name);
+    }
+
+    public IActionResult OnGetDetails()
+    {
+        var model = _EmployeeRepository.GetEmployee(1);
+
+        return new ObjectResult(model);
     }
 }

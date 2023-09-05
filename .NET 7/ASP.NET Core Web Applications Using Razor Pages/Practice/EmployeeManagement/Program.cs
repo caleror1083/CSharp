@@ -1,3 +1,4 @@
+using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,6 +23,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddRazorPages();
+        builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
 
         var app = builder.Build();
 
@@ -44,7 +46,6 @@ public class Program
         // Writes a string to the application event log before the application starts
         var userName = WindowsIdentity.GetCurrent().Name;
         logger.LogInformation("User trying to authenticate: {userName}", userName);
-
         app.MapRazorPages();
         app.Run();
     }

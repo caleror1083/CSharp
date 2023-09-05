@@ -1,3 +1,4 @@
+using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,6 +23,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
+        builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
 
         var app = builder.Build();
 
@@ -45,6 +47,7 @@ public class Program
         var userName = WindowsIdentity.GetCurrent().Name;
         logger.LogInformation("User trying to authenticate: {userName}", userName);
 
+        app.MapDefaultControllerRoute();
         app.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
         app.Run();
     }

@@ -1,20 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using System.Runtime.Versioning;
-using System.Security.Principal;
-using System.Text;
+﻿using EmployeeManagement.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers;
 
 public class HomeController : Controller
 {
-    [HttpGet]
+    private readonly IEmployeeRepository _EmployeeRepository;
+
+    public HomeController(IEmployeeRepository employeeRepository)
+    {
+        _EmployeeRepository = employeeRepository;
+    }
+
     public IActionResult Index()
     {
-        return new JsonResult(new
-        {
-            id = 1,
-            name = "Pragim"
-        });
+        var name = _EmployeeRepository.GetEmployee(1).Name;
+
+        return Content(name);
+    }
+
+    public IActionResult Details()
+    {
+        var model = _EmployeeRepository.GetEmployee(1);
+
+        return new JsonResult(model);
     }
 }
