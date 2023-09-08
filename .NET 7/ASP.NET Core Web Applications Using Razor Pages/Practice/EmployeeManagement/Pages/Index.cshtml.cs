@@ -19,11 +19,4 @@ public class IndexModel : PageModel
 
         return Content(name);
     }
-
-    public IActionResult OnGetDetails()
-    {
-        var model = _EmployeeRepository.GetEmployee(1);
-
-        return new ObjectResult(model);
-    }
 }

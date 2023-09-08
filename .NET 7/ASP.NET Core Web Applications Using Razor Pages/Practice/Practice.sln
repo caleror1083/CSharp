@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrystalsCollector", "Crysta
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snake", "Snake\Snake.csproj", "{7EE5FE9E-CFEC-49C9-B6AE-B53AA3F903AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordGuess", "WordGuess\WordGuess.csproj", "{60E6F725-7C4D-4EC5-90F2-FC9D0A134DF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordGuess", "WordGuess\WordGuess.csproj", "{60E6F725-7C4D-4EC5-90F2-FC9D0A134DF9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
