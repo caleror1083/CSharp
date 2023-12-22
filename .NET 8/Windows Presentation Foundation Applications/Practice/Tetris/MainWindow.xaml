@@ -3,27 +3,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Tetris"
         mc:Ignorable="d"
-        Title="Tetris" Height="600" Width="800"  
-		MinWidth="600" MinHeight="600"
+        Title="Tetris"
+        Height="600"
+        Width="800"  
+		MinWidth="600"
+        MinHeight="600"
 		Foreground="White"
-		FontFamily="Segoe UI Light" FontSize="28"
+		FontFamily="Segoe UI Light"
+        FontSize="28"
 		KeyDown="Window_KeyDown">
 	<Grid>
 		<Grid.RowDefinitions>
-			<RowDefinition Height="auto"/>  <!-- The height of the top row is set to auto -->
-			<RowDefinition Height="*"/>  <!-- The other row will use the remaining height -->
+			<RowDefinition Height="auto" />  <!-- The height of the top row is set to auto -->
+			<RowDefinition Height="*" />  <!-- The other row will use the remaining height -->
 		</Grid.RowDefinitions>
 
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition Width="*"/>
-			<ColumnDefinition Width="auto"/>  <!-- The middle column is set to auto -->
-			<ColumnDefinition Width="*"/>  <!-- The remaining width is shared by the other two columns -->
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="auto" />  <!-- The middle column is set to auto -->
+			<ColumnDefinition Width="*" />  <!-- The remaining width is shared by the other two columns -->
 		</Grid.ColumnDefinitions>
 
 		<Grid.Background>
-			<ImageBrush ImageSource="assets/images/Background.png"/>
+			<ImageBrush ImageSource="assets/images/Background.png" />
 		</Grid.Background>
 
 		<Viewbox Grid.Row="1"
@@ -34,7 +37,8 @@
 					Width="250"
 					Height="510"
 					ClipToBounds="True"
-					Loaded="GameCanvas_Loaded"/>
+					Loaded="GameCanvas_Loaded"
+            />
 		</Viewbox>
 
 		<TextBlock x:Name="ScoreText"
@@ -42,14 +46,16 @@
 				   Grid.Column="1"
 				   Text="Score: "
 				   Margin="0, 10"
-				   TextAlignment="Center"/>
+				   TextAlignment="Center"
+        />
 
 		<StackPanel Grid.Row="1"
 					Grid.Column="0"
 					VerticalAlignment="Center"
 					HorizontalAlignment="Right">
 			<TextBlock Text="Hold"
-					   TextAlignment="Center"/>
+					   TextAlignment="Center"
+            />
 			<Image x:Name="HoldImage"
 				   Margin="20"
 				   Width="125"/>
