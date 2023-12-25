@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace _001;
+namespace Clicks;
 
 [Register("AppDelegate")]
 public class AppDelegate : MauiUIApplicationDelegate

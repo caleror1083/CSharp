@@ -1,4 +1,4 @@
-﻿namespace _001;
+﻿namespace Clicks;
 
 public partial class App : Application
 {

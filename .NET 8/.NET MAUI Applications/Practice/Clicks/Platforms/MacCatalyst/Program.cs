@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace _001;
+namespace Clicks;
 
 public class Program
 {
