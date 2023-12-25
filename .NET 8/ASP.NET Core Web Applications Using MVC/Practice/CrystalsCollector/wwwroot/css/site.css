@@ -1,0 +1,99 @@
+body {
+  background-color: #323232;
+  color: #FFFFFF;
+  font-family: sans-serif;
+  font-weight: 500;
+}
+
+.jumbo {
+  background-image: url("../images/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 60px;
+  min-height: 50%;
+}
+
+  .jumbo h1 {
+    color: #FFFCA1;
+  }
+
+  .jumbo p {
+    color: #F76666;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+#rndmNumbCol, #scoreCol, #buttnsCol {
+  border-radius: 5px;
+  height: 150px;
+  line-height: 150px;
+  margin: auto;
+  text-align: center;
+}
+
+#rndmNumbCol, #scoreCol {
+  background-color: #282828;
+}
+
+#buttnsCol {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.col-md-3 h2 {
+  font-family: sans-serif;
+  color: #F76666;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.col-md-3 p {
+  color: #F76666;
+  font-family: sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  line-height: 140%;
+}
+
+#message {
+  color: #6EEAE6;
+  font-size: 50px;
+  font-weight: 900;
+  margin-top: 40px;
+  text-align: center;
+}
+
+#gameStats {
+  background-color: #E6E6E6;
+  border-radius: 5px;
+  color: #323232;
+  height: 75px;
+  margin-top: 30px;
+}
+
+#resetCol {
+  text-align: center;
+  margin-top: 60px;
+}
+
+#reset {
+  background-color: #935FA0;
+  border-color: #D399DD;
+  color: #ffffff;
+  letter-spacing: 1px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+  #reset:hover {
+    background-color: #D399DD;
+    border-color: #935FA0;
+  }
+
+.fancy {
+  font-size: 100px;
+  color: #00FF00;
+}
