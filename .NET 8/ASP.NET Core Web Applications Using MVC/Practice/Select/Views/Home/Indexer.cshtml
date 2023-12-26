@@ -1,7 +1,47 @@
-﻿@{
-  ViewData["Title"] = "About";
+﻿@model Select.Models.Company
+
+@{
+  ViewData["Title"] = "Company Indexer";
 }
 
-<h2>@ViewData["Title"].</h2>
-<h3>Your application description page.</h3>
-<p>Use this area to provide additional information.</p>
+Current employees are
+<br />
+Name of employee with ID 2: @Model[2]
+<br />
+Name of employee with ID 5: @Model[5]
+<br />
+Name of employee with ID 8: @Model[8]
+<br />
+<br />
+Changing names of employees with ID of 2, 5, & 8
+<br />
+
+@{
+  Model[2] = "Rob";
+  Model[5] = "Lance";
+  Model[8] = "Dean";
+}
+
+Name of employee with ID 2: @Model[2]
+<br />
+Name of employee with ID 5: @Model[5]
+<br />
+Name of employee with ID 8: @Model[8]
+<br />
+<br />
+Before update current employees are
+<br />
+Total male employees: @Model["Male"]
+<br />
+Total female employees: @Model["Female"]
+<br />
+<br />
+
+After update new employees are
+<br />
+
+@{ Model["Male"] = "Female"; }
+
+Total male employees: @Model["Male"]
+<br />
+Total female employees: @Model["Female"]
