@@ -1,0 +1,31 @@
+﻿@model Select.Models.Country
+@{ ViewData["Title"] = "Dictionary"; }
+
+<div style="font-family: Arial;">
+  <form asp-controller="Home" asp-action="CollectionsD" method="post">
+    <label for="txtCountryCode">Country Code:</label>
+    <input type="text" id="txtCountryCode" name="txtCountryCode" />
+    <button type="submit">Submit</button>
+  </form>
+
+  @if (Model != null)
+  {
+    <table style="border: 1px solid #000000">
+      <tr>
+        <td>Name:</td>
+        <td>@Model.Name</td>
+      </tr>
+      <tr>
+        <td>Capital:</td>
+        <td>@Model.Capital</td>
+      </tr>
+    </table>
+  }
+  else
+  {
+    <span style="color: #FF0000;">
+      @ViewBag.ErrorMessage
+    </span>
+  }
+
+</div>

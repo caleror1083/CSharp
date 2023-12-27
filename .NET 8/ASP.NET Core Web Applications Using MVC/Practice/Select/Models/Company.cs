@@ -2,7 +2,7 @@
 
 public class Company
 {
-    public List<Employee>? EmployeeList { get; set; }
+    public List<Employee> EmployeeList { get; set; }
     
     public string this[int employeeID] // indexer
     {
