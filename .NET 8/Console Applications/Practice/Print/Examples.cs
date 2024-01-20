@@ -88,83 +88,83 @@ internal class Examples
 					          Console.WriteLine($"Your decision is invalid. Try again");
 					          goto Decide;
 			      }
-	  }
+	}
 
     // alternate way to go to newline
     private static void Example1() => Console.Write($"Writes a string to the console followed by a newline escape sequence\n");
     private static void Example2() => Console.WriteLine();  // displays blank line, goes to new line
     private static void Example3()
-	  {
-		    Console.WriteLine($"Hello, C#");  // a statement
-	  }
+	{
+		Console.WriteLine($"Hello, C#");  // a statement
+	}
 
-	  private static void Example4()
-	  {
-		    Console.WriteLine($"Displays \' in a string");  // display apostrophes in a string
-	  }
+	private static void Example4()
+	{
+		Console.WriteLine($"Displays \' in a string");  // display apostrophes in a string
+	}
 
-	  private static void Example5()
-	  {
-		    Console.WriteLine($"Displays \" in a string");  // displays double quotes in a string
-	  }
+	private static void Example5()
+	{
+		Console.WriteLine($"Displays \" in a string");  // displays double quotes in a string
+	}
 
-	  private static void Example6()
-	  {
+	private static void Example6()
+	{
         // verbatim string literal
-		    Console.WriteLine(@"Displays "" in a string without using an escape sequence instead using verbatim string literal");
-	  }
+		Console.WriteLine(@"Displays "" in a string without using an escape sequence instead using verbatim string literal");
+	}
 
-	  private static void Example7()
-	  {
-		    Console.WriteLine($"Makes \abell alert chime");  // makes bell alert chime
-	  }
+	private static void Example7()
+	{
+		Console.WriteLine($"Makes \abell alert chime");  // makes bell alert chime
+	}
 
-	  private static void Example8()
-	  {
-		    Console.WriteLine($"Displays a \t horizontal tab in a string");  // displays a 4 space horizontal tab in a string
-	  }
+	private static void Example8()
+	{
+		Console.WriteLine($"Displays a \t horizontal tab in a string");  // displays a 4 space horizontal tab in a string
+	}
 
-	  private static void Example9()
-	  {
-		    Console.WriteLine($"Displays a \v vertical tab in a string");  // displays vertical tabs in a string
-	  }
+	private static void Example9()
+	{
+		Console.WriteLine($"Displays a \v vertical tab in a string");  // displays vertical tabs in a string
+	}
 
-	  private static void Example10()
-	  {
-		    Console.WriteLine($"Displays \\ in a string");  // displays a forward slash in a string
-	  }
+	private static void Example10()
+	{
+		Console.WriteLine($"Displays \\ in a string");  // displays a forward slash in a string
+	}
 
-	  private static void Example11()
-	  {
+	private static void Example11()
+	{
         // displays \ in a string using a verbatim string literal
-		    Console.WriteLine(@"Displays \ in a string without using an escape sequence instead using verbatim string literal");
-	  }
+		Console.WriteLine(@"Displays \ in a string without using an escape sequence instead using verbatim string literal");
+	}
 
-	  private static void Example12()
-	  {
-		    Console.Write($"This is a carriage return\r");  // carriage return
-	  }
+	private static void Example12()
+	{
+		Console.Write($"This is a carriage return\r");  // carriage return
+	}
 
-	  private static void Example13()
-	  {
-		    Console.Write($"Something");  // print without a newline
-		    Console.WriteLine(" else");
-	  }
+	private static void Example13()
+	{
+		Console.Write($"Something");  // print without a newline
+		Console.WriteLine(" else");
+	}
 
-	  private static void Example14()
-	  {
+	private static void Example14()
+	{
         // display 1 line of text in multiple lines of code
-		    Console.WriteLine($"Something " +
-					                $"else");       
-	  }
+		Console.WriteLine($"Something " +
+					      $"else");       
+	}
 
-	  private static void Example15()
-	  {	
-		    // write a program to print the numbers 1, 101 and 1001, each in a separate line
-		    Console.WriteLine(1);
-		    Console.WriteLine(101);
-		    Console.WriteLine(1001);
-	  }
+	private static void Example15()
+	{	
+		// write a program to print the numbers 1, 101 and 1001, each in a separate line
+		Console.WriteLine(1);
+		Console.WriteLine(101);
+		Console.WriteLine(1001);
+	}
 
-	  private static void Example16() => Console.WriteLine("testing");  // using a lambda operator goes to print to the console
+	private static void Example16() => Console.WriteLine("testing");  // using a lambda operator goes to print to the console
 }

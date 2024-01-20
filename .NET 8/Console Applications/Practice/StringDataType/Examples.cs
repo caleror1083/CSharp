@@ -138,14 +138,14 @@ internal class Examples
 				}
 	}
 
-	static void Example1()
+	private static void Example1()
 	{
 		string name = "Rob";  // Variable declaration and initialization
 
 		Console.WriteLine($"Your name is {name}");  // Displaying the value of the string variable using string interpolation
 	}
 
-	static void Example2()
+	private static void Example2()
 	{
 		Console.Write($"What is your name? ");       // Prompts the user for input
 		string name = Console.ReadLine();           // Receiving input for user to display the value of what was entered
@@ -153,7 +153,7 @@ internal class Examples
 		Console.WriteLine($"Your name is {name}");  
 	}
 
-	static void Example3()
+	private static void Example3()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -161,7 +161,7 @@ internal class Examples
 		Console.WriteLine($"Your name is {name, 4}");  // string interplation with left padding - left padding starts at 4
 	}
 
-	static void Example4()
+	private static void Example4()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -169,15 +169,16 @@ internal class Examples
 		Console.WriteLine($"Adding right padding to your name\n{name, -4}");    // String interplation with right padding - right padding starts at -4
 	}
 
-	static void Example5()
+	private static void Example5()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
 
-		Console.WriteLine($"The length of your name is {name.Length} characters");  // Gets the number of characters in the current string object and returns the integer value
+		// Gets the number of characters in the current string object and returns the integer value
+        Console.WriteLine($"The length of your name is {name.Length} characters");  
 	}
 
-	static void Example6()
+	private static void Example6()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -186,10 +187,11 @@ internal class Examples
 		{
 			Console.Write($"{name[index]}");
 		}
-		Console.WriteLine();
+		
+        Console.WriteLine();
 	}
 
-	static void Example7()
+	private static void Example7()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -197,7 +199,7 @@ internal class Examples
 		Console.WriteLine($"Your name in all uppercase letters is {name.ToUpper()}");  // Formats string to all uppercase letters
 	}
 
-	static void Example8()
+	private static void Example8()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -205,7 +207,7 @@ internal class Examples
 		Console.WriteLine($"Your name in all lowercase letters is {name.ToLower()}");  // Formats string to all lowercase letters
 	}
 
-	static void Example9()
+	private static void Example9()
 	{
 		Console.Write($"What is your name? ");
 		var name = Console.ReadLine();
@@ -213,7 +215,7 @@ internal class Examples
 		Console.WriteLine($"Is the letter o in my name? {name.Contains('o')}");    // Returns true or false if the string parameter is in the current string
 	}
 
-	static void Example10()
+	private static void Example10()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -221,7 +223,7 @@ internal class Examples
 		Console.WriteLine($"The first character in your name is: {name[0]}");    // Returns the first substring of the value entered
 	}
 
-	static void Example11()
+	private static void Example11()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -229,15 +231,16 @@ internal class Examples
 		Console.WriteLine($"The letter R is at index {name.IndexOf('R')} in your name");    // Returns the index of the value entered
 	}
 
-	static void Example12()
+	private static void Example12()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
-
-		Console.WriteLine($"Begin grabbing the substring of my name? {name.Substring(1, 2)}");    // Retrieves 2 characters from the string entered starting from index 1
+        
+        // Retrieves 2 characters from the string entered starting from index 1
+		Console.WriteLine($"Begin grabbing the substring of my name? {name.Substring(1, 2)}");    
 	}
 
-	static void Example13()
+	private static void Example13()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -245,15 +248,16 @@ internal class Examples
 		Console.WriteLine($"Is the string entered empty? {string.IsNullOrEmpty(name)}");   // Checks to see if the string entered is empty or has characters
 	}
 
-	static void Example14()
+	private static void Example14()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
 
-		Console.WriteLine($"Is the string empty: {string.IsNullOrWhiteSpace(name)}");   // Checks to see if the string entered is empty or has blank spaces or characters
+        // Checks to see if the string entered is empty or has blank spaces or characters
+		Console.WriteLine($"Is the string empty: {string.IsNullOrWhiteSpace(name)}");   
 	}
 
-	static void Example15()
+	private static void Example15()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -261,7 +265,7 @@ internal class Examples
 		Console.WriteLine($"Has the word \"Rob\": {name.StartsWith("Rob")}"); // Checks whether the string entered matches the beginning of the string
 	}
 
-	static void Example16()
+	private static void Example16()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -269,7 +273,7 @@ internal class Examples
 		Console.WriteLine($"Has the word \"Rob\": {name.EndsWith("Rob")}"); // Checks whether the string entered matches the end of the string
 	}
 
-	static void Example17()
+	private static void Example17()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -277,15 +281,16 @@ internal class Examples
 		Console.WriteLine($"Your name without the white-space is: {name.Trim()}"); // Removes the white-space from the string entered if any
 	}
 
-	static void Example18()
+	private static void Example18()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
 
-		Console.WriteLine($"Your name with letters removed is: {name.Remove(0, 2)}"); // Returns a new string in which 2 characters from the entered string were removed starting from a specific index position
+        // Returns a new string in which 2 characters from the entered string were removed starting from a specific index position
+		Console.WriteLine($"Your name with letters removed is: {name.Remove(0, 2)}"); 
 	}
 
-	static void Example19()
+	private static void Example19()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -296,26 +301,28 @@ internal class Examples
 		Console.WriteLine($"Do you both have the same name? {name.Equals(friendName)}");    // Checks if value of one string match value of another
 	}
 
-	static void Example20()
+	private static void Example20()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
 						
 		Console.Write($"What is your friends name? ");
 		string friendName = Console.ReadLine();
-
-		Console.WriteLine($"Do you both have the same name? {name.Equals(friendName, StringComparison.OrdinalIgnoreCase)}");    // Checks if value of one string match value of another regardless of the character cases
+        
+        // Checks if value of one string match value of another regardless of the character cases
+		Console.WriteLine($"Do you both have the same name? {name.Equals(friendName, StringComparison.OrdinalIgnoreCase)}");    
 	}
 
-	static void Example21()
+	private static void Example21()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
-					
-		Console.WriteLine($"Inserting a string at a specified position from the string value entered: {name.Insert(0, $"Mr. ")}");    // Inserts a word in front of the value
+        
+        // Inserts a word in front of the value
+		Console.WriteLine($"Inserting a string at a specified position from the string value entered: {name.Insert(0, $"Mr. ")}");    
 	}
 
-	static void Example22()
+	private static void Example22()
 	{
 		Console.Write($"What is your phone number? (Ex: 000-000-0000) ");
 		string number = Console.ReadLine();
@@ -323,7 +330,7 @@ internal class Examples
 		Console.WriteLine($"You number without the dashes is: {number.Replace("-", " ")}");    // Replaces the dashes from the value with no spaces
 	}
 
-	static void Example23()
+	private static void Example23()
 	{
 		Console.Write($"What is your name? ");
 		string name = Console.ReadLine();
@@ -331,10 +338,11 @@ internal class Examples
 		Console.Write($"What is your friends name? ");
 		string friendName = Console.ReadLine();
 
-		Console.WriteLine($"Compare strings: {string.Compare(name, friendName, StringComparison.OrdinalIgnoreCase)}"); // Compares two strings and returns an integer that indicates their relative position in the sort order
+        // Compares two strings and returns an integer that indicates their relative position in the sort order
+		Console.WriteLine($"Compare strings: {string.Compare(name, friendName, StringComparison.OrdinalIgnoreCase)}"); 
 	}
 
-	static void Example24()
+	private static void Example24()
 	{
 		// Each time you change a string you are actually creating a new string which is inefficient when you are working with large blocks of text
 		string sentence = $"C#";
@@ -346,7 +354,7 @@ internal class Examples
 		Console.WriteLine($"{sentence}");
 	}
 
-	static void Example25()
+	private static void Example25()
 	{
 		string numbers = string.Empty; // initializes the string as being empty
 
@@ -358,12 +366,14 @@ internal class Examples
 		Console.WriteLine($"{numbers}");
 	}
 
-	static void Example26()
+	private static void Example26()
 	{
-		/* Declare two string variables and assign them with “Hello” and “World”. Declare an object 
-			* variable and assign it with the concatenation of the first two variables (mind adding an 
-			* interval between). Declare a third string variable and initialize it with the value of the 
-			* object variable (you should perform type casting). */	
+		/*
+		    Declare two string variables and assign them with “Hello” and “World”. Declare an object 
+			variable and assign it with the concatenation of the first two variables (mind adding an 
+			interval between). Declare a third string variable and initialize it with the value of the 
+			object variable (you should perform type casting).
+        */
 
 		string firstString = "Hello";
 		string secondString = "World";
@@ -373,21 +383,25 @@ internal class Examples
 		Console.WriteLine($"{thirdString}");
 	}
 
-	static void Example27()
+	private static void Example27()
 	{
-		/* Declare two string variables and assign them with following value:
-        * 'The "use" of quotations causes difficulties.'
-        * Do the above in two different ways: with and without using quoted strings.
-        * Print the variables to ensure that their value was correctly defined.*/
+		/*
+		    Declare two string variables and assign them with following value:
+            
+            'The "use" of quotations causes difficulties.'
+            
+            Do the above in two different ways: with and without using quoted strings.
+            Print the variables to ensure that their value was correctly defined
+        */
 
-		string firstString = "The \"use\" of quotations cause difficulties.";
+		string firstString = "The \"use\" of quotations causes difficulties.";
 		string secondString = @"The ""use"" of quotations causes difficulties.";
 
 		Console.WriteLine(new string('-', 52) + "\nMethod 1: using normal quotation and escaping with \\\n" + new string('-', 52) + $"\n{firstString}");
 		Console.WriteLine("\n\n\n"+new string('-', 54) + "\nMethod 2: using verbatim quotation and escaping with \"\n" + new string('-', 54) + $"\n{secondString}");
 	}
 
-	static void Example28()
+	private static void Example28()
 	{
 		/* A marketing company wants to keep record of its employees. Each record would have the following characteristics:
         * •	First name
@@ -410,7 +424,7 @@ internal class Examples
 		Console.WriteLine($"First Name: {firstName}\nLastName: {lastName}\nAge: {age}\nGender: {gender}\nPersonal ID Number: {personalIDNumber}\nUnique Employee Number: {uniqueEmployeeNumber}");
 	}
 
-	static void Example29()
+	private static void Example29()
 	{
 		string firstName = "John ";
 		string lastName = "Doe";
@@ -419,24 +433,26 @@ internal class Examples
 		Console.WriteLine(name);
 	}
 
-	static void Example30()
+	private static void Example30()
 	{
 		string name = "Robert";
 
 		Console.WriteLine(name[0]);    // returns the first character in name
 	}
 
-	static void Example31()
+	private static void Example31()
 	{
 		string name = "Robert";
+        const string indexPosition = "r";
 
-		Console.WriteLine(name.IndexOf("r"));    // returns the index position of a specific character in name
+        Console.WriteLine(name.IndexOf(indexPosition));    // returns the index position of a specific character in name
 	}
 
-	static void Example32()
+	private static void Example32()
 	{
 		string name = "Robert Calero";
-		int charPosition = name.IndexOf("C");
+        const string startingCharacter = "C";
+        int charPosition = name.IndexOf(startingCharacter);
 
 		Console.WriteLine(name[charPosition..]);    // returns the characters from name starting from the index of charPosition
 	}
