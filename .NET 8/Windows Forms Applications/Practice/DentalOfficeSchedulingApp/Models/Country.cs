@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Dental.Models
+namespace DentalOfficeSchedulingApp.Models
 {
-    public partial class City
+    public partial class Country
     {
-        public City()
+        public Country()
         {
-            Addresses = new HashSet<Address>();
+            Cities = new HashSet<City>();
         }
 
-        public int CityId { get; set; }
-        public string City1 { get; set; } = null!;
         public int CountryId { get; set; }
+        public string Country1 { get; set; } = null!;
         public DateTime CreateDate { get; set; }
         public string CreatedBy { get; set; } = null!;
         public byte[] LastUpdate { get; set; } = null!;
         public string LastUpdateBy { get; set; } = null!;
 
-        public virtual Country Country { get; set; } = null!;
-        public virtual ICollection<Address> Addresses { get; set; }
+        public virtual ICollection<City> Cities { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Dental.Models
+namespace DentalOfficeSchedulingApp.Models
 {
     public partial class SchedulingContext : DbContext
     {
