@@ -1,44 +1,44 @@
-﻿namespace DentalOfficeSchedulingApp
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace DentalOfficeSchedulingApp;
+
+partial class Login
 {
-	partial class Login
+  private IContainer components = null;
+  private Button LoginBtn;
+
+  protected override void Dispose(bool disposing)
 	{
-		/// <summary>
-		///  Required designer variable.
-		/// </summary>
-		private System.ComponentModel.IContainer components = null;
-
-		/// <summary>
-		///  Clean up any resources being used.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-		protected override void Dispose(bool disposing)
+		if (disposing && (components != null))
 		{
-			if (disposing && (components != null))
-			{
-				components.Dispose();
-			}
-			base.Dispose(disposing);
+			components.Dispose();
 		}
+		base.Dispose(disposing);
+	}
 
-        #region Windows Form Designer generated code
+  #region Windows Form Designer generated code
 
-        /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            SuspendLayout();
-            // 
-            // Login
-            // 
-            resources.ApplyResources(this, "$this");
-            AutoScaleMode = AutoScaleMode.Font;
-            Name = "Login";
-            ResumeLayout(false);
-        }
+  private void InitializeComponent()
+  {
+    ComponentResourceManager resources = new ComponentResourceManager(typeof(Login));
+    LoginBtn = new Button();
+    SuspendLayout();
+    // 
+    // LoginBtn
+    // 
+    resources.ApplyResources(LoginBtn, "LoginBtn");
+    LoginBtn.Name = "LoginBtn";
+    LoginBtn.UseVisualStyleBackColor = true;
+    // 
+    // Login
+    // 
+    resources.ApplyResources(this, "$this");
+    AutoScaleMode = AutoScaleMode.Font;
+    Controls.Add(LoginBtn);
+    Name = "Login";
+    ResumeLayout(false);
+  }
 
-        #endregion
-    }
+  #endregion
 }

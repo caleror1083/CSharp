@@ -1,14 +1,12 @@
-namespace DentalOfficeSchedulingApp
+using System.Windows.Forms;
+
+namespace DentalOfficeSchedulingApp;
+
+internal static class Program
 {
-	internal static class Program
-	{
-		/// <summary>
-		///  The main entry point for the application.
-		/// </summary>
-		static void Main()
-		{
-			ApplicationConfiguration.Initialize();
-			Application.Run(new Login());
-		}
-	}
+  internal static void Main()
+  {
+    ApplicationConfiguration.Initialize();
+    Application.Run(new Login());
+  }
 }
