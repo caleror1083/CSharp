@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.3.32804.467
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11415.280 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_052_AnonymousMethods", "_052_AnonymousMethods\_052_AnonymousMethods.csproj", "{54F38C0F-AADD-4FAD-BB6C-6AB23A0332EA}"
 EndProject
@@ -22,8 +22,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringBuilderApp", "StringBuilderApp\StringBuilderApp.csproj", "{5C3304AF-75BA-40D8-9622-5CED54ED58B1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Print", "Print\Print.csproj", "{A28BE12F-8EFD-4F63-A46C-57D3EC565827}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringDataType", "StringDataType\StringDataType.csproj", "{0C6C172B-6109-40FC-8FD8-7CFD4D7B89B4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegerDataType", "IntegerDataType\IntegerDataType.csproj", "{85BDFE2B-6269-45FD-A6E6-431AD7C4BC2E}"
 EndProject
@@ -73,10 +71,6 @@ Global
 		{A28BE12F-8EFD-4F63-A46C-57D3EC565827}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A28BE12F-8EFD-4F63-A46C-57D3EC565827}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A28BE12F-8EFD-4F63-A46C-57D3EC565827}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C6C172B-6109-40FC-8FD8-7CFD4D7B89B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C6C172B-6109-40FC-8FD8-7CFD4D7B89B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C6C172B-6109-40FC-8FD8-7CFD4D7B89B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C6C172B-6109-40FC-8FD8-7CFD4D7B89B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{85BDFE2B-6269-45FD-A6E6-431AD7C4BC2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{85BDFE2B-6269-45FD-A6E6-431AD7C4BC2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85BDFE2B-6269-45FD-A6E6-431AD7C4BC2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
