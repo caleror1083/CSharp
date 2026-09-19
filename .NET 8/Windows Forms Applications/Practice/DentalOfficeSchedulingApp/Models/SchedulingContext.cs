@@ -27,7 +27,7 @@ namespace DentalOfficeSchedulingApp.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=Scheduling;Trusted_Connection=true;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=Scheduling;Trusted_Connection=True;TrustServerCertificate=True;");
             }
         }
 
