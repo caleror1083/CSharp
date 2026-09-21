@@ -97,6 +97,5 @@ partial class Login
         ResumeLayout(false);
         PerformLayout();
     }
-
     #endregion
 }

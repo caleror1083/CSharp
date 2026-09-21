@@ -18,7 +18,7 @@ namespace DentalOfficeSchedulingApp.Models
         public string Phone { get; set; } = null!;
         public DateTime CreateDate { get; set; }
         public string CreatedBy { get; set; } = null!;
-        public byte[] LastUpdate { get; set; } = null!;
+        public DateTime LastUpdate { get; set; }
         public string LastUpdateBy { get; set; } = null!;
 
         public virtual City City { get; set; } = null!;

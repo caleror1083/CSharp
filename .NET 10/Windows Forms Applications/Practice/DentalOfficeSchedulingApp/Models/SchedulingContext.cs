@@ -61,8 +61,7 @@ namespace DentalOfficeSchedulingApp.Models
                     .HasColumnName("createdBy");
 
                 entity.Property(e => e.LastUpdate)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime2")
                     .HasColumnName("lastUpdate");
 
                 entity.Property(e => e.LastUpdateBy)
@@ -117,8 +116,7 @@ namespace DentalOfficeSchedulingApp.Models
                     .HasColumnName("end");
 
                 entity.Property(e => e.LastUpdate)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime2")
                     .HasColumnName("lastUpdate");
 
                 entity.Property(e => e.LastUpdateBy)
@@ -186,8 +184,7 @@ namespace DentalOfficeSchedulingApp.Models
                     .HasColumnName("createdBy");
 
                 entity.Property(e => e.LastUpdate)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime2")
                     .HasColumnName("lastUpdate");
 
                 entity.Property(e => e.LastUpdateBy)
@@ -223,8 +220,7 @@ namespace DentalOfficeSchedulingApp.Models
                     .HasColumnName("createdBy");
 
                 entity.Property(e => e.LastUpdate)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime2")
                     .HasColumnName("lastUpdate");
 
                 entity.Property(e => e.LastUpdateBy)
@@ -258,8 +254,7 @@ namespace DentalOfficeSchedulingApp.Models
                     .HasColumnName("customerName");
 
                 entity.Property(e => e.LastUpdate)
-                    .IsRowVersion()
-                    .IsConcurrencyToken()
+                    .HasColumnType("datetime2")
                     .HasColumnName("lastUpdate");
 
                 entity.Property(e => e.LastUpdateBy)

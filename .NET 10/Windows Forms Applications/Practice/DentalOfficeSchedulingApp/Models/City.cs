@@ -15,7 +15,7 @@ namespace DentalOfficeSchedulingApp.Models
         public int CountryId { get; set; }
         public DateTime CreateDate { get; set; }
         public string CreatedBy { get; set; } = null!;
-        public byte[] LastUpdate { get; set; } = null!;
+        public DateTime LastUpdate { get; set; }
         public string LastUpdateBy { get; set; } = null!;
 
         public virtual Country Country { get; set; } = null!;
